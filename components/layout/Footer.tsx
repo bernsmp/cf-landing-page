@@ -114,6 +114,25 @@ export const Footer = () => {
                 </li>
               ))}
             </ul>
+
+            {/* Creator */}
+            <div className="mt-8 flex items-center gap-3">
+              <Image
+                src="/maxcf.png"
+                alt="Max Bernstein"
+                width={48}
+                height={48}
+                className="rounded-full border border-[var(--grey-700)]"
+              />
+              <div>
+                <p className="text-[var(--grey-300)] text-sm font-medium">
+                  Cognitive Fingerprint™ Methodology
+                </p>
+                <p className="text-[var(--grey-500)] text-sm">
+                  By Max Bernstein
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -122,18 +141,6 @@ export const Footer = () => {
           <p className="text-[var(--grey-500)] text-sm">
             © 2025 Signal {'>'} Noise. All rights reserved.
           </p>
-          <div className="flex items-center gap-3">
-            <p className="text-[var(--grey-600)] text-sm">
-              Built by Max Bernstein
-            </p>
-            <Image
-              src="/maxcf.png"
-              alt="Max Bernstein"
-              width={40}
-              height={40}
-              className="rounded-full border border-[var(--grey-700)]"
-            />
-          </div>
         </div>
       </div>
     </footer>
