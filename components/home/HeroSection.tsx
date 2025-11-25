@@ -95,34 +95,34 @@ export const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="mt-20 relative"
+          className="mt-16 mb-32 relative"
         >
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-64 h-64 rounded-full bg-[var(--brand-gold)] opacity-20 blur-3xl animate-pulse-glow" />
+            <div className="w-80 h-80 rounded-full bg-[var(--brand-gold)] opacity-15 blur-[80px] animate-pulse-glow" />
           </div>
           <Image
             src="/logo/cf logo.png"
             alt="Cognitive Fingerprint"
-            width={180}
-            height={180}
+            width={160}
+            height={160}
             className="relative z-10 mx-auto animate-float"
             priority
           />
         </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[var(--grey-500)]"
-        >
-          <span className="text-xs uppercase tracking-wider">Scroll to explore</span>
-          <div className="w-6 h-10 rounded-full border-2 border-[var(--grey-600)] flex justify-center pt-2">
-            <div className="w-1.5 h-3 bg-[var(--brand-gold)] rounded-full animate-bounce" />
-          </div>
-        </motion.div>
       </div>
+
+      {/* Scroll indicator - positioned at bottom of section */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[var(--grey-500)] z-20"
+      >
+        <span className="text-xs uppercase tracking-wider">Scroll to explore</span>
+        <div className="w-6 h-10 rounded-full border-2 border-[var(--grey-600)] flex justify-center pt-2">
+          <div className="w-1.5 h-3 bg-[var(--brand-gold)] rounded-full animate-bounce" />
+        </div>
+      </motion.div>
     </section>
   );
 };
