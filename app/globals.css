@@ -283,9 +283,41 @@ body {
   color: var(--grey-950);
 }
 
+/* Prevent widows - balanced text wrapping */
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Apply balanced text to all major headings by default */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
 /* Responsive typography */
 @media (max-width: 768px) {
   html {
     font-size: 15px;
+  }
+  
+  /* Mobile-specific adjustments */
+  .mobile-stack {
+    flex-direction: column !important;
+  }
+  
+  /* Tighter spacing on mobile */
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Better touch targets on mobile */
+@media (max-width: 640px) {
+  button, a {
+    min-height: 44px;
   }
 }

@@ -1,30 +1,30 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Fingerprint, DollarSign, Users, Package } from 'lucide-react';
 
 const outcomes = [
   {
-    icon: Fingerprint,
+    icon: '/icons/brain-7165991.svg',
     title: 'Discover Your Actual Difference',
     description: 'The specific combination of patterns nobody else has. What actually makes you exceptional—named and documented.',
     label: 'DIFFERENTIATION',
   },
   {
-    icon: DollarSign,
+    icon: '/icons/premium-quality-2881890.svg',
     title: 'Stop Underselling Yourself',
     description: 'When you can articulate exactly HOW you create results, premium pricing becomes obvious.',
     label: 'PRICING POWER',
   },
   {
-    icon: Users,
+    icon: '/icons/growth-11474911.svg',
     title: 'Finally Teach What You Do',
     description: 'That thing where clients say "I need YOU specifically"? Now you can show others how to replicate 80% of it.',
     label: 'SCALABILITY',
   },
   {
-    icon: Package,
+    icon: '/icons/product-development-11474912.svg',
     title: 'Build Products From Your Patterns',
     description: 'Each pattern becomes a framework. A tool. A training module. IP you can license. Assets that work while you sleep.',
     label: 'IP ASSETS',
@@ -77,8 +77,14 @@ export const OutcomesSection = () => {
                   </span>
                   
                   {/* Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-[var(--brand-gold)]/10 border border-[var(--brand-gold)]/30 flex items-center justify-center mb-5 group-hover:bg-[var(--brand-gold)]/20 transition-colors">
-                    <outcome.icon className="text-[var(--brand-gold)]" size={24} />
+                  <div className="w-14 h-14 rounded-xl bg-[var(--brand-gold)]/10 border border-[var(--brand-gold)]/30 flex items-center justify-center mb-5 group-hover:bg-[var(--brand-gold)]/20 transition-colors">
+                    <Image
+                      src={outcome.icon}
+                      alt=""
+                      width={32}
+                      height={32}
+                      className="opacity-90"
+                    />
                   </div>
                   
                   {/* Title */}

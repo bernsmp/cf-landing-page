@@ -48,11 +48,11 @@ export const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1]"
         >
-          <span className="text-white">You're running cognitive patterns</span>
+          <span className="text-white">You're running cognitive&nbsp;patterns</span>
           <br />
-          <span className="text-gold-gradient">worth thousands.</span>
+          <span className="text-gold-gradient">worth&nbsp;thousands.</span>
           <br />
-          <span className="text-[var(--grey-500)]">You can't see any of them.</span>
+          <span className="text-[var(--grey-500)]">You can't see any of&nbsp;them.</span>
         </motion.h1>
 
         {/* Subheadline */}

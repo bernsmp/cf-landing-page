@@ -8,8 +8,8 @@ import { ArrowRight, Mail } from 'lucide-react';
 const footerLinks = {
   main: [
     { href: '/method', label: 'Method' },
-    { href: '/in-action', label: 'Articles' },
-    { href: '/results', label: 'Results' },
+    { href: '/prompts', label: 'Prompts' },
+    { href: '/articles', label: 'Articles' },
     { href: '/start', label: 'Start' },
     { href: '/assessment', label: 'Assessment' },
   ],

@@ -101,9 +101,9 @@ export default function MethodPage() {
               transition={{ delay: 0.1 }}
               className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
             >
-              Why you can't see your own expertise
+              Why you can't see your own&nbsp;expertise
               <br />
-              <span className="text-[var(--grey-500)]">(And how we extract it)</span>
+              <span className="text-[var(--grey-500)]">(And how we extract&nbsp;it)</span>
             </motion.h1>
 
             <motion.p
