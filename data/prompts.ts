@@ -38,36 +38,142 @@ export const prompts: Prompt[] = [
     id: '1',
     slug: 'value-archaeology',
     title: 'Value Archaeology',
-    description: 'Extract the hidden value patterns from your client conversations. Discover what you actually do that creates results.',
+    description: 'Extract the hidden value patterns from your client conversations using the EXTRACT Method™. Discover the 90% of expertise that operates below conscious awareness.',
     category: 'extraction',
     difficulty: 'intermediate',
     isPremium: false,
-    prompt: `You are an expert at identifying unconscious expertise patterns. I'm going to share a transcript of a conversation where I helped someone.
+    prompt: `# ROLE
+You are an expertise archaeologist trained in the EXTRACT Method™. Your specialty is identifying unconscious competence patterns that experts demonstrate but cannot articulate. You look for the 90% of expertise that operates below conscious awareness.
 
-Your job is to identify:
-1. **Invisible Moves** - Things I did that I probably don't realize I did
-2. **Reframes** - Moments where I shifted how they saw the problem
-3. **Pattern Interrupts** - Where I broke their expected flow of thinking
-4. **Signature Language** - Phrases or framings that seem uniquely mine
+# CONTEXT
+Most experts vastly underestimate what makes them valuable. They focus on WHAT they know (Declarative - low value) while their real expertise lives in HOW they decide (Conditional) and HOW they think about thinking (Metacognitive - highest value).
 
-For each pattern you find:
-- Name it (give it a memorable, specific name)
-- Quote the exact moment it happened
-- Explain why it matters (what did it unlock?)
+Your job is to surface patterns the expert literally cannot see themselves because mastery creates blindness. The better someone gets, the more automatic their expertise becomes, and the less accessible it is to conscious awareness.
 
-Here's the transcript:
-[PASTE YOUR TRANSCRIPT HERE]`,
+# INPUT
+<<<TRANSCRIPT STARTS>>>
+[PASTE YOUR TRANSCRIPT HERE]
+<<<TRANSCRIPT ENDS>>>
+
+# EXTRACTION PROTOCOL
+
+## LAYER 1: Invisible Moves
+Things the expert did automatically without realizing.
+
+**Look for:**
+- Moments they skipped steps (what felt "obvious" to them isn't)
+- Questions they asked that changed the conversation direction
+- Topics they instinctively avoided or pursued
+- Pacing decisions (when they slowed down or sped up)
+- Information they gathered before taking action
+
+## LAYER 2: Reframes
+Where they shifted how the other person saw the problem.
+
+**Look for:**
+- Moments the client's language changed after the expert spoke
+- Category shifts ("It's not X, it's actually Y")
+- Permission structures ("What if you were allowed to...")
+- Belief challenges delivered as observations
+- Scale changes (zooming in or out on the problem)
+
+## LAYER 3: Pattern Interrupts
+Where they broke expected thinking flows.
+
+**Look for:**
+- Counterintuitive questions
+- Redirections from where the conversation "should" go
+- Strategic silence or pauses
+- Refusal to solve what the client asked to solve
+- Introduction of constraints that freed thinking
+
+## LAYER 4: Decision Architecture (HIGHEST VALUE)
+Their unconscious conditional logic.
+
+**Look for:**
+- "If [signal], then [response]" patterns they never stated
+- What they consistently ignored vs. consistently noticed
+- Their implicit prioritization criteria
+- How they knew when to push vs. when to support
+- Environmental factors they adapted to without mentioning
+
+## LAYER 5: Signature Language
+Phrases, metaphors, or framings unique to them.
+
+**Look for:**
+- Repeated phrases across different contexts
+- Unique metaphors or analogies
+- The way they structure explanations
+- Permission-granting language patterns
+- Their vocabulary for naming what they see
+
+## LAYER 6: Tacit Knowledge Indicators
+Hidden expertise markers.
+
+**Look for:**
+- "Obviously" or "of course" statements (what's NOT obvious)
+- "Just" or "simply" language (hiding complex processes)
+- Throwaway comments that compress years of experience
+- Edge case handling that seemed casual
+- Micro-adjustments based on subtle signals
+
+# OUTPUT FORMAT
+
+For each pattern discovered:
+
+## [PATTERN NAME]
+*Make it memorable and specific to this person*
+
+**Type:** [Invisible Move / Reframe / Pattern Interrupt / Decision Architecture / Signature Language / Tacit Knowledge]
+
+**Exact Moment:**
+> "[Quote the transcript precisely]"
+
+**What Actually Happened:**
+[Describe the invisible expertise being deployed]
+
+**Why They Can't See It:**
+[Explain why this has become automatic/invisible to them]
+
+**What It Unlocked:**
+[The outcome or shift this pattern created]
+
+**Frequency:** [One-time / Recurring pattern - cite other instances if found]
+
+**Monetization Potential:** [How this pattern could become a teachable framework]
+
+---
+
+# FINAL SYNTHESIS
+
+After extracting individual patterns, provide:
+
+## Cognitive Fingerprint Summary
+What makes this expert's approach genuinely unique? What combination of patterns creates their signature?
+
+## The Expert's Hidden Decision Tree
+Map the unconscious IF-THEN logic that governs their approach.
+
+## Highest-Value Pattern
+Which single pattern, if made conscious and scalable, would create the most value?
+
+## Blind Spots
+What might this expert be OVER-using without realizing? Where might their strengths become limitations?
+
+## Framework Seeds
+Which patterns are robust enough (appearing 3+ times, creating consistent outcomes) to develop into named methodologies?`,
     whatToLookFor: [
       'Patterns that repeat across multiple conversations',
       'Moments where the other person had an "aha" reaction',
       'Things you do automatically that others struggle with',
       'Language patterns that feel natural to you but specific',
+      'Decision Architecture patterns - the highest value extraction',
     ],
     relatedArticle: {
       title: 'The Expertise Paradox: Why Being Good Makes You Blind',
       url: 'https://irreplaceablepositioning.substack.com',
     },
-    tags: ['extraction', 'patterns', 'transcripts'],
+    tags: ['extraction', 'patterns', 'transcripts', 'EXTRACT Method'],
   },
   {
     id: '2',

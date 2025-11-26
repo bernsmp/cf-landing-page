@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -8,6 +8,8 @@ import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
 import { getPromptBySlug } from '@/data/prompts';
 import { Copy, Check, ExternalLink, ArrowLeft, Lightbulb, BookOpen, Lock } from 'lucide-react';
+
+const STORAGE_KEY = 'cf-premium-unlocked';
 
 // Claude logo SVG component
 const ClaudeLogo = ({ size = 20 }: { size?: number }) => (
@@ -20,12 +22,20 @@ export default function PromptDetailPage() {
   const params = useParams();
   const slug = params.slug as string;
   const prompt = getPromptBySlug(slug);
-  
+
   const [copied, setCopied] = useState(false);
   const [premiumUnlocked, setPremiumUnlocked] = useState(false);
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState(false);
+
+  // Check localStorage on mount
+  useEffect(() => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === 'true') {
+      setPremiumUnlocked(true);
+    }
+  }, []);
 
   if (!prompt) {
     return (
@@ -69,6 +79,7 @@ export default function PromptDetailPage() {
     const correctPassword = process.env.NEXT_PUBLIC_PREMIUM_PASSWORD || 'cognitive2024';
     if (password === correctPassword) {
       setPremiumUnlocked(true);
+      localStorage.setItem(STORAGE_KEY, 'true');
       setShowPasswordModal(false);
       setPasswordError(false);
     } else {

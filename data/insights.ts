@@ -2,6 +2,7 @@ export interface InsightArticle {
   id: string;
   slug: string;
   title: string;
+  subtitle?: string; // Subhead below the title
   description: string;
   category: 'frameworks' | 'neuroscience' | 'positioning' | 'mindset';
   publishedAt: string;
@@ -9,6 +10,7 @@ export interface InsightArticle {
   readTime: string;
   featured: boolean;
   thumbnail?: string; // Image URL for article card
+  heroImage?: string; // Hero image at top of article
 
   // SEO
   metaTitle?: string;
@@ -41,12 +43,14 @@ export const insights: InsightArticle[] = [
     id: '1',
     slug: 'why-signature-frameworks-feel-generic',
     title: "Why Your Signature Framework Sounds Like Everyone Else's",
-    description: "The problem isn't your process. It's that you can't see it. Most experts architect frameworks that sound like everyone else's. The solution isn't creating—it's extracting.",
+    subtitle: "The problem isn't your process. It's that you can't see it.",
+    description: "Most experts architect frameworks that sound like everyone else's. The solution isn't creating—it's extracting the invisible 90% of expertise you're already using.",
     category: 'frameworks',
     publishedAt: '2025-11-26',
     readTime: '10 min read',
     featured: true,
     thumbnail: '/images/insights/article1_thumbnail.gif',
+    heroImage: '/images/insights/signature-framework-hero.png',
     keywords: ['signature framework', 'signature methodology', 'create consulting framework', 'proprietary methodology', 'unique framework', 'intellectual property consulting'],
     metaTitle: "Why Your Signature Framework Sounds Generic (And How to Extract Your Real One)",
     metaDescription: "Most experts architect frameworks that sound like everyone else's. The solution isn't creating—it's extracting the invisible 90% of expertise you're already using. Here's how.",
@@ -119,7 +123,7 @@ Picture an iceberg. The 10% above water? That's what you can put in a slide deck
 
 
 
-![Iceberg Diagram](/images/insights/iceberg-diagram.png)
+![The Iceberg of Expert Knowledge - 10% visible, 90% hidden](/images/insights/iceberg-diagram.png)
 
 
 
@@ -145,7 +149,7 @@ The better you get, the more your methodology compresses into intuition. What us
 
 
 
-![Expertise Paradox Chart](/images/insights/expertise-paradox-chart.png)
+![The Expertise Paradox - More skill leads to less clarity](/images/insights/expertise-paradox-chart.png)
 
 
 
@@ -160,6 +164,7 @@ A designer adjusts a layout by two pixels and suddenly it works. Why those two p
 
 This is mastery. And mastery, by its nature, becomes invisible to the master.
 
+![Experts across fields share the same problem - no words for what they know](/images/insights/no-words-for-it-experts.png)
 
 ---
 
@@ -178,6 +183,7 @@ Architecture creates generic frameworks because everyone's fishing in the same 1
 
 Extraction goes diving in the other 90%.
 
+![Architecture vs Extraction - two different approaches to frameworks](/images/insights/architecture-vs-extraction.png)
 
 Your pattern recognition developed through your experience. Your diagnostic instincts formed through your particular client history. Your decision-making shortcuts emerged from problems only you have solved.
 
