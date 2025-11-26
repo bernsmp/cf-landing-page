@@ -12,21 +12,21 @@ import Image from 'next/image';
 
 // Custom components for ReactMarkdown
 const markdownComponents: Components = {
-  // Custom image renderer with figure/figcaption
+  // Custom image renderer - using span to avoid p > figure hydration error
   img: ({ src, alt }) => {
-    if (!src) return null;
+    if (!src || typeof src !== 'string') return null;
     return (
-      <figure>
+      <span className="block my-12">
         <Image
           src={src}
           alt={alt || ''}
           width={800}
           height={450}
-          className="article-image"
+          className="!my-0"
           style={{ width: '100%', height: 'auto' }}
         />
-        {alt && <figcaption>{alt}</figcaption>}
-      </figure>
+        {alt && <span className="block mt-4 text-center text-sm text-[var(--grey-500)] italic">{alt}</span>}
+      </span>
     );
   },
 };
@@ -78,10 +78,22 @@ export default function InsightArticleClient({ insight, relatedInsights }: Props
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
+              className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight"
             >
               {insight.title}
             </motion.h1>
+
+            {/* Subtitle */}
+            {insight.subtitle && (
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15 }}
+                className="text-xl md:text-2xl text-[var(--grey-400)] italic mb-6"
+              >
+                {insight.subtitle}
+              </motion.p>
+            )}
 
             {/* Meta */}
             <motion.div
@@ -99,6 +111,27 @@ export default function InsightArticleClient({ insight, relatedInsights }: Props
             </motion.div>
           </div>
         </header>
+
+        {/* Hero Image */}
+        {insight.heroImage && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 }}
+            className="px-6 lg:px-8 mb-12"
+          >
+            <div className="max-w-4xl mx-auto">
+              <Image
+                src={insight.heroImage}
+                alt={insight.title}
+                width={1200}
+                height={675}
+                className="w-full rounded-2xl border border-[var(--grey-800)] shadow-2xl"
+                priority
+              />
+            </div>
+          </motion.div>
+        )}
 
         {/* Article Content */}
         <article className="px-6 lg:px-8 mb-16">
