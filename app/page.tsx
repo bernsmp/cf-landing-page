@@ -8,6 +8,7 @@ import { DrivingAnalogy } from '@/components/home/DrivingAnalogy';
 import { CourageStory } from '@/components/home/CourageStory';
 import { OutcomesSection } from '@/components/home/OutcomesSection';
 import { SocialProof } from '@/components/home/SocialProof';
+import { FeaturedContent } from '@/components/home/FeaturedContent';
 import { CTASection } from '@/components/home/CTASection';
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
         <CourageStory />
         <OutcomesSection />
         <SocialProof />
+        <FeaturedContent />
         <CTASection />
       </main>
       
