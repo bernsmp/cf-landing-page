@@ -135,7 +135,7 @@ export default function PromptsPage() {
         <section className="px-6 lg:px-8 mb-20">
           <div className="max-w-6xl mx-auto">
             <h2 className="font-display text-2xl font-bold text-white mb-8">
-              Free Prompts
+              Featured Prompts
             </h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -190,14 +190,14 @@ export default function PromptsPage() {
                   <div className="flex items-center gap-2 mb-2">
                     <Sparkles className="text-[var(--brand-gold)]" size={20} />
                     <h2 className="font-display text-2xl font-bold text-white">
-                      Premium Library
+                      Subscriber Vault
                     </h2>
                   </div>
                   <p className="text-[var(--grey-400)]">
                     Advanced prompts, multi-step workflows, and extraction sequences.
                     <br />
                     <span className="text-[var(--grey-500)] text-sm">
-                      Available to Signal {'>'} Noise paid subscribers.
+                      Exclusive to Signal {'>'} Noise paid subscribers.
                     </span>
                   </p>
                 </div>
@@ -208,11 +208,11 @@ export default function PromptsPage() {
                     className="flex items-center gap-2 px-6 py-3 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-colors"
                   >
                     <Lock size={18} />
-                    Unlock Premium
+                    Unlock Vault
                   </button>
                 ) : (
                   <span className="flex items-center gap-2 px-4 py-2 bg-[var(--success)]/20 text-[var(--success)] rounded-lg text-sm font-medium">
-                    ✓ Premium Unlocked
+                    ✓ Vault Unlocked
                   </span>
                 )}
               </div>
@@ -335,7 +335,7 @@ export default function PromptsPage() {
                       <div className="absolute inset-0 backdrop-blur-sm bg-[var(--grey-950)]/60 flex items-center justify-center">
                         <div className="text-center">
                           <Lock className="text-[var(--grey-500)] mx-auto mb-2" size={24} />
-                          <p className="text-[var(--grey-400)] text-sm">Premium</p>
+                          <p className="text-[var(--grey-400)] text-sm">Subscriber Only</p>
                         </div>
                       </div>
 
