@@ -124,29 +124,42 @@ export default function InsightsPage() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-8 md:p-12 rounded-2xl bg-gradient-to-br from-[var(--brand-gold)]/10 to-[var(--grey-900)] border border-[var(--brand-gold)]/30 hover:border-[var(--brand-gold)]/50 transition-all"
+                  className="overflow-hidden rounded-2xl bg-gradient-to-br from-[var(--brand-gold)]/10 to-[var(--grey-900)] border border-[var(--brand-gold)]/30 hover:border-[var(--brand-gold)]/50 transition-all"
                 >
-                  <span className="inline-block px-3 py-1 rounded-full bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs font-semibold uppercase tracking-wider mb-4">
-                    Featured
-                  </span>
+                  {/* Thumbnail */}
+                  {featuredInsight.thumbnail && (
+                    <div className="aspect-[21/9] overflow-hidden">
+                      <img
+                        src={featuredInsight.thumbnail}
+                        alt={featuredInsight.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  )}
 
-                  <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-[var(--brand-gold)] transition-colors">
-                    {featuredInsight.title}
-                  </h2>
-
-                  <p className="text-[var(--grey-400)] text-lg mb-6 max-w-3xl">
-                    {featuredInsight.description}
-                  </p>
-
-                  <div className="flex items-center gap-6">
-                    <span className="flex items-center gap-2 text-[var(--grey-500)] text-sm">
-                      <Clock size={14} />
-                      {featuredInsight.readTime}
+                  <div className="p-8 md:p-12">
+                    <span className="inline-block px-3 py-1 rounded-full bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs font-semibold uppercase tracking-wider mb-4">
+                      Featured
                     </span>
-                    <span className="flex items-center gap-2 text-[var(--brand-gold)] font-medium">
-                      Read article
-                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                    </span>
+
+                    <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-[var(--brand-gold)] transition-colors">
+                      {featuredInsight.title}
+                    </h2>
+
+                    <p className="text-[var(--grey-400)] text-lg mb-6 max-w-3xl">
+                      {featuredInsight.description}
+                    </p>
+
+                    <div className="flex items-center gap-6">
+                      <span className="flex items-center gap-2 text-[var(--grey-500)] text-sm">
+                        <Clock size={14} />
+                        {featuredInsight.readTime}
+                      </span>
+                      <span className="flex items-center gap-2 text-[var(--brand-gold)] font-medium">
+                        Read article
+                        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </div>
                   </div>
                 </motion.div>
               </Link>
