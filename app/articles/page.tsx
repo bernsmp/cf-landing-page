@@ -79,7 +79,7 @@ export default function ArticlesPage() {
               transition={{ delay: 0.1 }}
               className="font-display text-4xl md:text-5xl font-bold text-white mb-6"
             >
-              Articles & Deep Dives
+              Deep Dives
             </motion.h1>
 
             <motion.p

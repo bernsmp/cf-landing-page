@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   --background: #0a0a0b;
@@ -319,5 +320,230 @@ h1, h2, h3 {
 @media (max-width: 640px) {
   button, a {
     min-height: 44px;
+  }
+}
+
+/* ============================================
+   PREMIUM ARTICLE TYPOGRAPHY
+   Signature blog styling for Cognitive Fingerprint
+   ============================================ */
+
+.article-content {
+  /* Base typography */
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--grey-300);
+}
+
+/* Headings */
+.article-content h2 {
+  font-family: var(--font-display), 'Fraunces', Georgia, serif;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: white;
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--grey-800);
+  text-wrap: balance;
+}
+
+.article-content h2:first-of-type {
+  margin-top: 2.5rem;
+  padding-top: 0;
+  border-top: none;
+}
+
+.article-content h3 {
+  font-family: var(--font-display), 'Fraunces', Georgia, serif;
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: white;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Paragraphs */
+.article-content p {
+  margin-bottom: 1.75rem;
+  color: var(--grey-300);
+}
+
+/* Lead paragraph - first paragraph styling */
+.article-content > p:first-of-type {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--grey-200);
+}
+
+/* Strong/Bold text */
+.article-content strong {
+  color: white;
+  font-weight: 600;
+}
+
+/* Emphasis */
+.article-content em {
+  color: var(--grey-200);
+  font-style: italic;
+}
+
+/* Links */
+.article-content a {
+  color: var(--brand-gold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.article-content a:hover {
+  border-bottom-color: var(--brand-gold);
+}
+
+/* Blockquotes - Premium callout style */
+.article-content blockquote {
+  position: relative;
+  margin: 3rem 0;
+  padding: 2rem 2.5rem;
+  background: linear-gradient(135deg, var(--grey-900) 0%, rgba(255, 184, 41, 0.03) 100%);
+  border: 1px solid var(--grey-800);
+  border-left: 3px solid var(--brand-gold);
+  border-radius: 0 16px 16px 0;
+  font-size: 1.125rem;
+  font-style: normal;
+  color: var(--grey-200);
+}
+
+.article-content blockquote p {
+  margin-bottom: 0;
+  color: var(--grey-200);
+}
+
+.article-content blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-family: var(--font-display), 'Fraunces', Georgia, serif;
+  font-size: 4rem;
+  color: var(--brand-gold);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+/* Lists */
+.article-content ul,
+.article-content ol {
+  margin: 2rem 0;
+  padding-left: 1.5rem;
+}
+
+.article-content li {
+  margin-bottom: 0.75rem;
+  color: var(--grey-300);
+  padding-left: 0.5rem;
+}
+
+.article-content ul li::marker {
+  color: var(--brand-gold);
+}
+
+.article-content ol li::marker {
+  color: var(--brand-gold);
+  font-weight: 600;
+}
+
+/* Horizontal rules - Section dividers */
+.article-content hr {
+  margin: 4rem auto;
+  border: none;
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--brand-gold), transparent);
+}
+
+/* Code inline */
+.article-content code {
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  padding: 0.2em 0.5em;
+  background: var(--grey-900);
+  border: 1px solid var(--grey-800);
+  border-radius: 6px;
+  color: var(--brand-gold);
+}
+
+/* Code blocks */
+.article-content pre {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--grey-900);
+  border: 1px solid var(--grey-800);
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+.article-content pre code {
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: var(--grey-200);
+}
+
+/* Images - Premium container */
+.article-content figure {
+  margin: 3rem 0;
+}
+
+.article-content img {
+  display: block;
+  width: 100%;
+  margin: 3rem 0;
+  border-radius: 16px;
+  border: 1px solid var(--grey-800);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
+}
+
+.article-content figcaption {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--grey-500);
+  font-style: italic;
+}
+
+/* TL;DR / Summary box */
+.article-content .tldr,
+.article-content blockquote:has(strong:first-child) {
+  background: linear-gradient(135deg, rgba(255, 184, 41, 0.08) 0%, rgba(255, 184, 41, 0.02) 100%);
+  border: 1px solid rgba(255, 184, 41, 0.2);
+  border-left: 3px solid var(--brand-gold);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .article-content {
+    font-size: 1.0625rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+  }
+
+  .article-content h3 {
+    font-size: 1.25rem;
+  }
+
+  .article-content blockquote {
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .article-content blockquote::before {
+    font-size: 3rem;
+    top: -5px;
+    left: 15px;
   }
 }

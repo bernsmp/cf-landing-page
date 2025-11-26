@@ -9,7 +9,8 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 const navLinks = [
   { href: '/method', label: 'Method' },
   { href: '/prompts', label: 'Prompts' },
-  { href: '/articles', label: 'Articles' },
+  { href: '/insights', label: 'Insights' },
+  { href: '/articles', label: 'Deep Dives' },
   { href: '/start', label: 'Start' },
 ];
 
