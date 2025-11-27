@@ -6,7 +6,7 @@ import { Car, Brain, Eye, EyeOff } from 'lucide-react';
 
 export const DrivingAnalogy = () => {
   return (
-    <section className="relative py-32 px-6 lg:px-8 overflow-hidden">
+    <section className="relative pt-16 pb-8 px-6 lg:px-8 overflow-hidden">
       {/* Background accent */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--grey-900)]/50 to-transparent" />
       

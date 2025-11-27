@@ -46,25 +46,43 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1]"
+          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-10 leading-[1.1]"
         >
-          <span className="text-white">You're running cognitive&nbsp;patterns</span>
+          <span className="text-white">You're Exceptional At What You&nbsp;Do.</span>
           <br />
-          <span className="text-gold-gradient">worth&nbsp;thousands.</span>
-          <br />
-          <span className="text-[var(--grey-500)]">You can't see any of&nbsp;them.</span>
+          <span className="text-gold-gradient">Terrible At Getting It Out Of Your&nbsp;Head.</span>
         </motion.h1>
 
-        {/* Subheadline */}
-        <motion.p
+        {/* Supporting paragraphs */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg sm:text-xl md:text-2xl text-[var(--grey-400)] max-w-3xl mx-auto mb-12 leading-relaxed"
+          className="max-w-4xl mx-auto mb-10 space-y-6"
         >
-          The expertise that makes you exceptional has become invisible to you.
-          <br className="hidden sm:block" />
-          <span className="text-[var(--grey-300)]">We make it visible. Name it. Map it. Turn it into assets.</span>
+          <p className="text-lg sm:text-xl md:text-2xl text-[var(--grey-300)] leading-relaxed">
+            The transformations are real. The results are undeniable.
+            <br />
+            Your clients know you're different.
+            <br className="hidden sm:block" />
+            <span className="text-[var(--grey-400)]">But explaining HOW you're different? You sound like everyone else.</span>
+          </p>
+          
+          <p className="text-lg sm:text-xl md:text-2xl text-[var(--grey-400)] leading-relaxed">
+            You've spent years building expertise. All of it locked in your head.
+          </p>
+        </motion.div>
+
+        {/* Solution statement */}
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.25 }}
+          className="text-lg sm:text-xl md:text-2xl text-[var(--grey-300)] max-w-4xl mx-auto mb-12 leading-relaxed"
+        >
+          We extract what you can't see. Document what you can't explain.
+          <br />
+          <span className="text-gold-gradient font-semibold">Turn your invisible genius into a system that no one can replicate.</span>
         </motion.p>
 
         {/* CTA Buttons */}
