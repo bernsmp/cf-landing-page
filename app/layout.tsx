@@ -27,8 +27,9 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon', type: 'image/png', sizes: '32x32' },
     ],
-    apple: '/apple-icon.png',
+    apple: '/apple-icon',
   },
   openGraph: {
     title: 'Cognitive Fingerprint™ | Decode Your Unconscious Expertise',
@@ -37,10 +38,10 @@ export const metadata: Metadata = {
     siteName: 'Cognitive Fingerprint™',
     images: [
       {
-        url: '/og-image.png',
+        url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Cognitive Fingerprint - Decode Your Unconscious Expertise',
+        alt: 'Cognitive Fingerprint™ - Decode Your Unconscious Expertise',
       },
     ],
     locale: 'en_US',
@@ -50,7 +51,33 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Cognitive Fingerprint™ | Decode Your Unconscious Expertise',
     description: 'Discover the hidden patterns driving your best decisions. Evidence-based cognitive analysis for leaders.',
-    images: ['/og-image.png'],
+    images: ['/opengraph-image'],
+  },
+  keywords: [
+    'cognitive fingerprint',
+    'unconscious expertise',
+    'expertise extraction',
+    'signature framework',
+    'cognitive analysis',
+    'leadership development',
+    'decision making patterns',
+    'expertise patterns',
+    'EXTRACT Method',
+    'value archaeology',
+  ],
+  authors: [{ name: 'Cognitive Fingerprint' }],
+  creator: 'Cognitive Fingerprint',
+  publisher: 'Cognitive Fingerprint',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
