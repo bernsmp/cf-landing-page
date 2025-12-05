@@ -76,7 +76,7 @@ export const FeaturedContent = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--grey-900)] border border-[var(--grey-800)] text-[var(--grey-400)] text-sm font-semibold mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--grey-900)] border border-[var(--border-subtle)] text-[var(--grey-400)] text-sm font-semibold tracking-wider mb-6">
             <Sparkles size={14} className="text-[var(--brand-gold)]" />
             FROM THE VAULT
           </span>
@@ -100,7 +100,7 @@ export const FeaturedContent = () => {
             className="lg:col-span-5"
           >
             <Link href={`/insights/${latestInsight.slug}`} className="group block h-full">
-              <div className="relative h-full rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--grey-850)] to-[var(--grey-900)] border border-[var(--grey-800)] hover:border-[var(--brand-gold)]/40 transition-all duration-500">
+              <div className="relative h-full rounded-2xl overflow-hidden bg-[var(--grey-850)] border border-[var(--border-subtle)] hover:border-[var(--border-medium)] transition-all duration-300">
                 {/* Thumbnail */}
                 {latestInsight.thumbnail && (
                   <div className="relative aspect-[16/10] overflow-hidden">
@@ -170,7 +170,7 @@ export const FeaturedContent = () => {
                   rel="noopener noreferrer"
                   className="group block"
                 >
-                  <div className="p-5 rounded-xl bg-[var(--grey-900)] border border-[var(--grey-800)] hover:border-[var(--grey-700)] transition-all duration-300">
+                  <div className="p-5 rounded-xl bg-[var(--grey-900)] border border-[var(--border-subtle)] hover:border-[var(--border-medium)] transition-all duration-300">
                     <div className="flex items-center gap-2 text-[var(--grey-500)] text-xs mb-2">
                       <span>{formatDate(article.pubDate)}</span>
                       <span>•</span>
@@ -227,7 +227,7 @@ export const FeaturedContent = () => {
                 href={`/prompts/${prompt.slug}`}
                 className="group block"
               >
-                <div className="relative p-5 rounded-xl bg-[var(--grey-900)] border border-[var(--grey-800)] hover:border-[var(--brand-gold)]/30 transition-all duration-300 overflow-hidden">
+                <div className="relative p-5 rounded-xl bg-[var(--grey-900)] border border-[var(--border-subtle)] hover:border-[var(--brand-gold)]/20 transition-all duration-300 overflow-hidden">
                   {/* Locked overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--grey-900)] via-transparent to-transparent opacity-60" />
 

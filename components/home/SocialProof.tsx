@@ -37,7 +37,7 @@ export const SocialProof = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-[var(--grey-850)] border border-[var(--grey-700)] text-[var(--grey-400)] text-sm font-semibold mb-6">
+          <span className="inline-block px-4 py-2 rounded-full bg-[var(--grey-850)] border border-[var(--border-subtle)] text-[var(--grey-400)] text-sm font-semibold tracking-wider mb-6">
             FROM EXPERTS WHO'VE DONE IT
           </span>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-white">
@@ -56,7 +56,7 @@ export const SocialProof = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="relative group"
             >
-              <div className="h-full p-8 rounded-2xl bg-[var(--grey-850)] border border-[var(--grey-800)] hover:border-[var(--grey-700)] transition-all duration-500">
+              <div className="h-full p-8 rounded-2xl bg-[var(--grey-850)] border border-[var(--border-subtle)] hover:border-[var(--border-medium)] transition-all duration-300">
                 {/* Quote icon */}
                 <Quote className="text-[var(--brand-gold)] opacity-30 mb-4" size={32} />
                 

@@ -46,7 +46,7 @@ export const OutcomesSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-[var(--brand-gold)]/10 border border-[var(--brand-gold)]/30 text-[var(--brand-gold)] text-sm font-semibold mb-6">
+          <span className="inline-block px-4 py-2 rounded-full bg-[var(--brand-gold)]/10 border border-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs font-semibold tracking-widest mb-6">
             WHAT BECOMES POSSIBLE
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white">
@@ -65,9 +65,9 @@ export const OutcomesSection = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group relative"
             >
-              <div className="h-full p-8 rounded-2xl bg-[var(--grey-850)] border border-[var(--grey-800)] hover:border-[var(--brand-gold)]/50 transition-all duration-500 overflow-hidden">
-                {/* Hover glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-gold)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="h-full p-8 rounded-2xl bg-[var(--grey-850)] border border-[var(--border-subtle)] hover:border-[var(--border-medium)] transition-all duration-300 overflow-hidden">
+                {/* Hover glow - top-down radial gradient */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,var(--glow-gold),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
                 
                 {/* Content */}
                 <div className="relative z-10">

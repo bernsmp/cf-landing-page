@@ -4,38 +4,46 @@
 :root {
   --background: #0a0a0b;
   --foreground: #fafafa;
-  
+
   /* Cognitive Fingerprint Brand Colors */
   --brand-gold: #ffb829;
   --brand-gold-light: #ffd875;
   --brand-gold-dark: #d99a1f;
   --brand-gold-muted: #fff8eb;
   --brand-gold-subtle: #fffdf8;
-  
-  /* Dark mode greys */
+
+  /* Dark mode greys - warmer tones inspired by Chart Generator */
   --grey-950: #0a0a0b;
-  --grey-900: #141416;
-  --grey-850: #1a1a1e;
-  --grey-800: #222226;
-  --grey-700: #32323a;
+  --grey-900: #111113;
+  --grey-850: #161618;
+  --grey-800: #1c1c1f;
+  --grey-700: #2a2a2e;
   --grey-600: #4a4a54;
-  --grey-500: #6b6b76;
+  --grey-500: #5c5c63;
   --grey-400: #8a8a96;
-  --grey-300: #b3b3bc;
+  --grey-300: #a1a1a6;
   --grey-200: #d4d4da;
   --grey-100: #ebebef;
-  --grey-50: #f7f7f9;
-  
+  --grey-50: #fafafa;
+
+  /* Semantic borders - more subtle */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-medium: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.15);
+
   /* Accent colors */
   --accent-blue: #3b82f6;
   --accent-purple: #8b5cf6;
   --accent-emerald: #10b981;
   --accent-rose: #f43f5e;
-  
+
   /* Semantic */
   --success: #10b981;
   --warning: #f59e0b;
   --danger: #ef4444;
+
+  /* Glow effects */
+  --glow-gold: rgba(255, 184, 41, 0.08);
 }
 
 @theme inline {
@@ -58,7 +66,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-body), 'DM Sans', system-ui, sans-serif;
+  font-family: var(--font-body), 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
@@ -66,7 +74,7 @@ body {
 
 /* Display typography */
 .font-display {
-  font-family: var(--font-display), 'Fraunces', Georgia, serif;
+  font-family: var(--font-display), 'Instrument Serif', Georgia, serif;
 }
 
 .font-mono {
@@ -129,18 +137,49 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* Card styles */
+/* Card styles - cleaner, more refined */
 .card-dark {
-  background: linear-gradient(135deg, var(--grey-850) 0%, var(--grey-900) 100%);
-  border: 1px solid var(--grey-800);
-  border-radius: 20px;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--grey-850);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  transition: all 0.3s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, var(--glow-gold) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
 .card-dark:hover {
-  border-color: var(--grey-700);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
+  border-color: var(--border-medium);
+  box-shadow: 0 4px 12px -4px rgba(0,0,0,0.3);
+}
+
+.card-dark:hover::before {
+  opacity: 1;
+}
+
+/* Enhanced card with stronger hover effect */
+.card-elevated {
+  background: var(--grey-850);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-elevated:hover {
+  border-color: rgba(255, 184, 41, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
 }
 
 /* Button styles */
@@ -175,11 +214,11 @@ body {
   transform: translateY(-2px);
 }
 
-/* Animations */
+/* Animations - refined from Chart Generator */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -194,10 +233,26 @@ body {
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 40px rgba(255, 184, 41, 0.2);
+    box-shadow: 0 0 40px rgba(255, 184, 41, 0.15);
   }
   50% {
-    box-shadow: 0 0 60px rgba(255, 184, 41, 0.4);
+    box-shadow: 0 0 60px rgba(255, 184, 41, 0.25);
+  }
+}
+
+/* Enhanced float animation with subtle rotation */
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-6px) rotate(0.5deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-6px) rotate(-0.5deg);
   }
 }
 
@@ -219,8 +274,22 @@ body {
   }
 }
 
+/* Subtle glow animation for hero elements */
+@keyframes heroGlow {
+  0%, 100% {
+    box-shadow:
+      0 25px 50px -12px rgba(0,0,0,0.5),
+      0 0 80px -20px rgba(255, 184, 41, 0.15);
+  }
+  50% {
+    box-shadow:
+      0 35px 60px -15px rgba(0,0,0,0.6),
+      0 0 100px -25px rgba(255, 184, 41, 0.25);
+  }
+}
+
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInUp 0.5s ease-out forwards;
   opacity: 0;
 }
 
@@ -233,8 +302,16 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
+.animate-hero-float {
+  animation: heroFloat 8s ease-in-out infinite;
+}
+
 .animate-pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-hero-glow {
+  animation: heroGlow 4s ease-in-out infinite;
 }
 
 /* Stagger animations */

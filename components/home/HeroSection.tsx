@@ -28,29 +28,16 @@ export const HeroSection = () => {
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center pt-32 pb-20">
-        {/* Pre-headline badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-8"
-        >
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--grey-900)] border border-[var(--grey-700)] rounded-full">
-            <span className="w-2 h-2 bg-[var(--brand-gold)] rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-[var(--brand-gold)]">COGNITIVE FINGERPRINT™</span>
-          </span>
-        </motion.div>
-
         {/* Main headline */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-10 leading-[1.1]"
+          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight mb-10 leading-[0.95]"
         >
           <span className="text-white">You're Exceptional At What You&nbsp;Do.</span>
           <br />
-          <span className="text-gold-gradient">Terrible At Getting It Out Of Your&nbsp;Head.</span>
+          <em className="italic text-[var(--grey-400)]">Terrible At Getting It Out Of Your&nbsp;Head.</em>
         </motion.h1>
 
         {/* Supporting paragraphs */}
@@ -101,7 +88,7 @@ export const HeroSection = () => {
           </Link>
           <Link
             href="/method"
-            className="group flex items-center gap-3 px-8 py-4 bg-transparent text-[var(--grey-300)] font-semibold rounded-xl border border-[var(--grey-700)] hover:border-[var(--grey-500)] hover:text-white transition-all duration-300"
+            className="group flex items-center gap-3 px-8 py-4 bg-transparent text-[var(--grey-300)] font-semibold rounded-xl border border-[var(--border-medium)] hover:border-[var(--border-strong)] hover:text-white transition-all duration-300"
           >
             <Play size={18} className="text-[var(--brand-gold)]" />
             See How It Works
@@ -123,7 +110,7 @@ export const HeroSection = () => {
             alt="Cognitive Fingerprint"
             width={160}
             height={160}
-            className="relative z-10 mx-auto animate-float"
+            className="relative z-10 mx-auto animate-hero-float"
             priority
           />
         </motion.div>

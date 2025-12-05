@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Fraunces, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const instrumentSerif = Instrument_Serif({
   variable: "--font-display",
   subsets: ["latin"],
+  weight: "400",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
@@ -89,7 +90,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fraunces.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${instrumentSerif.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
         {children}
       </body>

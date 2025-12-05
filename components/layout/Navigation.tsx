@@ -31,7 +31,7 @@ export const Navigation = () => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-[var(--grey-950)]/90 backdrop-blur-xl border-b border-[var(--grey-800)]'
+            ? 'bg-[var(--grey-950)]/90 backdrop-blur-xl border-b border-[var(--border-subtle)]'
             : 'bg-transparent'
         }`}
       >
