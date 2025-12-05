@@ -1,3 +1,41 @@
+# Refine Design System with Chart Generator Styling
+
+## Problem
+The landing page design felt less clean/polished compared to the Chart Generator project.
+
+## Plan
+
+- [x] Analyze Chart Generator style elements to borrow
+- [x] Update globals.css with cleaner CSS variable naming and new animations
+- [x] Apply cleaner card styling and borders to components
+- [x] Swap fonts to Instrument Serif + Inter
+- [x] Simplify hero section (remove badge, use italic second line)
+- [x] Test locally and push to production
+
+## Review
+
+### Summary of Changes
+1. **Font swap**: Fraunces → Instrument Serif, DM Sans → Inter (cleaner editorial feel)
+2. **Grey palette**: Adjusted to warmer tones (#111113, #161618, #1c1c1f)
+3. **Semantic borders**: Added --border-subtle, --border-medium, --border-strong (rgba for softer look)
+4. **Card hover effects**: Radial gold glow from top on hover
+5. **Animations**: Added heroFloat (with rotation), heroGlow, faster fadeInUp
+6. **Hero simplification**: Removed badge, second line now italic grey instead of gold gradient
+
+### Files Modified
+- `app/globals.css` - New CSS variables, animations, card styles
+- `app/layout.tsx` - Swapped fonts to Instrument Serif + Inter
+- `components/home/HeroSection.tsx` - Simplified hero, removed badge
+- `components/home/OutcomesSection.tsx` - Cleaner card borders
+- `components/home/SocialProof.tsx` - Cleaner card borders
+- `components/home/FeaturedContent.tsx` - Cleaner card borders
+- `components/layout/Navigation.tsx` - Subtle border variable
+
+### Known Limitations
+- Instrument Serif only has 400 weight (no bold)
+
+---
+
 # Fix Insights Article Styling
 
 ## Problem
