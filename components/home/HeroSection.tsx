@@ -116,18 +116,6 @@ export const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Scroll indicator - positioned at bottom of section */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[var(--grey-500)] z-20"
-      >
-        <span className="text-xs uppercase tracking-wider">Scroll to explore</span>
-        <div className="w-6 h-10 rounded-full border-2 border-[var(--grey-600)] flex justify-center pt-2">
-          <div className="w-1.5 h-3 bg-[var(--brand-gold)] rounded-full animate-bounce" />
-        </div>
-      </motion.div>
     </section>
   );
 };
