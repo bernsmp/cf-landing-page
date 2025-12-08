@@ -10,13 +10,17 @@ import { OutcomesSection } from '@/components/home/OutcomesSection';
 import { SocialProof } from '@/components/home/SocialProof';
 import { FeaturedContent } from '@/components/home/FeaturedContent';
 import { CTASection } from '@/components/home/CTASection';
+import { HomePageJsonLd } from '@/components/seo/JsonLd';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-[var(--grey-950)]">
+      {/* Structured data for SEO/AEO */}
+      <HomePageJsonLd />
+
       {/* Grain overlay */}
       <div className="grain-overlay" />
-      
+
       <Navigation />
       
       <main>
