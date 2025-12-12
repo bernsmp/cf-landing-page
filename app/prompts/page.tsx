@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
@@ -15,6 +16,14 @@ export default function PromptsPage() {
   const [premiumPassword, setPremiumPassword] = useState('');
   const [premiumUnlocked, setPremiumUnlocked] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
+
+  // Check localStorage on mount for existing unlock
+  useEffect(() => {
+    const stored = localStorage.getItem('cf-premium-unlocked');
+    if (stored === 'true') {
+      setPremiumUnlocked(true);
+    }
+  }, []);
 
   const freePrompts = getFreePrompts();
   const premiumPrompts = getPremiumPrompts();
@@ -37,11 +46,13 @@ export default function PromptsPage() {
     // Simple password check - you'll set this in your Substack community
     // Change this password monthly
     const correctPassword = process.env.NEXT_PUBLIC_PREMIUM_PASSWORD || 'cognitive2024';
-    
+
     if (premiumPassword === correctPassword) {
       setPremiumUnlocked(true);
       setPasswordError(false);
       setShowPremium(false);
+      // Save to localStorage so it persists
+      localStorage.setItem('cf-premium-unlocked', 'true');
     } else {
       setPasswordError(true);
     }
@@ -147,31 +158,45 @@ export default function PromptsPage() {
                   transition={{ delay: index * 0.05 }}
                 >
                   <Link href={`/prompts/${prompt.slug}`} className="block h-full">
-                    <div className="h-full p-6 rounded-2xl bg-[var(--grey-850)] border border-[var(--grey-800)] hover:border-[var(--brand-gold)]/50 transition-all duration-300 group">
-                      {/* Category badge */}
-                      <span className="inline-block px-3 py-1 rounded-full bg-[var(--grey-800)] text-[var(--grey-400)] text-xs font-semibold uppercase tracking-wider mb-4">
-                        {prompt.category}
-                      </span>
+                    <div className="h-full rounded-2xl bg-[var(--grey-850)] border border-[var(--grey-800)] hover:border-[var(--brand-gold)]/50 transition-all duration-300 group overflow-hidden">
+                      {/* Thumbnail */}
+                      {prompt.thumbnail && (
+                        <div className="relative w-full h-40 overflow-hidden">
+                          <Image
+                            src={prompt.thumbnail}
+                            alt={prompt.title}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                      )}
 
-                      {/* Title */}
-                      <h3 className="font-display text-xl font-bold text-white mb-2 group-hover:text-[var(--brand-gold)] transition-colors">
-                        {prompt.title}
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-[var(--grey-400)] text-sm mb-4 line-clamp-2">
-                        {prompt.description}
-                      </p>
-
-                      {/* Footer */}
-                      <div className="flex items-center justify-between pt-4 border-t border-[var(--grey-800)]">
-                        <span className="text-xs text-[var(--grey-500)] capitalize">
-                          {prompt.difficulty}
+                      <div className="p-6">
+                        {/* Category badge */}
+                        <span className="inline-block px-3 py-1 rounded-full bg-[var(--grey-800)] text-[var(--grey-400)] text-xs font-semibold uppercase tracking-wider mb-4">
+                          {prompt.category}
                         </span>
-                        <span className="flex items-center gap-1 text-[var(--brand-gold)] text-sm font-medium">
-                          View prompt
-                          <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                        </span>
+
+                        {/* Title */}
+                        <h3 className="font-display text-xl font-bold text-white mb-2 group-hover:text-[var(--brand-gold)] transition-colors">
+                          {prompt.title}
+                        </h3>
+
+                        {/* Description */}
+                        <p className="text-[var(--grey-400)] text-sm mb-4 line-clamp-2">
+                          {prompt.description}
+                        </p>
+
+                        {/* Footer */}
+                        <div className="flex items-center justify-between pt-4 border-t border-[var(--grey-800)]">
+                          <span className="text-xs text-[var(--grey-500)] capitalize">
+                            {prompt.difficulty}
+                          </span>
+                          <span className="flex items-center gap-1 text-[var(--brand-gold)] text-sm font-medium">
+                            View prompt
+                            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </Link>
@@ -301,92 +326,165 @@ export default function PromptsPage() {
                 >
                   {premiumUnlocked ? (
                     <Link href={`/prompts/${prompt.slug}`} className="block h-full">
-                      <div className="h-full p-6 rounded-2xl bg-[var(--grey-850)] border border-[var(--brand-gold)]/30 hover:border-[var(--brand-gold)] transition-all duration-300 group">
-                        {/* Premium badge */}
-                        <div className="flex items-center justify-between mb-4">
-                          <span className="inline-block px-3 py-1 rounded-full bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs font-semibold uppercase tracking-wider">
-                            {prompt.category}
-                          </span>
-                          <Sparkles size={16} className="text-[var(--brand-gold)]" />
-                        </div>
+                      <div className="h-full rounded-2xl bg-[var(--grey-850)] border border-[var(--brand-gold)]/30 hover:border-[var(--brand-gold)] transition-all duration-300 group overflow-hidden">
+                        {/* Thumbnail */}
+                        {prompt.thumbnail && (
+                          <div className="relative w-full h-40 overflow-hidden">
+                            <Image
+                              src={prompt.thumbnail}
+                              alt={prompt.title}
+                              fill
+                              className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                          </div>
+                        )}
 
-                        <h3 className="font-display text-xl font-bold text-white mb-2 group-hover:text-[var(--brand-gold)] transition-colors">
-                          {prompt.title}
-                        </h3>
+                        <div className="p-6">
+                          {/* Premium badge */}
+                          <div className="flex items-center justify-between mb-4">
+                            <span className="inline-block px-3 py-1 rounded-full bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs font-semibold uppercase tracking-wider">
+                              {prompt.category}
+                            </span>
+                            <Sparkles size={16} className="text-[var(--brand-gold)]" />
+                          </div>
 
-                        <p className="text-[var(--grey-400)] text-sm mb-4 line-clamp-2">
-                          {prompt.description}
-                        </p>
+                          <h3 className="font-display text-xl font-bold text-white mb-2 group-hover:text-[var(--brand-gold)] transition-colors">
+                            {prompt.title}
+                          </h3>
 
-                        <div className="flex items-center justify-between pt-4 border-t border-[var(--grey-800)]">
-                          <span className="text-xs text-[var(--grey-500)] capitalize">
-                            {prompt.difficulty}
-                          </span>
-                          <span className="flex items-center gap-1 text-[var(--brand-gold)] text-sm font-medium">
-                            View prompt
-                            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                          </span>
+                          <p className="text-[var(--grey-400)] text-sm mb-4 line-clamp-2">
+                            {prompt.description}
+                          </p>
+
+                          <div className="flex items-center justify-between pt-4 border-t border-[var(--grey-800)]">
+                            <span className="text-xs text-[var(--grey-500)] capitalize">
+                              {prompt.difficulty}
+                            </span>
+                            <span className="flex items-center gap-1 text-[var(--brand-gold)] text-sm font-medium">
+                              View prompt
+                              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </Link>
                   ) : (
-                    <div className="h-full p-6 rounded-2xl bg-[var(--grey-850)]/50 border border-[var(--grey-800)] relative overflow-hidden">
-                      {/* Blur overlay */}
-                      <div className="absolute inset-0 backdrop-blur-sm bg-[var(--grey-950)]/60 flex items-center justify-center">
-                        <div className="text-center">
-                          <Lock className="text-[var(--grey-500)] mx-auto mb-2" size={24} />
-                          <p className="text-[var(--grey-400)] text-sm">Subscriber Only</p>
+                    <button
+                      onClick={() => setShowPremium(true)}
+                      className="block h-full w-full text-left"
+                    >
+                      <div className="h-full rounded-2xl bg-[var(--grey-850)] border border-[var(--brand-gold)]/30 hover:border-[var(--brand-gold)] transition-all duration-300 group cursor-pointer overflow-hidden">
+                        {/* Thumbnail */}
+                        {prompt.thumbnail && (
+                          <div className="relative w-full h-40 overflow-hidden">
+                            <Image
+                              src={prompt.thumbnail}
+                              alt={prompt.title}
+                              fill
+                              className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                            {/* Lock overlay on thumbnail */}
+                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                              <Lock size={24} className="text-[var(--brand-gold)]" />
+                            </div>
+                          </div>
+                        )}
+
+                        <div className="p-6">
+                          {/* Premium badge */}
+                          <div className="flex items-center justify-between mb-4">
+                            <span className="inline-block px-3 py-1 rounded-full bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs font-semibold uppercase tracking-wider">
+                              {prompt.category}
+                            </span>
+                            <Lock size={16} className="text-[var(--brand-gold)]" />
+                          </div>
+
+                          <h3 className="font-display text-xl font-bold text-white mb-2 group-hover:text-[var(--brand-gold)] transition-colors">
+                            {prompt.title}
+                          </h3>
+
+                          <p className="text-[var(--grey-400)] text-sm mb-4 line-clamp-2">
+                            {prompt.description}
+                          </p>
+
+                          <div className="flex items-center justify-between pt-4 border-t border-[var(--grey-800)]">
+                            <span className="text-xs text-[var(--grey-500)] capitalize">
+                              {prompt.difficulty}
+                            </span>
+                            <span className="flex items-center gap-1 text-[var(--brand-gold)] text-sm font-medium">
+                              <Lock size={12} />
+                              Unlock to view
+                            </span>
+                          </div>
                         </div>
                       </div>
-
-                      {/* Blurred content preview */}
-                      <span className="inline-block px-3 py-1 rounded-full bg-[var(--grey-800)] text-[var(--grey-400)] text-xs font-semibold uppercase tracking-wider mb-4">
-                        {prompt.category}
-                      </span>
-                      <h3 className="font-display text-xl font-bold text-white mb-2">
-                        {prompt.title}
-                      </h3>
-                      <p className="text-[var(--grey-400)] text-sm">
-                        {prompt.description.slice(0, 50)}...
-                      </p>
-                    </div>
+                    </button>
                   )}
                 </motion.div>
               ))}
             </div>
 
             {/* Workflows Section */}
-            {premiumUnlocked && workflows.length > 0 && (
+            {workflows.length > 0 && (
               <div className="mt-16">
-                <h2 className="font-display text-2xl font-bold text-white mb-8 flex items-center gap-2">
+                <h2 className="font-display text-2xl font-bold text-white mb-4 flex items-center gap-2">
                   <Zap className="text-[var(--brand-gold)]" />
-                  Workflows
+                  Workflow Packs
                 </h2>
                 <p className="text-[var(--grey-400)] mb-8">
-                  Multi-step processes for deeper extraction. Follow each step in sequence.
+                  Multi-step processes for deeper extraction. Each step's output feeds into the next.
                 </p>
 
-                {workflows.map((workflow) => (
-                  <Link key={workflow.id} href={`/prompts/workflow/${workflow.slug}`} className="block">
-                    <div className="p-6 rounded-2xl bg-gradient-to-r from-[var(--brand-gold)]/5 to-transparent border border-[var(--brand-gold)]/20 hover:border-[var(--brand-gold)]/50 transition-all group">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="flex items-center gap-3 mb-2">
-                            <h3 className="font-display text-xl font-bold text-white group-hover:text-[var(--brand-gold)] transition-colors">
-                              {workflow.title}
-                            </h3>
-                            <span className="px-2 py-1 bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs rounded-full">
-                              {workflow.steps.length} steps
-                            </span>
+                <div className="space-y-4">
+                  {workflows.map((workflow) => (
+                    premiumUnlocked ? (
+                      <Link key={workflow.id} href={`/prompts/workflow/${workflow.slug}`} className="block">
+                        <div className="p-6 rounded-2xl bg-gradient-to-r from-[var(--brand-gold)]/5 to-transparent border border-[var(--brand-gold)]/20 hover:border-[var(--brand-gold)]/50 transition-all group">
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <div className="flex items-center gap-3 mb-2">
+                                <h3 className="font-display text-xl font-bold text-white group-hover:text-[var(--brand-gold)] transition-colors">
+                                  {workflow.title}
+                                </h3>
+                                <span className="px-2 py-1 bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs rounded-full">
+                                  {workflow.steps.length} steps
+                                </span>
+                              </div>
+                              <p className="text-[var(--grey-400)]">{workflow.description}</p>
+                              <p className="text-[var(--grey-500)] text-sm mt-2">⏱ {workflow.estimatedTime}</p>
+                            </div>
+                            <ArrowRight className="text-[var(--brand-gold)] group-hover:translate-x-2 transition-transform" size={24} />
                           </div>
-                          <p className="text-[var(--grey-400)]">{workflow.description}</p>
-                          <p className="text-[var(--grey-500)] text-sm mt-2">⏱ {workflow.estimatedTime}</p>
                         </div>
-                        <ArrowRight className="text-[var(--brand-gold)] group-hover:translate-x-2 transition-transform" size={24} />
-                      </div>
-                    </div>
-                  </Link>
-                ))}
+                      </Link>
+                    ) : (
+                      <button
+                        key={workflow.id}
+                        onClick={() => setShowPremium(true)}
+                        className="block w-full text-left"
+                      >
+                        <div className="p-6 rounded-2xl bg-gradient-to-r from-[var(--brand-gold)]/5 to-transparent border border-[var(--brand-gold)]/20 hover:border-[var(--brand-gold)]/50 transition-all group cursor-pointer">
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <div className="flex items-center gap-3 mb-2">
+                                <h3 className="font-display text-xl font-bold text-white group-hover:text-[var(--brand-gold)] transition-colors">
+                                  {workflow.title}
+                                </h3>
+                                <span className="px-2 py-1 bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs rounded-full">
+                                  {workflow.steps.length} steps
+                                </span>
+                                <Lock size={14} className="text-[var(--brand-gold)]" />
+                              </div>
+                              <p className="text-[var(--grey-400)]">{workflow.description}</p>
+                              <p className="text-[var(--grey-500)] text-sm mt-2">⏱ {workflow.estimatedTime}</p>
+                            </div>
+                            <Lock className="text-[var(--brand-gold)]" size={24} />
+                          </div>
+                        </div>
+                      </button>
+                    )
+                  ))}
+                </div>
               </div>
             )}
           </div>
