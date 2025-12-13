@@ -1135,6 +1135,75 @@ export const workflows: Workflow[] = [
     estimatedTime: '90 min',
     tags: ['methodology', 'signature method', 'packaging', 'proprietary system'],
   },
+  {
+    id: 'w7',
+    slug: 'language-mining-method',
+    title: 'The Language Mining Method™',
+    description: 'Extract customer language from adjacent domains when you don\'t have enough reviews, testimonials, or direct buyer access. Find where your buyers ARE talking—just not using your words.',
+    category: 'extraction',
+    isPremium: true,
+    thumbnail: '/images/prompts/language-mining-method.png',
+    file: '/prompts/workflows/language-mining-method.md',
+    steps: [
+      {
+        stepNumber: 1,
+        title: 'Adjacent Territory Mapping',
+        description: 'Identify where your buyer\'s pain appears under different names—in adjacent communities, related books, and tangential forums.',
+        instructions: [
+          'Prepare your core problem statement (1-2 sentences)',
+          'Define your target buyer with specifics (role, income, experience level)',
+          'List any adjacent concepts you\'ve already heard buyers mention',
+          'Review AI output and select 3-5 priority sources to mine',
+        ],
+      },
+      {
+        stepNumber: 2,
+        title: 'Raw Language Mining',
+        description: 'Extract verbatim quotes, emotional patterns, metaphors, and questions from the identified adjacent territories.',
+        instructions: [
+          'Paste the prioritized source list from Phase 1',
+          'Let AI extract 30+ quotes across pain, emotion, metaphor, question, and objection categories',
+          'Quality check: quotes should feel raw, specific, and emotional—not polished',
+          'Push back if quotes feel generic: "Find rawer, more emotional expressions"',
+        ],
+      },
+      {
+        stepNumber: 3,
+        title: 'Pattern Synthesis',
+        description: 'Transform raw data into insights by identifying what surprised you, what confirmed your beliefs, and what\'s missing.',
+        instructions: [
+          'Paste all quotes from Phase 2 plus your initial hypotheses about this audience',
+          'Review the three surprises—do they actually surprise YOU?',
+          'Validate the misdiagnosis pattern against your real client experience',
+          'Add your own observations that AI missed',
+        ],
+      },
+      {
+        stepNumber: 4,
+        title: 'Knowledge Asset Creation',
+        description: 'Determine what reusable documents to build—Customer Language Bible, Translation Dictionary, Objection Encyclopedia, or application-specific guides.',
+        instructions: [
+          'Paste synthesis results and state your immediate use case',
+          'Select 1-2 "Must Have" assets for immediate need',
+          'Choose 1-2 "Should Have" assets for ongoing use',
+          'Decide build order based on what solves your problem right now',
+        ],
+      },
+      {
+        stepNumber: 5,
+        title: 'Immediate Application',
+        description: 'Apply the research directly to your specific deliverable—presentation, sales page, content calendar, or email sequence.',
+        instructions: [
+          'Choose the application template matching your need (Presentation/Sales Page/Content/Email)',
+          'Paste relevant findings and context about your deliverable',
+          'Review AI draft for voice authenticity and insight integrity',
+          'Refine language that doesn\'t sound like you',
+        ],
+      },
+    ],
+    estimatedTime: '30 min',
+    tags: ['customer language', 'research', 'adjacent domains', 'messaging', 'voice of customer'],
+  },
 ];
 
 export const categories = [

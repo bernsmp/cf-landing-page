@@ -160,3 +160,4 @@ Always match the slug:
 4. The Decision Architecture Pack
 5. The Resistance Alchemist Pack
 6. The Signature Method Pack™
+7. The Language Mining Method™
