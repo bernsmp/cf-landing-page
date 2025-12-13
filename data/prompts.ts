@@ -16,6 +16,13 @@ export interface Prompt {
   tags: string[];
 }
 
+export interface WorkflowStep {
+  stepNumber: number;
+  title: string;
+  description: string; // What this step does (1-2 sentences)
+  instructions: string[]; // How to use this step (bullet points)
+}
+
 export interface Workflow {
   id: string;
   slug: string;
@@ -25,10 +32,7 @@ export interface Workflow {
   isPremium: boolean;
   thumbnail?: string;
   file: string; // Path to markdown file with full content
-  steps: {
-    stepNumber: number;
-    title: string;
-  }[];
+  steps: WorkflowStep[];
   estimatedTime: string;
   tags: string[];
 }
@@ -837,9 +841,39 @@ export const workflows: Workflow[] = [
     thumbnail: '/images/prompts/authority-architecture-pack.png',
     file: '/prompts/workflows/authority-architecture-pack.md',
     steps: [
-      { stepNumber: 1, title: 'The Signature Pattern Extractor' },
-      { stepNumber: 2, title: 'The Authority Story Architect' },
-      { stepNumber: 3, title: 'The Magnetic Authority Positioner' },
+      {
+        stepNumber: 1,
+        title: 'The Signature Pattern Extractor',
+        description: 'Mine your transcript for invisible expertise patterns—the behavioral signatures, decision architecture, and unique approaches that make you irreplaceable.',
+        instructions: [
+          'Attach or paste a transcript from a successful client engagement',
+          'Best results come from conversations where you diagnosed problems, guided breakthroughs, or achieved unexpected results',
+          'The AI will analyze your behavior, not just your words—looking for patterns you use unconsciously',
+          'Save all outputs for Step 2',
+        ],
+      },
+      {
+        stepNumber: 2,
+        title: 'The Authority Story Architect',
+        description: 'Transform your extracted patterns into a magnetic transformation story and visual framework that demonstrates your unique expertise in action.',
+        instructions: [
+          'Paste all outputs from Step 1 (Signature Patterns, Cognitive Fingerprint Summary, Unique Mechanism, etc.)',
+          'You\'ll receive your story in three lengths: 30-second, 2-minute, and 5-minute versions',
+          'The visual framework will be detailed enough to sketch or diagram',
+          'Save all outputs for Step 3',
+        ],
+      },
+      {
+        stepNumber: 3,
+        title: 'The Magnetic Authority Positioner',
+        description: 'Synthesize everything into irresistible positioning that attracts perfect clients—including your Only Statement and complete authority messaging suite.',
+        instructions: [
+          'Paste outputs from both Steps 1 and 2',
+          'This step creates your complete positioning: Only Statement, authority bio, differentiation messaging',
+          'Review each element and refine language that doesn\'t feel like you',
+          'Your Only Statement should feel true but bold—not comfortable',
+        ],
+      },
     ],
     estimatedTime: '90 min',
     tags: ['authority', 'positioning', 'storytelling', 'cognitive fingerprint'],
@@ -854,9 +888,39 @@ export const workflows: Workflow[] = [
     thumbnail: '/images/prompts/breakthrough-pattern-pack.png',
     file: '/prompts/workflows/breakthrough-pattern-pack.md',
     steps: [
-      { stepNumber: 1, title: 'The Breakthrough Excavator' },
-      { stepNumber: 2, title: 'The Pattern Choreographer' },
-      { stepNumber: 3, title: 'The Innovation Packager' },
+      {
+        stepNumber: 1,
+        title: 'The Breakthrough Excavator',
+        description: 'Identify and analyze the moments where transformative insights emerged—the hidden choreography that creates paradigm shifts in your clients.',
+        instructions: [
+          'Gather 3-5 transcripts featuring breakthrough moments or "aha" realizations',
+          'Focus on conversations where clients said things like "I never thought of it that way"',
+          'Include moments of emotional shift: confusion to clarity, stuck to movement',
+          'The prompt analyzes what happened before, during, and after each breakthrough',
+        ],
+      },
+      {
+        stepNumber: 2,
+        title: 'The Pattern Choreographer',
+        description: 'Structure your breakthrough patterns into a repeatable transformation system—turning spontaneous magic into systematic methodology.',
+        instructions: [
+          'Paste all outputs from Step 1 (Breakthrough Inventory, Trigger Techniques, Success Conditions, etc.)',
+          'This step organizes your breakthroughs into categories and creates selection criteria',
+          'You\'ll receive trigger technique toolkits and timing guidelines',
+          'Focus on patterns that appear across multiple transcripts',
+        ],
+      },
+      {
+        stepNumber: 3,
+        title: 'The Innovation Packager',
+        description: 'Package your breakthrough patterns into teachable innovation frameworks that others can learn and apply.',
+        instructions: [
+          'Paste the complete output from Step 2',
+          'This creates your Breakthrough Pattern Playbook with named frameworks',
+          'Review the frameworks for accuracy—does this match how you actually work?',
+          'Consider which frameworks could become training programs or workshops',
+        ],
+      },
     ],
     estimatedTime: '75 min',
     tags: ['breakthroughs', 'innovation', 'transformation', 'patterns'],
@@ -871,9 +935,39 @@ export const workflows: Workflow[] = [
     thumbnail: '/images/prompts/content-engine-pack.png',
     file: '/prompts/workflows/content-engine-pack.md',
     steps: [
-      { stepNumber: 1, title: 'The Content Excavator' },
-      { stepNumber: 2, title: 'The Content Multiplier' },
-      { stepNumber: 3, title: 'The Content Calendar Builder' },
+      {
+        stepNumber: 1,
+        title: 'The Content Excavator',
+        description: 'Mine your conversations for hidden content gold—insights, stories, frameworks, questions, and wisdom you\'re generating but not capturing.',
+        instructions: [
+          'Paste 3-5 client conversation transcripts showcasing different aspects of your expertise',
+          'The prompt extracts 6 types: insights, stories, frameworks, questions, wisdom, and quotable language',
+          'Expect 100+ pieces of raw content material from a few transcripts',
+          'Save all outputs—this becomes your content library for months',
+        ],
+      },
+      {
+        stepNumber: 2,
+        title: 'The Content Multiplier',
+        description: 'Transform each piece of raw material into multiple content formats—one insight becomes a LinkedIn post, Twitter thread, newsletter section, and more.',
+        instructions: [
+          'Paste all outputs from Step 1 (Insight Library, Story Bank, Framework Collection, etc.)',
+          'Each insight gets transformed into 5+ content pieces across formats',
+          'You\'ll receive templates and examples for each content type',
+          'Focus on formats that match your preferred platforms',
+        ],
+      },
+      {
+        stepNumber: 3,
+        title: 'The Content Calendar Builder',
+        description: 'Structure your multiplied content into a 90-day content calendar with themes, sequences, and engagement strategies.',
+        instructions: [
+          'Paste the content inventory from Step 2',
+          'This creates a structured 90-day plan with weekly themes',
+          'Includes hooks, CTAs, and engagement strategies for each piece',
+          'Adjust the calendar to match your actual publishing cadence',
+        ],
+      },
     ],
     estimatedTime: '60 min',
     tags: ['content', 'thought leadership', 'marketing', 'repurposing'],
@@ -888,9 +982,39 @@ export const workflows: Workflow[] = [
     thumbnail: '/images/prompts/decision-architecture-pack.png',
     file: '/prompts/workflows/decision-architecture-pack.md',
     steps: [
-      { stepNumber: 1, title: 'The Decision Excavator' },
-      { stepNumber: 2, title: 'The Logic Architect' },
-      { stepNumber: 3, title: 'The Decision Framework Builder' },
+      {
+        stepNumber: 1,
+        title: 'The Decision Excavator',
+        description: 'Unearth the hidden choice points and criteria from your client interactions—every moment where you could have gone multiple directions but chose one.',
+        instructions: [
+          'Paste 3-5 transcripts featuring strategic decisions, direction changes, or complex navigation',
+          'Focus on sessions where you made judgment calls or changed approach mid-engagement',
+          'The prompt maps choice points, trigger patterns, and your implicit decision rules',
+          'Save all outputs including the Exception Log—when you break your own patterns',
+        ],
+      },
+      {
+        stepNumber: 2,
+        title: 'The Logic Architect',
+        description: 'Structure your discovered patterns into a coherent Decision Architecture—grouping related rules into decision clusters and mapping contextual triggers.',
+        instructions: [
+          'Paste all outputs from Step 1 (Choice Point Inventory, Decision Rules, Priority Matrix, etc.)',
+          'This step synthesizes individual rules into a unified decision system',
+          'You\'ll receive a Context Navigation Map showing which approaches fit which situations',
+          'Pay attention to the Strategic Pivot Playbook—your documented pivot patterns',
+        ],
+      },
+      {
+        stepNumber: 3,
+        title: 'The Decision Framework Builder',
+        description: 'Transform your architecture into practical tools and frameworks others can use—decision trees, diagnostic tools, and implementation guides.',
+        instructions: [
+          'Paste the complete Decision Architecture from Step 2',
+          'This creates teachable frameworks from your intuitive decision-making',
+          'Review the Quick Decision Heuristics—simple rules that capture 80% of your decisions',
+          'Consider which frameworks could become client-facing tools or training materials',
+        ],
+      },
     ],
     estimatedTime: '75 min',
     tags: ['decisions', 'frameworks', 'if-then rules', 'strategic thinking'],
@@ -905,9 +1029,39 @@ export const workflows: Workflow[] = [
     thumbnail: '/images/prompts/resistance-alchemist-pack.png',
     file: '/prompts/workflows/resistance-alchemist-pack.md',
     steps: [
-      { stepNumber: 1, title: 'The Resistance Excavator' },
-      { stepNumber: 2, title: 'The Alchemical Transformer' },
-      { stepNumber: 3, title: 'The Contrarian Positioner' },
+      {
+        stepNumber: 1,
+        title: 'The Resistance Excavator',
+        description: 'Uncover patterns in what you avoid, resist, or work around—the unconventional approaches you\'ve developed precisely because you reject the "normal" way.',
+        instructions: [
+          'Paste 3-5 transcripts where you challenged norms, took unconventional paths, or avoided traditional approaches',
+          'Focus on moments of professional disagreement or contrarian positions',
+          'Include sessions where you offered creative alternatives to standard methods',
+          'The prompt looks for avoidance patterns, workarounds, and philosophical divergences',
+        ],
+      },
+      {
+        stepNumber: 2,
+        title: 'The Alchemical Transformer',
+        description: 'Transform your resistance patterns into differentiated frameworks—converting "I don\'t believe in..." into "I specifically do..." methodology.',
+        instructions: [
+          'Paste all outputs from Step 1 (Resistance Inventory, Shadow Strengths, Innovation Catalog, etc.)',
+          'This step flips constraints into design principles and avoidances into signature methods',
+          'You\'ll receive frameworks that celebrate your differentiation rather than hide it',
+          'Focus on the Contrarian Framework designs—systems built around what others miss',
+        ],
+      },
+      {
+        stepNumber: 3,
+        title: 'The Contrarian Positioner',
+        description: 'Package your transformed resistance into competitive positioning—building premium value from your philosophical differences.',
+        instructions: [
+          'Paste outputs from Step 2 (Signature Contrarian Methods, Differentiation Architecture, etc.)',
+          'This creates positioning that attracts clients who resonate with your unconventional approach',
+          'Review the Value Demonstration Framework—proof structures for your contrarian methods',
+          'Your positioning should feel bold and slightly uncomfortable—that\'s the edge',
+        ],
+      },
     ],
     estimatedTime: '60 min',
     tags: ['resistance', 'differentiation', 'contrarian', 'shadow work'],
@@ -922,11 +1076,61 @@ export const workflows: Workflow[] = [
     thumbnail: '/images/prompts/signature-method-pack.png',
     file: '/prompts/workflows/signature-method-pack.md',
     steps: [
-      { stepNumber: 1, title: 'The Pattern Mining Prompt' },
-      { stepNumber: 2, title: 'The Method Architecture Builder' },
-      { stepNumber: 3, title: 'The Naming Laboratory' },
-      { stepNumber: 4, title: 'The Method Validator' },
-      { stepNumber: 5, title: 'The Signature Method Document' },
+      {
+        stepNumber: 1,
+        title: 'The Pattern Mining Prompt',
+        description: 'Extract repeated approaches from your client transcripts—diagnostic patterns, approach sequences, decision architecture, and unconscious rules you follow.',
+        instructions: [
+          'Paste 3-5 client conversation transcripts or detailed session notes',
+          'Best results come from successful engagements where you got consistent results',
+          'The prompt looks for 6 pattern types: diagnostic, sequence, decision, unique, rules, and results',
+          'Save the comprehensive analysis for Step 2—this is your methodology\'s raw material',
+        ],
+      },
+      {
+        stepNumber: 2,
+        title: 'The Method Architecture Builder',
+        description: 'Structure your extracted patterns into a coherent methodology—identifying 3-5 major phases, the flow between them, and what makes your approach unique.',
+        instructions: [
+          'Paste the pattern analysis from Step 1',
+          'This creates your methodology blueprint with phases, components, and success indicators',
+          'Pay attention to the Flexibility Mapping—where your method adapts to different contexts',
+          'The output should feel like "how you actually work" articulated clearly',
+        ],
+      },
+      {
+        stepNumber: 3,
+        title: 'The Naming Laboratory',
+        description: 'Generate powerful, memorable names for your methodology using transformation-based, mechanism-based, and metaphor-based naming formulas.',
+        instructions: [
+          'Paste your methodology summary and unique elements from Step 2',
+          'You\'ll receive 15 potential names across three categories',
+          'Each name includes rationale, memorability factors, and positioning implications',
+          'Pick 2-3 finalists and test them with trusted colleagues or clients',
+        ],
+      },
+      {
+        stepNumber: 4,
+        title: 'The Method Validator',
+        description: 'Stress-test your methodology against edge cases, client objections, and competitive alternatives to ensure it\'s robust and defensible.',
+        instructions: [
+          'Paste your methodology architecture and chosen name',
+          'This step challenges your framework with difficult scenarios',
+          'You\'ll identify gaps, edge cases, and potential objections before clients do',
+          'Refine your methodology based on what the validation reveals',
+        ],
+      },
+      {
+        stepNumber: 5,
+        title: 'The Signature Method Document',
+        description: 'Compile everything into your official Signature Method Document—a complete, polished articulation of your proprietary system.',
+        instructions: [
+          'Paste all refined outputs from Steps 1-4',
+          'This creates your complete methodology documentation',
+          'Includes visual framework descriptions, implementation guides, and positioning language',
+          'Use this document for your website, proposals, and training materials',
+        ],
+      },
     ],
     estimatedTime: '90 min',
     tags: ['methodology', 'signature method', 'packaging', 'proprietary system'],

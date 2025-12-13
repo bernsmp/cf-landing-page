@@ -115,9 +115,11 @@ export default function WorkflowDetailPage() {
   const getStepContent = (stepNumber: number): string => {
     if (!markdownContent) return '';
 
-    // Look for step headers like "### **🔬 Step 1:" or "### **Step 1:" or "## **Step 1:"
+    // Match various step/tool header formats:
+    // "### **🔬 Step 1:" or "### **Step 1:" or "### **🪏Tool \#1:" etc.
+    // Handles escaped # (\\#) and optional spaces
     const stepRegex = new RegExp(
-      `(?:#{2,3}\\s*\\*{0,2}[🔬📖✨🎯🏆💡🔄]*\\s*Step\\s*${stepNumber}[:\\s][^]*?)(?=(?:#{2,3}\\s*\\*{0,2}[🔬📖✨🎯🏆💡🔄]*\\s*Step\\s*\\d)|---\\s*$|$)`,
+      `(?:#{2,3}\\s*\\*{0,2}[^\\n]*?(?:Step\\s*${stepNumber}|Tool\\s*\\\\?#?${stepNumber})[:\\s][^]*?)(?=(?:#{2,3}\\s*\\*{0,2}[^\\n]*?(?:Step\\s*\\d|Tool\\s*\\\\?#?\\d))|---\\s*##|$)`,
       'i'
     );
 
@@ -257,17 +259,24 @@ export default function WorkflowDetailPage() {
                 {/* Step Header */}
                 <button
                   onClick={() => toggleStep(step.stepNumber)}
-                  className="w-full p-5 flex items-center justify-between hover:bg-[var(--grey-850)] transition-colors"
+                  className="w-full p-5 flex items-start justify-between hover:bg-[var(--grey-850)] transition-colors text-left"
                 >
-                  <div className="flex items-center gap-4">
-                    <span className="w-8 h-8 rounded-full bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] flex items-center justify-center font-bold text-sm">
+                  <div className="flex items-start gap-4 flex-1 min-w-0">
+                    <span className="w-8 h-8 rounded-full bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">
                       {step.stepNumber}
                     </span>
-                    <span className="font-semibold text-white text-left">
-                      {step.title}
-                    </span>
+                    <div className="flex-1 min-w-0">
+                      <span className="font-semibold text-white block">
+                        {step.title}
+                      </span>
+                      {step.description && (
+                        <p className="text-[var(--grey-400)] text-sm mt-1 leading-relaxed">
+                          {step.description}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 flex-shrink-0 ml-4 mt-1">
                     {isLocked && (
                       <Lock size={16} className="text-[var(--grey-500)]" />
                     )}
@@ -291,8 +300,25 @@ export default function WorkflowDetailPage() {
                       className="overflow-hidden"
                     >
                       <div className="px-5 pb-5 border-t border-[var(--grey-800)]">
+                        {/* Instructions */}
+                        {step.instructions && step.instructions.length > 0 && (
+                          <div className="pt-4 pb-4">
+                            <h4 className="text-sm font-semibold text-[var(--brand-gold)] uppercase tracking-wider mb-3">
+                              How to use this step
+                            </h4>
+                            <ul className="space-y-2">
+                              {step.instructions.map((instruction, i) => (
+                                <li key={i} className="flex items-start gap-3 text-sm text-[var(--grey-300)]">
+                                  <span className="text-[var(--brand-gold)] mt-1">•</span>
+                                  <span>{instruction}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+
                         {/* Copy button */}
-                        <div className="flex justify-end pt-4 pb-2">
+                        <div className="flex justify-end pt-2 pb-2">
                           <button
                             onClick={() => copyStepContent(step.stepNumber)}
                             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${

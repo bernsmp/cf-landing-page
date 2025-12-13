@@ -435,54 +435,115 @@ export default function PromptsPage() {
                   Multi-step processes for deeper extraction. Each step's output feeds into the next.
                 </p>
 
-                <div className="space-y-4">
-                  {workflows.map((workflow) => (
-                    premiumUnlocked ? (
-                      <Link key={workflow.id} href={`/prompts/workflow/${workflow.slug}`} className="block">
-                        <div className="p-6 rounded-2xl bg-gradient-to-r from-[var(--brand-gold)]/5 to-transparent border border-[var(--brand-gold)]/20 hover:border-[var(--brand-gold)]/50 transition-all group">
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <div className="flex items-center gap-3 mb-2">
-                                <h3 className="font-display text-xl font-bold text-white group-hover:text-[var(--brand-gold)] transition-colors">
-                                  {workflow.title}
-                                </h3>
-                                <span className="px-2 py-1 bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs rounded-full">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {workflows.map((workflow, index) => (
+                    <motion.div
+                      key={workflow.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                    >
+                      {premiumUnlocked ? (
+                        <Link href={`/prompts/workflow/${workflow.slug}`} className="block h-full">
+                          <div className="h-full rounded-2xl bg-[var(--grey-850)] border border-[var(--brand-gold)]/30 hover:border-[var(--brand-gold)] transition-all duration-300 group overflow-hidden">
+                            {/* Thumbnail */}
+                            {workflow.thumbnail && (
+                              <div className="relative w-full h-40 overflow-hidden">
+                                <Image
+                                  src={workflow.thumbnail}
+                                  alt={workflow.title}
+                                  fill
+                                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                />
+                              </div>
+                            )}
+
+                            <div className="p-6">
+                              {/* Badges */}
+                              <div className="flex items-center gap-2 mb-4">
+                                <span className="inline-block px-3 py-1 rounded-full bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs font-semibold uppercase tracking-wider">
+                                  {workflow.category}
+                                </span>
+                                <span className="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">
                                   {workflow.steps.length} steps
                                 </span>
                               </div>
-                              <p className="text-[var(--grey-400)]">{workflow.description}</p>
-                              <p className="text-[var(--grey-500)] text-sm mt-2">⏱ {workflow.estimatedTime}</p>
+
+                              <h3 className="font-display text-xl font-bold text-white mb-2 group-hover:text-[var(--brand-gold)] transition-colors">
+                                {workflow.title}
+                              </h3>
+
+                              <p className="text-[var(--grey-400)] text-sm mb-4 line-clamp-2">
+                                {workflow.description}
+                              </p>
+
+                              <div className="flex items-center justify-between pt-4 border-t border-[var(--grey-800)]">
+                                <span className="text-xs text-[var(--grey-500)]">
+                                  ⏱ {workflow.estimatedTime}
+                                </span>
+                                <span className="flex items-center gap-1 text-[var(--brand-gold)] text-sm font-medium">
+                                  View workflow
+                                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                                </span>
+                              </div>
                             </div>
-                            <ArrowRight className="text-[var(--brand-gold)] group-hover:translate-x-2 transition-transform" size={24} />
                           </div>
-                        </div>
-                      </Link>
-                    ) : (
-                      <button
-                        key={workflow.id}
-                        onClick={() => setShowPremium(true)}
-                        className="block w-full text-left"
-                      >
-                        <div className="p-6 rounded-2xl bg-gradient-to-r from-[var(--brand-gold)]/5 to-transparent border border-[var(--brand-gold)]/20 hover:border-[var(--brand-gold)]/50 transition-all group cursor-pointer">
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <div className="flex items-center gap-3 mb-2">
-                                <h3 className="font-display text-xl font-bold text-white group-hover:text-[var(--brand-gold)] transition-colors">
-                                  {workflow.title}
-                                </h3>
-                                <span className="px-2 py-1 bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs rounded-full">
+                        </Link>
+                      ) : (
+                        <button
+                          onClick={() => setShowPremium(true)}
+                          className="block h-full w-full text-left"
+                        >
+                          <div className="h-full rounded-2xl bg-[var(--grey-850)] border border-[var(--brand-gold)]/30 hover:border-[var(--brand-gold)] transition-all duration-300 group cursor-pointer overflow-hidden">
+                            {/* Thumbnail with lock overlay */}
+                            {workflow.thumbnail && (
+                              <div className="relative w-full h-40 overflow-hidden">
+                                <Image
+                                  src={workflow.thumbnail}
+                                  alt={workflow.title}
+                                  fill
+                                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                />
+                                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                                  <Lock size={24} className="text-[var(--brand-gold)]" />
+                                </div>
+                              </div>
+                            )}
+
+                            <div className="p-6">
+                              {/* Badges */}
+                              <div className="flex items-center gap-2 mb-4">
+                                <span className="inline-block px-3 py-1 rounded-full bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs font-semibold uppercase tracking-wider">
+                                  {workflow.category}
+                                </span>
+                                <span className="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">
                                   {workflow.steps.length} steps
                                 </span>
                                 <Lock size={14} className="text-[var(--brand-gold)]" />
                               </div>
-                              <p className="text-[var(--grey-400)]">{workflow.description}</p>
-                              <p className="text-[var(--grey-500)] text-sm mt-2">⏱ {workflow.estimatedTime}</p>
+
+                              <h3 className="font-display text-xl font-bold text-white mb-2 group-hover:text-[var(--brand-gold)] transition-colors">
+                                {workflow.title}
+                              </h3>
+
+                              <p className="text-[var(--grey-400)] text-sm mb-4 line-clamp-2">
+                                {workflow.description}
+                              </p>
+
+                              <div className="flex items-center justify-between pt-4 border-t border-[var(--grey-800)]">
+                                <span className="text-xs text-[var(--grey-500)]">
+                                  ⏱ {workflow.estimatedTime}
+                                </span>
+                                <span className="flex items-center gap-1 text-[var(--brand-gold)] text-sm font-medium">
+                                  <Lock size={12} />
+                                  Unlock to view
+                                </span>
+                              </div>
                             </div>
-                            <Lock className="text-[var(--brand-gold)]" size={24} />
                           </div>
-                        </div>
-                      </button>
-                    )
+                        </button>
+                      )}
+                    </motion.div>
                   ))}
                 </div>
               </div>

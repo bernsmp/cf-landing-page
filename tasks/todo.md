@@ -1,87 +1,52 @@
-# Refine Design System with Chart Generator Styling
+# Add Descriptions and Instructions to Workflow Steps
 
 ## Problem
-The landing page design felt less clean/polished compared to the Chart Generator project.
+The workflow packs currently show step titles and prompts but lack:
+- Step descriptions explaining what the step does
+- Instructions on how to use the step
+- Context about why this step matters
+- Guidance on what to expect
 
-## Plan
+Users need this context to understand each step without seeing the full prompt.
 
-- [x] Analyze Chart Generator style elements to borrow
-- [x] Update globals.css with cleaner CSS variable naming and new animations
-- [x] Apply cleaner card styling and borders to components
-- [x] Swap fonts to Instrument Serif + Inter
-- [x] Simplify hero section (remove badge, use italic second line)
-- [x] Test locally and push to production
+## Solution
+Add the following fields to each step in the Workflow interface in `data/prompts.ts`:
+- `description`: What this step does (1-2 sentences)
+- `instructions`: How to use this step (bullet points)
+
+## Tasks
+
+- [x] Update `Workflow` interface in `data/prompts.ts` to add `description` and `instructions` fields to steps
+- [x] Add descriptions and instructions for all 6 workflow packs (total of ~22 steps)
+  - [x] Authority Architecture Pack (3 steps)
+  - [x] Breakthrough Pattern Pack (3 steps)
+  - [x] Content Engine Pack (3 steps)
+  - [x] Decision Architecture Pack (3 steps)
+  - [x] Resistance Alchemist Pack (3 steps)
+  - [x] Signature Method Pack (5 steps)
+- [x] Update workflow detail page to display descriptions and instructions
+- [x] Test the changes
 
 ## Review
 
 ### Summary of Changes
-1. **Font swap**: Fraunces → Instrument Serif, DM Sans → Inter (cleaner editorial feel)
-2. **Grey palette**: Adjusted to warmer tones (#111113, #161618, #1c1c1f)
-3. **Semantic borders**: Added --border-subtle, --border-medium, --border-strong (rgba for softer look)
-4. **Card hover effects**: Radial gold glow from top on hover
-5. **Animations**: Added heroFloat (with rotation), heroGlow, faster fadeInUp
-6. **Hero simplification**: Removed badge, second line now italic grey instead of gold gradient
+1. **Created `WorkflowStep` interface** with new fields: `description` (string) and `instructions` (string array)
+2. **Added content for all 20 workflow steps** across 6 packs with:
+   - Clear 1-2 sentence descriptions explaining what each step does
+   - 4 bullet-point instructions on how to use each step
+3. **Updated workflow detail page** (`app/prompts/workflow/[slug]/page.tsx`) to:
+   - Display step description below the title in the collapsed state (visible before expanding)
+   - Display "How to use this step" section with bullet-pointed instructions when expanded
 
 ### Files Modified
-- `app/globals.css` - New CSS variables, animations, card styles
-- `app/layout.tsx` - Swapped fonts to Instrument Serif + Inter
-- `components/home/HeroSection.tsx` - Simplified hero, removed badge
-- `components/home/OutcomesSection.tsx` - Cleaner card borders
-- `components/home/SocialProof.tsx` - Cleaner card borders
-- `components/home/FeaturedContent.tsx` - Cleaner card borders
-- `components/layout/Navigation.tsx` - Subtle border variable
-
-### Known Limitations
-- Instrument Serif only has 400 weight (no bold)
-
----
-
-# Fix Insights Article Styling
-
-## Problem
-The blog/insights pages look broken because:
-1. `@tailwindcss/typography` plugin is NOT installed - all `prose-*` classes do nothing
-2. Images render as plain markdown without proper containers/styling
-3. Need better section spacing and visual hierarchy
-
-## Plan
-
-- [x] Install `@tailwindcss/typography` plugin
-- [x] Import the typography plugin in globals.css (Tailwind v4 syntax)
-- [x] Add custom article typography styles to globals.css for fine-tuning
-- [x] Update ReactMarkdown to use custom components for images
-- [x] Test and verify styling looks good
-
-## Review
-
-### Summary of Changes
-1. Installed `@tailwindcss/typography` plugin
-2. Added `@plugin "@tailwindcss/typography"` to globals.css (Tailwind v4 syntax)
-3. Created comprehensive `.article-content` custom styles with:
-   - Premium H2 headers with section dividers
-   - H3 subheadings with proper hierarchy
-   - Lead paragraph styling (first paragraph larger)
-   - Premium blockquotes with gold accent + decorative quote mark
-   - Gold bullet/number markers for lists
-   - Elegant horizontal rule dividers (gold gradient)
-   - Images with rounded corners, borders, and shadows
-   - Figure/figcaption support for image captions
-   - TL;DR boxes with gold-tinted background
-   - Mobile responsive adjustments
-4. Updated ReactMarkdown with custom image component using Next.js Image
+- `data/prompts.ts` - Added WorkflowStep interface, expanded all workflow step data with descriptions and instructions
+- `app/prompts/workflow/[slug]/page.tsx` - Updated step header to show description, added instructions display when expanded
 
 ### New Dependencies Added
-- `@tailwindcss/typography` - Tailwind typography plugin
+None
 
-### Files Modified
-- `package.json` - Added typography dependency
-- `app/globals.css` - Added plugin import + ~200 lines of premium article styles
-- `app/insights/[slug]/InsightArticleClient.tsx` - Simplified to use `.article-content` class + custom image components
+### Environment Variables
+None
 
-### Premium Features Now Available
-- Section dividers between H2s (subtle border)
-- Gold gradient horizontal rules
-- Blockquotes with decorative quote marks
-- Images with shadows and captions
-- Gold-accented lists
-- TL;DR/summary boxes auto-styled when blockquote starts with bold text
+### Known Limitations
+- Instructions are stored in the data file rather than the markdown files (simpler implementation, but means two places to update if content changes)
