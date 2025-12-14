@@ -75,15 +75,29 @@ export default function PromptDetailPage() {
     window.open(`https://claude.ai/new?q=${encodedPrompt}`, '_blank');
   };
 
-  const handleUnlock = () => {
-    const correctPassword = process.env.NEXT_PUBLIC_PREMIUM_PASSWORD || 'cognitive2024';
-    if (password === correctPassword) {
-      setPremiumUnlocked(true);
-      localStorage.setItem(STORAGE_KEY, 'true');
-      setShowPasswordModal(false);
-      setPasswordError(false);
-    } else {
+  const [isVerifying, setIsVerifying] = useState(false);
+
+  const handleUnlock = async () => {
+    setIsVerifying(true);
+    try {
+      const response = await fetch('/api/verify-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      });
+
+      if (response.ok) {
+        setPremiumUnlocked(true);
+        localStorage.setItem(STORAGE_KEY, 'true');
+        setShowPasswordModal(false);
+        setPasswordError(false);
+      } else {
+        setPasswordError(true);
+      }
+    } catch {
       setPasswordError(true);
+    } finally {
+      setIsVerifying(false);
     }
   };
 
@@ -330,9 +344,10 @@ export default function PromptDetailPage() {
               </button>
               <button
                 onClick={handleUnlock}
-                className="flex-1 px-4 py-3 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-colors"
+                disabled={isVerifying}
+                className="flex-1 px-4 py-3 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-colors disabled:opacity-50"
               >
-                Unlock
+                {isVerifying ? 'Verifying...' : 'Unlock'}
               </button>
             </div>
           </motion.div>

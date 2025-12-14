@@ -17,8 +17,9 @@ const tiers = [
   },
   {
     label: 'PREMIUM',
-    title: 'Premium Insights',
-    description: 'Deep dives, advanced frameworks, extraction methods.',
+    title: 'Signal > Noise Pro',
+    price: '$10/mo',
+    description: 'Deep dives, Subscriber Vault, Framework Factory Course, and more.',
     cta: 'Get Access',
     href: 'https://irreplaceablepositioning.substack.com',
     icon: Sparkles,
@@ -105,9 +106,16 @@ export const CTASection = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-display text-xl font-bold text-white mb-3">
+                <h3 className="font-display text-xl font-bold text-white mb-1">
                   {tier.title}
                 </h3>
+
+                {/* Price (if exists) */}
+                {tier.price && (
+                  <p className={`text-lg font-semibold mb-2 ${tier.featured ? 'text-[var(--brand-gold)]' : 'text-white'}`}>
+                    {tier.price}
+                  </p>
+                )}
 
                 {/* Description */}
                 <p className="text-[var(--grey-400)] mb-6">

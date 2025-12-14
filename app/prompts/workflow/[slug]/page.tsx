@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
@@ -75,15 +76,29 @@ export default function WorkflowDetailPage() {
 
   const isLocked = workflow.isPremium && !premiumUnlocked;
 
-  const handleUnlock = () => {
-    const correctPassword = process.env.NEXT_PUBLIC_PREMIUM_PASSWORD || 'cognitive2024';
-    if (password === correctPassword) {
-      setPremiumUnlocked(true);
-      localStorage.setItem(STORAGE_KEY, 'true');
-      setShowPasswordModal(false);
-      setPasswordError(false);
-    } else {
+  const [isVerifying, setIsVerifying] = useState(false);
+
+  const handleUnlock = async () => {
+    setIsVerifying(true);
+    try {
+      const response = await fetch('/api/verify-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      });
+
+      if (response.ok) {
+        setPremiumUnlocked(true);
+        localStorage.setItem(STORAGE_KEY, 'true');
+        setShowPasswordModal(false);
+        setPasswordError(false);
+      } else {
+        setPasswordError(true);
+      }
+    } catch {
       setPasswordError(true);
+    } finally {
+      setIsVerifying(false);
     }
   };
 
@@ -156,6 +171,23 @@ export default function WorkflowDetailPage() {
             <ArrowLeft size={16} />
             Back to prompts
           </Link>
+
+          {/* Thumbnail */}
+          {workflow.thumbnail && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden mb-8"
+            >
+              <Image
+                src={workflow.thumbnail}
+                alt={workflow.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </motion.div>
+          )}
 
           {/* Header */}
           <div className="mb-12">
@@ -438,9 +470,10 @@ export default function WorkflowDetailPage() {
               </button>
               <button
                 onClick={handleUnlock}
-                className="flex-1 px-4 py-3 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-colors"
+                disabled={isVerifying}
+                className="flex-1 px-4 py-3 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-colors disabled:opacity-50"
               >
-                Unlock
+                {isVerifying ? 'Verifying...' : 'Unlock'}
               </button>
             </div>
           </motion.div>

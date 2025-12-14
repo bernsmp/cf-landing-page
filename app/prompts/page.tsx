@@ -42,19 +42,29 @@ export default function PromptsPage() {
     return matchesSearch && matchesCategory;
   });
 
-  const handleUnlockPremium = () => {
-    // Simple password check - you'll set this in your Substack community
-    // Change this password monthly
-    const correctPassword = process.env.NEXT_PUBLIC_PREMIUM_PASSWORD || 'cognitive2024';
+  const [isVerifying, setIsVerifying] = useState(false);
 
-    if (premiumPassword === correctPassword) {
-      setPremiumUnlocked(true);
-      setPasswordError(false);
-      setShowPremium(false);
-      // Save to localStorage so it persists
-      localStorage.setItem('cf-premium-unlocked', 'true');
-    } else {
+  const handleUnlockPremium = async () => {
+    setIsVerifying(true);
+    try {
+      const response = await fetch('/api/verify-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: premiumPassword }),
+      });
+
+      if (response.ok) {
+        setPremiumUnlocked(true);
+        setPasswordError(false);
+        setShowPremium(false);
+        localStorage.setItem('cf-premium-unlocked', 'true');
+      } else {
+        setPasswordError(true);
+      }
+    } catch {
       setPasswordError(true);
+    } finally {
+      setIsVerifying(false);
     }
   };
 
@@ -293,9 +303,10 @@ export default function PromptsPage() {
                     </button>
                     <button
                       onClick={handleUnlockPremium}
-                      className="flex-1 px-4 py-3 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-colors"
+                      disabled={isVerifying}
+                      className="flex-1 px-4 py-3 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-colors disabled:opacity-50"
                     >
-                      Unlock
+                      {isVerifying ? 'Verifying...' : 'Unlock'}
                     </button>
                   </div>
 

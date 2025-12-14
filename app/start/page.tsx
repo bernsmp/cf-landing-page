@@ -27,15 +27,18 @@ const tiers = [
   },
   {
     label: 'PREMIUM',
-    name: 'Premium Insights',
-    price: '$XX/month',
+    name: 'Signal > Noise Pro',
+    price: '$10/month',
+    priceAnnual: '$100/year',
     description: 'Deep dives, advanced frameworks, and extraction methods you won\'t find anywhere else.',
     features: [
       'Everything in free tier',
-      'Advanced extraction techniques',
-      'Step-by-step methodology guides',
-      'Premium pattern analyses',
-      'Community access',
+      'Additional newsletter articles',
+      'Subscriber Vault access (prompts & workflows added weekly)',
+      'Premium prompts and workflows in the newsletter',
+      'All newsletter bonuses',
+      '📚 The Framework Factory Course — transform invisible expertise into IP frameworks',
+      '🔍 The Expertise Blindspot Finder™ GPT — reveals valuable patterns you can\'t see',
     ],
     cta: 'Get Premium Access',
     href: 'https://irreplaceablepositioning.substack.com',
@@ -155,9 +158,16 @@ export default function StartPage() {
 
                     {/* Name & Price */}
                     <h3 className="font-display text-2xl font-bold text-white mb-2">{tier.name}</h3>
-                    <p className={`text-2xl font-bold mb-4 ${tier.featured ? 'text-[var(--brand-gold)]' : 'text-white'}`}>
-                      {tier.price}
-                    </p>
+                    <div className="mb-4">
+                      <p className={`text-2xl font-bold ${tier.featured ? 'text-[var(--brand-gold)]' : 'text-white'}`}>
+                        {tier.price}
+                      </p>
+                      {tier.priceAnnual && (
+                        <p className="text-sm text-[var(--grey-400)]">
+                          or {tier.priceAnnual}
+                        </p>
+                      )}
+                    </div>
 
                     {/* Description */}
                     <p className="text-[var(--grey-400)] mb-6">{tier.description}</p>
