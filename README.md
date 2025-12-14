@@ -34,3 +34,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+### Troubleshooting Deployments
+
+**⚠️ If changes aren't showing on production:** Always check `git status` first. See [DEPLOYMENT-TROUBLESHOOTING.md](./DEPLOYMENT-TROUBLESHOOTING.md) for the complete guide.
+
+**Quick fix:** Uncommitted changes won't deploy. Commit and push your changes:
+```bash
+git status  # Check for uncommitted changes
+git add . && git commit -m "Your changes" && git push
+```

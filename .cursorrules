@@ -1,0 +1,39 @@
+# Deployment Troubleshooting Rules
+
+## CRITICAL: Always Check Git Status First
+
+When debugging deployment issues (especially "changes not showing on Vercel"), **ALWAYS run `git status` FIRST** before:
+- Debugging build errors
+- Checking Vercel configuration
+- Force deploying
+- Investigating TypeScript errors
+
+## The Pattern
+
+**User says:** "My changes aren't showing on production" or "It works locally but not deployed"
+
+**Your first action:** `git status`
+
+**Most common cause:** Uncommitted changes (90% of cases)
+
+**Solution:** Commit and push changes, then wait for Vercel auto-deploy
+
+## Workflow
+
+1. `git status` - Check for uncommitted changes
+2. `git diff` - See what changed (if uncommitted changes found)
+3. `git add <files> && git commit -m "..." && git push` - Commit and push
+4. Wait 1-2 minutes for Vercel auto-deploy
+5. Only then check build logs if still not working
+
+## Red Flags
+
+If user mentions:
+- "Works locally but not production"
+- "Changes not showing up"
+- "Site looks different locally vs deployed"
+
+→ Check `git status` immediately
+
+See DEPLOYMENT-TROUBLESHOOTING.md for full guide.
+

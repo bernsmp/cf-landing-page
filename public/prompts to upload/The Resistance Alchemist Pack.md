@@ -1,0 +1,340 @@
+# **The Resistance Alchemist Pack**
+
+*Transform what you avoid or resist into your most differentiated frameworks*
+
+*![][image1]*
+
+### **Pack Overview**
+
+Your most powerful frameworks often come from what you instinctively avoid or work around. This pack excavates the patterns hidden in your resistance—the unconventional approaches you've developed precisely because you reject the "normal" way. Transform your professional shadow into your competitive edge.
+
+**Perfect for:** Contrarian consultants, innovators who challenge industry norms, and experts who've succeeded by doing things differently
+
+**Required materials:** 3-5 transcripts where you took unconventional approaches, pushed back on standard practices, or found creative workarounds
+
+**Outcome:** Your Contrarian Method Map™ \- frameworks built from what you resist that become your greatest differentiation
+
+---
+
+## **The 3-Step Resistance Alchemy Pipeline**
+
+### **🔥 Step 1: The Resistance Excavator**
+
+*Uncover the patterns in what you avoid, resist, or work around*
+
+**INPUT REQUIRED:** 3-5 client conversation transcripts featuring moments where you challenged norms, took unconventional paths, or explicitly avoided traditional approaches
+
+**PROMPT:**
+
+You are a shadow pattern specialist analyzing resistance and avoidance in expert behavior. Your expertise is finding the gold hidden in what professionals instinctively reject or work around.
+
+CONTEXT Experts often develop their most innovative approaches by avoiding what doesn't work for them. Their resistance patterns reveal unique insights and differentiated methodologies. Your task is to excavate these shadow patterns.
+
+TRANSCRIPT INPUTS \[Paste 3-5 client conversation transcripts here\]
+
+RESISTANCE EXCAVATION PROTOCOL
+
+1. AVOIDANCE PATTERN MAPPING
+
+   * What does the expert consistently avoid or skip?  
+   * Which traditional steps do they bypass?  
+   * What industry standards do they ignore?  
+   * What questions do they never ask?  
+   * What tools or methods do they reject?  
+2. RESISTANCE LANGUAGE ANALYSIS
+
+   * Note phrases like "I don't believe in..." or "I never..."  
+   * Identify pushback against client suggestions  
+   * Find moments of professional disagreement  
+   * Track alternative approaches offered  
+   * Document contrarian positions taken  
+3. WORKAROUND INNOVATIONS
+
+   * How do they achieve results without standard methods?  
+   * What creative alternatives have they developed?  
+   * Which shortcuts actually improve outcomes?  
+   * How do they reframe to avoid resistance triggers?  
+   * What unique paths do they consistently take?  
+4. SHADOW STRENGTHS IDENTIFICATION
+
+   * What strength emerges from each avoidance?  
+   * How does resistance create differentiation?  
+   * What innovations come from constraints?  
+   * Where does "the hard way" become "the better way"?  
+   * How do limitations become advantages?  
+5. PHILOSOPHICAL DIVERGENCE
+
+   * What industry beliefs do they challenge?  
+   * Which assumptions do they question?  
+   * What sacred cows do they slaughter?  
+   * How do their values differ from norms?  
+   * What truths do they hold that others reject?  
+6. RESULTS FROM RESISTANCE
+
+   * What outcomes emerge from unconventional approaches?  
+   * How do clients respond to contrarian methods?  
+   * What breakthroughs come from avoiding the standard?  
+   * Where does resistance create superior results?  
+   * How does differentiation translate to value?
+
+OUTPUT REQUIRED:
+
+1. **Resistance Inventory**: Complete catalog of what they avoid/resist  
+2. **Workaround Patterns**: Creative alternatives they've developed  
+3. **Shadow Strengths**: Advantages gained from resistance  
+4. **Philosophical Divergences**: Beliefs that drive unconventional approaches  
+5. **Innovation Catalog**: New methods born from constraints  
+6. **Results Evidence**: Proof that resistance creates value
+
+---
+
+### **⚗️ Step 2: The Alchemical Transformer**
+
+*Transform resistance patterns into powerful differentiated frameworks*
+
+**INPUT REQUIRED:** All outputs from Step 1 (Resistance Inventory, Workaround Patterns, Shadow Strengths, Philosophical Divergences, Innovation Catalog, Results Evidence)
+
+**PROMPT:**
+
+Transform the discovered resistance patterns into differentiated frameworks that turn professional shadows into competitive advantages.
+
+RESISTANCE PATTERNS \[Paste all outputs from Step 1\]
+
+ALCHEMICAL TRANSFORMATION PROTOCOL
+
+1. RESISTANCE-TO-STRENGTH MAPPING
+
+   * Convert each avoidance into a positive approach  
+   * Reframe constraints as design principles  
+   * Transform "I don't" into "I specifically do"  
+   * Turn workarounds into signature methods  
+   * Flip weaknesses into unique selling points  
+2. CONTRARIAN FRAMEWORK DESIGN
+
+   * Structure unconventional approaches into systems  
+   * Create names that celebrate differentiation  
+   * Build frameworks around what others miss  
+   * Design methods that challenge status quo  
+   * Develop protocols for consistent rebellion  
+3. SHADOW INTEGRATION SYSTEM
+
+   * Acknowledge what you resist and why  
+   * Show how avoidance creates innovation  
+   * Build transparency around unconventional choices  
+   * Create permission structures for breaking rules  
+   * Design client preparation for different approaches  
+4. DIFFERENTIATION ARCHITECTURE
+
+   * Map how resistance creates unique value  
+   * Structure competitive advantages from constraints  
+   * Build moats from what others won't do  
+   * Create barriers from philosophical differences  
+   * Design premium positioning from contrarian stance  
+5. INNOVATION CODIFICATION
+
+   * Systematize creative workarounds  
+   * Document alternative pathways  
+   * Create decision trees for unconventional choices  
+   * Build flexibility into contrarian approaches  
+   * Structure adaptation protocols  
+6. VALUE DEMONSTRATION FRAMEWORK
+
+   * Connect resistance patterns to superior outcomes  
+   * Build proof structures for unconventional methods  
+   * Create comparison models showing advantages  
+   * Design results tracking for differentiated approaches  
+   * Develop ROI arguments for contrarian methods
+
+OUTPUT REQUIRED:
+
+1. **Signature Contrarian Methods**: 3-5 frameworks built from resistance  
+2. **Differentiation Map**: How avoidance creates competitive advantage  
+3. **Shadow Strength System**: Integrated approach leveraging resistance  
+4. **Innovation Protocols**: Systematized creative workarounds  
+5. **Value Proof Structure**: Evidence framework for unconventional ROI  
+6. **Contrarian Positioning**: How to market differentiated approach
+
+---
+
+### **💎 Step 3: The Differentiation Designer**
+
+*Package your alchemized frameworks into premium differentiated offerings*
+
+**INPUT REQUIRED:** Complete transformation system from Step 2 (all six outputs)
+
+**PROMPT:**
+
+Convert the alchemized resistance patterns into premium frameworks and tools that position contrarian approaches as superior solutions.
+
+ALCHEMICAL FRAMEWORKS \[Paste all outputs from Step 2\]
+
+DIFFERENTIATION DESIGN PROTOCOL
+
+1. PREMIUM FRAMEWORK PACKAGING
+
+   * Create compelling names for contrarian methods  
+   * Design visual models that show why different is better  
+   * Build explanations that convert skeptics  
+   * Develop positioning that attracts maverick clients  
+   * Structure IP protection for unique approaches  
+2. CONTRARIAN DIAGNOSTIC TOOLS
+
+   * Assessment for "traditional method fatigue"  
+   * Readiness evaluator for unconventional approaches  
+   * Innovation appetite diagnostic  
+   * Status quo frustration identifier  
+   * Alternative approach compatibility test  
+3. DIFFERENTIATION SALES TOOLS
+
+   * Comparison frameworks showing your advantages  
+   * Case studies of contrarian success  
+   * ROI models for unconventional methods  
+   * Objection handling for resistance  
+   * Premium pricing justification frameworks  
+4. MAVERICK METHOD PROGRAMS
+
+   * Design programs for innovation-hungry clients  
+   * Create rebellious transformation journeys  
+   * Build contrarian leadership development  
+   * Develop rule-breaking workshops  
+   * Structure unconventional consulting packages  
+5. THOUGHT LEADERSHIP PLATFORM
+
+   * Content strategy around contrarian insights  
+   * Speaking topics that challenge norms  
+   * Book/methodology outline for different approach  
+   * Media angles for maverick positioning  
+   * Community building for fellow contrarians  
+6. SCALING DIFFERENTIATION
+
+   * Identify which contrarian methods can be taught  
+   * Create certification for unconventional approaches  
+   * Build quality control that maintains edge  
+   * Design recruitment for like-minded rebels  
+   * Develop expansion without dilution
+
+OUTPUT REQUIRED:
+
+1. **The \[Your Contrarian Method\]™**: Signature framework from resistance  
+2. **Maverick Diagnostic Suite**: Tools to identify ideal contrarian clients  
+3. **Differentiation Sales System**: Complete toolkit for selling different  
+4. **Rebellious Program Portfolio**: Offerings that challenge norms  
+5. **Contrarian Authority Platform**: Thought leadership strategy  
+6. **Scaling Without Selling Out**: Growth plan maintaining differentiation
+
+---
+
+## **Implementation Guide**
+
+### **Phase 1: Shadow Mining (30 minutes)**
+
+**Preparation**
+
+* Gather transcripts where you pushed back or took unconventional paths  
+* Include moments of professional disagreement or creative workarounds  
+* Note sessions where you achieved results despite avoiding standard methods
+
+**Extraction Process**
+
+1. Run Step 1 focusing on resistance patterns  
+2. Pay attention to what surprises you about your avoidances  
+3. Notice the innovations born from constraints  
+4. Document shadow strengths you hadn't recognized
+
+### **Phase 2: Alchemical Transformation (30 minutes)**
+
+**Framework Building**
+
+1. Feed Step 1 outputs into Step 2  
+2. Focus on reframing resistance as strength  
+3. Build systematic approaches from workarounds  
+4. Create positive positioning for contrarian methods
+
+**Authenticity Check**
+
+* Do these frameworks feel true to who you are?  
+* Can you own your contrarian position confidently?  
+* Are the methods genuinely better, not just different?
+
+### **Phase 3: Differentiation Design (30 minutes)**
+
+**Premium Packaging**
+
+1. Transform frameworks into marketable methods  
+2. Create diagnostic to find fellow mavericks  
+3. Build sales tools that celebrate differentiation  
+4. Design one contrarian program offering
+
+**Market Positioning**
+
+* Test contrarian messaging with select clients  
+* Refine based on maverick client responses  
+* Build thought leadership around different approach  
+* Price for premium based on differentiation
+
+---
+
+## **Quick Start Protocol**
+
+*First results in 30 minutes*
+
+**Required:** One transcript where you explicitly avoided traditional approaches or pushed back on norms
+
+1. **Identify Resistance Moments**
+
+   * Run only Step 1, Section 1 (Avoidance Patterns)  
+   * Find 3-5 things you consistently avoid  
+   * Note what you do instead  
+2. **Flip the Script**
+
+   * Turn each avoidance into a strength  
+   * Name your alternative approach  
+   * Find the advantage in your constraint  
+3. **Create Contrarian Position**
+
+   * Write "While others \[standard\], I \[alternative\]"  
+   * Test with one maverick client  
+   * Refine based on response
+
+---
+
+## **Evolution Path**
+
+**Week 1: Shadow Recognition**
+
+* Extract resistance patterns from 5+ sessions  
+* Identify top 3 contrarian positions  
+* Create first workaround framework  
+* Test with innovation-seeking client
+
+**Month 1: Alchemical Development**
+
+* Build complete shadow strength system  
+* Develop 3-5 contrarian frameworks  
+* Create maverick diagnostic tool  
+* Run first unconventional program
+
+**Quarter 1: Differentiation Platform**
+
+* Launch contrarian thought leadership  
+* Build community of fellow mavericks  
+* Create premium unconventional offerings  
+* Generate differentiation case studies
+
+**Year 1: Maverick Movement**
+
+* Write contrarian methodology book  
+* Certify other unconventional consultants  
+* Build institute for alternative approaches  
+* Lead industry transformation
+
+---
+
+## **Integration Notes**
+
+* **With your sales process:** Use resistance patterns to attract clients tired of traditional approaches  
+* **With your delivery:** Make contrarian methods a feature, not a bug  
+* **With your content:** Build thought leadership around what you reject and why  
+* **With your positioning:** "The Contrarian \[Your Field\] Consultant" who gets results by breaking rules
+
+[image1]: <data:image/png;base64,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>

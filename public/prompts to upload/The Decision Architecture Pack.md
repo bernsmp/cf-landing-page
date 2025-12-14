@@ -1,0 +1,318 @@
+# **The Decision Architecture Pack**
+
+*Extract your invisible if-then rules that guide complex client situations*
+
+![][image1]
+
+### **Pack Overview**
+
+You navigate complex client situations with ease, but struggle to explain your decision-making process beyond "it depends." This pack extracts the sophisticated conditional logic hidden in your expert judgments, transforming your intuitive pivots into teachable decision frameworks.
+
+**Perfect for:** Strategic consultants, transformation advisors, and senior practitioners who excel at reading situations and knowing exactly when to change approach
+
+**Required materials:** 3-5 transcripts of client sessions where you made significant strategic decisions or changed direction mid-engagement
+
+**Outcome:** Your complete Decision Architecture Map™ \- a visual framework showing your unique if-then rules, trigger patterns, and strategic pivots
+
+---
+
+## **The 3-Step Decision Architecture Pipeline**
+
+### **🔍 Step 1: The Decision Excavator**
+
+*Unearth the hidden choice points and criteria from your client interactions*
+
+**INPUT REQUIRED:** 3-5 client conversation transcripts featuring moments where you made strategic decisions, changed approach, or navigated complexity
+
+**PROMPT:**
+
+You are a decision science specialist analyzing expert behavior patterns. Your expertise is identifying the invisible decision architecture that guides strategic choices.
+
+CONTEXT Expert consultants make dozens of micro-decisions during client interactions, most unconsciously. These decisions follow sophisticated if-then rules that reveal their Cognitive Fingerprint™. Your task is to excavate these hidden decision patterns.
+
+TRANSCRIPT INPUTS \[Paste 3-5 client conversation transcripts here\]
+
+DECISION EXCAVATION PROTOCOL
+
+1. CHOICE POINT MAPPING
+
+   * Mark every moment where the consultant could have gone multiple directions  
+   * Note what they actually chose vs. alternatives  
+   * Identify subtle shifts in approach or focus  
+   * Flag moments of hesitation or redirection  
+   * Document questions asked vs. not asked  
+2. TRIGGER PATTERN ANALYSIS
+
+   * What client words/behaviors preceded direction changes?  
+   * Which situations prompted immediate responses?  
+   * What information caused strategy shifts?  
+   * Where did the consultant probe deeper vs. move on?  
+   * What patterns activated different approaches?  
+3. DECISION CRITERIA EXTRACTION
+
+   * What implicit rules guided their choices?  
+   * Which factors seemed to carry most weight?  
+   * What unstated assumptions influenced decisions?  
+   * How did they prioritize competing needs?  
+   * What values showed up in their selections?  
+4. CONDITIONAL LOGIC DISCOVERY
+
+   * Map the if-then patterns in their behavior  
+   * Identify context-dependent strategies  
+   * Note exception handling approaches  
+   * Find decision hierarchies and sequences  
+   * Discover override conditions  
+5. TIMING INTELLIGENCE
+
+   * When did they speed up vs. slow down?  
+   * What triggered patience vs. urgency?  
+   * How did they know when to push vs. pull back?  
+   * What governed their intervention timing?  
+   * Where did they let things unfold vs. direct?
+
+OUTPUT REQUIRED:
+
+1. **Choice Point Inventory**: Complete list of decision moments with actual vs. potential paths  
+2. **Trigger Catalog**: Specific client cues that activated different approaches  
+3. **Decision Rules**: 15-20 if-then statements governing their choices  
+4. **Priority Matrix**: What they consistently valued in trade-offs  
+5. **Timing Patterns**: When and why they shifted pace/approach  
+6. **Exception Log**: When they broke their own patterns and why
+
+---
+
+### **🏗️ Step 2: The Logic Architect**
+
+*Structure the discovered patterns into a coherent decision-making system*
+
+**INPUT REQUIRED:** All outputs from Step 1 (Choice Point Inventory, Trigger Catalog, Decision Rules, Priority Matrix, Timing Patterns, Exception Log)
+
+**PROMPT:**
+
+Transform the excavated decision patterns into a structured Decision Architecture that reveals the consultant's unique strategic navigation system.
+
+DISCOVERED PATTERNS \[Paste all outputs from Step 1\]
+
+ARCHITECTURE CONSTRUCTION PROTOCOL
+
+1. DECISION FRAMEWORK SYNTHESIS
+
+   * Group related if-then rules into decision clusters  
+   * Identify meta-patterns across decisions  
+   * Map the hierarchy of decision types  
+   * Create decision flow sequences  
+   * Build the core decision matrix  
+2. CONTEXTUAL MAPPING
+
+   * Define situation categories that trigger different rule sets  
+   * Map which contexts activate which decision clusters  
+   * Identify boundary conditions between approaches  
+   * Document contextual override factors  
+   * Create the context-strategy matrix  
+3. STRATEGIC PIVOT DESIGN
+
+   * Map all identified pivot points  
+   * Define pivot triggers and conditions  
+   * Create pivot decision trees  
+   * Document successful vs. unsuccessful pivots  
+   * Build the pivot playbook  
+4. EXCEPTION ARCHITECTURE
+
+   * When do standard rules not apply?  
+   * What triggers exceptional approaches?  
+   * How are edge cases handled?  
+   * What principles guide rule-breaking?  
+   * Create the exception handling framework  
+5. INTEGRATED SYSTEM DESIGN
+
+   * Connect all decision elements into unified architecture  
+   * Show relationships between components  
+   * Identify feedback loops and dependencies  
+   * Create visual decision flow model  
+   * Design implementation pathways
+
+OUTPUT REQUIRED:
+
+1. **Core Decision Matrix**: Primary if-then framework with 5-7 major decision clusters  
+2. **Context Navigation Map**: Visual showing which contexts trigger which approaches  
+3. **Strategic Pivot Playbook**: Documented pivot patterns with triggers and techniques  
+4. **Exception Handling Guide**: When and how to break the rules effectively  
+5. **Integrated Architecture**: Complete decision system showing all connections  
+6. **Quick Decision Heuristics**: 3-5 simple rules that capture 80% of decisions
+
+---
+
+### **🎯 Step 3: The Implementation Designer**
+
+*Transform the architecture into practical tools and frameworks others can use*
+
+**INPUT REQUIRED:** Complete Decision Architecture from Step 2 (all six outputs)
+
+**PROMPT:**
+
+Convert the Decision Architecture into practical, implementable tools that make this invisible expertise visible and transferable.
+
+DECISION ARCHITECTURE \[Paste all outputs from Step 2\]
+
+IMPLEMENTATION DESIGN PROTOCOL
+
+1. DIAGNOSTIC TOOL CREATION
+
+   * Build assessment for identifying which decision path to take  
+   * Create situation categorization checklist  
+   * Design decision readiness indicators  
+   * Develop context recognition guide  
+   * Package as client-facing diagnostic  
+2. DECISION SUPPORT SYSTEM
+
+   * Create visual decision trees for common scenarios  
+   * Build quick-reference decision cards  
+   * Design decision journals/worksheets  
+   * Develop decision quality metrics  
+   * Create implementation tracking tools  
+3. TRAINING FRAMEWORK DESIGN
+
+   * Structure decision skills into teachable modules  
+   * Create decision simulation exercises  
+   * Build pattern recognition drills  
+   * Design pivot practice scenarios  
+   * Develop expertise transfer curriculum  
+4. CLIENT COMMUNICATION TOOLS
+
+   * Create visual models for explaining approach  
+   * Design decision transparency frameworks  
+   * Build trust through decision visibility  
+   * Develop collaborative decision tools  
+   * Package signature decision methodology  
+5. SCALING MECHANISMS
+
+   * Identify which decisions can be delegated  
+   * Create decision delegation framework  
+   * Build quality control systems  
+   * Design decision apprenticeship model  
+   * Develop certification pathways
+
+OUTPUT REQUIRED:
+
+1. **Decision Diagnostic Tool™**: Complete assessment framework for situation analysis  
+2. **Visual Decision Maps**: 3-5 core decision flows in visual format  
+3. **Decision Mastery Curriculum**: Structured training to transfer decision expertise  
+4. **Client Decision Dashboard**: Tools for transparent decision-making with clients  
+5. **Methodology Positioning**: How to package and present your Decision Architecture  
+6. **Implementation Roadmap**: 90-day plan to deploy tools in practice
+
+---
+
+## **Implementation Guide**
+
+### **Phase 1: Excavation (30 minutes)**
+
+**Preparation**
+
+* Gather 3-5 transcripts with rich decision moments  
+* Include sessions with strategic pivots or direction changes  
+* Mix routine and challenging client situations
+
+**Extraction Process**
+
+1. Run Step 1 with all transcripts  
+2. Review the Decision Rules that surprise you  
+3. Note patterns you hadn't consciously recognized  
+4. Save comprehensive outputs for architecture phase
+
+### **Phase 2: Architecture (30 minutes)**
+
+**System Building**
+
+1. Feed Step 1 outputs into Step 2  
+2. Focus on your 5-7 core decision clusters  
+3. Pay special attention to pivot patterns  
+4. Ensure exception handling is robust
+
+**Quality Check**
+
+* Does the architecture feel authentic to how you work?  
+* Are the pivot triggers accurately captured?  
+* Is the context mapping comprehensive?
+
+### **Phase 3: Implementation (30 minutes)**
+
+**Tool Creation**
+
+1. Transform architecture into practical tools  
+2. Start with the Decision Diagnostic Tool  
+3. Create visual maps for your top 3 scenarios  
+4. Package your methodology with clear positioning
+
+**Deployment Planning**
+
+* Choose one tool to implement this week  
+* Plan client introduction strategy  
+* Set up tracking for results
+
+---
+
+## **Quick Start Protocol**
+
+*First results in 30 minutes*
+
+**Required:** One transcript from a complex client engagement where you made multiple strategic decisions
+
+1. **Extract Decision Points**
+
+   * Run only Step 1, Section 1 (Choice Point Mapping)  
+   * Identify 5-7 key decision moments  
+   * Note what triggered each choice  
+2. **Find Your Pattern**
+
+   * Look for repeated decision types  
+   * Identify your default vs. exceptional choices  
+   * Spot your unique pivot triggers  
+3. **Create One Tool**
+
+   * Pick your most common decision scenario  
+   * Create a simple if-then flowchart  
+   * Test with next client interaction
+
+---
+
+## **Evolution Path**
+
+**Week 1: Foundation**
+
+* Extract patterns from 5+ transcripts  
+* Identify core decision clusters  
+* Create first visual decision map  
+* Test with one client
+
+**Month 1: Systematization**
+
+* Build complete Decision Architecture  
+* Develop 3-5 scenario-specific tools  
+* Create client-facing diagnostics  
+* Begin methodology positioning
+
+**Quarter 1: Implementation**
+
+* Deploy tools across all engagements  
+* Refine based on client feedback  
+* Build decision case library  
+* Develop training modules
+
+**Year 1: Mastery**
+
+* Certify others in your methodology  
+* Create decision IP portfolio  
+* Build reputation as decision architect  
+* License methodology to other consultants
+
+---
+
+## **Integration Notes**
+
+* **With your sales process:** Use Decision Diagnostic Tool™ in discovery calls to demonstrate expertise  
+* **With your delivery:** Make decision logic transparent to build client trust and buy-in  
+* **With your content:** Create thought leadership around your unique decision patterns  
+* **With your positioning:** Lead with "Strategic Decision Architect" who has codified approach
+
+[image1]: <data:image/png;base64,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>
