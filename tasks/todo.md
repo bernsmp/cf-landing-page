@@ -1,20 +1,32 @@
-# Add Language Mining Method Workflow
+# Newsletter Landing Page
 
 ## Plan
 
-- [ ] Create the markdown file at `/public/prompts/workflows/language-mining-method.md`
-- [ ] Add the workflow entry to `data/prompts.ts` with proper structure (5 steps based on the five phases)
-- [ ] Test the build to ensure no errors
+- [x] Create `/app/newsletter/page.tsx` (move from /articles to /newsletter)
+- [x] Update Navigation component: change "Deep Dives" → "Newsletter" and href `/articles` → `/newsletter`
+- [x] Build compelling hero/landing section above article grid
+- [x] Test the build
 
-## Details
+## Review
 
-The workflow has 5 phases:
-1. Adjacent Territory Mapping - AI-Led, Human Approves
-2. Raw Language Mining - AI-Executed
-3. Pattern Synthesis - AI-Led, Human Validates
-4. Knowledge Asset Creation - AI Proposes, Human Selects
-5. Immediate Application - AI Drafts, Human Refines
+### Summary of Changes
+1. **Created `/app/newsletter/page.tsx`** - New landing page with:
+   - Hero section with headline "You help others see their blind spots. Who helps you see yours?"
+   - Jay testimonial in styled blockquote
+   - Value proposition copy
+   - Side-by-side Free vs Paid tier comparison
+   - Pricing: $10/month (going to $20 Dec 22)
+   - Two CTAs: "Subscribe Free" and "Get Full Access"
+   - "Scroll down to preview" divider
+   - Articles grid below (fetched from existing API)
 
-Category: `extraction` (since it extracts customer language from adjacent domains)
-Estimated time: 2-4 hours (based on the document)
-Premium: true (complex multi-step workflow)
+2. **Updated `components/layout/Navigation.tsx`** - Changed nav link from "Deep Dives" → "Newsletter" and href from `/articles` → `/newsletter`
+
+### Pending
+- **Logo placeholder**: Currently using a text-based placeholder. Swap in the transparent `SNLOGO.png` when ready.
+
+### No New Dependencies
+Uses existing framer-motion and lucide-react icons.
+
+### No Environment Variables Needed
+Uses existing `/api/articles` endpoint.

@@ -10,7 +10,7 @@ const navLinks = [
   { href: '/method', label: 'Method' },
   { href: '/prompts', label: 'Prompts' },
   { href: '/insights', label: 'Insights' },
-  { href: '/articles', label: 'Deep Dives' },
+  { href: '/newsletter', label: 'Newsletter' },
   { href: '/start', label: 'Start' },
 ];
 
