@@ -147,11 +147,16 @@ Always match the slug:
 2. Framework Naming Workshop
 3. Transcript-to-Content Extractor
 4. The Problem-Solution Extractor
+5. The Uncle Test
+6. The Decision You Didn't Know You Made
+7. The Pattern Your Team Can't Copy
 
 ### Paid Prompts
 1. The Expert Blind Spot Detector
 2. Pricing Justification Builder
 3. Story Mining System
+4. Find Your Stadium Sign
+5. The Three Lenses
 
 ### Workflow Packs (All Paid)
 1. The Authority Architecture Pack™

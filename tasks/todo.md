@@ -1,32 +1,35 @@
-# Newsletter Landing Page
+# Add "Find Your Stadium Sign" Prompt
 
 ## Plan
 
-- [x] Create `/app/newsletter/page.tsx` (move from /articles to /newsletter)
-- [x] Update Navigation component: change "Deep Dives" → "Newsletter" and href `/articles` → `/newsletter`
-- [x] Build compelling hero/landing section above article grid
+- [x] Add new prompt entry to `/data/prompts.ts`
+  - Slug: `stadium-sign`
+  - Title: "Find Your Stadium Sign"
+  - Category: `extraction`
+  - Difficulty: `intermediate`
+  - isPremium: `true` (paid subscriber prompt)
+  - Full prompt content from user
+  - Add whatToLookFor tips
+  - Add relevant tags
 - [x] Test the build
+- [x] Verify the prompt displays correctly on `/prompts` page (in Subscriber Vault section)
 
 ## Review
 
 ### Summary of Changes
-1. **Created `/app/newsletter/page.tsx`** - New landing page with:
-   - Hero section with headline "You help others see their blind spots. Who helps you see yours?"
-   - Jay testimonial in styled blockquote
-   - Value proposition copy
-   - Side-by-side Free vs Paid tier comparison
-   - Pricing: $10/month (going to $20 Dec 22)
-   - Two CTAs: "Subscribe Free" and "Get Full Access"
-   - "Scroll down to preview" divider
-   - Articles grid below (fetched from existing API)
-
-2. **Updated `components/layout/Navigation.tsx`** - Changed nav link from "Deep Dives" → "Newsletter" and href from `/articles` → `/newsletter`
-
-### Pending
-- **Logo placeholder**: Currently using a text-based placeholder. Swap in the transparent `SNLOGO.png` when ready.
+1. Added "Find Your Stadium Sign" prompt to `/data/prompts.ts` (id: 8)
+   - Two-part prompt: Part 1 finds the 3-5 word philosophy, Part 2 builds a TED talk
+   - Premium prompt (requires subscriber password)
+   - Category: extraction
+   - Includes 5 "What to Look For" tips
+   - Related article linked to Substack
 
 ### No New Dependencies
-Uses existing framer-motion and lucide-react icons.
+Uses existing prompt infrastructure.
 
 ### No Environment Variables Needed
-Uses existing `/api/articles` endpoint.
+Uses existing password verification system.
+
+### Notes
+- Thumbnail path set to `/images/prompts/stadium-sign.png` — you'll need to add this image
+- Will appear in the "Subscriber Vault" section on `/prompts` page
