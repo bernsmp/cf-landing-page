@@ -239,7 +239,7 @@ If you have years of experience and a track record of results but can't articula
 
 ---
 
-*Last updated: December 2024*`,
+*Last updated: December 2025*`,
     faqs: [
       {
         question: 'How long does framework extraction take?',
@@ -482,7 +482,7 @@ The right choice depends on where you are. Early-career experts still forming th
 
 ---
 
-*Last updated: December 2024*
+*Last updated: December 2025*
 
 **Sources:**
 - Consulting Success: Industry benchmarks on productizing expertise
@@ -710,7 +710,7 @@ It just needs someone to make the introduction.
 
 ---
 
-*Last updated: December 2024*
+*Last updated: December 2025*
 
 **Sources:**
 - Ericsson, K.A. - Research on deliberate practice and expertise development
@@ -767,7 +767,7 @@ It just needs someone to make the introduction.
     ],
     metaTitle: "What Is Tacit Knowledge? Complete Guide for Experts (2024)",
     metaDescription: "Tacit knowledge is the invisible 80-90% of expertise you can't easily explain. Learn what it is, see examples across industries, and discover how to surface your hidden know-how.",
-    content: `*Last updated: December 2024*
+    content: `*Last updated: December 2025*
 
 ---
 
@@ -1132,7 +1132,7 @@ The technology to surface this knowledge at scale now exists. AI-powered pattern
     ],
     metaTitle: "The Curse of Unconscious Competence: Why Experts Can't Explain",
     metaDescription: "Unconscious competence makes your skills automatic—but invisible. Learn why mastery prevents you from explaining your expertise and what actually works instead.",
-    content: `*Last updated: December 2024*
+    content: `*Last updated: December 2025*
 
 ---
 
@@ -1403,7 +1403,7 @@ Your expertise is ready to be found. It has been ready for years. It's just wait
     ],
     metaTitle: "Why Experts Can't Explain What They Do (Neuroscience + Solutions)",
     metaDescription: "Expertise restructures the brain, making knowledge automatic but invisible. Learn the neuroscience behind why experts struggle to explain—and what actually works to surface hidden expertise.",
-    content: `*Last updated: December 2024*
+    content: `*Last updated: December 2025*
 
 ---
 

@@ -11,7 +11,7 @@ const footerLinks = {
     { href: '/prompts', label: 'Prompts' },
     { href: '/articles', label: 'Articles' },
     { href: '/start', label: 'Start' },
-    { href: '/assessment', label: 'Assessment' },
+    { href: '/assessment', label: 'Pricing Guide' },
   ],
   connect: [
     { href: 'https://irreplaceablepositioning.substack.com', label: 'Substack', external: true },

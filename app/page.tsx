@@ -3,13 +3,12 @@
 import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
-import { HeroSection } from '@/components/home/HeroSection';
-import { DrivingAnalogy } from '@/components/home/DrivingAnalogy';
-import { CourageStory } from '@/components/home/CourageStory';
-import { OutcomesSection } from '@/components/home/OutcomesSection';
+import { HeroSectionV2 } from '@/components/home/HeroSectionV2';
+import { VideoSection } from '@/components/home/VideoSection';
+import { TransformationStory } from '@/components/home/TransformationStory';
+import { IdentitySection } from '@/components/home/IdentitySection';
 import { SocialProof } from '@/components/home/SocialProof';
-import { FeaturedContent } from '@/components/home/FeaturedContent';
-import { CTASection } from '@/components/home/CTASection';
+import { CTASectionV2 } from '@/components/home/CTASectionV2';
 import { HomePageJsonLd } from '@/components/seo/JsonLd';
 
 export default function Home() {
@@ -22,17 +21,16 @@ export default function Home() {
       <div className="grain-overlay" />
 
       <Navigation />
-      
+
       <main>
-        <HeroSection />
-        <DrivingAnalogy />
-        <CourageStory />
-        <OutcomesSection />
+        <HeroSectionV2 />
+        <VideoSection />
+        <TransformationStory />
+        <IdentitySection />
         <SocialProof />
-        <FeaturedContent />
-        <CTASection />
+        <CTASectionV2 />
       </main>
-      
+
       <Footer />
     </div>
   );

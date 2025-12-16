@@ -70,7 +70,7 @@ export const Navigation = () => {
                 href="/assessment"
                 className="flex items-center gap-2 px-5 py-2.5 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-lg hover:bg-[var(--brand-gold-light)] transition-all duration-300 text-sm"
               >
-                Take the Test
+                Free Pricing Guide
                 <ArrowRight size={16} />
               </Link>
             </div>
@@ -124,7 +124,7 @@ export const Navigation = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="inline-flex items-center gap-2 px-6 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl text-lg"
                 >
-                  Take the Invisibility Test
+                  Free Pricing Guide
                   <ArrowRight size={20} />
                 </Link>
               </motion.div>

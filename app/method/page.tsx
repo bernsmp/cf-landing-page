@@ -112,7 +112,7 @@ export default function MethodPage() {
               transition={{ delay: 0.2 }}
               className="text-lg md:text-xl text-[var(--grey-400)] max-w-2xl mx-auto"
             >
-              Based on 50 years of cognitive science research—from Polanyi's Paradox to modern neuroscience of expertise.
+              Your expertise got embarrassed and stopped explaining itself years ago. Cognitive science has known this since 1966. Here's what it found.
             </motion.p>
           </div>
         </section>
@@ -158,15 +158,15 @@ export default function MethodPage() {
               className="max-w-3xl mx-auto text-center space-y-6"
             >
               <p className="text-xl text-white font-semibold">
-                This is why traditional methods fail. You can't extract what you can't see.
+                This is the part I find fascinating.
               </p>
               <div className="space-y-4 text-[var(--grey-400)]">
-                <p>Interview-based approaches only access the 10% you can already articulate.</p>
-                <p>Personality tests measure traits, not expertise.</p>
-                <p>Generic frameworks miss what's unique about YOUR thinking.</p>
+                <p>You thought you could just "sit down and write it out." You scheduled strategic thinking time on your calendar, moved it three times, then deleted it.</p>
+                <p>Interview-based approaches only access the 10% you can already articulate. Personality tests measure traits, not expertise. Generic frameworks miss what's unique about YOUR thinking.</p>
+                <p>The pattern is shy. It assumes you already know about it. It does not introduce itself at parties.</p>
               </div>
               <p className="text-lg text-[var(--brand-gold)] font-semibold pt-4">
-                The solution requires something that can see what you can't.
+                You need something that can see what you can't.
               </p>
             </motion.div>
           </div>
@@ -243,12 +243,10 @@ export default function MethodPage() {
             >
               <h3 className="font-display text-2xl font-bold text-white mb-4">Together</h3>
               <p className="text-lg text-[var(--grey-300)] mb-4">
-                The transformation neither can create alone.
+                AI watches you work and finds the patterns. The facilitation helps you claim them.
               </p>
               <p className="text-[var(--grey-400)]">
-                AI sees patterns. Facilitation creates meaning.
-                <br />
-                <span className="text-gold-gradient font-semibold">Data becomes insight. Insight becomes ownership.</span>
+                The AI doesn't know what the patterns mean. You don't know which patterns exist. <span className="text-gold-gradient font-semibold">We find out together.</span>
               </p>
             </motion.div>
           </div>
@@ -348,7 +346,7 @@ export default function MethodPage() {
                 What Gets Extracted
               </h2>
               <p className="text-[var(--grey-400)]">
-                Through guided sessions and strategic prompts, we extract:
+                The system already exists. We just have to find it.
               </p>
             </motion.div>
 
@@ -381,18 +379,18 @@ export default function MethodPage() {
               viewport={{ once: true }}
             >
               <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">
-                How much of YOUR expertise is invisible?
+                Your methodology is ready to be found.
               </h2>
               <p className="text-lg text-[var(--grey-400)] mb-8">
-                Take the 3-Minute Invisibility Test and find out.
-                <br />
-                <span className="text-[var(--grey-500)]">5 questions. No email required. Instant results.</span>
+                It has been ready for years. It is just waiting for someone else to make the introduction.
               </p>
               <Link
-                href="/assessment"
+                href="https://calendar.app.google/JDxdGpxuqzmxCB8a7"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-all duration-300"
               >
-                Start the Assessment
+                Book 30 Minutes
                 <ArrowRight size={20} />
               </Link>
             </motion.div>

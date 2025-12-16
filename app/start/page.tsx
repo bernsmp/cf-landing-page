@@ -317,18 +317,18 @@ export default function StartPage() {
               <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-4">
                 Still not sure where to start?
               </h2>
-              
+
               <p className="text-lg text-[var(--grey-400)] mb-8">
-                Take the 3-Minute Invisibility Test.
+                Get the free pricing guide.
                 <br />
-                Find out how much of your expertise is hidden.
+                Learn how to price expertise you cannot easily explain.
               </p>
-              
+
               <Link
                 href="/assessment"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-all duration-300"
               >
-                Start the Assessment
+                Get the Free Guide
                 <ArrowRight size={20} />
               </Link>
             </motion.div>
