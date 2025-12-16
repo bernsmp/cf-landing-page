@@ -1553,6 +1553,112 @@ After listing all rules, provide:
     },
     tags: ['extraction', 'delegation', 'if-then rules', 'bottleneck', 'training', 'transcripts'],
   },
+  {
+    id: '13',
+    slug: 'hidden-superpower-altman',
+    title: 'Your Hidden Superpower Is Already There (You Just Can\'t See It)',
+    description: 'Discover the 4 Strategic Confusion Prompts that reveal your unconscious communication patterns. Transform invisible techniques into conscious, strategic moves.',
+    category: 'extraction',
+    difficulty: 'intermediate',
+    isPremium: true,
+    thumbnail: '/images/prompts/hidden-superpower-altman.png',
+    prompt: `Your Hidden Superpower Is Already There (You Just Can't See It)
+
+You're already using powerful patterns unconsciously. That conversation where someone suddenly said, "Yes." That presentation where everyone clicked with your vision. You have techniques, but can't see them.
+
+Altman's techniques work because they mirror natural human trust-building. You already do versions of these moves. He just does them consciously, strategically, consistently.
+
+Most people will read about these techniques and do nothing. They'll nod along, think "interesting," and go back to their old patterns. That's why most people stay ineffective communicators, while a small group seems to effortlessly get what they want.
+
+Time to make your invisible visible.
+
+The 4 Strategic Confusion Prompts
+Prompt 1: The Mirror Method — Discover What You're Already Doing
+Record yourself in any important conversation this week. Then use this prompt:
+
+Analyze this transcript: [PASTE YOUR TRANSCRIPT]
+
+First, identify what I'm already doing well:
+- What natural authority patterns do I use?
+- Where do I build trust unconsciously?
+- What's my signature move I don't realize?
+
+Now show me the Altman upgrade:
+
+If Sam Altman was having this exact conversation:
+1. Where would he add strategic uncertainty to build trust?
+2. What vulnerability would he share before claiming authority?
+3. How would he sandwich certainty with confusion?
+4. What preemptive confession would disarm resistance?
+5. Where would he zoom out philosophically instead of defending?
+
+Rewrite my 3 weakest responses using these techniques:
+- Version A: What I actually said
+- Version B: The Altman version
+- Why B works better psychologically
+
+Finally, give me the ONE change that would transform my communication style.
+Real transformation from a sales call:
+
+Original: "Our solution will definitely solve your scaling problems."
+
+Altman version: "I don't know if this is exactly right for your situation, and honestly we're still learning about cases like yours, but what we've seen suggests this could solve the scaling issue. Though 'solve' might be too strong. Maybe 'radically improve' is more honest."
+
+The second version closed the deal. Strategic uncertainty created more trust than guaranteed results.
+
+Prompt 2: The Altman Rewriter — Transform Any Message
+Take my message: [INSERT YOUR MESSAGE]
+
+Rewrite using strategic confusion:
+1. Start with vulnerability about not having all answers
+2. Add 3-5 "I think/probably/maybe" qualifiers
+3. Embed my core message in the middle
+4. Include "we're figuring this out together" energy
+5. End with philosophical zoom-out
+
+Keep my main point but make it feel like shared exploration.
+Show me:
+- Original version
+- Strategic confusion version
+- Why the second creates more trust
+Prompt 3: The Vulnerability Calculator — Find Your Perfect Weakness
+I need to establish authority about: [YOUR TOPIC]
+My audience is: [DESCRIPTION]
+
+Generate 3 strategic vulnerabilities that would:
+- Make me more trustworthy
+- Not undermine my expertise  
+- Create psychological safety
+- Lead naturally to my point
+
+Format: "I'll be honest, I [vulnerability], but what I've discovered is..."
+
+Rank them by psychological impact.
+Prompt 4: The Real-Time Decoder — Spot Manipulation Mid-Conversation
+Analyze this transcript: [PASTE ANY INTERVIEW/MEETING]
+
+Identify every:
+- Uncertainty qualifier (I think, probably, maybe)
+- Preemptive confession before claims
+- Vulnerability display
+- Philosophical zoom-out
+- Meta-commentary about the conversation
+
+Then decode:
+1. What invisible pattern are they using?
+2. What are they avoiding saying directly?
+3. What's the core message hidden in confusion?
+4. How would I counter this pattern?
+5. What can I steal for my own use?`,
+    whatToLookFor: [
+      'Patterns you already use unconsciously that mirror Altman\'s techniques',
+      'Strategic uncertainty that builds more trust than certainty',
+      'Vulnerability displays that strengthen rather than weaken authority',
+      'The ONE change that would transform your communication style',
+      'Invisible patterns in others\' communication you can decode and adopt',
+    ],
+    tags: ['communication', 'strategic confusion', 'Altman', 'trust-building', 'vulnerability', 'extraction'],
+  },
 ];
 
 export const workflows: Workflow[] = [
