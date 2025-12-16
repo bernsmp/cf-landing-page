@@ -1,11 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
-import { ExternalLink, Clock, BookOpen, Loader2, Check, ChevronDown } from 'lucide-react';
+import { ExternalLink, Clock, BookOpen, Loader2, Check } from 'lucide-react';
 
 interface SubstackArticle {
   title: string;
@@ -61,202 +60,120 @@ export default function NewsletterPage() {
       <main className="pt-32 pb-20">
         {/* ===== HERO LANDING SECTION ===== */}
         <section className="px-6 lg:px-8 mb-24">
-          <div className="max-w-4xl mx-auto">
-            {/* Header */}
+          <div className="max-w-3xl mx-auto">
+            {/* Header Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex justify-center mb-10"
+              className="flex justify-center mb-12"
             >
-              <span className="font-display text-2xl md:text-3xl font-bold tracking-tight">
-                <span className="text-white">Signal</span>
-                <span className="text-[var(--brand-gold)] mx-1">{'>'}</span>
-                <span className="text-white">Noise</span>
-                <span className="text-[var(--grey-500)] font-normal ml-3">Newsletter</span>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--grey-900)] border border-[var(--grey-700)] text-sm font-medium tracking-wide">
+                <span className="text-[var(--grey-300)]">Signal</span>
+                <span className="text-[var(--brand-gold)]">{'>'}</span>
+                <span className="text-[var(--grey-300)]">Noise</span>
               </span>
             </motion.div>
 
-            {/* Main Headline */}
+            {/* Main Headline - ONE clear message */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center mb-10 leading-[1.1]"
+              className="font-display text-4xl md:text-5xl font-bold text-white text-center mb-8 leading-[1.15]"
             >
-              <span className="whitespace-nowrap">You help others see their blind spots.</span>{' '}
-              <span className="text-gold-gradient">Who helps you see yours?</span>
+              A weekly newsletter for experts who struggle to explain what makes them different.
             </motion.h1>
 
-            {/* Testimonial Quote */}
-            <motion.blockquote
+            {/* Single supporting line */}
+            <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="relative my-12 mx-auto max-w-3xl"
+              className="text-lg text-[var(--grey-400)] text-center mb-16 max-w-2xl mx-auto"
             >
-              <div className="relative p-8 rounded-2xl bg-gradient-to-br from-[var(--grey-900)] to-[var(--grey-850)] border border-[var(--grey-800)]">
-                <div className="absolute -top-4 left-8 text-6xl font-display text-[var(--brand-gold)] opacity-40 leading-none">"</div>
-                <p className="text-lg md:text-xl text-[var(--grey-200)] italic leading-relaxed pl-4">
-                  One of the things that's always been very challenging for me is to explain what I do. But now that I can see it a little bit more clearly... now I have a process that can be stamped out.
-                </p>
-                <cite className="block mt-4 pl-4 text-[var(--grey-400)] not-italic">
-                  — Jay
-                </cite>
-              </div>
-            </motion.blockquote>
+              Each issue breaks down the patterns hiding in your expertise. Plus the exact prompts to extract them yourself.
+            </motion.p>
 
-            {/* Value Proposition */}
+            {/* Pricing Tiers - Cleaner layout */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-center mb-12"
-            >
-              <p className="text-lg md:text-xl text-[var(--grey-300)] leading-relaxed max-w-2xl mx-auto mb-6">
-                You've spent years building expertise that works. Clients get results. They refer others.
-              </p>
-              <p className="text-lg md:text-xl text-[var(--grey-300)] leading-relaxed max-w-2xl mx-auto mb-8">
-                But when someone asks <span className="text-white font-medium">"what makes you different?"</span> you fumble. You got so good you forgot how.
-              </p>
-              <p className="text-xl md:text-2xl text-white font-display font-semibold">
-                Signal {'>'} Noise is a weekly newsletter that helps you see what you can't see.
-              </p>
-              <p className="text-[var(--grey-400)] mt-3">
-                Each issue breaks down the patterns hiding in your expertise. Plus the exact prompts to extract them yourself.
-              </p>
-            </motion.div>
-
-            {/* Pricing Tiers */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
               className="grid md:grid-cols-2 gap-6 mb-12"
             >
               {/* Free Tier */}
-              <div className="p-8 rounded-2xl bg-[var(--grey-850)] border border-[var(--grey-800)] hover:border-[var(--grey-700)] transition-colors">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="text-sm font-semibold text-[var(--grey-400)] uppercase tracking-wider">Free</span>
-                </div>
-                <p className="text-[var(--grey-300)] mb-6 font-medium">
-                  Weekly essays on the science of invisible expertise:
-                </p>
-                <ul className="space-y-4">
+              <div className="p-6 rounded-2xl bg-[var(--grey-900)] border border-[var(--grey-800)]">
+                <p className="text-sm font-medium text-[var(--grey-500)] uppercase tracking-wider mb-4">Free</p>
+                <p className="text-[var(--grey-300)] mb-5">Weekly essays on invisible expertise:</p>
+                <ul className="space-y-3 text-[var(--grey-400)] text-sm">
                   <li className="flex gap-3">
-                    <Check className="text-[var(--grey-500)] flex-shrink-0 mt-1" size={18} />
-                    <span className="text-[var(--grey-300)]">Why your best work is invisible to you</span>
+                    <Check className="text-[var(--grey-600)] flex-shrink-0 mt-0.5" size={16} />
+                    Why your best work is invisible to you
                   </li>
                   <li className="flex gap-3">
-                    <Check className="text-[var(--grey-500)] flex-shrink-0 mt-1" size={18} />
-                    <span className="text-[var(--grey-300)]">How AI reveals patterns humans can't see</span>
+                    <Check className="text-[var(--grey-600)] flex-shrink-0 mt-0.5" size={16} />
+                    How AI reveals patterns humans miss
                   </li>
                   <li className="flex gap-3">
-                    <Check className="text-[var(--grey-500)] flex-shrink-0 mt-1" size={18} />
-                    <span className="text-[var(--grey-300)]">Real transformation stories (before/after pattern revelation)</span>
+                    <Check className="text-[var(--grey-600)] flex-shrink-0 mt-0.5" size={16} />
+                    Transformation stories
                   </li>
                   <li className="flex gap-3">
-                    <Check className="text-[var(--grey-500)] flex-shrink-0 mt-1" size={18} />
-                    <span className="text-[var(--grey-300)]">The cognitive science behind "I just know"</span>
+                    <Check className="text-[var(--grey-600)] flex-shrink-0 mt-0.5" size={16} />
+                    The science behind "I just know"
                   </li>
                 </ul>
               </div>
 
               {/* Paid Tier */}
-              <div className="relative p-8 rounded-2xl bg-gradient-to-br from-[var(--grey-850)] to-[var(--grey-900)] border border-[var(--brand-gold)]/30 hover:border-[var(--brand-gold)]/50 transition-colors">
-                <div className="absolute -top-3 right-6">
-                  <span className="px-3 py-1 text-xs font-bold bg-[var(--brand-gold)] text-[var(--grey-950)] rounded-full">
-                    FULL ACCESS
-                  </span>
+              <div className="p-6 rounded-2xl bg-[var(--grey-900)] border border-[var(--brand-gold)]/40">
+                <div className="flex items-baseline justify-between mb-4">
+                  <p className="text-sm font-medium text-[var(--brand-gold)] uppercase tracking-wider">Full Access</p>
+                  <p className="text-sm text-[var(--grey-500)]">
+                    <span className="text-white font-medium">$10</span>/mo
+                  </p>
                 </div>
-                <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-3xl font-display font-bold text-white">$10</span>
-                  <span className="text-[var(--grey-400)]">/month</span>
-                </div>
-                <p className="text-sm text-[var(--brand-gold)] mb-4">
-                  Goes to $20 Dec 22
-                </p>
-                <p className="text-[var(--grey-300)] mb-6 font-medium">
-                  The full extraction toolkit:
-                </p>
-                <ul className="space-y-4">
+                <p className="text-[var(--grey-300)] mb-5">Everything free, plus:</p>
+                <ul className="space-y-3 text-[var(--grey-400)] text-sm">
                   <li className="flex gap-3">
-                    <Check className="text-[var(--brand-gold)] flex-shrink-0 mt-1" size={18} />
-                    <div>
-                      <span className="text-white font-medium">The Prompt & Workflow Library</span>
-                      <p className="text-sm text-[var(--grey-400)] mt-0.5">
-                        AI prompts to extract what you can't see and package them into assets. Content, frameworks, customer research. New ones weekly.
-                      </p>
-                    </div>
+                    <Check className="text-[var(--brand-gold)] flex-shrink-0 mt-0.5" size={16} />
+                    <span><span className="text-white">Prompt & Workflow Library</span> — new prompts weekly</span>
                   </li>
                   <li className="flex gap-3">
-                    <Check className="text-[var(--brand-gold)] flex-shrink-0 mt-1" size={18} />
-                    <div>
-                      <span className="text-white font-medium">The Blindspot Finder GPT</span>
-                      <span className="ml-2 text-xs text-[var(--grey-500)]">$99 value</span>
-                      <p className="text-sm text-[var(--grey-400)] mt-0.5">
-                        Paste in a transcript. Get back the patterns you've been running for years without realizing it.
-                      </p>
-                    </div>
+                    <Check className="text-[var(--brand-gold)] flex-shrink-0 mt-0.5" size={16} />
+                    <span><span className="text-white">Blindspot Finder GPT</span> — paste transcript, get patterns</span>
                   </li>
                   <li className="flex gap-3">
-                    <Check className="text-[var(--brand-gold)] flex-shrink-0 mt-1" size={18} />
-                    <div>
-                      <span className="text-white font-medium">The Framework Factory Course</span>
-                      <span className="ml-2 text-xs text-[var(--grey-500)]">$497 value</span>
-                      <p className="text-sm text-[var(--grey-400)] mt-0.5">
-                        Go from "I can't explain what I do" to documented, nameable IP.
-                      </p>
-                    </div>
+                    <Check className="text-[var(--brand-gold)] flex-shrink-0 mt-0.5" size={16} />
+                    <span><span className="text-white">Framework Factory Course</span> — document your IP</span>
                   </li>
                 </ul>
               </div>
             </motion.div>
 
-            {/* ROI Statement */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="text-center text-[var(--grey-400)] italic mb-10"
-            >
-              One extraction that helps you win a deal covers the entire year.
-            </motion.p>
-
             {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+              transition={{ delay: 0.4 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <a
                 href="https://irreplaceablepositioning.substack.com/subscribe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 py-4 border border-[var(--grey-700)] text-white font-semibold rounded-xl hover:border-[var(--brand-gold)] hover:text-[var(--brand-gold)] transition-all duration-300 text-center"
+                className="w-full sm:w-auto px-8 py-4 border border-[var(--grey-700)] text-white font-medium rounded-xl hover:border-[var(--grey-500)] transition-colors text-center"
               >
-                Subscribe Free →
+                Subscribe Free
               </a>
               <a
                 href="https://irreplaceablepositioning.substack.com/subscribe?simple=true&next=https%3A%2F%2Firreplacablepositioning.substack.com%2F&utm_source=paywall&utm_medium=web&utm_content=&coupon=&just_hierarchical_subs=true"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-all duration-300 text-center flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-colors text-center"
               >
                 Get Full Access
-                <ExternalLink size={18} />
               </a>
-            </motion.div>
-
-            {/* Scroll Prompt */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="flex flex-col items-center text-[var(--grey-500)]"
-            >
-              <span className="text-sm mb-2">Scroll down to preview the deep dives</span>
-              <ChevronDown className="animate-bounce" size={20} />
             </motion.div>
           </div>
         </section>

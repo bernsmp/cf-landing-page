@@ -240,17 +240,16 @@ export default function InsightsPage() {
               className="p-8 md:p-12 rounded-2xl bg-[var(--grey-900)] border border-[var(--grey-800)]"
             >
               <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-4">
-                How invisible is your expertise?
+                Not sure how to price invisible expertise?
               </h2>
               <p className="text-[var(--grey-400)] mb-8 max-w-xl mx-auto">
-                Take the 3-minute assessment and discover how much of your
-                value is hidden—even from yourself.
+                Get the free guide on pricing work you cannot easily explain.
               </p>
               <Link
                 href="/assessment"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-colors"
               >
-                Take the Invisibility Test
+                Get the Free Pricing Guide
                 <ArrowRight size={18} />
               </Link>
             </motion.div>

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
+import Image from 'next/image';
 import { ArrowRight, Brain, Cpu, Users, Eye, Lightbulb, Map, Compass, Target, Zap, Scale, Workflow } from 'lucide-react';
 
 const stats = [
@@ -70,6 +71,33 @@ const extractions = [
   {
     title: 'YOUR VOICE PATTERNS',
     description: 'The specific way YOU explain complex ideas. What makes your communication land differently.',
+  },
+];
+
+const outcomes = [
+  {
+    icon: '/icons/brain-7165991.svg',
+    title: 'Discover What Actually Makes You Different',
+    description: 'Not a vague positioning statement. The specific patterns nobody else has—named, documented, and ready to claim.',
+    label: 'DIFFERENTIATION',
+  },
+  {
+    icon: '/icons/premium-quality-2881890.svg',
+    title: 'Stop Underselling Yourself',
+    description: 'When you can show exactly HOW you create results, "what do you charge?" becomes "when can we start?"',
+    label: 'PRICING POWER',
+  },
+  {
+    icon: '/icons/growth-11474911.svg',
+    title: 'Finally Teach What You Do',
+    description: 'That thing where clients say "I need YOU specifically"? Now you can show others how to replicate 80% of it.',
+    label: 'SCALABILITY',
+  },
+  {
+    icon: '/icons/product-development-11474912.svg',
+    title: 'Turn Your Patterns Into Products',
+    description: 'Each pattern becomes a framework you can teach. A tool you can license. Revenue that does not require your presence.',
+    label: 'IP ASSETS',
   },
 ];
 
@@ -370,8 +398,68 @@ export default function MethodPage() {
           </div>
         </section>
 
-        {/* CTA */}
+        {/* What Becomes Possible */}
         <section className="py-24 px-6 lg:px-8 bg-[var(--grey-900)]">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <span className="inline-block px-4 py-2 rounded-full bg-[var(--brand-gold)]/10 border border-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs font-semibold tracking-widest mb-6">
+                WHAT BECOMES POSSIBLE
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-white">
+                When your expertise becomes visible
+              </h2>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {outcomes.map((outcome, index) => (
+                <motion.div
+                  key={outcome.label}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group relative"
+                >
+                  <div className="h-full p-8 rounded-2xl bg-[var(--grey-850)] border border-[var(--grey-800)] hover:border-[var(--brand-gold)]/50 transition-all duration-300 overflow-hidden">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,var(--glow-gold),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
+
+                    <div className="relative z-10">
+                      <span className="inline-block px-3 py-1 rounded-full bg-[var(--grey-800)] text-[var(--grey-400)] text-xs font-semibold tracking-wider mb-4">
+                        {outcome.label}
+                      </span>
+
+                      <div className="w-14 h-14 rounded-xl bg-[var(--brand-gold)]/10 border border-[var(--brand-gold)]/30 flex items-center justify-center mb-5 group-hover:bg-[var(--brand-gold)]/20 transition-colors">
+                        <Image
+                          src={outcome.icon}
+                          alt=""
+                          width={32}
+                          height={32}
+                          className="opacity-90"
+                        />
+                      </div>
+
+                      <h3 className="font-display text-xl font-bold text-white mb-3 group-hover:text-[var(--brand-gold)] transition-colors">
+                        {outcome.title}
+                      </h3>
+
+                      <p className="text-[var(--grey-400)] leading-relaxed">
+                        {outcome.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-24 px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
