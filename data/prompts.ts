@@ -2010,6 +2010,170 @@ The draft should feel like something I could edit in 30 minutes, not something I
     },
     tags: ['content', 'transcripts', 'deliverables', 'methodology', 'drafts', 'blank page'],
   },
+  {
+    id: '16',
+    slug: 'new-vs-better-positioning-audit',
+    title: 'The "New vs Better" Positioning Audit',
+    description: 'Analyze your LinkedIn or website to reveal if you\'re triggering skepticism ("prove you\'re better") or curiosity ("tell me more"). Most experts run 80% competitive language without realizing it.',
+    category: 'analysis',
+    difficulty: 'beginner',
+    isPremium: true,
+    thumbnail: '/images/prompts/new-vs-better-positioning-audit.png',
+    inputsNeeded: [
+      'Your LinkedIn profile URL or website URL',
+      'Works best with About sections, bio pages, or service descriptions',
+      'The more positioning language available, the better the analysis',
+    ],
+    prompt: `# POSITIONING LANGUAGE AUDIT: "New vs Better" Analysis
+
+You are a positioning analyst specializing in expert differentiation. Your expertise is identifying when consultants, coaches, and experts accidentally commoditize themselves through competitive language instead of claiming unique territory.
+
+## THE CORE INSIGHT
+
+There's an old copywriting principle: "New is better than better."
+
+When someone positions themselves as "better," their prospect's brain immediately triggers:
+- "Prove it"
+- "Compared to who?"
+- "Show me the results"
+- "Everyone says that"
+
+They've just started a credibility contest they can't win.
+
+When someone positions themselves as "new" (claiming unique territory), their prospect's brain triggers:
+- "Tell me more about that"
+- "I've never heard it described that way"
+- "What do you mean by that?"
+
+They've created curiosity instead of skepticism.
+
+## YOUR TASK
+
+I'm going to give you a URL to a LinkedIn profile or website. Fetch the content and analyze the positioning language.
+
+## ANALYSIS FRAMEWORK
+
+### 1. LANGUAGE INVENTORY
+
+Scan for and categorize all positioning-related language into two buckets:
+
+**"BETTER" LANGUAGE (Competitive Claims)**
+These phrases trigger skepticism and invite comparison:
+- "Better results" / "superior results"
+- "More effective" / "highly effective"
+- "Proven track record" / "proven methodology"
+- "Higher success rate"
+- "Best-in-class" / "world-class"
+- "Expert in..." / "specialist in..."
+- "X years of experience"
+- "Trusted by..." / "worked with..."
+- Generic outcome claims ("drive growth," "increase revenue," "improve performance")
+- Comparative language ("more than," "better than," "unlike others")
+
+**"NEW" LANGUAGE (Territory Claims)**
+These phrases trigger curiosity and claim unique ground:
+- Named frameworks or methodologies
+- Specific tensions they work with
+- Variables they track that others ignore
+- Patterns they see that others miss
+- Unique diagnostic questions or assessments
+- Problems they've named (not just described)
+- Counter-intuitive observations about their field
+- Specific client transformation patterns
+
+### 2. THE RATIO
+
+Calculate the approximate ratio of "Better" vs "New" language.
+
+Most experts run 80-90% "Better" language. This is the positioning trap.
+
+### 3. THE INVISIBLE TERRITORY
+
+Based on what they DO describe, identify what's likely missing:
+
+What might they SEE that they're not claiming?
+- Every expert has unique perception. What hints exist in their language about what they actually notice that others don't?
+
+What tension might they work with that they're not naming?
+- Most experts work with a core tension (stated vs. actual, visible vs. hidden, short-term vs. long-term). Any hints?
+
+What diagnostic pattern might they use that they're not articulating?
+- How do they figure out what's really going on? Any clues?
+
+### 4. REFRAME EXAMPLES
+
+Take 2-3 of their strongest "Better" claims and reframe them as "New" territory claims.
+
+Show the before/after with explanation of why the reframe works.
+
+Template for reframes:
+- BEFORE: [Their "better" claim]
+- AFTER: [Territory claim version]
+- WHY IT WORKS: [Brief explanation of the shift]
+
+### 5. THE DIAGNOSIS
+
+Provide a clear assessment:
+- Current positioning type (Competitive/Hybrid/Territory)
+- Primary risk (what they're losing by positioning this way)
+- Biggest opportunity (the clearest path to differentiation)
+
+---
+
+## OUTPUT FORMAT
+
+Structure your analysis as:
+
+## POSITIONING AUDIT: [Name/Company]
+
+### THE NUMBERS
+- "Better" Language Instances: [count]
+- "New" Language Instances: [count]
+- Ratio: [X% competitive / Y% territory]
+- Positioning Type: [Competitive / Hybrid / Territory]
+
+### WHAT I FOUND
+
+**"Better" Language (Triggering Skepticism)**
+[List specific phrases from their profile with brief note on why each invites comparison]
+
+**"New" Language (Creating Curiosity)**
+[List any territory-claiming phrases, or note if absent]
+
+### THE INVISIBLE TERRITORY
+
+Based on their content, here's what they might actually see/do that they're not claiming:
+
+[Analysis of potential unique territory hiding in their language]
+
+### REFRAME EXAMPLES
+
+[2-3 before/after reframes with explanations]
+
+### DIAGNOSIS
+
+**Current State:** [Assessment]
+
+**The Risk:** [What they're losing]
+
+**The Opportunity:** [Clearest path forward]
+
+---
+
+Now, please provide the LinkedIn profile URL or website URL you'd like me to analyze.`,
+    whatToLookFor: [
+      'Your ratio of "Better" (competitive) vs "New" (territory) language',
+      'Specific phrases triggering skepticism vs curiosity',
+      'Hidden territory you\'re occupying but not claiming',
+      'Before/after reframes showing how to shift your positioning',
+      'Most experts run 80%+ competitive language without realizing it',
+    ],
+    relatedArticle: {
+      title: 'New Is Better Than Better',
+      url: 'https://irreplaceablepositioning.substack.com',
+    },
+    tags: ['positioning', 'LinkedIn', 'analysis', 'differentiation', 'language', 'audit'],
+  },
 ];
 
 export const workflows: Workflow[] = [
