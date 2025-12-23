@@ -130,7 +130,7 @@ export default function NewsletterPage() {
                 <div className="flex items-baseline justify-between mb-4">
                   <p className="text-sm font-medium text-[var(--brand-gold)] uppercase tracking-wider">Full Access</p>
                   <p className="text-sm text-[var(--grey-500)]">
-                    <span className="text-white font-medium">$10</span>/mo
+                    <span className="text-white font-medium">$20</span>/mo
                   </p>
                 </div>
                 <p className="text-[var(--grey-300)] mb-5">Everything free, plus:</p>

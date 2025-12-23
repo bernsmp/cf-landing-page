@@ -28,8 +28,8 @@ const tiers = [
   {
     label: 'PREMIUM',
     name: 'Signal > Noise Pro',
-    price: '$10/month',
-    priceAnnual: '$100/year',
+    price: '$20/month',
+    priceAnnual: '$200/year',
     description: 'Deep dives, advanced frameworks, and extraction methods you won\'t find anywhere else.',
     features: [
       'Everything in free tier',

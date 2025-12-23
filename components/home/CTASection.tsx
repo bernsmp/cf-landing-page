@@ -18,7 +18,7 @@ const tiers = [
   {
     label: 'PREMIUM',
     title: 'Signal > Noise Pro',
-    price: '$10/mo',
+    price: '$20/mo',
     description: 'Deep dives, Subscriber Vault, Framework Factory Course, and more.',
     cta: 'Get Access',
     href: 'https://irreplaceablepositioning.substack.com',
