@@ -46,6 +46,30 @@ Reference: `/Users/maxb/Downloads/max voice guide.md`
 
 ---
 
+## Adding New Prompts (MANDATORY CHECKLIST)
+
+**When adding a new prompt to `data/prompts.ts`, you MUST complete ALL of these steps:**
+
+1. Add the prompt to the `prompts` array with all required fields
+2. Run `npm run build` to verify no errors
+3. **IMMEDIATELY provide an image generation prompt** for the thumbnail
+
+### Image Prompt Template
+
+After adding any prompt, provide this to the user:
+
+```
+**Thumbnail for: [PROMPT TITLE]**
+
+Create a dark, moody illustration with gold/amber accents. The concept: [VISUAL METAPHOR THAT CAPTURES THE PROMPT'S CORE IDEA]. Style: minimal, editorial, sophisticated. Dark navy/black background. Aspect ratio 16:9, premium consulting aesthetic, no text.
+```
+
+**DO NOT mark the task as complete until you have provided the image prompt.**
+
+This is not optional. Every prompt needs a thumbnail. The user will generate it themselves, but you must provide the prompt.
+
+---
+
 ## Standard Project Rules
 
 1. Before starting any task, ensure the project has proper structure: create a tasks/ folder with a todo.md file inside if they don't already exist.

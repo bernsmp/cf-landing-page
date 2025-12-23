@@ -8,6 +8,7 @@ export interface Prompt {
   isPremium: boolean;
   prompt: string;
   thumbnail?: string; // Path to thumbnail image, e.g., '/images/prompts/framework-namer.png'
+  inputsNeeded?: string[]; // What the user needs to prepare before using the prompt
   whatToLookFor?: string[];
   relatedArticle?: {
     title: string;
@@ -48,6 +49,11 @@ export const prompts: Prompt[] = [
     difficulty: 'intermediate',
     isPremium: false,
     thumbnail: '/images/prompts/value-archaeology.png',
+    inputsNeeded: [
+      'A transcript from a client conversation, coaching session, or consulting call',
+      'Best results: conversations where you helped someone have a breakthrough or shift',
+      'Minimum length: 10+ minutes of conversation (longer is better)',
+    ],
     prompt: `# ROLE
 You are an expertise archaeologist trained in the EXTRACT Method™. Your specialty is identifying unconscious competence patterns that experts demonstrate but cannot articulate. You look for the 90% of expertise that operates below conscious awareness.
 
@@ -190,6 +196,12 @@ Which patterns are robust enough (appearing 3+ times, creating consistent outcom
     difficulty: 'beginner',
     isPremium: false,
     thumbnail: '/images/prompts/framework-namer.png',
+    inputsNeeded: [
+      'A clear description of what your framework/methodology does',
+      'Who it\'s for (your target audience)',
+      'The core components or steps of your method',
+      'What makes it different from other approaches',
+    ],
     prompt: `## Framework Naming Workshop
 
 I need help naming my framework using the DRIVE formula.
@@ -235,6 +247,11 @@ After all 10, recommend your top 3 with detailed reasoning.`,
     difficulty: 'advanced',
     isPremium: true,
     thumbnail: '/images/prompts/blind-spot-detector.png',
+    inputsNeeded: [
+      'A transcript of an expert-client conversation (you as the expert)',
+      'Best results: sessions where you solved a complex problem or gave advice',
+      'Include the full conversation, not just highlights',
+    ],
     prompt: `ROLE: You are a Cognitive Pattern Analyst specializing in detecting the tacit knowledge that experts cannot consciously access. You reveal unconscious expertise across four validated dimensions of knowledge.
 
 CONTEXT: Cognitive science research shows that experts operate primarily on unconscious competence - using complex knowledge they cannot articulate. This transcript contains hidden patterns, frameworks, and capabilities the expert uses but cannot see.
@@ -381,6 +398,12 @@ After receiving your initial analysis, use these targeted prompts:
     difficulty: 'intermediate',
     isPremium: true,
     thumbnail: '/images/prompts/pricing-justification.png',
+    inputsNeeded: [
+      'Your frameworks or methodologies (names and brief descriptions)',
+      'Specific results you\'ve achieved for clients',
+      'What makes your approach different from competitors',
+      'Your current pricing and desired new pricing',
+    ],
     prompt: `I need to justify my pricing to prospects (and myself). Help me build an airtight case based on my actual expertise.
 
 Here's what I know about my work:
@@ -413,6 +436,11 @@ Make it sound like me, not like a sales script.`,
     difficulty: 'beginner',
     isPremium: false,
     thumbnail: '/images/prompts/content-from-conversation.png',
+    inputsNeeded: [
+      'A transcript from any conversation (client call, podcast, workshop)',
+      'Context: who you were talking to and why',
+      'Optional: any insights you know landed well',
+    ],
     prompt: `# Transcript-to-Content Extractor
 
 Turn a single conversation transcript into multiple pieces of content that sound like you, not like "content."
@@ -576,6 +604,11 @@ Paste your transcript and the context, and I'll start with Phase 1: your voice p
     difficulty: 'intermediate',
     isPremium: true,
     thumbnail: '/images/prompts/story-mining.png',
+    inputsNeeded: [
+      'A transcript, interview recording, or voice notes',
+      'What you sell and who it\'s for',
+      'Your audience\'s main struggle or pain point',
+    ],
     prompt: `You are a Story Archaeologist. Your job: find powerful stories buried in transcripts and transform them into emails or articles that teach through narrative.
 
 <workflow>
@@ -705,6 +738,11 @@ Begin by asking the setup questions.`,
     difficulty: 'beginner',
     isPremium: false,
     thumbnail: '/images/prompts/problem-solution-extractor.png',
+    inputsNeeded: [
+      'A transcript or detailed notes from a client conversation',
+      'Best results: sessions where you helped solve problems',
+      'The more natural and unedited, the better',
+    ],
     prompt: `## ROLE
 
 You are a pattern recognition specialist who extracts valuable problem-solution pairs from client conversations. Your job is to surface ALL problems discussed (both obvious and hidden) and map them to the consultant's solutions.
@@ -837,6 +875,11 @@ The goal is simple: Find ALL the problems (obvious and hidden) and map them to s
     difficulty: 'intermediate',
     isPremium: true,
     thumbnail: '/images/prompts/stadium-signs.png',
+    inputsNeeded: [
+      'A transcript of you working with a client (coaching, consulting, explaining)',
+      'Your name as it appears in the transcript',
+      'Best results: unscripted conversations where your natural patterns show',
+    ],
     prompt: `# Find Your Stadium Sign
 
 You help people find the 3-5 word philosophy hiding in how they actually work. Not a tagline. Not a brand statement. The thing that's true about how they operate, compressed to stadium-sign size.
@@ -1125,6 +1168,11 @@ Paste your transcript below. I'll find your sign.`,
     difficulty: 'beginner',
     isPremium: false,
     thumbnail: '/images/prompts/uncle-test.png',
+    inputsNeeded: [
+      'Your LinkedIn profile (export as PDF or copy the About section)',
+      'Or: any bio, website about page, or professional summary',
+      'Optional: a recent win or project you\'re proud of',
+    ],
     prompt: `# THE UNCLE TEST
 ## Make Your Invisible Expertise Visible
 
@@ -1232,6 +1280,11 @@ End with: "The gap between Part 1 (Uncle Version) and Part 2 (What Uncle Missed)
     difficulty: 'intermediate',
     isPremium: true,
     thumbnail: '/images/prompts/three-lenses.png',
+    inputsNeeded: [
+      'Raw material: a transcript, draft, brainstorm notes, or voice memo',
+      'Any content where you\'re working through ideas or explaining something',
+      'Minimum: 200+ words of material',
+    ],
     prompt: `<system_identity>
 You are a creative advisor who helps people turn raw material into uniquely differentiated projects. You work in three passes, each applying a distinct lens, then synthesize findings into actionable ideas.
 
@@ -1438,6 +1491,11 @@ You're a smart collaborator who sees things they can't see. Not a coach. Not a c
     difficulty: 'beginner',
     isPremium: false,
     thumbnail: '/images/prompts/decesion-archeology.png',
+    inputsNeeded: [
+      'A transcript from any business conversation',
+      'Best results: conversations where you got great results but can\'t explain why',
+      'Include the full conversation, not just highlights',
+    ],
     prompt: `You are a decision archaeologist. Your expertise: finding the invisible forks in the road that experts navigate without realizing they made a choice.
 
 Most business conversations contain 10-20 invisible decision points — moments where the expert could have gone a different direction but didn't. These choices happen automatically, below conscious awareness. That's what makes them invisible. That's also what makes them valuable.
@@ -1495,6 +1553,11 @@ After listing all 5 decision points, conclude with:
     difficulty: 'intermediate',
     isPremium: false,
     thumbnail: '/images/prompts/pattern-team-cant-copy.png',
+    inputsNeeded: [
+      'A transcript showing you doing work you struggle to delegate',
+      'Best results: tasks where you always end up taking over or fixing',
+      'Run on multiple transcripts to find rules that repeat',
+    ],
     prompt: `You are an expertise decoder specializing in "conditional knowledge" — the if-then rules that experts run automatically but can never seem to teach anyone else.
 
 Here's the problem: Experienced professionals have accumulated hundreds of "when I see X, I do Y" rules. These rules are why they get results. But because the rules fire automatically, they can't explain them. When someone asks "how did you know to do that?" they say "I just knew" or "it felt right."
@@ -1562,6 +1625,11 @@ After listing all rules, provide:
     difficulty: 'intermediate',
     isPremium: true,
     thumbnail: '/images/prompts/hidden-superpower-altman.png',
+    inputsNeeded: [
+      'A transcript of an important conversation (sales call, negotiation, pitch)',
+      'This prompt contains 4 sub-prompts — use whichever fits your situation',
+      'For Prompt 4: any interview or meeting transcript to decode',
+    ],
     prompt: `Your Hidden Superpower Is Already There (You Just Can't See It)
 
 You're already using powerful patterns unconsciously. That conversation where someone suddenly said, "Yes." That presentation where everyone clicked with your vision. You have techniques, but can't see them.
@@ -1658,6 +1726,289 @@ Then decode:
       'Invisible patterns in others\' communication you can decode and adopt',
     ],
     tags: ['communication', 'strategic confusion', 'Altman', 'trust-building', 'vulnerability', 'extraction'],
+  },
+  {
+    id: '14',
+    slug: 'what-youre-actually-selling',
+    title: 'What You\'re Actually Selling',
+    description: 'Reveal the hidden value you provide beyond your stated deliverable. Analyze transcripts, testimonials, or proposals to surface what clients actually buy from you that you can\'t see.',
+    category: 'extraction',
+    difficulty: 'intermediate',
+    isPremium: true,
+    thumbnail: '/images/prompts/what-youre-actually-selling.png',
+    inputsNeeded: [
+      'Highest value: Client delivery transcripts, sales/discovery call transcripts, or client testimonials',
+      'High value: Proposals, SOWs, offer page URL, or email threads with clients',
+      'Good starting point: Voice interview with Claude (answer questions to surface patterns)',
+      'The more inputs you provide, the more accurate the extraction',
+    ],
+    prompt: `# INVISIBLE FUNCTION INVENTORY: EXTRACTION PROMPT
+
+You are an expertise extraction specialist. Your job is to analyze the source materials I provide and surface the hidden functions I'm providing beyond my stated deliverable—value I can't see because I'm too close to my own work.
+
+## My Stated Deliverable
+
+[Tell Claude what you officially do—what's on the invoice, what you'd say at a networking event]
+
+Example: "I help B2B companies build outbound sales systems"
+
+## Source Materials
+
+[Paste transcripts, testimonials, proposals, or provide URLs. Label each one.]
+
+Example inputs:
+
+- "TRANSCRIPT: Discovery call with [Client Name]"
+- "TRANSCRIPT: Mid-project check-in with [Client Name]"
+- "TESTIMONIAL: From [Client Name]"
+- "PROPOSAL: Sent to [Client Name]"
+- "URL: My offer page at [URL]"
+
+---
+
+## Your Analysis Task
+
+Analyze my source materials to find hidden functions—value I provide beyond my stated deliverable that I likely don't recognize, name, or charge for.
+
+### The 7 Categories to Scan For:
+
+1. **Trust & Safety Signals** — What makes clients feel secure, valued, or confident beyond the work itself?
+
+2. **Pattern Recognition & Early Warning** — What problems do I spot before clients see them? What do I notice that others miss?
+
+3. **Translation & Interpretation** — What do I help clients understand that they couldn't decode on their own? What "languages" do I translate between?
+
+4. **Judgment Calls & Edge Cases** — Where do clients rely on my judgment rather than my process? What decisions have no playbook?
+
+5. **Relationship & Access** — What relationships or access do I provide that clients couldn't get on their own?
+
+6. **Psychological Support & Permission** — What confidence, permission, or emotional support do I provide? What do clients feel able to do after working with me?
+
+7. **Coordination & Glue** — What do I hold together that would fragment without me? What do I coordinate that isn't officially my job?
+
+---
+
+## Output Format
+
+### LEVEL 1: Your #1 Hidden Function
+
+Start with the single most valuable hidden function you found in my materials.
+
+**Structure your finding as:**
+
+**Hidden Function:** [Name it simply]
+
+**What I Found:**
+
+[2-3 sentences describing the pattern you observed]
+
+**Evidence From Your Materials:**
+
+[Quote or reference 2-3 specific moments that demonstrate this]
+
+**Why This Matters:**
+
+[What would clients lose if this disappeared? Why is this hard to get elsewhere?]
+
+**Visibility Check:**
+
+- Do clients know they're getting this? [Your assessment]
+- Am I currently naming or charging for this? [Your assessment based on materials]
+- How often does this appear? [Frequency across materials]
+
+Then ask me: "Does this land? Is this real, or am I seeing something that isn't there?"
+
+Wait for my response before continuing.
+
+---
+
+### LEVEL 2: Complete Function Inventory
+
+After I validate Level 1, map all hidden functions across the 7 categories.
+
+**For each category where you found evidence:**
+
+**[Category Name]**
+
+*Function Found:* [Name it]
+
+*Evidence:* [Specific quotes or moments from materials]
+
+*Frequency:* [How often this appeared]
+
+*Replacement Cost:* [What would fill the gap if this disappeared?]
+
+**Categories with no clear evidence:**
+
+List these separately. Note if I should provide different materials to explore them.
+
+**Priority Ranking:**
+
+Rank all discovered functions by:
+
+1. How often they appear (pattern strength)
+2. How hard they'd be to replace (differentiation value)
+3. How invisible they are to me (extraction value)
+
+End with: "Which of these surprised you? Which do you want to explore further?"
+
+Wait for my response before continuing.
+
+---
+
+### LEVEL 3: Positioning Implications
+
+After I react to Level 2, propose how to use these findings.
+
+**For my top 3 hidden functions:**
+
+**[Function Name]**
+
+*Naming Options:* [2-3 simple names clients would understand]
+
+*Positioning Language:*
+
+"Other [my profession] might deliver similar [stated deliverable], but they won't _______________."
+
+*Pricing Implication:*
+
+[Should this be bundled, mentioned, or priced separately? Why?]
+
+*Evidence to Reference:*
+
+[If I wanted to make this visible to prospects, which quote or story from my materials demonstrates it best?]
+
+**Differentiation Summary:**
+
+Write a 2-3 sentence positioning statement that incorporates my most distinctive hidden functions.
+
+**Next Actions:**
+
+1. [One thing to do in my next proposal]
+2. [One thing to say in my next sales conversation]
+3. [One question to explore in deeper extraction work]
+
+---
+
+## Important Instructions
+
+- Show your evidence. Don't just tell me what I do—show me where you saw it.
+- Be specific. "You provide emotional support" is useless. "You gave [Client] permission to fire their biggest customer in the March 15 call" is useful.
+- Challenge me. If my stated deliverable doesn't match what I actually seem to do, say so.
+- Flag uncertainty. If you're inferring something from thin evidence, tell me.
+- Wait for validation. Don't rush through levels. My reactions are where the real insight happens.
+
+---
+
+## If I Don't Have Transcripts
+
+If I only have an offer page or limited materials, shift to interview mode:
+
+Ask me questions designed to surface hidden functions. Use questions like:
+
+- "Tell me about a time a client thanked you for something that wasn't in your proposal."
+- "What do clients get from working with you that they couldn't get from someone with similar skills?"
+- "When clients describe you to others, what do they say that surprises you?"
+- "What do you find yourself doing for clients that you never planned to offer?"
+- "Describe a recent client win. Now tell me what actually made the difference—not the deliverable, but what shifted for them."
+
+Surface patterns from my answers the same way you would from transcripts. My verbal answers reveal patterns I can't see.
+
+---
+
+## Start
+
+Confirm you understand the task, tell me what source materials you see, and begin with Level 1.`,
+    whatToLookFor: [
+      'Level 1 should identify your single most valuable hidden function with specific evidence',
+      'The 7 categories cover different types of invisible value: trust, pattern recognition, translation, judgment, access, psychological support, coordination',
+      'Level 2 maps ALL hidden functions and ranks them by pattern strength and differentiation value',
+      'Level 3 gives you positioning language and naming options you can actually use',
+      'The best extractions come from transcripts where you\'re actually working, not describing your work',
+    ],
+    relatedArticle: {
+      title: 'Why You Can\'t See Your Own Value',
+      url: 'https://irreplaceablepositioning.substack.com',
+    },
+    tags: ['extraction', 'hidden value', 'invisible functions', 'positioning', 'transcripts', 'differentiation'],
+  },
+  {
+    id: '15',
+    slug: 'blank-page-eliminator',
+    title: 'The Blank Page Eliminator',
+    description: 'Turn raw transcripts into structured deliverables using YOUR methodology. Stop staring at blank documents. Feed in a transcript and your framework, get a 60-70% complete draft in minutes.',
+    category: 'content',
+    difficulty: 'beginner',
+    isPremium: true,
+    thumbnail: '/images/prompts/blank-page-eliminator.png',
+    inputsNeeded: [
+      'A transcript where you explain your process (30-60 min conversations work best)',
+      'Your methodology: name, core insight, typical phases, what makes it different',
+      'The deliverable format you need (content calendar, proposal, workshop outline, case study)',
+      'If methodology is unclear, say so and the prompt will help extract it first',
+    ],
+    prompt: `# ROLE
+You are a Content Architect helping me eliminate "Blank Page Syndrome."
+Your job: Extract the signal from my transcript and structure it into my deliverable format.
+
+# MY METHODOLOGY
+
+[Fill this in before running:]
+
+- Name (if you have one): [e.g., "The Authority Pillar Framework"]
+- Core insight: [What do you believe that others don't? 1-2 sentences]
+- Typical phases: [How does your work flow? e.g., "Discover → Design → Deliver"]
+- What makes yours different: [Why does your approach work better?]
+
+Example:
+- Name: The Authority Pillar Framework
+- Core insight: Most content strategies fail because they spread across 20 topics instead of owning 3-4 pillars deeply
+- Typical phases: Audit → Pillars → Calendar → Amplify
+- What makes yours different: We build backwards from "what do you want to be known for?" not "what should we post?"
+
+# RAW TRANSCRIPT
+
+[PASTE YOUR TRANSCRIPT HERE]
+
+# DELIVERABLE FORMAT
+
+I need this turned into: [e.g., "12-week content calendar" / "client proposal" / "workshop outline" / "case study"]
+
+# YOUR TASK
+
+1. Extract the key insights from this transcript that fit my methodology
+2. Structure them into my deliverable format
+3. Flag 2-3 "Gap Areas" where my human judgment is needed (anecdotes, specific recommendations, tone calibration)
+
+# OUTPUT FORMAT
+
+Give me:
+- The structured draft (as complete as the transcript allows)
+- Gap areas clearly marked with [NEEDS YOUR INPUT: reason]
+- One question that would make this draft stronger if I answered it
+
+# IF MY METHODOLOGY IS VAGUE
+
+Don't hallucinate a methodology for me. Instead:
+1. Tell me what's unclear
+2. Ask 2-3 clarifying questions
+3. Once I answer, proceed with the draft
+
+# QUALITY STANDARD
+
+The draft should feel like something I could edit in 30 minutes, not something I need to rewrite from scratch.`,
+    whatToLookFor: [
+      'Structured draft that follows YOUR methodology phases, not generic structure',
+      'Gap areas clearly marked where your human judgment is needed',
+      'The "one question" at the end often reveals gaps you didn\'t know you had',
+      'If output feels generic, your methodology input was probably too vague',
+      'Best transcripts: 45-60 min where you\'re explaining to someone new',
+    ],
+    relatedArticle: {
+      title: 'Why the Blank Page Is a Liar',
+      url: 'https://irreplaceablepositioning.substack.com',
+    },
+    tags: ['content', 'transcripts', 'deliverables', 'methodology', 'drafts', 'blank page'],
   },
 ];
 
@@ -2063,5 +2414,27 @@ export const getPremiumPrompts = (): Prompt[] => {
 
 export const getPromptsByCategory = (category: string): Prompt[] => {
   return prompts.filter(p => p.category === category);
+};
+
+export const getRelatedPrompts = (currentSlug: string, limit: number = 3): Prompt[] => {
+  const current = getPromptBySlug(currentSlug);
+  if (!current) return [];
+
+  // First, get prompts in the same category
+  const sameCategory = prompts.filter(
+    p => p.slug !== currentSlug && p.category === current.category
+  );
+
+  // If we have enough, return those
+  if (sameCategory.length >= limit) {
+    return sameCategory.slice(0, limit);
+  }
+
+  // Otherwise, fill with prompts from other categories
+  const otherPrompts = prompts.filter(
+    p => p.slug !== currentSlug && p.category !== current.category
+  );
+
+  return [...sameCategory, ...otherPrompts].slice(0, limit);
 };
 
