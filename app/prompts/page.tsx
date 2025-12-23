@@ -92,7 +92,7 @@ export default function PromptsPage() {
               transition={{ delay: 0.1 }}
               className="font-display text-4xl md:text-5xl font-bold text-white mb-6"
             >
-              Extract Your <span className="text-gold-gradient">Invisible Expertise</span>
+              Your Expertise Has Been <span className="text-gold-gradient">Avoiding You</span>
             </motion.h1>
 
             <motion.p
@@ -101,7 +101,7 @@ export default function PromptsPage() {
               transition={{ delay: 0.2 }}
               className="text-lg text-[var(--grey-400)] max-w-2xl mx-auto"
             >
-              Prompts designed to surface the patterns you can't see. Copy, paste, discover what makes you exceptional.
+              You've tried to document your methodology before. The file is probably in a folder called "Old Stuff" now. These prompts ask the questions you'd never think to ask yourself.
             </motion.p>
           </div>
         </section>
@@ -155,17 +155,21 @@ export default function PromptsPage() {
         {/* Free Prompts */}
         <section className="px-6 lg:px-8 mb-20">
           <div className="max-w-6xl mx-auto">
-            <h2 className="font-display text-2xl font-bold text-white mb-8">
-              Featured Prompts
+            <h2 className="font-display text-2xl font-bold text-white mb-3">
+              Start Here
             </h2>
+            <p className="text-[var(--grey-400)] mb-8 max-w-2xl">
+              Pick one. Run it on a recent client conversation. You'll find the decision patterns, unnamed frameworks, and "just how I work" moves that clients actually pay for.
+            </p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 prompt-grid">
               {filteredFreePrompts.map((prompt, index) => (
                 <motion.div
                   key={prompt.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
+                  className="prompt-card"
                 >
                   <Link href={`/prompts/${prompt.slug}`} className="block h-full">
                     <div className="h-full rounded-2xl bg-[var(--grey-850)] border border-[var(--grey-800)] hover:border-[var(--brand-gold)]/50 transition-all duration-300 group overflow-hidden">
@@ -183,7 +187,7 @@ export default function PromptsPage() {
 
                       <div className="p-6">
                         {/* Category badge */}
-                        <span className="inline-block px-3 py-1 rounded-full bg-[var(--grey-800)] text-[var(--grey-400)] text-xs font-semibold uppercase tracking-wider mb-4">
+                        <span className="inline-block px-3 py-1 rounded-full bg-[var(--grey-800)] text-[var(--grey-400)] text-xs font-semibold uppercase tracking-wider mb-3">
                           {prompt.category}
                         </span>
 
@@ -192,20 +196,17 @@ export default function PromptsPage() {
                           {prompt.title}
                         </h3>
 
-                        {/* Description */}
-                        <p className="text-[var(--grey-400)] text-sm mb-4 line-clamp-2">
+                        {/* Description - tightened to single line */}
+                        <p className="text-[var(--grey-400)] text-sm line-clamp-1">
                           {prompt.description}
                         </p>
 
-                        {/* Footer */}
-                        <div className="flex items-center justify-between pt-4 border-t border-[var(--grey-800)]">
-                          <span className="text-xs text-[var(--grey-500)] capitalize">
-                            {prompt.difficulty}
-                          </span>
-                          <span className="flex items-center gap-1 text-[var(--brand-gold)] text-sm font-medium">
-                            View prompt
-                            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                          </span>
+                        {/* Footer - simplified with hover arrow only */}
+                        <div className="flex items-center justify-end pt-4">
+                          <ArrowRight
+                            size={16}
+                            className="text-[var(--grey-600)] group-hover:text-[var(--brand-gold)] group-hover:translate-x-1 transition-all"
+                          />
                         </div>
                       </div>
                     </div>
@@ -219,37 +220,59 @@ export default function PromptsPage() {
         {/* Premium Section */}
         <section className="px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <div className="p-8 rounded-2xl bg-gradient-to-br from-[var(--brand-gold)]/10 to-[var(--grey-900)] border border-[var(--brand-gold)]/30 mb-8">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
+            <div className="p-8 md:p-10 rounded-2xl bg-gradient-to-br from-[var(--brand-gold)]/10 to-[var(--grey-900)] border border-[var(--brand-gold)]/30 mb-8">
+              <div className="flex flex-col lg:flex-row gap-8">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-4">
                     <Sparkles className="text-[var(--brand-gold)]" size={20} />
                     <h2 className="font-display text-2xl font-bold text-white">
-                      Subscriber Vault
+                      Subscriber Prompts
                     </h2>
                   </div>
-                  <p className="text-[var(--grey-400)]">
-                    Advanced prompts, multi-step workflows, and extraction sequences.
-                    <br />
-                    <span className="text-[var(--grey-500)] text-sm">
-                      Exclusive to Signal {'>'} Noise paid subscribers.
-                    </span>
+
+                  <p className="text-[var(--grey-300)] mb-6">
+                    Walk away with something you can use immediately:
+                  </p>
+
+                  <ul className="space-y-3 mb-6">
+                    <li className="flex items-start gap-3 text-[var(--grey-300)]">
+                      <span className="text-[var(--brand-gold)] mt-1">→</span>
+                      <span><strong className="text-white">Language that justifies your pricing</strong> in the first sales call</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-[var(--grey-300)]">
+                      <span className="text-[var(--brand-gold)] mt-1">→</span>
+                      <span><strong className="text-white">Your 3-5 word philosophy</strong> (the thing you'd put on a stadium sign)</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-[var(--grey-300)]">
+                      <span className="text-[var(--brand-gold)] mt-1">→</span>
+                      <span><strong className="text-white">A month of content</strong> from a single client conversation</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-[var(--grey-300)]">
+                      <span className="text-[var(--brand-gold)] mt-1">→</span>
+                      <span><strong className="text-white">The full map</strong> of what you do that others can't copy</span>
+                    </li>
+                  </ul>
+
+                  <p className="text-[var(--grey-500)] text-sm">
+                    Exclusive to Signal {'>'} Noise paid subscribers.
                   </p>
                 </div>
 
-                {!premiumUnlocked ? (
-                  <button
-                    onClick={() => setShowPremium(true)}
-                    className="flex items-center gap-2 px-6 py-3 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-colors"
-                  >
-                    <Lock size={18} />
-                    Unlock Vault
-                  </button>
-                ) : (
-                  <span className="flex items-center gap-2 px-4 py-2 bg-[var(--success)]/20 text-[var(--success)] rounded-lg text-sm font-medium">
-                    ✓ Vault Unlocked
-                  </span>
-                )}
+                <div className="flex flex-col justify-center lg:pl-8 lg:border-l lg:border-[var(--grey-800)]">
+                  {!premiumUnlocked ? (
+                    <button
+                      onClick={() => setShowPremium(true)}
+                      className="flex items-center justify-center gap-2 px-8 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-colors"
+                    >
+                      <Lock size={18} />
+                      Unlock These Prompts
+                    </button>
+                  ) : (
+                    <span className="flex items-center justify-center gap-2 px-6 py-3 bg-[var(--success)]/20 text-[var(--success)] rounded-lg text-sm font-medium">
+                      ✓ Unlocked
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -326,14 +349,14 @@ export default function PromptsPage() {
             )}
 
             {/* Premium Prompts Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 prompt-grid">
               {filteredPremiumPrompts.map((prompt, index) => (
                 <motion.div
                   key={prompt.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  className="relative"
+                  className="relative prompt-card"
                 >
                   {premiumUnlocked ? (
                     <Link href={`/prompts/${prompt.slug}`} className="block h-full">
@@ -352,7 +375,7 @@ export default function PromptsPage() {
 
                         <div className="p-6">
                           {/* Premium badge */}
-                          <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center justify-between mb-3">
                             <span className="inline-block px-3 py-1 rounded-full bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs font-semibold uppercase tracking-wider">
                               {prompt.category}
                             </span>
@@ -363,18 +386,16 @@ export default function PromptsPage() {
                             {prompt.title}
                           </h3>
 
-                          <p className="text-[var(--grey-400)] text-sm mb-4 line-clamp-2">
+                          <p className="text-[var(--grey-400)] text-sm line-clamp-1">
                             {prompt.description}
                           </p>
 
-                          <div className="flex items-center justify-between pt-4 border-t border-[var(--grey-800)]">
-                            <span className="text-xs text-[var(--grey-500)] capitalize">
-                              {prompt.difficulty}
-                            </span>
-                            <span className="flex items-center gap-1 text-[var(--brand-gold)] text-sm font-medium">
-                              View prompt
-                              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                            </span>
+                          {/* Footer - simplified */}
+                          <div className="flex items-center justify-end pt-4">
+                            <ArrowRight
+                              size={16}
+                              className="text-[var(--grey-600)] group-hover:text-[var(--brand-gold)] group-hover:translate-x-1 transition-all"
+                            />
                           </div>
                         </div>
                       </div>
@@ -403,7 +424,7 @@ export default function PromptsPage() {
 
                         <div className="p-6">
                           {/* Premium badge */}
-                          <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center justify-between mb-3">
                             <span className="inline-block px-3 py-1 rounded-full bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs font-semibold uppercase tracking-wider">
                               {prompt.category}
                             </span>
@@ -414,18 +435,16 @@ export default function PromptsPage() {
                             {prompt.title}
                           </h3>
 
-                          <p className="text-[var(--grey-400)] text-sm mb-4 line-clamp-2">
+                          <p className="text-[var(--grey-400)] text-sm line-clamp-1">
                             {prompt.description}
                           </p>
 
-                          <div className="flex items-center justify-between pt-4 border-t border-[var(--grey-800)]">
-                            <span className="text-xs text-[var(--grey-500)] capitalize">
-                              {prompt.difficulty}
-                            </span>
-                            <span className="flex items-center gap-1 text-[var(--brand-gold)] text-sm font-medium">
-                              <Lock size={12} />
-                              Unlock to view
-                            </span>
+                          {/* Footer - simplified */}
+                          <div className="flex items-center justify-end pt-4">
+                            <Lock
+                              size={14}
+                              className="text-[var(--grey-600)] group-hover:text-[var(--brand-gold)] transition-all"
+                            />
                           </div>
                         </div>
                       </div>
@@ -446,13 +465,14 @@ export default function PromptsPage() {
                   Multi-step processes for deeper extraction. Each step's output feeds into the next.
                 </p>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 prompt-grid">
                   {workflows.map((workflow, index) => (
                     <motion.div
                       key={workflow.id}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.05 }}
+                      className="prompt-card"
                     >
                       {premiumUnlocked ? (
                         <Link href={`/prompts/workflow/${workflow.slug}`} className="block h-full">
@@ -471,7 +491,7 @@ export default function PromptsPage() {
 
                             <div className="p-6">
                               {/* Badges */}
-                              <div className="flex items-center gap-2 mb-4">
+                              <div className="flex items-center gap-2 mb-3">
                                 <span className="inline-block px-3 py-1 rounded-full bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs font-semibold uppercase tracking-wider">
                                   {workflow.category}
                                 </span>
@@ -484,18 +504,19 @@ export default function PromptsPage() {
                                 {workflow.title}
                               </h3>
 
-                              <p className="text-[var(--grey-400)] text-sm mb-4 line-clamp-2">
+                              <p className="text-[var(--grey-400)] text-sm line-clamp-1">
                                 {workflow.description}
                               </p>
 
-                              <div className="flex items-center justify-between pt-4 border-t border-[var(--grey-800)]">
+                              {/* Footer - simplified but keep time for workflows */}
+                              <div className="flex items-center justify-between pt-4">
                                 <span className="text-xs text-[var(--grey-500)]">
-                                  ⏱ {workflow.estimatedTime}
+                                  {workflow.estimatedTime}
                                 </span>
-                                <span className="flex items-center gap-1 text-[var(--brand-gold)] text-sm font-medium">
-                                  View workflow
-                                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                                </span>
+                                <ArrowRight
+                                  size={16}
+                                  className="text-[var(--grey-600)] group-hover:text-[var(--brand-gold)] group-hover:translate-x-1 transition-all"
+                                />
                               </div>
                             </div>
                           </div>
@@ -523,7 +544,7 @@ export default function PromptsPage() {
 
                             <div className="p-6">
                               {/* Badges */}
-                              <div className="flex items-center gap-2 mb-4">
+                              <div className="flex items-center gap-2 mb-3">
                                 <span className="inline-block px-3 py-1 rounded-full bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] text-xs font-semibold uppercase tracking-wider">
                                   {workflow.category}
                                 </span>
@@ -537,18 +558,19 @@ export default function PromptsPage() {
                                 {workflow.title}
                               </h3>
 
-                              <p className="text-[var(--grey-400)] text-sm mb-4 line-clamp-2">
+                              <p className="text-[var(--grey-400)] text-sm line-clamp-1">
                                 {workflow.description}
                               </p>
 
-                              <div className="flex items-center justify-between pt-4 border-t border-[var(--grey-800)]">
+                              {/* Footer - simplified */}
+                              <div className="flex items-center justify-between pt-4">
                                 <span className="text-xs text-[var(--grey-500)]">
-                                  ⏱ {workflow.estimatedTime}
+                                  {workflow.estimatedTime}
                                 </span>
-                                <span className="flex items-center gap-1 text-[var(--brand-gold)] text-sm font-medium">
-                                  <Lock size={12} />
-                                  Unlock to view
-                                </span>
+                                <Lock
+                                  size={14}
+                                  className="text-[var(--grey-600)] group-hover:text-[var(--brand-gold)] transition-all"
+                                />
                               </div>
                             </div>
                           </div>
