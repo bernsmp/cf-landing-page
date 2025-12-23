@@ -8,7 +8,7 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 
 const navLinks = [
   { href: '/method', label: 'Method' },
-  { href: '/prompts', label: 'Prompt Vault' },
+  { href: '/prompts', label: 'Prompt Vault', featured: true },
   { href: '/insights', label: 'Insights' },
   { href: '/newsletter', label: 'Newsletter' },
   { href: '/start', label: 'Start' },
@@ -61,7 +61,11 @@ export const Navigation = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-[var(--grey-400)] hover:text-white transition-colors duration-300 text-sm font-medium"
+                  className={`transition-colors duration-300 text-sm font-medium ${
+                    link.featured
+                      ? 'text-[var(--brand-gold)] hover:text-[var(--brand-gold-light)]'
+                      : 'text-[var(--grey-400)] hover:text-white'
+                  }`}
                 >
                   {link.label}
                 </Link>
@@ -107,7 +111,11 @@ export const Navigation = () => {
                   <Link
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-2xl font-display font-bold text-white hover:text-[var(--brand-gold)] transition-colors"
+                    className={`text-2xl font-display font-bold transition-colors ${
+                      link.featured
+                        ? 'text-[var(--brand-gold)] hover:text-[var(--brand-gold-light)]'
+                        : 'text-white hover:text-[var(--brand-gold)]'
+                    }`}
                   >
                     {link.label}
                   </Link>
