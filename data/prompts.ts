@@ -2012,13 +2012,13 @@ The draft should feel like something I could edit in 30 minutes, not something I
   },
   {
     id: '16',
-    slug: 'new-vs-better-positioning-audit',
-    title: 'The "New vs Better" Positioning Audit',
-    description: 'Analyze your LinkedIn or website to reveal if you\'re triggering skepticism ("prove you\'re better") or curiosity ("tell me more"). Most experts run 80% competitive language without realizing it.',
+    slug: 'new-vs-better-language-map',
+    title: 'Your "New vs Better" Language Map',
+    description: 'See exactly where your LinkedIn or website triggers skepticism ("prove you\'re better") vs curiosity ("tell me more"). Most experts run 80% competitive language without realizing it.',
     category: 'analysis',
     difficulty: 'beginner',
     isPremium: true,
-    thumbnail: '/images/prompts/new-vs-better-positioning-audit.png',
+    thumbnail: '/images/prompts/new-vs-better-language-map.png',
     inputsNeeded: [
       'Your LinkedIn profile URL or website URL',
       'Works best with About sections, bio pages, or service descriptions',
