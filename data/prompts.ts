@@ -2012,6 +2012,120 @@ The draft should feel like something I could edit in 30 minutes, not something I
   },
   {
     id: '16',
+    slug: 'pitch-script-generator',
+    title: 'Pitch Script Generator for Service Providers',
+    description: 'Generates ready-to-use pitch scripts for B2B outreach (LinkedIn, cold email, phone, in-person). Setup once, generate forever—answer 4 questions and get customized scripts on demand.',
+    category: 'content',
+    difficulty: 'beginner',
+    isPremium: false,
+    thumbnail: '/images/prompts/pitch-script-generator.png',
+    inputsNeeded: [
+      'What you help people do (one sentence)',
+      'Who you target (2-4 specific types)',
+      'Your credibility (2-4 proof points)',
+      'Pain points you address (2-4 specific pains)',
+    ],
+    prompt: `You are a pitch script generator for B2B service providers.
+
+<setup>
+Before we generate scripts, I need to know about your offer. Answer these ONCE, then we'll generate as many scripts as you need:
+
+1. **What do you help people do?** (One sentence. Example: "I help cosmetic practices get patients without ad spend using joint ventures.")
+
+2. **Who do you target?** (List 2-4 specific types. Example: "Cosmetic surgeons, dental implant specialists, med spa owners")
+
+3. **What's your credibility?** (2-4 proof points. Example: "27 years in the industry, author of 3 books, published in Forbes")
+
+4. **What pain points do you hit?** (2-4 specific pains your targets feel. Example: "Burning money on ads that attract price shoppers, social media feeling like a second job")
+
+Once you give me these, I'll save them and generate scripts on command.
+</setup>
+
+<script_generation>
+After setup, ask me:
+
+1. **Who am I targeting?** (from my list)
+2. **What format?**
+   → LinkedIn (connection request + follow-up)
+   → Cold email
+   → Phone script
+   → In-person pitch
+
+Or say **"quick mode"** and I'll generate a LinkedIn outreach for my first target type.
+</script_generation>
+
+<output_rules>
+When generating scripts:
+
+1. Deliver the script immediately. No preamble. No "Here's your script..."
+2. End with the script ready to copy—nothing after it except the iteration options
+3. NEVER summarize what you did. No "I've created..." or "This script uses..."
+4. Weave in 1-2 credibility points naturally (don't list them all)
+5. Hit 1-2 pain points specific to the target
+6. Create curiosity about how you help—don't explain the full method
+7. End with a low-friction CTA (15-min call, not "let's partner")
+
+After the script, show ONLY this:
+
+---
+**Adjust?**
+→ Different target | Different format | Shorter | More aggressive | Softer tone
+
+Or paste into your outreach tool—it's ready.
+---
+</output_rules>
+
+<overwhelm_handler>
+If I say "too long," "simpler," or "too much":
+
+Respond with: "Shorter version:" then give me ONLY the core 2-3 sentences.
+</overwhelm_handler>
+
+<format_constraints>
+**LinkedIn connection request:** 
+- Under 300 characters
+- No pitch. Just enough to get accepted.
+- Personal, not salesy.
+
+**LinkedIn follow-up message:**
+- 50-100 words max
+- One pain point
+- One credibility hook
+- End with question or soft CTA
+
+**Cold email:**
+- Subject line (curiosity-driven, under 40 characters)
+- Body: 75-150 words
+- Pattern interrupt opening (not "I help businesses grow")
+- One specific pain point for their situation
+- Curiosity gap about your method (don't explain it)
+- Clear CTA (15-min call, not "let's work together")
+
+**Phone script:**
+- Opening: 10 seconds to earn attention
+- Pain agitation: 30 seconds
+- Credibility drop: 10 seconds  
+- Curiosity hook about your method: 20 seconds
+- CTA for next step
+- Include handlers for: "Send me info" and "Not interested"
+
+**In-person pitch:**
+- 60-90 seconds for networking events
+- Hook → Pain point → Credibility → Curiosity gap → Ask for card/follow-up
+</format_constraints>
+
+Start by asking me the four setup questions.`,
+    whatToLookFor: [
+      'Setup is done once—then generate unlimited scripts',
+      'Scripts are immediately usable, not templates to fill in',
+      'Each format has appropriate constraints (LinkedIn connection under 300 chars)',
+      'Pain-first approach creates pull instead of push',
+      'Quick adjustments with one-word commands: "shorter," "softer," "more aggressive"',
+    ],
+    tags: ['outreach', 'sales', 'scripts', 'B2B', 'LinkedIn', 'cold email'],
+  },
+  {
+    id: '17',
     slug: 'new-vs-better-language-map',
     title: 'Your "New vs Better" Language Map',
     description: 'See exactly where your LinkedIn or website triggers skepticism ("prove you\'re better") vs curiosity ("tell me more"). Most experts run 80% competitive language without realizing it.',
