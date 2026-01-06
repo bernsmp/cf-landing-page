@@ -2288,6 +2288,173 @@ Now, please provide the LinkedIn profile URL or website URL you'd like me to ana
     },
     tags: ['positioning', 'LinkedIn', 'analysis', 'differentiation', 'language', 'audit'],
   },
+  {
+    id: '18',
+    slug: 'expertise-embedded-sop-generator',
+    title: 'Expertise-Embedded SOP Generator',
+    description: 'Create SOPs that capture how experts actually think, not just the steps they take. Extracts invisible checkpoints, deviation triggers, and recovery patterns that never survive a brain dump.',
+    category: 'extraction',
+    difficulty: 'intermediate',
+    isPremium: false,
+    thumbnail: '/images/prompts/expertise-embedded-sop-generator.png',
+    inputsNeeded: [
+      'Screen recording with talk-aloud (best), interview transcript, or annotated brain dump',
+      'Process name, who performs it, frequency, and tools involved',
+      'Understanding of what happens when this process is done poorly',
+    ],
+    prompt: `# EXPERTISE-EMBEDDED SOP GENERATOR
+
+You are an expertise extraction specialist, not just a technical writer. Your job is to create SOPs that transfer judgment, not just steps.
+
+## WHY THIS IS DIFFERENT
+
+Standard SOP generators treat processes like recipes: do step 1, then step 2, then step 3. That works for making toast. It fails for anything requiring judgment.
+
+The gap isn't documentation. It's extraction.
+
+When someone's done a process 500 times, most of their expertise has gone underground. They check things they don't remember learning to check. They sense when something's off before they can explain why. They know which "rules" are actually suggestions and which will break everything.
+
+This prompt treats SOP creation as an expertise extraction problem. It probes for:
+
+- **Invisible checkpoints** — What do you verify that nobody taught you to verify?
+- **Deviation triggers** — When do you abandon the standard path, and how do you know?
+- **Quality gradients** — What separates "done" from "done well" from "done by someone who really knows what they're doing"?
+- **Recovery patterns** — When things go sideways, what do you try first? Second? How do you know which problem you're actually facing?
+- **Smell tests** — What makes you pause and look closer, even when everything technically checks out?
+
+---
+
+## INPUT NEEDED
+
+**PROCESS TO DOCUMENT:**
+[Paste your raw material: transcript, brain dump, screen recording notes, etc.]
+
+**CONTEXT:**
+- Process name: [What is this procedure called?]
+- Who performs this: [Role/team responsible]
+- Frequency: [How often is this done?]
+- Typical time to complete: [Estimate]
+- Tools/systems involved: [List software, platforms, etc.]
+- Stakes: [What happens if this is done poorly? What's the cost of errors?]
+
+---
+
+## PHASE 1: EXTRACTION INTERVIEW
+
+Before generating the SOP, identify what's likely missing from the raw material. Surface 5-7 questions that would reveal tacit expertise, such as:
+
+- "What do you check that nobody taught you to check?"
+- "When do you deviate from this process? What triggers that?"
+- "What's the difference between someone following these steps vs. someone who's done this 100 times?"
+- "What mistakes did you make early on that you now avoid automatically?"
+- "What do you notice in the first 30 seconds that tells you this will be easy or hard?"
+- "When something goes wrong, how do you diagnose which kind of wrong?"
+- "What looks fine but actually isn't? How do you spot it?"
+
+Present these questions to the user. Wait for answers before generating the full SOP.
+
+---
+
+## PHASE 2: FULL SOP GENERATION
+
+Once extraction questions are answered, generate the complete SOP:
+
+**1. HEADER**
+- SOP Title
+- Version: 1.0
+- Last Updated: [Date]
+- Owner: [Role]
+- Applies To: [Audience]
+
+**2. PURPOSE**
+- Why this process exists (the actual business reason)
+- What outcome it achieves when done well
+- When to use this SOP vs. when NOT to use it
+
+**3. SCOPE & PREREQUISITES**
+- What this covers
+- What this explicitly does NOT cover
+- What must be true before starting
+- Knowledge or access required
+
+**4. KEY TERMS**
+Define jargon, acronyms, or terms used in non-obvious ways. Skip if none.
+
+**5. TOOLS & ACCESS**
+| Tool/System | What You Use It For | Access Level | Notes |
+|-------------|---------------------|--------------|-------|
+
+**6. PROCEDURE**
+
+For each major step:
+- Numbered with clear action verb
+- Specific details (assume no prior knowledge)
+- Expected outcome
+- [SCREENSHOT: description] where visual would help
+
+For decision points:
+\`\`\`
+DECISION: [What you're evaluating]
+├─ IF [condition A]: [action + why this path]
+├─ IF [condition B]: [action + why this path]
+└─ IF [unclear]: [how to get clarity]
+\`\`\`
+
+**EXPERTISE ANNOTATIONS**
+Embed throughout the procedure:
+- **Watch for:** [Things that look fine but aren't]
+- **Expert move:** [What experienced people do differently]
+- **Common trap:** [Mistakes that seem reasonable but cause problems]
+- **Recovery:** [If this goes wrong, here's how to fix it]
+
+**7. QUALITY GRADIENTS**
+
+Not just "done or not done" — capture the levels:
+
+| Level | What It Looks Like | How to Tell |
+|-------|-------------------|-------------|
+| Minimum viable | [Description] | [Indicators] |
+| Solid execution | [Description] | [Indicators] |
+| Expert-level | [Description] | [Indicators] |
+
+**8. COMPLETION CHECKLIST**
+□ [Verification item — with why it matters]
+□ [Verification item — with why it matters]
+□ [Verification item — with why it matters]
+
+**9. TROUBLESHOOTING**
+
+Structure as diagnosis, not just symptom-solution pairs:
+
+**Symptom:** [What you observe]
+**Possible causes:**
+1. [Cause A] — Check by: [How to confirm] — Fix: [Solution]
+2. [Cause B] — Check by: [How to confirm] — Fix: [Solution]
+
+**When to escalate:** [Conditions that mean this is beyond the SOP]
+
+**10. RELATED PROCEDURES**
+- [Connected SOP] — when you'd use it instead or in addition
+
+**11. REVISION HISTORY**
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+
+---
+
+## OUTPUT STANDARD
+
+The test isn't "could someone follow this?"
+The test is "could someone follow this AND make the judgment calls you would make?"`,
+    whatToLookFor: [
+      'Phase 1 extraction questions reveal 30-40% of expertise that never makes it into standard docs',
+      'Quality gradients show the difference between minimum viable and expert-level execution',
+      'Expertise annotations embedded throughout (Watch for, Expert move, Common trap, Recovery)',
+      'Decision trees with IF-THEN logic for judgment calls',
+      'Troubleshooting structured as diagnosis, not just symptom-solution pairs',
+    ],
+    tags: ['extraction', 'SOP', 'documentation', 'processes', 'tacit knowledge', 'operations'],
+  },
 ];
 
 export const workflows: Workflow[] = [
