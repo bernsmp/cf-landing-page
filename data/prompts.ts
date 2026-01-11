@@ -38,6 +38,18 @@ export interface Workflow {
   tags: string[];
 }
 
+export interface Skill {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  isPremium: boolean;
+  filename: string; // e.g., 'problem-solution-extractor.skill'
+  toolCount: number; // Number of tools/prompts in the skill
+  fileSize: string; // e.g., '2 KB'
+  tags: string[];
+}
+
 // Sample prompts - you'll replace these with your actual prompts
 export const prompts: Prompt[] = [
   {
@@ -2883,3 +2895,104 @@ export const getRelatedPrompts = (currentSlug: string, limit: number = 3): Promp
   return [...sameCategory, ...otherPrompts].slice(0, limit);
 };
 
+// Claude Skills - downloadable skill files for Claude Code
+export const skills: Skill[] = [
+  // FREE SKILLS
+  {
+    id: 'skill-1',
+    slug: 'problem-solution-extractor',
+    title: 'Problem-Solution Extractor',
+    description: 'Analyzes client conversation transcripts to find ALL problems (surface + hidden) and maps them to your solutions. Reveals your diagnostic patterns and discovers high-value problem combinations you could package as offers.',
+    isPremium: false,
+    filename: 'problem-solution-extractor.skill',
+    toolCount: 1,
+    fileSize: '2 KB',
+    tags: ['extraction', 'transcripts', 'problems', 'solutions'],
+  },
+  {
+    id: 'skill-2',
+    slug: 'breakthrough-pattern',
+    title: 'Breakthrough Pattern Miner',
+    description: 'Mines your "aha moment" creation patterns. Analyzes transcripts where clients had breakthroughs to find the choreography—what you do before, during, and after transformation moments. Creates repeatable innovation frameworks.',
+    isPremium: false,
+    filename: 'breakthrough-pattern.skill',
+    toolCount: 1,
+    fileSize: '7 KB',
+    tags: ['extraction', 'breakthroughs', 'patterns', 'frameworks'],
+  },
+  // PREMIUM SKILLS
+  {
+    id: 'skill-3',
+    slug: 'story-mining',
+    title: 'Story Mining Workshop',
+    description: 'Interactive 5-step workflow that extracts stories from transcripts and transforms them into emails or newsletter articles. Rates stories by vulnerability/specificity, helps select angles, generates content with voice matching.',
+    isPremium: true,
+    filename: 'story-mining.skill',
+    toolCount: 5,
+    fileSize: '4 KB',
+    tags: ['content', 'stories', 'newsletters', 'workflow'],
+  },
+  {
+    id: 'skill-4',
+    slug: 'signature-method',
+    title: 'Signature Method Builder',
+    description: 'The most comprehensive skill. 5-tool suite that makes your unconscious methodology visible and ownable. Extracts patterns, structures into method, names it memorably, designs visual framework, creates authority positioning.',
+    isPremium: true,
+    filename: 'signature-method.skill',
+    toolCount: 5,
+    fileSize: '11 KB',
+    tags: ['positioning', 'methodology', 'frameworks', 'authority'],
+  },
+  {
+    id: 'skill-5',
+    slug: 'authority-architecture',
+    title: 'Authority Architecture',
+    description: '3-step pipeline transforming transcripts into authority positioning. Extracts your unique patterns, builds transformation story + visual framework, outputs "Only Statement", magnetic messaging, and LinkedIn authority kit.',
+    isPremium: true,
+    filename: 'authority-architecture.skill',
+    toolCount: 3,
+    fileSize: '7 KB',
+    tags: ['positioning', 'authority', 'LinkedIn', 'messaging'],
+  },
+  {
+    id: 'skill-6',
+    slug: 'content-engine',
+    title: 'Content Engine',
+    description: 'Turns expertise into 90 days of content. Mines conversations for hidden content (insights, stories, frameworks, questions, wisdom, quotes), multiplies into 150+ pieces across formats, builds sustainable content system.',
+    isPremium: true,
+    filename: 'content-engine.skill',
+    toolCount: 3,
+    fileSize: '7 KB',
+    tags: ['content', 'repurposing', 'system', 'scale'],
+  },
+  {
+    id: 'skill-7',
+    slug: 'resistance-alchemist',
+    title: 'Resistance Alchemist',
+    description: 'Turns what you avoid into your competitive advantage. Extracts patterns from transcripts where you took contrarian approaches, then transforms those resistances into differentiated frameworks and maverick positioning.',
+    isPremium: true,
+    filename: 'resistance-alchemist.skill',
+    toolCount: 3,
+    fileSize: '6 KB',
+    tags: ['positioning', 'differentiation', 'contrarian', 'frameworks'],
+  },
+  {
+    id: 'skill-8',
+    slug: 'decision-architecture',
+    title: 'Decision Architecture',
+    description: 'Extracts your invisible "if-then" rules from transcripts. Surfaces the conditional logic behind your expert decisions—when you push vs pull, what triggers strategy changes. Outputs teachable decision frameworks.',
+    isPremium: true,
+    filename: 'decision-architecture.skill',
+    toolCount: 3,
+    fileSize: '8 KB',
+    tags: ['extraction', 'decisions', 'logic', 'frameworks'],
+  },
+];
+
+export const getFreeSkills = (): Skill[] => {
+  return skills.filter(s => !s.isPremium);
+};
+
+export const getPremiumSkills = (): Skill[] => {
+  return skills.filter(s => s.isPremium);
+};

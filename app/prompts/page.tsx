@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
-import { prompts, workflows, categories, getFreePrompts, getPremiumPrompts } from '@/data/prompts';
-import { Search, Lock, Copy, Sparkles, ArrowRight, Filter, Zap } from 'lucide-react';
+import { prompts, workflows, categories, getFreePrompts, getPremiumPrompts, skills, getFreeSkills, getPremiumSkills } from '@/data/prompts';
+import { Search, Lock, Copy, Sparkles, ArrowRight, Filter, Zap, Terminal, Download, Monitor, Laptop } from 'lucide-react';
 
 export default function PromptsPage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -41,6 +41,9 @@ export default function PromptsPage() {
     const matchesCategory = !selectedCategory || prompt.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
+
+  const freeSkills = getFreeSkills();
+  const premiumSkills = getPremiumSkills();
 
   const [isVerifying, setIsVerifying] = useState(false);
 
@@ -581,6 +584,170 @@ export default function PromptsPage() {
                 </div>
               </div>
             )}
+          </div>
+        </section>
+
+        {/* Claude Skills Section */}
+        <section className="px-6 lg:px-8 mt-20">
+          <div className="max-w-6xl mx-auto">
+            {/* Section Header */}
+            <div className="mb-12">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+                  <Terminal className="text-emerald-400" size={24} />
+                </div>
+                <h2 className="font-display text-2xl font-bold text-white">
+                  Claude Skills
+                </h2>
+              </div>
+
+              <p className="text-[var(--grey-400)] mb-6 max-w-2xl">
+                Downloadable skill packs that extend Claude with specialized extraction capabilities.
+                Drop them into Claude and run multi-tool workflows with a single command.
+              </p>
+
+              {/* Installation Instructions */}
+              <div className="p-5 rounded-xl bg-[var(--grey-900)]/50 border border-[var(--grey-800)] mb-8">
+                <h3 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
+                  <Download size={14} className="text-emerald-400" />
+                  How to Install
+                </h3>
+                <div className="grid md:grid-cols-2 gap-4 text-sm">
+                  <div className="flex gap-3">
+                    <Monitor size={16} className="text-[var(--grey-500)] mt-0.5 shrink-0" />
+                    <div>
+                      <span className="text-[var(--grey-300)] font-medium">Claude Web:</span>
+                      <span className="text-[var(--grey-500)]"> Settings → Capabilities → Enable Code execution → Upload skill</span>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <Laptop size={16} className="text-[var(--grey-500)] mt-0.5 shrink-0" />
+                    <div>
+                      <span className="text-[var(--grey-300)] font-medium">Claude Desktop:</span>
+                      <span className="text-[var(--grey-500)]"> Settings → Capabilities → Upload skill</span>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-xs text-[var(--grey-600)] mt-3">
+                  Requires Claude Pro, Max, Team, or Enterprise.
+                </p>
+              </div>
+            </div>
+
+            {/* Free Skills */}
+            <div className="mb-12">
+              <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                Free Skills
+              </h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {freeSkills.map((skill, index) => (
+                  <motion.div
+                    key={skill.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                  >
+                    <div className="h-full p-5 rounded-xl bg-[var(--grey-850)] border border-[var(--grey-800)] hover:border-emerald-500/50 transition-all duration-300 group">
+                      <div className="flex items-start justify-between gap-4 mb-3">
+                        <div>
+                          <h4 className="font-display text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">
+                            {skill.title}
+                          </h4>
+                          <div className="flex items-center gap-2 mt-1">
+                            <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-xs font-medium">
+                              {skill.toolCount} {skill.toolCount === 1 ? 'tool' : 'tools'}
+                            </span>
+                            <span className="text-xs text-[var(--grey-600)]">{skill.fileSize}</span>
+                          </div>
+                        </div>
+                        <a
+                          href={`/skills/${skill.filename}`}
+                          download
+                          className="shrink-0 p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500 hover:text-white transition-all"
+                        >
+                          <Download size={18} />
+                        </a>
+                      </div>
+                      <p className="text-[var(--grey-400)] text-sm line-clamp-2">
+                        {skill.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Premium Skills */}
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                <Sparkles size={16} className="text-[var(--brand-gold)]" />
+                Subscriber Skills
+              </h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {premiumSkills.map((skill, index) => (
+                  <motion.div
+                    key={skill.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                  >
+                    {premiumUnlocked ? (
+                      <div className="h-full p-5 rounded-xl bg-[var(--grey-850)] border border-[var(--brand-gold)]/30 hover:border-[var(--brand-gold)] transition-all duration-300 group">
+                        <div className="flex items-start justify-between gap-4 mb-3">
+                          <div>
+                            <h4 className="font-display text-lg font-bold text-white group-hover:text-[var(--brand-gold)] transition-colors">
+                              {skill.title}
+                            </h4>
+                            <div className="flex items-center gap-2 mt-1">
+                              <span className="px-2 py-0.5 rounded bg-[var(--brand-gold)]/10 text-[var(--brand-gold)] text-xs font-medium">
+                                {skill.toolCount} tools
+                              </span>
+                              <span className="text-xs text-[var(--grey-600)]">{skill.fileSize}</span>
+                            </div>
+                          </div>
+                          <a
+                            href={`/skills/${skill.filename}`}
+                            download
+                            className="shrink-0 p-2.5 rounded-lg bg-[var(--brand-gold)]/10 text-[var(--brand-gold)] hover:bg-[var(--brand-gold)] hover:text-[var(--grey-950)] transition-all"
+                          >
+                            <Download size={18} />
+                          </a>
+                        </div>
+                        <p className="text-[var(--grey-400)] text-sm line-clamp-2">
+                          {skill.description}
+                        </p>
+                      </div>
+                    ) : (
+                      <button
+                        onClick={() => setShowPremium(true)}
+                        className="h-full w-full text-left p-5 rounded-xl bg-[var(--grey-850)] border border-[var(--brand-gold)]/30 hover:border-[var(--brand-gold)] transition-all duration-300 group cursor-pointer"
+                      >
+                        <div className="flex items-start justify-between gap-4 mb-3">
+                          <div>
+                            <h4 className="font-display text-lg font-bold text-white group-hover:text-[var(--brand-gold)] transition-colors">
+                              {skill.title}
+                            </h4>
+                            <div className="flex items-center gap-2 mt-1">
+                              <span className="px-2 py-0.5 rounded bg-[var(--brand-gold)]/10 text-[var(--brand-gold)] text-xs font-medium">
+                                {skill.toolCount} tools
+                              </span>
+                              <span className="text-xs text-[var(--grey-600)]">{skill.fileSize}</span>
+                            </div>
+                          </div>
+                          <div className="shrink-0 p-2.5 rounded-lg bg-[var(--brand-gold)]/10 text-[var(--brand-gold)]">
+                            <Lock size={18} />
+                          </div>
+                        </div>
+                        <p className="text-[var(--grey-400)] text-sm line-clamp-2">
+                          {skill.description}
+                        </p>
+                      </button>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       </main>
