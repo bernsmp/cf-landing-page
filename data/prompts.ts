@@ -2987,6 +2987,17 @@ export const skills: Skill[] = [
     fileSize: '8 KB',
     tags: ['extraction', 'decisions', 'logic', 'frameworks'],
   },
+  {
+    id: 'skill-9',
+    slug: 'reddit-trend-mining',
+    title: 'Reddit Trend Mining',
+    description: 'Extract audience pain points from Reddit conversations and transform them into LinkedIn posts. Mines unfiltered discussions for pain points in real language, problems nobody is solving, and emotional triggers that make content resonate.',
+    isPremium: true,
+    filename: 'reddit-trend-mining.skill',
+    toolCount: 1,
+    fileSize: '9 KB',
+    tags: ['content', 'LinkedIn', 'Reddit', 'trends', 'social'],
+  },
 ];
 
 export const getFreeSkills = (): Skill[] => {
