@@ -131,7 +131,12 @@ export async function POST(request: NextRequest) {
     const subscriberId = result.subscription?.subscriber?.id;
 
     // Step 2: Add tag (must be done separately - ConvertKit quirk)
-    const tagName = 'Lead Magnet: Pricing Guide';
+    // Determine tag name based on lead magnet
+    const tagNameMap: Record<string, string> = {
+      'pricing-guide': 'Lead Magnet: Pricing Guide',
+      'coaches-eye': 'Lead Magnet: Coaches Eye',
+    };
+    const tagName = tagNameMap[leadMagnet || 'pricing-guide'] || `Lead Magnet: ${leadMagnet}`;
     const tagId = await getOrCreateTagId(convertKitApiKey, tagName);
 
     if (tagId) {

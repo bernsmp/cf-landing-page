@@ -1,50 +1,46 @@
-# Add Invisible Function Inventory Prompt
+# Add Claude Skills Section to Prompt Vault
 
-## Task
-Add the "Invisible Function Inventory" prompt to the site as a paid prompt.
+## Overview
+Add a new "Claude Skills" section to the prompts page with both free and paid skills. Skills are downloadable .skill (ZIP) files that users can import into Claude Code.
 
-## Plan
-- [x] Review existing prompt structure in data/prompts.ts
-- [x] Add new prompt with id '14', slug 'invisible-function-inventory'
-- [x] Set as premium (isPremium: true)
-- [x] Category: extraction
-- [x] Difficulty: intermediate
-- [x] Add appropriate tags and metadata
-- [x] Verify build passes
+## Skills to Add
+
+### FREE (2)
+- problem-solution-extractor.skill - Analyzes transcripts for problems/solutions
+- breakthrough-pattern.skill - Mines "aha moment" creation patterns
+
+### PAID (6)
+- story-mining.skill - 5-step workflow for transcript → content
+- signature-method.skill - 5-tool comprehensive methodology suite
+- authority-architecture.skill - 3-step authority positioning pipeline
+- content-engine.skill - 90 days of content from expertise
+- resistance-alchemist.skill - Turn contrarian approaches into positioning
+- decision-architecture.skill - Extract invisible if-then decision rules
+
+---
+
+## Implementation Plan
+
+### Phase 1: Data & Files Setup
+- [ ] Copy 8 .skill files to `/public/skills/` folder
+- [ ] Add `Skill` interface to `data/prompts.ts`
+- [ ] Add skills array with metadata (title, description, isPremium, filename)
+- [ ] Add helper functions `getFreeSkills()` and `getPremiumSkills()`
+
+### Phase 2: UI - Add Skills Section to Prompts Page
+- [ ] Import skills data and functions
+- [ ] Add "Claude Skills" section after workflows
+- [ ] Create skill card component (similar to prompt cards but with download action)
+- [ ] Free skills section (always visible)
+- [ ] Premium skills section (respects password unlock)
+- [ ] Add Terminal icon from lucide-react for skill cards
+
+### Phase 3: Verify & Test
+- [ ] Run `npm run build` to check for errors
+- [ ] Test skill downloads work correctly
+- [ ] Test premium unlock works for paid skills
 
 ---
 
 ## Review
-
-### Summary of Changes
-- Added new prompt "Invisible Function Inventory" to `data/prompts.ts`
-  - ID: 14
-  - Slug: invisible-function-inventory
-  - Category: extraction
-  - Difficulty: intermediate
-  - Premium: true (paid subscribers only)
-
-### Prompt Details
-An extraction tool that reveals hidden value you provide beyond your stated deliverable. Surfaces the functions you can't see because you're too close to your own work.
-
-**Input options:**
-- Highest value: Client delivery transcripts, sales/discovery calls, testimonials
-- High value: Proposals, SOWs, offer pages, email threads
-- Good starting point: Voice interview mode (Claude asks questions)
-
-**Output structure:**
-- Level 1: Your #1 hidden function with evidence
-- Level 2: Complete inventory across 7 categories (trust, pattern recognition, translation, judgment, access, psychological support, coordination)
-- Level 3: Positioning implications with naming options and language
-
-### New Dependencies
-- None
-
-### Environment Variables
-- None needed
-
-### Known Limitations
-- Needs thumbnail image at `/images/prompts/invisible-function-inventory.png`
-
-### Future Improvements
-- Create custom thumbnail image for the prompt
+(To be filled after completion)

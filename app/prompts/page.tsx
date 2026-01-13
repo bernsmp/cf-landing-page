@@ -693,14 +693,14 @@ export default function PromptsPage() {
                     transition={{ delay: index * 0.05 }}
                   >
                     {premiumUnlocked ? (
-                      <div className="h-full p-5 rounded-xl bg-[var(--grey-850)] border border-[var(--brand-gold)]/30 hover:border-[var(--brand-gold)] transition-all duration-300 group">
+                      <div className="h-full p-5 rounded-xl bg-[var(--grey-850)] border border-[var(--grey-800)] hover:border-emerald-500/50 transition-all duration-300 group">
                         <div className="flex items-start justify-between gap-4 mb-3">
                           <div>
-                            <h4 className="font-display text-lg font-bold text-white group-hover:text-[var(--brand-gold)] transition-colors">
+                            <h4 className="font-display text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">
                               {skill.title}
                             </h4>
                             <div className="flex items-center gap-2 mt-1">
-                              <span className="px-2 py-0.5 rounded bg-[var(--brand-gold)]/10 text-[var(--brand-gold)] text-xs font-medium">
+                              <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-xs font-medium">
                                 {skill.toolCount} tools
                               </span>
                               <span className="text-xs text-[var(--grey-600)]">{skill.fileSize}</span>
@@ -709,7 +709,7 @@ export default function PromptsPage() {
                           <a
                             href={`/skills/${skill.filename}`}
                             download
-                            className="shrink-0 p-2.5 rounded-lg bg-[var(--brand-gold)]/10 text-[var(--brand-gold)] hover:bg-[var(--brand-gold)] hover:text-[var(--grey-950)] transition-all"
+                            className="shrink-0 p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500 hover:text-white transition-all"
                           >
                             <Download size={18} />
                           </a>
