@@ -1,46 +1,69 @@
-# Add Claude Skills Section to Prompt Vault
+# Coach's Eye Lead Magnet - Interactive Magazine
 
-## Overview
-Add a new "Claude Skills" section to the prompts page with both free and paid skills. Skills are downloadable .skill (ZIP) files that users can import into Claude Code.
+## Completed ✅
 
-## Skills to Add
+- [x] Create Coach's Eye lead magnet page structure
+- [x] Add 7 patterns (Sports: Belichick, Popovich, Wooden | Military: McChrystal | Business: Nooyi, Catmull, Mulcahy)
+- [x] Implement blur-gate after Pattern 1
+- [x] ConvertKit integration with automatic tagging
+- [x] Redesign as interactive magazine (Players Tribune style)
+- [x] Add chapter navigation (sticky dots)
+- [x] Add scroll progress bar
+- [x] Full-screen pattern intro cards
+- [x] Dramatic pull quotes
+- [x] Category badges (Sports/Military/Business with color coding)
+- [x] Create OG image for social sharing
+- [x] Export content to markdown file
+- [x] Fix mobile spacing issues
 
-### FREE (2)
-- problem-solution-extractor.skill - Analyzes transcripts for problems/solutions
-- breakthrough-pattern.skill - Mines "aha moment" creation patterns
+## In Progress 🔄
 
-### PAID (6)
-- story-mining.skill - 5-step workflow for transcript → content
-- signature-method.skill - 5-tool comprehensive methodology suite
-- authority-architecture.skill - 3-step authority positioning pipeline
-- content-engine.skill - 90 days of content from expertise
-- resistance-alchemist.skill - Turn contrarian approaches into positioning
-- decision-architecture.skill - Extract invisible if-then decision rules
+- [ ] Add hero image (user generating via image gen)
+- [ ] Wire up hero image (`public/images/coaches-eye/hero.png`)
 
----
+## Next Up 📋
 
-## Implementation Plan
+- [ ] Add parallax effects to images
+- [ ] Generate and add pattern images (7 total)
+- [ ] Final polish pass (animations, micro-interactions)
+- [ ] Test email signup flow end-to-end
+- [ ] Mobile testing and refinements
 
-### Phase 1: Data & Files Setup
-- [ ] Copy 8 .skill files to `/public/skills/` folder
-- [ ] Add `Skill` interface to `data/prompts.ts`
-- [ ] Add skills array with metadata (title, description, isPremium, filename)
-- [ ] Add helper functions `getFreeSkills()` and `getPremiumSkills()`
+## File Structure
 
-### Phase 2: UI - Add Skills Section to Prompts Page
-- [ ] Import skills data and functions
-- [ ] Add "Claude Skills" section after workflows
-- [ ] Create skill card component (similar to prompt cards but with download action)
-- [ ] Free skills section (always visible)
-- [ ] Premium skills section (respects password unlock)
-- [ ] Add Terminal icon from lucide-react for skill cards
+```
+app/coaches-eye/
+├── page.tsx (main orchestrator)
+├── data.ts (pattern content)
+├── opengraph-image.tsx
+└── components/
+    ├── ChapterNav.tsx
+    ├── PatternIntro.tsx
+    ├── PatternContent.tsx
+    ├── PullQuote.tsx
+    ├── ScrollProgress.tsx
+    ├── UnlockGate.tsx
+    └── index.ts
+```
 
-### Phase 3: Verify & Test
-- [ ] Run `npm run build` to check for errors
-- [ ] Test skill downloads work correctly
-- [ ] Test premium unlock works for paid skills
+## Image Prompts
+
+**Base Style:**
+```
+Bold high-contrast editorial, geometric abstract elements, dynamic diagonal composition, dark background with electric gold and amber accents, sharp lines and shapes, ESPN meets Wired aesthetic, futuristic sports documentary, dramatic lighting, 16:9 --style raw --v 6
+```
+
+**Hero:**
+```
+Massive geometric eye constructed from angular shards and data fragments, basketball court lines, military grid patterns, and corporate structures all visible within the iris, bold ESPN poster energy with Wired futurism, black and gold, intense and dynamic --ar 16:9 --style raw --v 6
+```
 
 ---
 
 ## Review
-(To be filled after completion)
+
+**Summary:** Interactive magazine-style lead magnet with 7 cognitive patterns from legendary leaders. ESPN + Wired aesthetic with chapter navigation, scroll progress, dramatic typography.
+
+**Files changed:** 11 files, +1447 lines
+
+**Commit:** `98dce1e` - Add Coach's Eye interactive magazine lead magnet
