@@ -71,10 +71,10 @@ export const Navigation = () => {
                 </Link>
               ))}
               <Link
-                href="/assessment"
+                href="/coaches-eye"
                 className="flex items-center gap-2 px-5 py-2.5 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-lg hover:bg-[var(--brand-gold-light)] transition-all duration-300 text-sm"
               >
-                Free Pricing Guide
+                See What Leaders See
                 <ArrowRight size={16} />
               </Link>
             </div>
@@ -128,11 +128,11 @@ export const Navigation = () => {
                 className="pt-6"
               >
                 <Link
-                  href="/assessment"
+                  href="/coaches-eye"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="inline-flex items-center gap-2 px-6 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl text-lg"
                 >
-                  Free Pricing Guide
+                  See What Leaders See
                   <ArrowRight size={20} />
                 </Link>
               </motion.div>

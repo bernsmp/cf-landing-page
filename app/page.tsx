@@ -4,7 +4,7 @@ import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
 import { HeroSectionV2 } from '@/components/home/HeroSectionV2';
-import { LeadMagnetSection } from '@/components/home/LeadMagnetSection';
+import { LeadMagnetPopup } from '@/components/home/LeadMagnetPopup';
 import { VideoSection } from '@/components/home/VideoSection';
 import { TransformationStory } from '@/components/home/TransformationStory';
 import { IdentitySection } from '@/components/home/IdentitySection';
@@ -25,13 +25,15 @@ export default function Home() {
 
       <main>
         <HeroSectionV2 />
-        <LeadMagnetSection />
         <VideoSection />
         <TransformationStory />
         <IdentitySection />
         <SocialProof />
         <CTASectionV2 />
       </main>
+
+      {/* Scroll-triggered popup */}
+      <LeadMagnetPopup />
 
       <Footer />
     </div>

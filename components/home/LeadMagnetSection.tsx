@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Eye } from 'lucide-react';
 
 export const LeadMagnetSection = () => {
   return (
@@ -46,7 +46,7 @@ export const LeadMagnetSection = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-[var(--brand-gold)] rounded-full blur-xl opacity-20 animate-pulse-glow" />
                 <div className="relative w-16 h-16 rounded-full bg-[var(--brand-gold)]/10 border border-[var(--brand-gold)]/30 flex items-center justify-center">
-                  <Sparkles size={28} className="text-[var(--brand-gold)]" />
+                  <Eye size={28} className="text-[var(--brand-gold)]" />
                 </div>
               </div>
             </motion.div>
@@ -59,7 +59,7 @@ export const LeadMagnetSection = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4"
             >
-              Your Best Stuff Is Locked In Your Head. Here's The Key.
+              What Legendary Leaders See That Others Miss
             </motion.h2>
 
             {/* Description */}
@@ -70,7 +70,7 @@ export const LeadMagnetSection = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg text-[var(--grey-400)] mb-8 max-w-2xl mx-auto"
             >
-              Two AI prompts. One client call. You'll discover expertise you've been using for years without realizing it. The patterns. The instincts. The moves that make you different. All sitting there in your transcripts. Waiting.
+              8 cognitive patterns from Belichick, Popovich, McChrystal, and five more of the greatest coaches in history. The patterns they use to see what others can't. Plus prompts to develop each one yourself.
             </motion.p>
 
             {/* CTA Button */}
@@ -81,12 +81,10 @@ export const LeadMagnetSection = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <a
-                href="https://maxbernstein.kit.com/cozora"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/coaches-eye"
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-all duration-300 hover:shadow-lg hover:shadow-[var(--brand-gold)]/20 hover:-translate-y-0.5"
               >
-                Get the Free Prompts
+                Read The Coach's Eye
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </motion.div>
@@ -99,7 +97,7 @@ export const LeadMagnetSection = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="text-[var(--grey-500)] text-sm mt-6"
             >
-              Free. No credit card required.
+              Free. 20-minute read.
             </motion.p>
           </div>
 

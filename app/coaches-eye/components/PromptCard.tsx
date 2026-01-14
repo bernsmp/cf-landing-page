@@ -15,11 +15,48 @@ interface PromptCardProps {
 export function PromptCard({ title, content, color, isLocked = false, onUnlockClick }: PromptCardProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(content);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    try {
+      // Check if clipboard API is available
+      if (!navigator.clipboard || !navigator.clipboard.writeText) {
+        throw new Error('Clipboard API not available');
+      }
+
+      await navigator.clipboard.writeText(content);
+      setCopied(true);
+      setCopyError(false);
+      setTimeout(() => {
+        setCopied(false);
+        setCopyError(false);
+      }, 2000);
+    } catch (error) {
+      // Handle clipboard errors (permissions, insecure context, etc.)
+      console.error('Failed to copy to clipboard:', error);
+      setCopyError(true);
+      setCopied(false);
+      
+      // Show error feedback for a shorter duration
+      setTimeout(() => setCopyError(false), 3000);
+      
+      // Optional: Fallback for older browsers
+      try {
+        const textArea = document.createElement('textarea');
+        textArea.value = content;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        setCopied(true);
+        setCopyError(false);
+        setTimeout(() => setCopied(false), 2000);
+      } catch (fallbackError) {
+        console.error('Fallback copy method also failed:', fallbackError);
+      }
+    }
   };
 
   const handleToggle = () => {
@@ -102,14 +139,20 @@ export function PromptCard({ title, content, color, isLocked = false, onUnlockCl
                     onClick={handleCopy}
                     className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm transition-colors"
                     style={{
-                      backgroundColor: copied ? `${color}20` : 'var(--grey-800)',
-                      color: copied ? color : 'var(--grey-300)',
+                      backgroundColor: copied ? `${color}20` : copyError ? 'rgba(239, 68, 68, 0.2)' : 'var(--grey-800)',
+                      color: copied ? color : copyError ? '#ef4444' : 'var(--grey-300)',
                     }}
+                    title={copyError ? 'Copy failed. Please try selecting and copying manually.' : undefined}
                   >
                     {copied ? (
                       <>
                         <Check className="w-4 h-4" />
                         Copied
+                      </>
+                    ) : copyError ? (
+                      <>
+                        <Copy className="w-4 h-4" />
+                        Copy failed
                       </>
                     ) : (
                       <>
