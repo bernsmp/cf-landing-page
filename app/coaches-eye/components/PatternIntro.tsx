@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import Image from 'next/image';
 import { Pattern, categoryColors, categoryLabels } from '../data';
 import { Lock } from 'lucide-react';
 
@@ -20,6 +21,9 @@ export function PatternIntro({ pattern, isLocked = false }: PatternIntroProps) {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
   const y = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
+  // Parallax effect for background image - moves slower than scroll
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const imageScale = useTransform(scrollYProgress, [0, 0.5], [1.1, 1]);
 
   const Icon = pattern.icon;
   const color = categoryColors[pattern.category];
@@ -29,11 +33,29 @@ export function PatternIntro({ pattern, isLocked = false }: PatternIntroProps) {
       ref={ref}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
+      {/* Background pattern image with parallax */}
+      {pattern.image && (
+        <motion.div
+          className="absolute inset-0 pointer-events-none"
+          style={{ y: imageY, scale: imageScale }}
+        >
+          <Image
+            src={pattern.image}
+            alt={pattern.title}
+            fill
+            className="object-cover opacity-30"
+          />
+          {/* Gradient overlays for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--grey-950)] via-[var(--grey-950)]/70 to-[var(--grey-950)]/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--grey-950)] via-transparent to-transparent h-1/3" />
+        </motion.div>
+      )}
+
       {/* Giant background number */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <span
           className="text-[30rem] md:text-[40rem] font-display font-bold leading-none"
-          style={{ color: 'var(--grey-900)', opacity: 0.5 }}
+          style={{ color: 'var(--grey-900)', opacity: pattern.image ? 0.3 : 0.5 }}
         >
           {pattern.id}
         </span>

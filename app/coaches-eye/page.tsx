@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Eye, Loader2, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import {
   ScrollProgress,
@@ -11,7 +12,7 @@ import {
   PatternIntro,
   PatternContent,
   PullQuote,
-  UnlockGate,
+  CoachesEyeCTA,
 } from './components';
 import { patterns, setupContent, bridgeContent } from './data';
 
@@ -26,9 +27,9 @@ export default function CoachesEyePage() {
   const chapterRefs = useRef<(HTMLElement | null)[]>([]);
 
   // Hero parallax
-  const heroRef = useRef(null);
+  const heroSectionRef = useRef<HTMLElement | null>(null);
   const { scrollYProgress: heroProgress } = useScroll({
-    target: heroRef,
+    target: heroSectionRef,
     offset: ['start start', 'end start'],
   });
   const heroOpacity = useTransform(heroProgress, [0, 0.5], [1, 0]);
@@ -62,13 +63,21 @@ export default function CoachesEyePage() {
 
   const handleUnlock = useCallback(() => {
     setIsUnlocked(true);
-    // Scroll to pattern 2
+    // Scroll to pattern 3
     setTimeout(() => {
-      const pattern2Section = chapterRefs.current[2];
-      if (pattern2Section) {
-        pattern2Section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const pattern3Section = chapterRefs.current[3];
+      if (pattern3Section) {
+        pattern3Section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }, 500);
+  }, []);
+
+  const scrollToGate = useCallback(() => {
+    // Scroll to the unlock gate (after pattern 2)
+    const gateElement = document.getElementById('unlock-gate');
+    if (gateElement) {
+      gateElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   }, []);
 
   const handleNavigate = useCallback((index: number) => {
@@ -120,35 +129,29 @@ export default function CoachesEyePage() {
       {/* ===== HERO ===== */}
       <section
         ref={(el) => {
-          heroRef.current = el;
+          heroSectionRef.current = el;
           chapterRefs.current[0] = el;
         }}
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
       >
-        {/* Background eye visual */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="relative w-[600px] h-[600px] opacity-5">
-            <svg viewBox="0 0 200 200" className="w-full h-full">
-              <ellipse
-                cx="100"
-                cy="100"
-                rx="90"
-                ry="50"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <circle cx="100" cy="100" r="35" fill="none" stroke="currentColor" strokeWidth="1" />
-              <circle cx="100" cy="100" r="15" fill="currentColor" />
-            </svg>
-          </div>
+        {/* Background hero image */}
+        <div className="absolute inset-0 pointer-events-none">
+          <Image
+            src="/images/coaches-eye/hero.png"
+            alt="The Coach's Eye"
+            fill
+            className="object-cover opacity-40"
+            priority
+          />
+          {/* Gradient overlays for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--grey-950)] via-[var(--grey-950)]/60 to-[var(--grey-950)]/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--grey-950)] via-transparent to-transparent h-1/3" />
         </div>
 
         {/* Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[var(--brand-gold)] rounded-full blur-[200px] opacity-10" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[var(--brand-gold)] rounded-full blur-[200px] opacity-5" />
 
         <motion.div
-          ref={heroRef}
           style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
           className="relative z-10 max-w-4xl mx-auto px-6 text-center"
         >
@@ -193,13 +196,13 @@ export default function CoachesEyePage() {
           >
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[var(--brand-gold)]" />
-              7 Patterns
+              8 Patterns
             </span>
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#4a6fa5]" />
               Sports · Military · Business
             </span>
-            <span>15 min read</span>
+            <span>20 min read</span>
           </motion.div>
 
         </motion.div>
@@ -264,8 +267,8 @@ export default function CoachesEyePage() {
 
       {/* ===== PATTERNS ===== */}
       {patterns.map((pattern, index) => {
-        const isLocked = !isUnlocked && pattern.id > 1;
-        const chapterIndex = pattern.id; // 1-7 for patterns
+        const isLocked = !isUnlocked && pattern.id > 2;
+        const chapterIndex = pattern.id; // 1-8 for patterns
 
         return (
           <div
@@ -273,15 +276,24 @@ export default function CoachesEyePage() {
             ref={setChapterRef(chapterIndex)}
             id={`pattern-${pattern.id}`}
           >
-            {/* Show unlock gate after pattern 1 */}
-            {pattern.id === 2 && !isUnlocked && <UnlockGate onUnlock={handleUnlock} />}
+            {/* Show unlock gate after pattern 2 */}
+            {pattern.id === 3 && !isUnlocked && (
+              <div id="unlock-gate" className="py-16 px-6">
+                <CoachesEyeCTA variant="unlock" onUnlock={handleUnlock} />
+              </div>
+            )}
 
             <PatternIntro pattern={pattern} isLocked={isLocked} />
             <PullQuote pattern={pattern} isLocked={isLocked} />
-            <PatternContent pattern={pattern} isLocked={isLocked} />
+            <PatternContent
+              pattern={pattern}
+              isLocked={isLocked}
+              isUnlocked={isUnlocked}
+              onUnlockClick={scrollToGate}
+            />
 
             {/* Divider between patterns */}
-            {pattern.id < 7 && (
+            {pattern.id < 8 && (
               <div className="py-16">
                 <div className="max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-[var(--grey-800)] to-transparent" />
               </div>
@@ -312,10 +324,6 @@ export default function CoachesEyePage() {
             <p className="text-2xl md:text-3xl text-white font-display font-bold mt-12 text-center">
               {bridgeContent.keyInsight}
             </p>
-
-            <p className="text-2xl md:text-3xl text-white font-display font-bold mt-4 text-center">
-              {bridgeContent.closer}
-            </p>
           </motion.div>
         </div>
       </section>
@@ -323,49 +331,42 @@ export default function CoachesEyePage() {
       {/* ===== FINAL CTA ===== */}
       {isUnlocked && (
         <section className="py-24 md:py-32 px-6">
-          <div className="max-w-2xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="text-center mb-12">
               <CheckCircle className="mx-auto mb-6 text-emerald-400" size={56} />
-
               <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-                You&apos;ve Got All Seven
+                You&apos;ve Got All Eight
               </h2>
-
-              <p className="text-lg text-[var(--grey-400)] mb-8">
+              <p className="text-lg text-[var(--grey-400)]">
                 From courtside to the boardroom to the battlefield.
                 <br />
-                Seven patterns for seeing what others miss.
+                Eight patterns for seeing what others miss.
               </p>
+            </div>
 
-              <p className="text-xl text-[var(--grey-300)] mb-10">
-                Want to extract your own patterns?
-              </p>
+            <CoachesEyeCTA variant="final" />
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link
-                  href="/prompts"
-                  className="px-8 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-bold rounded-xl hover:bg-[var(--brand-gold-light)] transition-colors"
-                >
-                  Explore Pattern Prompts
-                </Link>
-                <Link
-                  href="/insights"
-                  className="px-8 py-4 bg-[var(--grey-850)] text-white font-semibold rounded-xl border border-[var(--grey-700)] hover:border-[var(--grey-600)] transition-colors"
-                >
-                  Read More Insights
-                </Link>
-              </div>
-
-              <p className="text-sm text-[var(--grey-500)] mt-10">
-                Check your inbox for your welcome email from Signal &gt; Noise.
-              </p>
-            </motion.div>
-          </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+              <Link
+                href="/prompts"
+                className="px-8 py-4 bg-[var(--grey-850)] text-white font-semibold rounded-xl border border-[var(--grey-700)] hover:border-[var(--grey-600)] transition-colors"
+              >
+                Explore Pattern Prompts
+              </Link>
+              <Link
+                href="/insights"
+                className="px-8 py-4 bg-[var(--grey-850)] text-white font-semibold rounded-xl border border-[var(--grey-700)] hover:border-[var(--grey-600)] transition-colors"
+              >
+                Read More Insights
+              </Link>
+            </div>
+          </motion.div>
         </section>
       )}
 
