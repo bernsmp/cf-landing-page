@@ -1,4 +1,4 @@
-import { Target, Eye, Scale, Network, Clock, Users, MessageCircle, Scissors } from 'lucide-react';
+import { Target, Eye, Scale, Network, Clock, Users, MessageCircle, Scissors, Layers } from 'lucide-react';
 
 export type PatternCategory = 'sports' | 'military' | 'business';
 
@@ -136,6 +136,101 @@ Please help me:
   },
   {
     id: 3,
+    title: 'The Hidden Multiplier',
+    icon: Layers,
+    category: 'business',
+    coachName: 'Jay Abraham',
+    coachTitle: 'Marketing Strategist',
+    quote: "You're sitting on a goldmine. Every company has hidden assets they can't see. Without the right lens, you keep buying new solutions while fortune-making assets collect dust in your business.",
+    content: [
+      'Finding the assets and opportunities that everyone else walks past.',
+      'Jay Abraham has consulted for over 10,000 businesses across 465 industries. The pattern he sees everywhere: companies sitting on goldmines they can\'t recognize.',
+      'A lumber mill had developed an internal process for treating wood. They saw it as operational. Jay saw it as intellectual property worth licensing. Result: $8 million in new revenue from something they\'d already built.',
+      'A plastic company made baby buggy covers. After three hours with Jay, they realized they weren\'t in the baby buggy business. They were a custom covering company with 50x more market opportunity. Same capabilities, completely different ceiling.',
+      'A furniture store tested 33 different customer greetings. The winning phrase tripled sales. The product didn\'t change. The furniture didn\'t change. A single sentence, tested and optimized, transformed results.',
+    ],
+    callout: {
+      label: 'The pattern beneath',
+      text: 'Jay doesn\'t bring outside expertise. He finds what\'s already there. The asset hiding in plain sight. The capability being underpriced. The relationship being under-leveraged. The pattern that works in one industry and could transform another. Most consultants add. Jay reveals.',
+      image: '/images/coaches-eye/jay_pattern.png',
+    },
+    howToDevelop: {
+      intro: 'The Hidden Multiplier requires **asset inventory before acquisition**. Most people look for new solutions before auditing what they already have. The gold is usually in the building.',
+      practices: [
+        'List every asset, capability, and relationship in your business. Then ask: "What else could this be?"',
+        'Study success stories from unrelated industries. The pattern, not the product, is what transfers.',
+        'Before adding anything new, ask: "What am I already doing that I\'m underpricing, under-leveraging, or under-recognizing?"',
+      ],
+    },
+    prompt: {
+      title: 'The Hidden Asset Audit',
+      content: `I want to find the hidden multipliers in my business, the assets and opportunities I'm walking past every day.
+
+Here's my business situation:
+[DESCRIBE YOUR BUSINESS, WHAT YOU OFFER, AND YOUR CURRENT CHALLENGES]
+
+Help me identify:
+
+1. HIDDEN ASSETS: What capabilities, processes, or intellectual property might I have that could be packaged, licensed, or leveraged differently?
+
+2. UNDERPRICED VALUE: Where am I giving away expertise, access, or results that others would pay premium prices for?
+
+3. PATTERN TRANSFER: What successful patterns from completely different industries might apply to my situation? What would a furniture store greeting test look like in my business?
+
+4. THE THREE MULTIPLIERS: Looking at my business through Jay's "Three Ways to Grow" lens (more customers, higher transaction value, more frequent transactions), which lever am I ignoring?`,
+    },
+    image: '/images/coaches-eye/pattern-3.png',
+  },
+  {
+    id: 4,
+    title: 'The Direct Line',
+    icon: MessageCircle,
+    category: 'business',
+    coachName: 'Ursula Burns',
+    coachTitle: 'Former CEO, Xerox',
+    quote: "I learned that you have to speak up. You might not be right, but you also might be.",
+    content: [
+      'Cutting through organizational fog to name what no one else will say.',
+      'Ursula Burns rose from summer intern to CEO of Xerox. The first Black woman to run a Fortune 500 company. People love that story. What they miss is how she got there.',
+      'Burns had a reputation for saying what everyone else was thinking but wouldn\'t voice. In meetings where executives danced around problems, she\'d ask the uncomfortable question directly. Not rudely. Directly.',
+      'As she described it: "I\'m not good at dancing around things. I just say what I think."',
+      'This wasn\'t recklessness. It was pattern recognition. Burns could see when a room was stuck in polite dysfunction, when the real issue was being avoided, when everyone was waiting for someone to say the obvious thing.',
+      'When Burns became CEO, Xerox was in crisis. Her response wasn\'t to sugarcoat or spin. She told employees directly: "We\'re in a fight for our lives." That clarity, that willingness to name reality, is what enabled the turnaround.',
+    ],
+    callout: {
+      label: 'The direct line',
+      text: 'Most organizational dysfunction comes from the gap between what people say and what people know. Burns\' pattern was closing that gap, saying the thing that was true but unspoken. The direct line isn\'t about being harsh. It\'s about being honest when honesty is what\'s needed.',
+      image: '/images/coaches-eye/ursala_pattern.png',
+    },
+    howToDevelop: {
+      intro: 'The Direct Line requires **courage to name what others won\'t**. Most people in organizations learn to speak in code. Burns\' pattern was to cut through the code to the actual issue.',
+      practices: [
+        'When you don\'t understand something, say so immediately instead of nodding along',
+        'Ask "What\'s the real problem here?" and wait through the uncomfortable silence',
+        'Name the thing everyone is thinking but not saying. You\'ll often be thanked for it',
+      ],
+    },
+    prompt: {
+      title: 'The Direct Line Diagnostic',
+      content: `I want to get better at cutting through fog and saying what needs to be said.
+
+Here's a situation where I sense something isn't being addressed:
+[DESCRIBE THE MEETING, CONVERSATION, OR ORGANIZATIONAL DYNAMIC]
+
+Help me:
+
+1. NAME THE UNSPOKEN: What's the thing everyone probably knows but no one is saying? What's the elephant?
+
+2. THE DIRECT QUESTION: Give me one question I could ask that would cut through the dancing-around and get to the real issue.
+
+3. THE STAKES: What's the cost of continuing to not say this thing? What does ongoing avoidance enable?
+
+4. THE DELIVERY: How do I say this directly without being harsh? What's the Ursula Burns way of putting this?`,
+    },
+    image: '/images/coaches-eye/pattern-4.png',
+  },
+  {
+    id: 5,
     title: 'The Leading Edge',
     icon: Scale,
     category: 'sports',
@@ -180,10 +275,10 @@ Help me identify:
 
 4. MY BLIND SPOT: What invisible load might I be carrying into this situation that's affecting what I can see?`,
     },
-    image: '/images/coaches-eye/pattern-3.png',
+    image: '/images/coaches-eye/pattern-5.png',
   },
   {
-    id: 4,
+    id: 6,
     title: 'The Shared Consciousness',
     icon: Network,
     category: 'military',
@@ -229,10 +324,10 @@ Help me design:
 
 4. THE DISCOMFORT TEST: McChrystal said to "decentralize until it makes you uncomfortable." What would I have to share or delegate that currently feels risky? Why does it feel risky?`,
     },
-    image: '/images/coaches-eye/pattern-4.png',
+    image: '/images/coaches-eye/pattern-6.png',
   },
   {
-    id: 5,
+    id: 7,
     title: 'The Long Game',
     icon: Clock,
     category: 'business',
@@ -280,10 +375,10 @@ Help me analyze this across multiple timescales:
 
 4. THE NOOYI TEST: What's something I could do that has zero immediate ROI but would build long-term leverage, trust, or positioning?`,
     },
-    image: '/images/coaches-eye/pattern-5.png',
+    image: '/images/coaches-eye/pattern-7.png',
   },
   {
-    id: 6,
+    id: 8,
     title: 'The Braintrust',
     icon: Users,
     category: 'business',
@@ -331,59 +426,10 @@ Help me design a feedback process:
 
 5. THE AFTERMATH: How do I process the feedback without getting defensive, and how do I let people know their candor was valued even if I don't take their specific advice?`,
     },
-    image: '/images/coaches-eye/pattern-6.png',
+    image: '/images/coaches-eye/pattern-8.png',
   },
   {
-    id: 7,
-    title: 'The Direct Line',
-    icon: MessageCircle,
-    category: 'business',
-    coachName: 'Ursula Burns',
-    coachTitle: 'Former CEO, Xerox',
-    quote: "I don't understand what you just said. Can you say that again in English?",
-    content: [
-      'Cutting through corporate fog to the question everyone is avoiding.',
-      'Ursula Burns rose from summer intern to CEO of Xerox. The first Black woman to run a Fortune 500 company. People love that story. What they miss is how she got there.',
-      'Burns had a pattern. In meetings where everyone was nodding along to PowerPoint slides filled with jargon and hedged language, she would stop the room. "I don\'t understand what you just said." Not hostile. Just honest. And then she\'d wait.',
-      'Most executives learn to speak in a dialect designed to obscure accountability. Burns refused to learn it. She asked the direct question. The one everyone was thinking but nobody would say.',
-      'What\'s the real problem here? Not the presenting problem. The actual problem.',
-    ],
-    callout: {
-      label: 'Why it works',
-      text: 'Corporate speak exists to diffuse responsibility. When everyone\'s accountable, nobody is. Burns\' directness wasn\'t rudeness. It was clarity. She made it safe to say the uncomfortable thing by saying it first. The result: problems got named. Named problems get solved. Unnamed problems fester.',
-      image: '/images/coaches-eye/ursala_pattern.png',
-    },
-    howToDevelop: {
-      intro: 'The Direct Line requires **courage to name what others won\'t**. Most people in organizations learn to speak in code. Burns\' pattern was to cut through the code to the actual issue.',
-      practices: [
-        'When you don\'t understand something, say so immediately instead of nodding along',
-        'Ask "What\'s the real problem here?" and wait through the uncomfortable silence',
-        'Name the thing everyone is thinking but not saying. You\'ll often be thanked for it',
-      ],
-    },
-    prompt: {
-      title: 'The Direct Line Diagnostic',
-      content: `I'm in a situation where I suspect there's a real issue hiding beneath the surface conversation.
-
-Here's the context:
-[DESCRIBE THE MEETING, PROJECT, OR CONVERSATION]
-
-Help me cut through to what matters:
-
-1. THE PRESENTING PROBLEM: What issue is officially being discussed? What language is being used?
-
-2. THE ACTUAL PROBLEM: Based on this context, what's the real issue that people might be avoiding? What question would make the room uncomfortable?
-
-3. THE DIRECT QUESTION: Give me one clear, non-hostile question I could ask that would surface the real issue. Something Burns might say.
-
-4. THE ACCOUNTABILITY GAP: Who is responsible for what here? Where is responsibility being diffused or avoided?
-
-5. THE NAMING: Help me articulate the unnamed thing in one clear sentence that I could say out loud.`,
-    },
-    image: '/images/coaches-eye/pattern-7.png',
-  },
-  {
-    id: 8,
+    id: 9,
     title: 'The Essential Cut',
     icon: Scissors,
     category: 'business',
@@ -432,7 +478,7 @@ Help me think through:
 
 5. THE REBUILD: Once I've made the essential cut, what's the first thing I should invest in to start building back from a stronger position?`,
     },
-    image: '/images/coaches-eye/pattern-8.png',
+    image: '/images/coaches-eye/pattern-9.png',
   },
 ];
 
@@ -448,7 +494,7 @@ export const setupContent = {
   conclusion: [
     "This is what separates good coaches from legendary ones. Good coaches improve technique. Legendary coaches extract patterns their players don't know they're running, name those patterns, and then build systems that leverage them.",
     "The Coach's Eye isn't about seeing talent. Everyone can see talent. The Coach's Eye is about seeing the cognitive fingerprint underneath the talent. The operating system beneath the performance.",
-    "What follows are seven patterns from legendary leaders, and the prompts to help you develop each one.",
+    "What follows are nine patterns from legendary leaders, and the prompts to help you develop each one.",
   ],
 };
 
