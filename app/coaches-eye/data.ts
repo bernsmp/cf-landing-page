@@ -62,7 +62,7 @@ export const patterns: Pattern[] = [
       image: '/images/coaches-eye/greatestshowonturf.png',
     },
     howToDevelop: {
-      intro: 'The Zoom Lens is a skill of **deliberate attention-shifting**. Most people get stuck at one altitude—either drowning in details or floating above them.',
+      intro: 'The Zoom Lens is a skill of **deliberate attention-shifting**. Most people get stuck at one altitude, either drowning in details or floating above them.',
       practices: [
         'When reviewing work (yours or others\'), force yourself to answer two questions: "What\'s happening at the pixel level?" and "What does this reveal about how this person/system thinks?"',
         'Set a timer. Spend 5 minutes on micro, then 5 minutes on macro. The transition is where insight lives.',
@@ -100,7 +100,7 @@ Then give me one specific question I should be asking that I'm probably not aski
       'Gregg Popovich has five NBA championships. He\'s also famous for his brutal honesty. There\'s a clip of him yanking a player during a timeout and saying exactly three words before walking away. Reporters love this stuff. Fiery coach! Tough love!',
       'But that\'s not what\'s actually happening.',
       'Popovich is running a pattern. And the pattern isn\'t "be honest" or "be tough." The pattern is: hold everyone to the same standard, regardless of status. As he put it: "If you\'re on Duncan\'s fanny or Parker, [other players] see it and they know it\'s fair and they want to play for you."',
-      'When Popovich criticizes Tim Duncan—the greatest player in franchise history—with the same directness he\'d use with a rookie, something shifts in the room. The feedback stops being personal. It becomes about the work.',
+      'When Popovich criticizes Tim Duncan (the greatest player in franchise history) with the same directness he\'d use with a rookie, something shifts in the room. The feedback stops being personal. It becomes about the work.',
     ],
     callout: {
       label: 'Why this works',
@@ -124,11 +124,11 @@ Here's the situation:
 
 Please help me:
 
-1. DESCRIBE OBJECTIVELY: Rewrite this situation as pure observation—what a camera would have recorded—with zero evaluative language. No "bad," "wrong," "should have," or implied criticism.
+1. DESCRIBE OBJECTIVELY: Rewrite this situation as pure observation (what a camera would have recorded) with zero evaluative language. No "bad," "wrong," "should have," or implied criticism.
 
 2. THE QUESTION: Give me one question I can ask that will help this person see their own behavior as if watching someone else do it.
 
-3. THE STANDARD: Help me articulate the principle or standard at stake here in a way that applies to everyone equally—not just this person in this situation.
+3. THE STANDARD: Help me articulate the principle or standard at stake here in a way that applies to everyone equally, not just this person in this situation.
 
 4. THE DELIVERY: How do I present this so the person feels I'm holding up a mirror, not swinging a hammer?`,
     },
@@ -136,7 +136,7 @@ Please help me:
   },
   {
     id: 3,
-    title: 'The Invisible Load',
+    title: 'The Leading Edge',
     icon: Scale,
     category: 'sports',
     coachName: 'John Wooden',
@@ -156,7 +156,7 @@ Please help me:
       image: '/images/coaches-eye/wooden_pattern.png',
     },
     howToDevelop: {
-      intro: 'The Invisible Load requires **reading leading indicators, not lagging ones**. Most people wait for results to tell them something is wrong. By then, it\'s too late.',
+      intro: 'The Leading Edge requires **reading leading indicators, not lagging ones**. Most people wait for results to tell them something is wrong. By then, it\'s too late.',
       practices: [
         'Before any important meeting or conversation, notice the physical tells: posture, energy, micro-expressions',
         'Ask yourself: "If I ignore what this person is saying and only watch how they\'re carrying themselves, what would I conclude?"',
@@ -164,8 +164,8 @@ Please help me:
       ],
     },
     prompt: {
-      title: 'Reading the Invisible Load',
-      content: `I want to get better at sensing what's happening beneath the surface—catching problems before they show up in results.
+      title: 'Reading the Leading Edge',
+      content: `I want to get better at sensing what's happening beneath the surface, catching problems before they show up in results.
 
 Here's a person or situation I'm trying to read:
 [DESCRIBE THE PERSON, TEAM, OR SITUATION]
@@ -189,7 +189,7 @@ Help me identify:
     category: 'military',
     coachName: 'General Stanley McChrystal',
     coachTitle: 'Joint Special Operations Command',
-    quote: "We dubbed this goal—this state of emergent, adaptive organizational intelligence—shared consciousness, and it became the cornerstone of our transformation.",
+    quote: "We dubbed this goal, this state of emergent, adaptive organizational intelligence, shared consciousness, and it became the cornerstone of our transformation.",
     content: [
       'Creating distributed intelligence where everyone operates with the same picture.',
       'In 2004, McChrystal took command of Joint Special Operations in Iraq. The most elite military force in history was losing. Not because they lacked skill or resources. Because they were too slow.',
@@ -197,7 +197,7 @@ Help me identify:
       'McChrystal\'s insight: hierarchy couldn\'t keep pace with networks.',
       'So he rebuilt everything around one principle: shared consciousness. Every morning, 7,000 people across the world joined a two-hour video conference. Intelligence that used to take weeks to disseminate was shared in real-time. Everyone saw what leadership saw.',
       'Operations went from 10 raids per month to 300. Not because people worked harder. Because information moved faster. When everyone has the same picture, you don\'t need to wait for orders. You already know what to do.',
-      'McChrystal described the philosophy: "Decentralize until it makes you uncomfortable, and it was right there—on the brink of instability—that we found our sweet spot."',
+      'McChrystal described the philosophy: "Decentralize until it makes you uncomfortable, and it was right there, on the brink of instability, that we found our sweet spot."',
     ],
     callout: {
       label: 'The result',
@@ -205,7 +205,7 @@ Help me identify:
       image: '/images/coaches-eye/McChrystal _pattern.png',
     },
     howToDevelop: {
-      intro: 'Shared Consciousness requires **radical transparency as default**. Most organizations hoard information like gold. McChrystal\'s insight was that information is more like milk—it spoils quickly if you don\'t use it.',
+      intro: 'Shared Consciousness requires **radical transparency as default**. Most organizations hoard information like gold. McChrystal\'s insight was that information is more like milk. It spoils quickly if you don\'t use it.',
       practices: [
         'Default to sharing, not to protecting. Ask "Why shouldn\'t this person know this?" instead of "Why should they?"',
         'Create recurring rituals where everyone sees the full picture, not just their piece',
@@ -260,7 +260,7 @@ Help me design:
       practices: [
         'For any major decision, ask: "What timescale am I optimizing for? What would change if I doubled it?"',
         'Identify the decisions you\'re making for this quarter that will hurt you in five years',
-        'Build relationships that have no immediate ROI—that\'s where Long Game leverage lives',
+        'Build relationships that have no immediate ROI. That\'s where Long Game leverage lives',
       ],
     },
     prompt: {
@@ -301,11 +301,11 @@ Help me analyze this across multiple timescales:
     ],
     callout: {
       label: 'Why it works',
-      text: 'When feedback comes with authority, people get defensive. They protect their work instead of improving it. When feedback comes without authority, it becomes pure information. The Braintrust separates the idea from the person—you can tear apart someone\'s work without tearing apart the human.',
+      text: 'When feedback comes with authority, people get defensive. They protect their work instead of improving it. When feedback comes without authority, it becomes pure information. The Braintrust separates the idea from the person. You can tear apart someone\'s work without tearing apart the human.',
       image: '/images/coaches-eye/ed_pattern.png',
     },
     howToDevelop: {
-      intro: 'The Braintrust requires **structural honesty**—building systems that make candor safe. You can\'t just tell people to be honest. You have to remove the reasons they\'re not.',
+      intro: 'The Braintrust requires **structural honesty**: building systems that make candor safe. You can\'t just tell people to be honest. You have to remove the reasons they\'re not.',
       practices: [
         'Separate who gives feedback from who makes decisions',
         'Make it explicit: "You own this. I\'m giving you information, not instructions."',
@@ -358,7 +358,7 @@ Help me design a feedback process:
       practices: [
         'When you don\'t understand something, say so immediately instead of nodding along',
         'Ask "What\'s the real problem here?" and wait through the uncomfortable silence',
-        'Name the thing everyone is thinking but not saying—you\'ll often be thanked for it',
+        'Name the thing everyone is thinking but not saying. You\'ll often be thanked for it',
       ],
     },
     prompt: {
@@ -402,11 +402,11 @@ Help me cut through to what matters:
     ],
     callout: {
       label: 'The pattern',
-      text: 'Triage discipline—the ability to let things die so the essential can survive. Most people in crisis try to save everything. That\'s how you lose everything. Mulcahy had the cognitive discipline to let things die so the essential could survive.',
+      text: 'Triage discipline: the ability to let things die so the essential can survive. Most people in crisis try to save everything. That\'s how you lose everything. Mulcahy had the cognitive discipline to let things die so the essential could survive.',
       image: '/images/coaches-eye/anne_pattern.png',
     },
     howToDevelop: {
-      intro: 'The Essential Cut requires **triage discipline**—the ability to let things die so the essential can survive. Most people in crisis try to save everything. That\'s how you lose everything.',
+      intro: 'The Essential Cut requires **triage discipline**: the ability to let things die so the essential can survive. Most people in crisis try to save everything. That\'s how you lose everything.',
       practices: [
         'Identify the one thing you do that creates disproportionate value. Protect that at all costs.',
         'When resources are constrained, ask: "What can I stop doing?" before asking "How do I do more with less?"',
@@ -448,7 +448,7 @@ export const setupContent = {
   conclusion: [
     "This is what separates good coaches from legendary ones. Good coaches improve technique. Legendary coaches extract patterns their players don't know they're running, name those patterns, and then build systems that leverage them.",
     "The Coach's Eye isn't about seeing talent. Everyone can see talent. The Coach's Eye is about seeing the cognitive fingerprint underneath the talent. The operating system beneath the performance.",
-    "What follows are seven patterns from legendary leaders—and the prompts to help you develop each one.",
+    "What follows are seven patterns from legendary leaders, and the prompts to help you develop each one.",
   ],
 };
 
@@ -462,5 +462,5 @@ export const bridgeContent = {
     "Nooyi's Long Game and Mulcahy's Essential Cut both require the same discipline: ignoring the immediate pressure to serve the deeper need.",
     "The domain is the costume. The pattern is what's underneath.",
   ],
-  keyInsight: "These patterns aren't magic. They're trainable. But you have to see them first.",
+  keyInsight: "These patterns aren't magic. They're trainable.\nBut you have to see them first.",
 };
