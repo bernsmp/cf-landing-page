@@ -238,27 +238,28 @@ export default function CoachesEyePage() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            {/* Jordan silhouette - floats right with text wrapping */}
+            {/* Jordan video - floats right */}
             <div
               className="hidden md:block float-right ml-8 mb-4 relative"
               style={{
-                shapeOutside: 'url(/images/coaches-eye/jordan-silhouette.png)',
+                shapeOutside: 'polygon(20% 0%, 100% 0%, 100% 100%, 20% 100%, 0% 50%)',
                 shapeMargin: '20px',
                 width: '320px',
                 height: '480px',
               }}
             >
-              <div className="relative w-full h-full">
-                <Image
-                  src="/images/coaches-eye/jordan-silhouette.png"
-                  alt="Michael Jordan"
-                  fill
-                  className="object-contain"
-                  style={{
-                    filter: 'drop-shadow(0 0 30px rgba(212, 175, 55, 0.3))',
-                  }}
-                />
-              </div>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover rounded-lg"
+                style={{
+                  filter: 'drop-shadow(0 0 40px rgba(212, 175, 55, 0.4))',
+                }}
+              >
+                <source src="/videos/jordan-loop.mp4" type="video/mp4" />
+              </video>
             </div>
 
             <div className="space-y-8">
@@ -276,17 +277,20 @@ export default function CoachesEyePage() {
                 </p>
               ))}
 
-              {/* Mobile Jordan image */}
-              <div className="md:hidden relative w-full h-[400px] my-8">
-                <Image
-                  src="/images/coaches-eye/jordan-silhouette.png"
-                  alt="Michael Jordan"
-                  fill
-                  className="object-contain"
+              {/* Mobile Jordan video */}
+              <div className="md:hidden relative w-full h-[300px] my-8 rounded-lg overflow-hidden">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
                   style={{
                     filter: 'drop-shadow(0 0 30px rgba(212, 175, 55, 0.3))',
                   }}
-                />
+                >
+                  <source src="/videos/jordan-loop.mp4" type="video/mp4" />
+                </video>
               </div>
 
               <p className="text-3xl md:text-4xl text-white font-display font-bold py-4 clear-right">
