@@ -196,7 +196,7 @@ export default function CoachesEyePage() {
           >
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[var(--brand-gold)]" />
-              8 Patterns
+              9 Patterns
             </span>
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#4a6fa5]" />
@@ -230,37 +230,75 @@ export default function CoachesEyePage() {
 
       {/* ===== THE SETUP ===== */}
       <section className="py-24 md:py-32 px-6">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="relative"
           >
-            <p className="text-2xl md:text-3xl text-white font-display">
-              {setupContent.intro}
-            </p>
+            {/* Jordan silhouette - floats right with text wrapping */}
+            <div
+              className="hidden md:block float-right ml-8 mb-4 relative"
+              style={{
+                shapeOutside: 'url(/images/coaches-eye/jordan-silhouette.png)',
+                shapeMargin: '20px',
+                width: '320px',
+                height: '480px',
+              }}
+            >
+              <div className="relative w-full h-full">
+                <Image
+                  src="/images/coaches-eye/jordan-silhouette.png"
+                  alt="Michael Jordan"
+                  fill
+                  className="object-contain"
+                  style={{
+                    filter: 'drop-shadow(0 0 30px rgba(212, 175, 55, 0.3))',
+                  }}
+                />
+              </div>
+            </div>
 
-            <p className="text-3xl md:text-4xl text-white font-display font-bold">
-              {setupContent.hook}
-            </p>
-
-            {setupContent.body.map((paragraph, i) => (
-              <p key={i} className="text-lg md:text-xl text-[var(--grey-300)] leading-relaxed">
-                {paragraph}
+            <div className="space-y-8">
+              <p className="text-2xl md:text-3xl text-white font-display">
+                {setupContent.intro}
               </p>
-            ))}
 
-            <p className="text-3xl md:text-4xl text-white font-display font-bold py-4">
-              {setupContent.keyInsight}
-            </p>
-
-            {setupContent.conclusion.map((paragraph, i) => (
-              <p key={i} className="text-lg md:text-xl text-[var(--grey-300)] leading-relaxed">
-                {paragraph}
+              <p className="text-3xl md:text-4xl text-white font-display font-bold">
+                {setupContent.hook}
               </p>
-            ))}
+
+              {setupContent.body.map((paragraph, i) => (
+                <p key={i} className="text-lg md:text-xl text-[var(--grey-300)] leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+
+              {/* Mobile Jordan image */}
+              <div className="md:hidden relative w-full h-[400px] my-8">
+                <Image
+                  src="/images/coaches-eye/jordan-silhouette.png"
+                  alt="Michael Jordan"
+                  fill
+                  className="object-contain"
+                  style={{
+                    filter: 'drop-shadow(0 0 30px rgba(212, 175, 55, 0.3))',
+                  }}
+                />
+              </div>
+
+              <p className="text-3xl md:text-4xl text-white font-display font-bold py-4 clear-right">
+                {setupContent.keyInsight}
+              </p>
+
+              {setupContent.conclusion.map((paragraph, i) => (
+                <p key={i} className="text-lg md:text-xl text-[var(--grey-300)] leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
@@ -293,7 +331,7 @@ export default function CoachesEyePage() {
             />
 
             {/* Divider between patterns */}
-            {pattern.id < 8 && (
+            {pattern.id < 9 && (
               <div className="py-16">
                 <div className="max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-[var(--grey-800)] to-transparent" />
               </div>
@@ -341,12 +379,12 @@ export default function CoachesEyePage() {
             <div className="text-center mb-12">
               <CheckCircle className="mx-auto mb-6 text-emerald-400" size={56} />
               <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-                You&apos;ve Got All Eight
+                You&apos;ve Got All Nine
               </h2>
               <p className="text-lg text-[var(--grey-400)]">
                 From courtside to the boardroom to the battlefield.
                 <br />
-                Eight patterns for seeing what others miss.
+                Nine patterns for seeing what others miss.
               </p>
             </div>
 
