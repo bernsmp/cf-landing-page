@@ -14,7 +14,7 @@ Michael Jordan didn't know what made Michael Jordan great.
 
 Not really. Not in a way he could articulate, replicate, or teach. Jordan knew he was exceptional. He could feel it in his bones, in the way the game slowed down when he had the ball. But if you asked him to explain the cognitive pattern that let him read defenses three moves ahead? He'd talk about "instinct" and "wanting it more."
 
-That's not an explanation. That's a feeling wearing a costume.
+That's not an explanation. It's a feeling.
 
 Jackson saw something different. He saw a pattern Jordan was running automatically, a decision-making architecture that fired so fast Jordan experienced it as intuition rather than cognition. And Jackson's job wasn't to teach Jordan new skills.
 
