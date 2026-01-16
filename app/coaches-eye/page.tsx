@@ -9,6 +9,7 @@ import Image from 'next/image';
 import {
   ScrollProgress,
   ChapterNav,
+  TableOfContents,
   PatternIntro,
   PatternContent,
   PullQuote,
@@ -82,6 +83,13 @@ export default function CoachesEyePage() {
 
   const handleNavigate = useCallback((index: number) => {
     const section = chapterRefs.current[index];
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, []);
+
+  const handleTocNavigate = useCallback((patternId: number) => {
+    const section = document.getElementById(`pattern-${patternId}`);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -227,6 +235,9 @@ export default function CoachesEyePage() {
           </motion.div>
         </motion.div>
       </section>
+
+      {/* ===== TABLE OF CONTENTS ===== */}
+      <TableOfContents isUnlocked={isUnlocked} onNavigate={handleTocNavigate} />
 
       {/* ===== THE SETUP ===== */}
       <section className="py-24 md:py-32 px-6">

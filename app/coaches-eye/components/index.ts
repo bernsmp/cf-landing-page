@@ -1,5 +1,6 @@
 export { ScrollProgress } from './ScrollProgress';
 export { ChapterNav } from './ChapterNav';
+export { TableOfContents } from './TableOfContents';
 export { PatternIntro } from './PatternIntro';
 export { PatternContent } from './PatternContent';
 export { PullQuote } from './PullQuote';
