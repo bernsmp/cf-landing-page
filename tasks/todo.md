@@ -1,3 +1,23 @@
+# Add Decision Architect Skill to Paid Section
+
+## Plan
+
+- [ ] Copy decision-architect.zip to public/skills/ as decision-architect.skill
+- [ ] Add skill entry to data/prompts.ts in the premium skills section
+- [ ] Run build to verify no errors
+- [ ] Provide thumbnail image prompt
+
+## Details
+
+**Skill Info:**
+- Name: Decision Architect
+- Description: Extract invisible decision-making patterns from expert client conversations. Transform transcripts into a codified Decision Architecture Map.
+- Tool Count: 3 (Excavate, Architect, Implement phases)
+- File Size: 18 KB
+- Premium: Yes
+
+---
+
 # Coach's Eye Lead Magnet - Interactive Magazine
 
 ## Completed ✅

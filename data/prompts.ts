@@ -2998,6 +2998,17 @@ export const skills: Skill[] = [
     fileSize: '9 KB',
     tags: ['content', 'LinkedIn', 'Reddit', 'trends', 'social'],
   },
+  {
+    id: 'skill-10',
+    slug: 'decision-architect',
+    title: 'Decision Architect',
+    description: 'Extract invisible decision-making patterns from expert client conversations. Transforms transcripts into a codified Decision Architecture Map showing if-then rules, trigger patterns, and strategic pivots that guide complex client situations.',
+    isPremium: true,
+    filename: 'decision-architect.skill',
+    toolCount: 3,
+    fileSize: '18 KB',
+    tags: ['extraction', 'decisions', 'frameworks', 'patterns', 'methodology'],
+  },
 ];
 
 export const getFreeSkills = (): Skill[] => {
