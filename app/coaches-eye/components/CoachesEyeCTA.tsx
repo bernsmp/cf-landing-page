@@ -88,18 +88,21 @@ export function CoachesEyeCTA({ variant = 'unlock', onUnlock }: CoachesEyeCTAPro
                 You&apos;re in.
               </h2>
               <p className="text-[var(--grey-400)]">
-                All 8 patterns are now unlocked.
+                All 9 patterns are now unlocked.
               </p>
             </div>
           </div>
         ) : (
           <>
-            <div className="space-y-2">
+            <div className="space-y-3">
               <h2 className="text-center font-display font-bold text-2xl md:text-3xl text-white">
-                Unlock all 8 patterns
+                Unlock the rest
               </h2>
-              <p className="text-center text-[var(--grey-400)]">
-                Enter your email to continue reading. Join 2,000+ operators getting Signal &gt; Noise.
+              <p className="text-center text-[var(--grey-400)] max-w-lg mx-auto">
+                8 more patterns. 9 ready-to-use prompts. The same lens legendary coaches use to see what others can&apos;t see in themselves.
+              </p>
+              <p className="text-center text-[var(--grey-500)] text-sm">
+                Join 2,000+ operators getting Signal &gt; Noise.
               </p>
             </div>
 

@@ -64,17 +64,17 @@ export default function CoachesEyePage() {
 
   const handleUnlock = useCallback(() => {
     setIsUnlocked(true);
-    // Scroll to pattern 3
+    // Scroll to pattern 2
     setTimeout(() => {
-      const pattern3Section = chapterRefs.current[3];
-      if (pattern3Section) {
-        pattern3Section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const pattern2Section = chapterRefs.current[2];
+      if (pattern2Section) {
+        pattern2Section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }, 500);
   }, []);
 
   const scrollToGate = useCallback(() => {
-    // Scroll to the unlock gate (after pattern 2)
+    // Scroll to the unlock gate (after pattern 1)
     const gateElement = document.getElementById('unlock-gate');
     if (gateElement) {
       gateElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -192,7 +192,7 @@ export default function CoachesEyePage() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-xl md:text-2xl text-[var(--grey-400)] mb-10 max-w-2xl mx-auto"
           >
-            What legendary leaders see that others can&apos;t see in themselves.
+            What legendary coaches see that others can&apos;t see in themselves.
           </motion.p>
 
           {/* Stats */}
@@ -320,7 +320,7 @@ export default function CoachesEyePage() {
 
       {/* ===== PATTERNS ===== */}
       {patterns.map((pattern, index) => {
-        const isLocked = !isUnlocked && pattern.id > 2;
+        const isLocked = !isUnlocked && pattern.id > 1;
         const chapterIndex = pattern.id; // 1-8 for patterns
 
         return (
@@ -329,8 +329,8 @@ export default function CoachesEyePage() {
             ref={setChapterRef(chapterIndex)}
             id={`pattern-${pattern.id}`}
           >
-            {/* Show unlock gate after pattern 2 */}
-            {pattern.id === 3 && !isUnlocked && (
+            {/* Show unlock gate after pattern 1 */}
+            {pattern.id === 2 && !isUnlocked && (
               <div id="unlock-gate" className="py-16 px-6">
                 <CoachesEyeCTA variant="unlock" onUnlock={handleUnlock} />
               </div>

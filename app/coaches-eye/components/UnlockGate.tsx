@@ -83,7 +83,7 @@ export function UnlockGate({ onUnlock }: UnlockGateProps) {
               </h2>
 
               <p className="text-xl text-[var(--grey-400)]">
-                6 more patterns incoming
+                8 more patterns incoming
               </p>
 
               <motion.div
@@ -113,16 +113,20 @@ export function UnlockGate({ onUnlock }: UnlockGateProps) {
 
               {/* Headline */}
               <h2 className="font-display text-4xl md:text-6xl font-bold text-white mb-4">
-                6 More Patterns
+                8 More Patterns
               </h2>
 
               <p className="text-xl text-[var(--grey-400)] mb-2">
                 From the battlefield to the boardroom
               </p>
 
+              <p className="text-base text-[var(--grey-500)] max-w-md mx-auto mb-2">
+                Each one comes with the question that cracks it open. Finally see your own business the way you see your clients&apos;.
+              </p>
+
               {/* Preview of locked patterns */}
               <div className="flex flex-wrap justify-center gap-2 mb-10">
-                {['McChrystal', 'Nooyi', 'Catmull', 'Mulcahy'].map((name) => (
+                {['Popovich', 'Jay Abraham', 'Burns', 'Wooden', 'McChrystal', 'Nooyi', 'Catmull', 'Mulcahy'].map((name) => (
                   <span
                     key={name}
                     className="px-3 py-1 rounded-full bg-[var(--grey-800)] text-sm text-[var(--grey-400)]"
@@ -130,9 +134,6 @@ export function UnlockGate({ onUnlock }: UnlockGateProps) {
                     {name}
                   </span>
                 ))}
-                <span className="px-3 py-1 rounded-full bg-[var(--grey-800)] text-sm text-[var(--grey-400)]">
-                  +2 more
-                </span>
               </div>
 
               {/* Form */}
