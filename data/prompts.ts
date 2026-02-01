@@ -2843,6 +2843,75 @@ export const workflows: Workflow[] = [
     estimatedTime: '30 min',
     tags: ['customer language', 'research', 'adjacent domains', 'messaging', 'voice of customer'],
   },
+  {
+    id: 'w9',
+    slug: 'zero-resistance-toolkit',
+    title: 'The Zero Resistance Toolkit',
+    description: '4 AI prompts to make your pitches close, your content land, and your objections dissolve. Based on influence patterns extracted from Sheryl Sandberg\'s communication style.',
+    category: 'positioning',
+    isPremium: true,
+    thumbnail: '/images/prompts/invisible advantage.png',
+    file: '/prompts/workflows/zero-resistance-toolkit.md',
+    steps: [
+      {
+        stepNumber: 1,
+        title: 'The 30-Second Test (Quick Start)',
+        description: 'Instant diagnosis of any content you paste. Find the 3 worst resistance triggers with fixes.',
+        instructions: [
+          'Paste any content: email, post, bio, pitch, or message',
+          'Get back three flags with specific fixes',
+          'Use this to test if the framework applies to your writing',
+          'If the flags surprise you, run the full Blind Spot Audit next',
+        ],
+      },
+      {
+        stepNumber: 2,
+        title: 'The Pitch Rewriter',
+        description: 'Strip resistance triggers from proposals, sales emails, and website copy using the Sandberg Influence Framework.',
+        instructions: [
+          'Copy your pitch exactly as written (don\'t clean it up first)',
+          'Paste it into the prompt where indicated',
+          'Review the rewrite AND the resistance trigger table',
+          'The table matters more than the rewrite—it shows patterns you\'ll repeat forever',
+        ],
+      },
+      {
+        stepNumber: 3,
+        title: 'The Blind Spot Audit',
+        description: 'Score your content across four categories of influence failure with specific quotes and fixes.',
+        instructions: [
+          'Paste any content: email, LinkedIn post, website copy, or transcript',
+          'Review the scores—anything below 7 is costing you',
+          'Study the "worst offender" quotes—these are your habits',
+          'Use the before/after rewrites as templates for similar patterns',
+        ],
+      },
+      {
+        stepNumber: 4,
+        title: 'The Origin Story Extractor',
+        description: 'Pull "who taught me" stories that establish credibility without bragging. Replace boring credential lists.',
+        instructions: [
+          'Describe your area of expertise',
+          'Answer the interview questions one at a time—take your time',
+          'Review the three stories and pick the one that makes you slightly uncomfortable',
+          'Test one in your next call or post and watch what happens',
+        ],
+      },
+      {
+        stepNumber: 5,
+        title: 'The Objection Dissolver',
+        description: 'Response scripts that work with resistance instead of against it. Stop countering logic and start dissolving pushback.',
+        instructions: [
+          'Write out the exact objection, word for word if possible',
+          'Write out how you currently respond (be honest, not aspirational)',
+          'Read the diagnosis first—it shows which trap you\'re falling into',
+          'Pick the response variation that matches your voice',
+        ],
+      },
+    ],
+    estimatedTime: '45 min',
+    tags: ['influence', 'pitches', 'objections', 'persuasion', 'sandberg', 'resistance'],
+  },
 ];
 
 export const categories = [
