@@ -3078,6 +3078,17 @@ export const skills: Skill[] = [
     fileSize: '18 KB',
     tags: ['extraction', 'decisions', 'frameworks', 'patterns', 'methodology'],
   },
+  {
+    id: 'skill-11',
+    slug: 'problem-finder',
+    title: 'Problem Finder & Validator',
+    description: 'Helps aspiring consultants discover and validate a problem worth building an offer around. Runs real community research, applies three structural filters (structural vs. symptomatic, willingness to pay, credibility fit), and delivers a validated problem with market language and demand evidence.',
+    isPremium: true,
+    filename: 'problem-finder.skill',
+    toolCount: 3,
+    fileSize: '13 KB',
+    tags: ['consulting', 'validation', 'problem discovery', 'offer building'],
+  },
 ];
 
 export const getFreeSkills = (): Skill[] => {
