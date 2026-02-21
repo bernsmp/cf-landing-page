@@ -1,55 +1,34 @@
-# Video Testimonial Implementation - Todo
+# Add Zero Resistance Toolkit Workflow
 
-## Goal
-Add Jessica's powerful video testimonial to the home page as a featured element in the SocialProof section.
+## Plan
+Add the Zero Resistance Toolkit as a workflow pack linked to the Sandberg influence article.
 
-## Implementation Steps
+## Tasks
+- [x] Create workflow markdown file at `/public/prompts/workflows/zero-resistance-toolkit.md`
+- [x] Add workflow entry to `data/prompts.ts`
+- [x] Run build to verify no errors
+- [x] Thumbnail provided by user: `invisible advantage.png`
 
-- [x] Add video file to `/public/videos/` folder (jessica-testimonial.mp4)
-- [x] Update SocialProof component to include featured video section
-- [x] Add video player with thumbnail, play/pause controls
-- [x] Add pull quote below video highlighting the "$7,000 course" quote
-- [x] Keep existing three text testimonials below (grid layout)
-- [x] Test video playback and responsive layout
-
-## Design Approach
-- Featured video at top of SocialProof section (full width, max-w-4xl)
-- Video player with thumbnail overlay (similar to VideoSection component)
-- Pull quote styled with gold accent and larger text
-- Existing testimonial grid unchanged below
-
-## Key Quote to Feature
-"I spent $7,000 on a 9-week course... You and I talking for one hour, I got more ideas about how to package something to sell than I did over that entire course."
-
----
-
-## Review Section
+## Review
 
 ### Summary of Changes
-- Added Jessica Bruno's video testimonial to the home page SocialProof section
-- Featured video is prominently displayed above existing text testimonials
-- Video player includes play/pause controls, hover states, and branded gold accents
-- Pull quote below video highlights the powerful "$7,000 course vs 1 hour" comparison
-- All existing testimonials remain unchanged in grid layout below
+- Created `/public/prompts/workflows/zero-resistance-toolkit.md` with full 5-tool workflow
+- Added workflow entry to `data/prompts.ts` (id: w9, slug: zero-resistance-toolkit)
 
-### Files Modified
-- `/components/home/SocialProof.tsx` - Added video player state, controls, and featured video section
-- `/public/videos/jessica-testimonial.mp4` - Added 52MB testimonial video
+### Details
+- **Category:** positioning
+- **Premium:** Yes (requires subscriber password)
+- **Estimated time:** 45 min
+- **Thumbnail:** `/images/prompts/invisible advantage.png`
+- **5 Steps:**
+  1. The 30-Second Test (Quick Start)
+  2. The Pitch Rewriter
+  3. The Blind Spot Audit
+  4. The Origin Story Extractor
+  5. The Objection Dissolver
 
-### New Dependencies Added
-- None (uses existing Framer Motion, Lucide icons)
+### URL
+Live at: `/prompts/workflow/zero-resistance-toolkit`
 
-### Environment Variables
-- None required
-
-### Technical Details
-- Video playback uses native HTML5 video element
-- Play/pause controls with hover detection
-- Responsive aspect-video container (16:9 ratio)
-- Matches existing VideoSection design patterns
-- Auto-resets controls on video end
-
-### Known Limitations / Future Improvements
-- Could add video thumbnail image for better initial load experience
-- Could add closed captions for accessibility
-- Could compress video further if load time becomes an issue
+### No new dependencies added
+### No environment variables needed

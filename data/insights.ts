@@ -1910,6 +1910,104 @@ You don't need to analyze everything at once. One pattern is enough to start see
       }
     ],
     relatedSlugs: ['neuroscience-invisible-expertise', 'the-parent-test']
+  },
+  {
+    id: '8',
+    slug: 'you-dont-have-a-business-you-have-a-job',
+    title: "You Don't Have a Business. You Have a Job.",
+    subtitle: "The framework that tells the truth about where most expert practices actually are.",
+    description: "Full calendar, waitlist, decent revenue — and one injury away from zero. That is not a business. That is a job with no benefits and no safety net. A framework for telling the difference, and what to do about it.",
+    category: 'positioning',
+    publishedAt: '2026-02-19',
+    readTime: '5 min read',
+    featured: false,
+    keywords: [
+      'hobby job enterprise framework',
+      'expert practice',
+      'consulting business',
+      'positioning',
+      'David Baker',
+      'scalable expertise',
+      'coaching business',
+      'irreplaceable expert'
+    ],
+    metaTitle: "You Don't Have a Business. You Have a Job. | Cognitive Fingerprint",
+    metaDescription: "Most expert practitioners have a job disguised as a business. The Hobby/Job/Enterprise framework tells you where you actually are — and what the move looks like.",
+    content: `The word I hear most from experts who are stuck: "scaling."
+
+They are not scaling. They are filling a calendar.
+
+Full calendar, waitlist, decent revenue — and one injury away from zero. That is not a business. That is a job with no benefits and no safety net.
+
+---
+
+There is a framework I keep coming back to. Three categories. Every expert practice falls into one of them, and almost nobody is honest about which one they are in.
+
+**Hobby:** Costs you more than it makes. You are spending money on certifications, equipment, software, continuing education. You might be charging something, but when you subtract expenses and the hours you are not billing for — admin, prep, commuting — you are underwater. You are paying for the privilege of calling yourself a practitioner.
+
+**Job:** You trade your time for income. It is predictable. Maybe even good. But it has a ceiling, and that ceiling is your body and your calendar. You are one injury, one burnout, one bad month away from zero revenue. And here is the part nobody wants to hear: if a client leaves and finds someone comparable in two weeks, you had a job, not a position.
+
+**Enterprise:** Something exists beyond your labor. A program that sells while you sleep. A methodology that another person can deliver. Revenue that does not require you in the room. If you disappeared for three months, something keeps generating income.
+
+---
+
+Most experts I talk to are in Job and calling it Enterprise.
+
+They will point to their LLC filing. Their logo. Their Instagram presence. Their "brand."
+
+None of that is an enterprise. An enterprise is a separate entity generating profit on top of the labor exchange. The LLC is paperwork. The brand is decoration. The question is whether anything earns when you do not show up.
+
+---
+
+Here is where it gets uncomfortable.
+
+The thing keeping most experts in Job is not lack of ambition. It is that Job feels safe. You show up, you deliver, you get paid. Repeat. There is a rhythm to it. It feels like building something because the numbers go up.
+
+But Job has a trap door. You are carrying all the risk of entrepreneurship — no employer benefits, no guaranteed income, no severance — with none of the upside. You cannot sell a job. You cannot scale a job. You cannot take three weeks off from a job that only pays when you are standing in the room.
+
+The consultant with 28 clients and a waitlist? He is at the ceiling. More clients means worse service or longer days. Higher rates only stretch so far before the market pushes back. He has optimized a cage.
+
+---
+
+The move from Job to Enterprise is not about working harder. It is about building something that compounds without your presence.
+
+That could look like:
+- A methodology specific enough that you could teach someone else to deliver it
+- A diagnostic framework that clients pay for before they ever work with you directly
+- A program that runs on a platform and serves people you have never met
+
+The common thread: it has to work without your hands on it.
+
+---
+
+Here is the pattern I notice.
+
+The move from Hobby to Job is about charging enough. Most people figure that out eventually.
+
+The move from Job to Enterprise is about asking a different question. Not "how do I get more clients" but "what would keep earning if I stopped?"
+
+If the answer is nothing, you know where you are.
+
+That is not a failure. But it is a fact. And facts are where good decisions start.
+
+---
+
+*The Hobby/Job/Enterprise framework comes from David C. Baker's work in The Business of Expertise. The Cognitive Fingerprint methodology is one path from Job toward Enterprise — it extracts the invisible methodology you have already built, names it, and makes it transferable.*`,
+    faqs: [
+      {
+        question: "What is the Hobby/Job/Enterprise framework?",
+        answer: "A three-category diagnostic for expert practices. Hobby costs more than it makes. Job trades time for income with a ceiling set by your body and calendar. Enterprise is a separate entity generating profit beyond your labor — something that earns when you are not in the room."
+      },
+      {
+        question: "How do I know if I have a job or an enterprise?",
+        answer: "The honest test: if you disappeared for three months, does anything keep generating income? If the answer is nothing, you have a job. That is not a failure — but it is a fact worth knowing."
+      },
+      {
+        question: "What does the move from Job to Enterprise look like for an expert?",
+        answer: "It requires building something that works without your hands on it — a methodology someone else can deliver, a diagnostic clients pay for before working with you, or a program that serves people you have never met. The key is that value generation stops depending on your presence."
+      }
+    ],
+    relatedSlugs: ['cognitive-fingerprint-vs-diy-framework-building']
   }
 ];
 
