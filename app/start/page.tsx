@@ -319,16 +319,16 @@ export default function StartPage() {
               </h2>
 
               <p className="text-lg text-[var(--grey-400)] mb-8">
-                Get the free pricing guide.
+                Coach's Eye is the fastest way in.
                 <br />
-                Learn how to price expertise you cannot easily explain.
+                See the expertise you're already using but haven't named.
               </p>
 
               <Link
-                href="/assessment"
+                href="/coaches-eye"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-all duration-300"
               >
-                Get the Free Guide
+                See What Leaders See
                 <ArrowRight size={20} />
               </Link>
             </motion.div>

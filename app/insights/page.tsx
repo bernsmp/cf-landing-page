@@ -240,16 +240,16 @@ export default function InsightsPage() {
               className="p-8 md:p-12 rounded-2xl bg-[var(--grey-900)] border border-[var(--grey-800)]"
             >
               <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-4">
-                Not sure how to price invisible expertise?
+                See what's already inside you.
               </h2>
               <p className="text-[var(--grey-400)] mb-8 max-w-xl mx-auto">
-                Get the free guide on pricing work you cannot easily explain.
+                Coach's Eye reveals the expertise you're using but haven't named — the patterns top performers see that others miss.
               </p>
               <Link
-                href="/assessment"
+                href="/coaches-eye"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-colors"
               >
-                Get the Free Pricing Guide
+                See What Leaders See
                 <ArrowRight size={18} />
               </Link>
             </motion.div>
