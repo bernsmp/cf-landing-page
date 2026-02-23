@@ -1921,6 +1921,7 @@ You don't need to analyze everything at once. One pattern is enough to start see
     publishedAt: '2026-02-19',
     readTime: '5 min read',
     featured: false,
+    thumbnail: '/images/insights/job-not-business-thumbnail.jpg',
     keywords: [
       'hobby job enterprise framework',
       'expert practice',
