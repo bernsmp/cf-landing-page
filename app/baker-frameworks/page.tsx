@@ -68,20 +68,6 @@ export default function BakerFrameworksPage() {
               ))}
             </nav>
 
-            <div className="mt-8 p-4 rounded-xl bg-[var(--brand-gold)]/8 border border-[var(--brand-gold)]/20">
-              <div className="text-[10px] font-semibold tracking-[0.15em] uppercase text-[var(--brand-gold)] mb-2 font-mono">
-                Free Diagnostic
-              </div>
-              <div className="text-sm text-white mb-3 leading-snug">
-                Run the Baker Audit on your practice
-              </div>
-              <a
-                href="mailto:max@cognitivefingerprint.ai?subject=Baker Positioning Audit"
-                className="text-xs text-[var(--brand-gold)] hover:underline"
-              >
-                Request it →
-              </a>
-            </div>
           </div>
         </aside>
 
@@ -395,22 +381,6 @@ export default function BakerFrameworksPage() {
               ))}
             </div>
           </section>
-
-          {/* CTA */}
-          <div className="bg-[var(--grey-900)] border border-[var(--grey-800)] rounded-2xl p-8 md:p-10 text-center">
-            <div className="text-xs font-mono tracking-[0.15em] uppercase text-[var(--brand-gold)] mb-3">Free Diagnostic</div>
-            <h2 className="font-display text-3xl text-white mb-4">Run the Baker Audit on Your Practice</h2>
-            <p className="text-[var(--grey-400)] leading-relaxed max-w-md mx-auto mb-6">
-              A structured assessment running Baker&apos;s full positioning diagnostic against your current practice — Stopwatch Test, Hobby/Job/Enterprise classification, confidence behaviors, stage mapping, and CF readiness score.
-            </p>
-            <a
-              href="mailto:max@cognitivefingerprint.ai?subject=Baker Positioning Audit"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-colors"
-            >
-              Request the Audit
-              <ArrowRight size={16} />
-            </a>
-          </div>
 
           <div className="mt-10 pt-6 border-t border-[var(--grey-800)] text-xs text-[var(--grey-600)] leading-relaxed">
             Frameworks sourced from <em>The Business of Expertise</em> (2017) and <em>Secret Tradecraft of Elite Advisors</em> (2022) by David C. Baker. P = db/D formula credited to Blair Enns.
