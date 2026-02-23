@@ -1,15 +1,31 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
 
-const navLinks = [
+type DropdownItem = { href: string; label: string };
+type NavItem = {
+  href?: string;
+  label: string;
+  featured?: boolean;
+  dropdown?: DropdownItem[];
+};
+
+const navLinks: NavItem[] = [
   { href: '/method', label: 'Method' },
   { href: '/prompts', label: 'Prompt Vault', featured: true },
   { href: '/insights', label: 'Insights' },
+  {
+    label: 'Resources',
+    dropdown: [
+      { href: '/baker-frameworks', label: 'Baker Frameworks' },
+      { href: '/coaches-eye', label: "Coach's Eye" },
+      { href: '/in-action', label: 'CF In Action' },
+    ],
+  },
   { href: '/newsletter', label: 'Newsletter' },
   { href: '/start', label: 'Start' },
 ];
@@ -17,6 +33,10 @@ const navLinks = [
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +45,15 @@ export const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const openDropdown = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setResourcesOpen(true);
+  };
+
+  const closeDropdown = () => {
+    closeTimer.current = setTimeout(() => setResourcesOpen(false), 120);
+  };
 
   return (
     <>
@@ -57,19 +86,68 @@ export const Navigation = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`transition-colors duration-300 text-sm font-medium ${
-                    link.featured
-                      ? 'text-[var(--brand-gold)] hover:text-[var(--brand-gold-light)]'
-                      : 'text-[var(--grey-400)] hover:text-white'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                if (link.dropdown) {
+                  return (
+                    <div
+                      key={link.label}
+                      className="relative"
+                      ref={dropdownRef}
+                      onMouseEnter={openDropdown}
+                      onMouseLeave={closeDropdown}
+                    >
+                      <button
+                        className="flex items-center gap-1 text-sm font-medium text-[var(--grey-400)] hover:text-white transition-colors duration-300"
+                      >
+                        {link.label}
+                        <ChevronDown
+                          size={14}
+                          className={`transition-transform duration-200 ${resourcesOpen ? 'rotate-180' : ''}`}
+                        />
+                      </button>
+
+                      <AnimatePresence>
+                        {resourcesOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 8 }}
+                            transition={{ duration: 0.18 }}
+                            onMouseEnter={openDropdown}
+                            onMouseLeave={closeDropdown}
+                            className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-48 bg-[var(--grey-950)] border border-[var(--border-subtle)] rounded-xl shadow-2xl overflow-hidden"
+                          >
+                            {link.dropdown.map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                className="block px-4 py-3 text-sm text-[var(--grey-400)] hover:text-white hover:bg-white/5 transition-colors duration-200"
+                                onClick={() => setResourcesOpen(false)}
+                              >
+                                {item.label}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href!}
+                    className={`transition-colors duration-300 text-sm font-medium ${
+                      link.featured
+                        ? 'text-[var(--brand-gold)] hover:text-[var(--brand-gold-light)]'
+                        : 'text-[var(--grey-400)] hover:text-white'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
               <Link
                 href="/coaches-eye"
                 className="flex items-center gap-2 px-5 py-2.5 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-lg hover:bg-[var(--brand-gold-light)] transition-all duration-300 text-sm"
@@ -98,33 +176,81 @@ export const Navigation = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[var(--grey-950)] pt-24 px-6 md:hidden"
+            className="fixed inset-0 z-40 bg-[var(--grey-950)] pt-24 px-6 md:hidden overflow-y-auto"
           >
             <div className="flex flex-col gap-6">
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-2xl font-display font-bold transition-colors ${
-                      link.featured
-                        ? 'text-[var(--brand-gold)] hover:text-[var(--brand-gold-light)]'
-                        : 'text-white hover:text-[var(--brand-gold)]'
-                    }`}
+              {navLinks.map((link, index) => {
+                if (link.dropdown) {
+                  return (
+                    <motion.div
+                      key={link.label}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <button
+                        onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
+                        className="flex items-center gap-2 text-2xl font-display font-bold text-white hover:text-[var(--brand-gold)] transition-colors"
+                      >
+                        {link.label}
+                        <ChevronDown
+                          size={20}
+                          className={`transition-transform duration-200 ${mobileResourcesOpen ? 'rotate-180' : ''}`}
+                        />
+                      </button>
+                      <AnimatePresence>
+                        {mobileResourcesOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="flex flex-col gap-3 mt-3 pl-4 border-l border-[var(--border-subtle)]">
+                              {link.dropdown.map((item) => (
+                                <Link
+                                  key={item.href}
+                                  href={item.href}
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                  className="text-lg text-[var(--grey-400)] hover:text-white transition-colors"
+                                >
+                                  {item.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                  );
+                }
+
+                return (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
                   >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link
+                      href={link.href!}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`text-2xl font-display font-bold transition-colors ${
+                        link.featured
+                          ? 'text-[var(--brand-gold)] hover:text-[var(--brand-gold-light)]'
+                          : 'text-white hover:text-[var(--brand-gold)]'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                );
+              })}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: navLinks.length * 0.1 }}
                 className="pt-6"
               >
                 <Link
@@ -143,4 +269,3 @@ export const Navigation = () => {
     </>
   );
 };
-
