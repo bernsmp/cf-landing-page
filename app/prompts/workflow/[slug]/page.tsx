@@ -134,7 +134,7 @@ export default function WorkflowDetailPage() {
     // "### **🔬 Step 1:" or "### **Step 1:" or "### **🪏Tool \#1:" etc.
     // Handles escaped # (\\#) and optional spaces
     const stepRegex = new RegExp(
-      `(?:#{2,3}\\s*\\*{0,2}[^\\n]*?(?:Step\\s*${stepNumber}|Tool\\s*\\\\?#?${stepNumber})[:\\s][^]*?)(?=(?:#{2,3}\\s*\\*{0,2}[^\\n]*?(?:Step\\s*\\d|Tool\\s*\\\\?#?\\d))|---\\s*##|$)`,
+      `(?:#{2,3}\\s*\\*{0,2}[^\\n]*?(?:Step\\s*${stepNumber}|Tool\\s*\\\\?#?${stepNumber}|Phase\\s*${stepNumber})[:\\s][^]*?)(?=(?:#{2,3}\\s*\\*{0,2}[^\\n]*?(?:Step\\s*\\d|Tool\\s*\\\\?#?\\d|Phase\\s*\\d))|---\\s*##|$)`,
       'i'
     );
 
@@ -151,9 +151,23 @@ export default function WorkflowDetailPage() {
     const promptMatch = content.match(/\*{0,2}PROMPT:?\*{0,2}\s*\n([\s\S]*?)(?=(?:---|\*{2}OUTPUT|OUTPUT REQUIRED|$))/i);
     const textToCopy = promptMatch ? promptMatch[1].trim() : content;
 
-    await navigator.clipboard.writeText(textToCopy);
-    setCopiedStep(stepNumber);
-    setTimeout(() => setCopiedStep(null), 2000);
+    try {
+      await navigator.clipboard.writeText(textToCopy);
+      setCopiedStep(stepNumber);
+      setTimeout(() => setCopiedStep(null), 2000);
+    } catch {
+      // Fallback for environments where clipboard API is blocked
+      const textarea = document.createElement('textarea');
+      textarea.value = textToCopy;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      setCopiedStep(stepNumber);
+      setTimeout(() => setCopiedStep(null), 2000);
+    }
   };
 
   return (
