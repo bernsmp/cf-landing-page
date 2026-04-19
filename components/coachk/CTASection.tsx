@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { LiquidMetalButton } from "./LiquidMetalButton";
 
 export default function CTASection() {
   return (
@@ -32,7 +33,7 @@ export default function CTASection() {
             className="text-lg md:text-xl mb-12 leading-relaxed"
             style={{ color: "var(--grey-400)" }}
           >
-            Coach K coached for 42 years before anyone mapped his cognitive
+            Coach K coached for 47 years before anyone mapped his cognitive
             architecture. What would yours reveal?
           </p>
         </motion.div>
@@ -43,20 +44,16 @@ export default function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-6"
         >
-          <a
-            href="#"
-            className="btn-primary text-center text-sm tracking-wide"
-          >
-            Discover Your Cognitive Fingerprint
-          </a>
-          <a
-            href="#"
-            className="btn-secondary text-center text-sm tracking-wide"
-          >
-            Learn How It Works
-          </a>
+          <LiquidMetalButton
+            label="Discover Yours"
+            href="https://cognitivefingerprint.ai/start"
+          />
+          <LiquidMetalButton
+            label="How It Works"
+            href="https://cognitivefingerprint.ai/method"
+          />
         </motion.div>
       </div>
 

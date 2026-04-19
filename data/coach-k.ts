@@ -100,7 +100,7 @@ export const profile: CoachKProfile = {
     wins: 1202,
     championships: 5,
     nbaPicks: 68,
-    seasons: 42,
+    seasons: 47,
     transcriptsAnalyzed: 8,
     wordsAnalyzed: 36984,
   },
