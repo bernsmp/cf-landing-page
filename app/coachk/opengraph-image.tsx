@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "fs/promises";
+import { join } from "path";
 
 export const runtime = "nodejs";
 
@@ -11,6 +13,23 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
+  // Load the coaching huddle image as background
+  const bgPath = join(
+    process.cwd(),
+    "public",
+    "coachk",
+    "parallax-coaching-v2-1.png",
+  );
+  const bgBuffer = await readFile(bgPath);
+  const bgBase64 = bgBuffer.toString("base64");
+  const bgSrc = `data:image/png;base64,${bgBase64}`;
+
+  // Load the CF fingerprint logo
+  const logoPath = join(process.cwd(), "public", "cf-logo-transparent.png");
+  const logoBuffer = await readFile(logoPath);
+  const logoBase64 = logoBuffer.toString("base64");
+  const logoSrc = `data:image/png;base64,${logoBase64}`;
+
   return new ImageResponse(
     (
       <div
@@ -20,137 +39,184 @@ export default async function Image() {
           display: "flex",
           flexDirection: "column",
           backgroundColor: "#0a0a0b",
-          backgroundImage:
-            "radial-gradient(ellipse at 50% 30%, rgba(0, 48, 135, 0.15) 0%, transparent 60%)",
-          padding: "60px 70px",
           position: "relative",
+          overflow: "hidden",
         }}
       >
-        {/* Top badge */}
+        {/* Background image — coaching huddle */}
+        <img
+          src={bgSrc}
+          alt=""
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            opacity: 0.35,
+          }}
+        />
+
+        {/* Dark gradient overlay */}
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
-            marginBottom: 40,
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background:
+              "linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.8) 100%)",
           }}
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              padding: "8px 20px",
-              borderRadius: 100,
-              border: "1px solid rgba(0, 48, 135, 0.3)",
-              background: "rgba(0, 48, 135, 0.1)",
-            }}
-          >
-            <span
-              style={{
-                fontSize: 14,
-                color: "#4a8af5",
-                letterSpacing: "0.15em",
-                textTransform: "uppercase" as const,
-                fontFamily: "system-ui, monospace",
-              }}
-            >
-              Cognitive Fingerprint Analysis
-            </span>
-          </div>
-        </div>
+        />
 
-        {/* Main title */}
+        {/* Blue glow */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background:
+              "radial-gradient(ellipse at 30% 40%, rgba(0, 48, 135, 0.2) 0%, transparent 60%)",
+          }}
+        />
+
+        {/* Content */}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            flex: 1,
+            padding: "55px 65px",
+            position: "relative",
+            zIndex: 10,
+            height: "100%",
           }}
         >
+          {/* Top row — CF logo + badge */}
           <div
             style={{
-              fontSize: 72,
-              fontWeight: 700,
-              color: "white",
-              fontFamily: "Georgia, serif",
-              lineHeight: 1.1,
-              marginBottom: 20,
+              display: "flex",
+              alignItems: "center",
+              gap: 16,
+              marginBottom: 35,
             }}
           >
-            Coach K
-          </div>
-          <div
-            style={{
-              fontSize: 30,
-              color: "#a1a1a6",
-              fontFamily: "system-ui, sans-serif",
-              lineHeight: 1.4,
-              maxWidth: 700,
-            }}
-          >
-            The operating system behind 1,202 wins, mapped for the first time.
-            7 patterns he demonstrates constantly but has never named.
-          </div>
-        </div>
-
-        {/* Bottom stats row */}
-        <div
-          style={{
-            display: "flex",
-            gap: 50,
-            borderTop: "1px solid rgba(255,255,255,0.08)",
-            paddingTop: 30,
-          }}
-        >
-          {[
-            { value: "8", label: "Transcripts" },
-            { value: "36,984", label: "Words" },
-            { value: "327", label: "Indicators" },
-            { value: "7", label: "Patterns" },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              style={{ display: "flex", flexDirection: "column" }}
+            <img
+              src={logoSrc}
+              alt="CF"
+              width="48"
+              height="48"
+            />
+            <span
+              style={{
+                fontSize: 22,
+                fontWeight: 700,
+                color: "white",
+                fontFamily: "system-ui, sans-serif",
+                letterSpacing: "-0.01em",
+              }}
             >
-              <span
-                style={{
-                  fontSize: 36,
-                  fontWeight: 700,
-                  color: "#4a8af5",
-                  fontFamily: "system-ui, sans-serif",
-                }}
-              >
-                {stat.value}
-              </span>
-              <span
-                style={{
-                  fontSize: 13,
-                  color: "#5c5c63",
-                  fontFamily: "system-ui, monospace",
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase" as const,
-                }}
-              >
-                {stat.label}
-              </span>
+              Cognitive Fingerprint
+            </span>
+          </div>
+
+          {/* Main title */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              flex: 1,
+            }}
+          >
+            <div
+              style={{
+                fontSize: 80,
+                fontWeight: 700,
+                color: "white",
+                fontFamily: "Georgia, serif",
+                lineHeight: 1.0,
+                marginBottom: 20,
+              }}
+            >
+              Coach K
             </div>
-          ))}
+            <div
+              style={{
+                fontSize: 28,
+                color: "#d4d4da",
+                fontFamily: "system-ui, sans-serif",
+                lineHeight: 1.45,
+                maxWidth: 650,
+              }}
+            >
+              The operating system behind 1,202 wins, mapped for the first time.
+              7 patterns he demonstrates constantly but has never named.
+            </div>
+          </div>
+
+          {/* Bottom stats row */}
+          <div
+            style={{
+              display: "flex",
+              gap: 50,
+              borderTop: "1px solid rgba(255,255,255,0.12)",
+              paddingTop: 25,
+            }}
+          >
+            {[
+              { value: "8", label: "Transcripts" },
+              { value: "36,984", label: "Words" },
+              { value: "327", label: "Indicators" },
+              { value: "7", label: "Patterns" },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                style={{ display: "flex", flexDirection: "column" }}
+              >
+                <span
+                  style={{
+                    fontSize: 32,
+                    fontWeight: 700,
+                    color: "#4a8af5",
+                    fontFamily: "system-ui, sans-serif",
+                  }}
+                >
+                  {stat.value}
+                </span>
+                <span
+                  style={{
+                    fontSize: 12,
+                    color: "#8a8a96",
+                    fontFamily: "system-ui, monospace",
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase" as const,
+                  }}
+                >
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Bottom right branding */}
+        {/* Bottom right URL */}
         <div
           style={{
             position: "absolute",
-            bottom: 60,
-            right: 70,
+            bottom: 55,
+            right: 65,
             display: "flex",
             alignItems: "center",
-            gap: 8,
+            zIndex: 10,
           }}
         >
           <span
             style={{
               fontSize: 14,
-              color: "#4a4a54",
+              color: "#5c5c63",
               fontFamily: "system-ui, sans-serif",
             }}
           >
