@@ -1,0 +1,49 @@
+/* Coach K page overrides - Duke Blue branding */
+:root {
+  --brand-blue: #003087;
+  --brand-blue-light: #1a56b0;
+  --brand-blue-dark: #001A57;
+  --brand-blue-muted: #e6ecf5;
+  --brand-blue-subtle: #f0f4fa;
+  --glow-blue: rgba(0, 48, 135, 0.08);
+}
+
+/* Duke blue gradient text */
+.text-duke-gradient {
+  background: linear-gradient(135deg, #1a56b0 0%, #4a8af5 50%, #1a56b0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle gradient text */
+.text-subtle-gradient {
+  background: linear-gradient(135deg, var(--grey-100) 0%, var(--grey-300) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Blue glow effects */
+.glow-blue {
+  box-shadow: 0 0 60px rgba(0, 48, 135, 0.15),
+              0 0 100px rgba(0, 48, 135, 0.1);
+}
+
+.glow-blue-strong {
+  box-shadow: 0 0 40px rgba(0, 48, 135, 0.3),
+              0 0 80px rgba(0, 48, 135, 0.2),
+              0 0 120px rgba(0, 48, 135, 0.1);
+}
+
+/* Blue highlight sweep */
+.highlight-sweep {
+  background-image: linear-gradient(rgba(0, 48, 135, 0.15), rgba(0, 48, 135, 0.15));
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 0% 100%;
+  animation: highlightSweep 0.8s ease-out forwards;
+  animation-delay: 0.5s;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
