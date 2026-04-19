@@ -3089,6 +3089,17 @@ export const skills: Skill[] = [
     fileSize: '13 KB',
     tags: ['consulting', 'validation', 'problem discovery', 'offer building'],
   },
+  {
+    id: 'skill-12',
+    slug: 'vault-builder',
+    title: 'The Vault Builder',
+    description: '3-prompt protocol built on Todd Brown\'s Unique Mechanism framework. Surfaces 5-7 candidate mechanisms from your existing client material, stress-tests each through a 5-round collapse test (real vs. paper tiger), and generates 20 name candidates scored against 5 filters. Turns Signal > Noise issue "Dr Pepper Has a Vault" into a working protocol.',
+    isPremium: true,
+    filename: 'vault-builder.skill',
+    toolCount: 3,
+    fileSize: '5 KB',
+    tags: ['positioning', 'mechanism', 'naming', 'differentiation', 'signal-noise'],
+  },
 ];
 
 export const getFreeSkills = (): Skill[] => {
