@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!prompt) {
     return {
-      title: 'Prompt Not Found | Cognitive Fingerprint',
+      title: 'Prompt Not Found | Cognitive Fingerprint™',
     };
   }
 
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           alt: prompt.title,
         },
       ],
-      siteName: 'Cognitive Fingerprint',
+      siteName: 'Cognitive Fingerprint™',
     },
     twitter: {
       card: 'summary_large_image',

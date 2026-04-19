@@ -24,7 +24,7 @@ export default function KevinPage() {
             href="/"
             className="text-sm text-[var(--grey-500)] hover:text-white transition-colors"
           >
-            &larr; Cognitive Fingerprint
+            &larr; Cognitive Fingerprint<sup className="text-[0.65em] ml-0.5">™</sup>
           </Link>
           <span className="text-sm text-[var(--grey-600)]">Client Dashboard</span>
         </div>
@@ -56,7 +56,7 @@ export default function KevinPage() {
           </p>
           <p className="text-sm text-[var(--grey-600)]">
             <Link href="/" className="hover:text-white transition-colors">
-              Cognitive Fingerprint
+              Cognitive Fingerprint<sup className="text-[0.65em] ml-0.5">™</sup>
             </Link>
             {' '}·{' '}
             <Link href="/start" className="hover:text-white transition-colors">

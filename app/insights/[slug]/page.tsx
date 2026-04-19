@@ -17,12 +17,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!insight) {
     return {
-      title: 'Article Not Found | Cognitive Fingerprint',
+      title: 'Article Not Found | Cognitive Fingerprint™',
     };
   }
 
   return {
-    title: insight.metaTitle || `${insight.title} | Cognitive Fingerprint`,
+    title: insight.metaTitle || `${insight.title} | Cognitive Fingerprint™`,
     description: insight.metaDescription || insight.description,
     keywords: insight.keywords,
     openGraph: {

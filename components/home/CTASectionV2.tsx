@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Calendar, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { LiquidMetalButton } from '@/components/coachk/LiquidMetalButton';
 
 export const CTASectionV2 = () => {
   return (
@@ -38,16 +39,11 @@ export const CTASectionV2 = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
         >
           {/* Primary CTA - Book a call */}
-          <a
+          <LiquidMetalButton
+            label="Book 30 Minutes"
             href="https://calendar.app.google/JDxdGpxuqzmxCB8a7"
             target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-3 px-8 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-all duration-300 hover:shadow-lg hover:shadow-[var(--brand-gold)]/20 hover:-translate-y-0.5"
-          >
-            <Calendar size={20} />
-            Book 30 Minutes
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </a>
+          />
 
           {/* Secondary CTA - Newsletter */}
           <a

@@ -45,7 +45,7 @@ export function KevinHero({ onNavigate }: KevinHeroProps) {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--grey-900)] border border-[var(--grey-800)] mb-4"
             >
               <span className="w-2 h-2 rounded-full bg-[var(--brand-gold)]" />
-              <span className="text-sm text-[var(--grey-300)]">Cognitive Fingerprint Analysis</span>
+              <span className="text-sm text-[var(--grey-300)]">Cognitive Fingerprint™ Analysis</span>
             </motion.div>
 
             <motion.h1

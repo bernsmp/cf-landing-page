@@ -128,7 +128,7 @@ export default function CoachesEyePage() {
             href="/"
             className="text-sm text-[var(--grey-500)] hover:text-white transition-colors pointer-events-auto"
           >
-            &larr; Cognitive Fingerprint
+            &larr; Cognitive Fingerprint<sup className="text-[0.65em] ml-0.5">™</sup>
           </Link>
           <span className="text-sm text-[var(--grey-600)]">The Pattern Library</span>
         </div>
@@ -434,7 +434,7 @@ export default function CoachesEyePage() {
           </p>
           <p className="text-sm text-[var(--grey-600)]">
             <Link href="/" className="hover:text-white transition-colors">
-              Cognitive Fingerprint
+              Cognitive Fingerprint<sup className="text-[0.65em] ml-0.5">™</sup>
             </Link>
             {' '}&middot;{' '}
             <Link href="/insights" className="hover:text-white transition-colors">

@@ -119,7 +119,7 @@ export default async function Image() {
                 letterSpacing: "-0.01em",
               }}
             >
-              Cognitive Fingerprint
+              Cognitive Fingerprint™
             </span>
           </div>
 

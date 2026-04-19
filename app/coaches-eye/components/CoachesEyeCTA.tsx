@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { ArrowRightIcon, PlusIcon, Loader2, CheckCircle } from "lucide-react";
-import Link from 'next/link';
+import { LiquidMetalButton } from '@/components/coachk/LiquidMetalButton';
 
 interface CoachesEyeCTAProps {
   variant?: 'unlock' | 'final';
@@ -30,7 +30,7 @@ export function CoachesEyeCTA({ variant = 'unlock', onUnlock }: CoachesEyeCTAPro
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email,
-          tags: ['coaches-eye', 'lead-magnet'],
+          leadMagnet: 'coaches-eye',
         }),
       });
 
@@ -153,15 +153,11 @@ export function CoachesEyeCTA({ variant = 'unlock', onUnlock }: CoachesEyeCTAPro
           </div>
 
           <div className="flex items-center justify-center">
-            <Link
+            <LiquidMetalButton
+              label="Subscribe to Signal › Noise"
               href="https://www.signalovernoise.ai/"
               target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 rounded-xl bg-[var(--brand-gold)] text-[var(--grey-950)] font-bold hover:bg-[var(--brand-gold-light)] transition-colors flex items-center gap-2"
-            >
-              Subscribe to Signal &gt; Noise
-              <ArrowRightIcon className="size-4" />
-            </Link>
+            />
           </div>
         </>
       )}

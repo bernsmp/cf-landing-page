@@ -21,8 +21,9 @@ const navLinks: NavItem[] = [
   {
     label: 'Resources',
     dropdown: [
-      { href: '/baker-frameworks', label: 'Baker Frameworks' },
       { href: '/coaches-eye', label: "Coach's Eye" },
+      { href: '/famous-fingerprints', label: 'Famous Fingerprints' },
+      { href: '/baker-frameworks', label: 'Baker Frameworks' },
       { href: '/in-action', label: 'CF In Action' },
     ],
   },

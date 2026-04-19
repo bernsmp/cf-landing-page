@@ -124,7 +124,7 @@ export const VideoSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center text-[var(--grey-500)] text-sm mt-8"
         >
-          A real Cognitive Fingerprint extraction walkthrough
+          A real Cognitive Fingerprint™ extraction walkthrough
         </motion.p>
       </div>
     </section>

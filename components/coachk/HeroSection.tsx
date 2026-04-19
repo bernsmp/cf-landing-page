@@ -115,7 +115,7 @@ export default function HeroSection() {
               color: "#4a8af5",
             }}
           >
-            Cognitive Fingerprint Analysis
+            Cognitive Fingerprint™ Analysis
           </span>
         </motion.div>
 

@@ -8,12 +8,20 @@ interface LiquidMetalButtonProps {
   label?: string;
   href?: string;
   onClick?: () => void;
+  target?: string;
+  rel?: string;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }
 
 export function LiquidMetalButton({
   label = "Get Started",
   href,
   onClick,
+  target,
+  rel,
+  type,
+  disabled,
 }: LiquidMetalButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
@@ -281,6 +289,8 @@ export function LiquidMetalButton({
             <a
               ref={buttonRef as React.RefObject<HTMLAnchorElement>}
               href={href}
+              target={target}
+              rel={rel ?? (target === "_blank" ? "noopener noreferrer" : undefined)}
               onClick={handleClick}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -329,6 +339,8 @@ export function LiquidMetalButton({
           ) : (
             <button
               ref={buttonRef as React.RefObject<HTMLButtonElement>}
+              type={type ?? "button"}
+              disabled={disabled}
               onClick={handleClick}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -344,13 +356,14 @@ export function LiquidMetalButton({
                 height: `${dimensions.height}px`,
                 background: "transparent",
                 border: "none",
-                cursor: "pointer",
+                cursor: disabled ? "not-allowed" : "pointer",
                 outline: "none",
                 zIndex: 40,
                 transformStyle: "preserve-3d",
                 transform: "translateZ(25px)",
                 overflow: "hidden",
                 borderRadius: "100px",
+                opacity: disabled ? 0.6 : 1,
               }}
               aria-label={label}
             >

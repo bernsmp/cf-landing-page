@@ -70,7 +70,7 @@ export default function CTASection() {
           className="text-xs"
           style={{ color: "var(--grey-600)" }}
         >
-          Cognitive Fingerprint Analysis by{" "}
+          Cognitive Fingerprint™ Analysis by{" "}
           <span style={{ color: "var(--grey-400)" }}>Max Bernstein</span>
         </p>
         <p
