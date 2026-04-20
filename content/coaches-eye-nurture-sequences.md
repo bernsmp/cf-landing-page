@@ -1,13 +1,13 @@
 # Coach's Eye Nurture Sequences
 
-Two email sequences for Coach's Eye lead magnet downloaders, branching based on whether they're already Signal>Noise subscribers.
+Two email sequences for Coach's Eye lead magnet downloaders, branching based on whether they're already Cognitive Fingerprint Newsletter subscribers.
 
 ---
 
 ## Sequence 1: Newsletter Path
 
-**Audience:** Coach's Eye downloaders who are NOT existing S>N subscribers
-**Goal:** Convert them to Signal>Noise newsletter subscribers
+**Audience:** Coach's Eye downloaders who are NOT existing Cognitive Fingerprint Newsletter subscribers
+**Goal:** Convert them to Cognitive Fingerprint Newsletter subscribers
 **Trigger:** Tag "Lead Magnet: Coaches Eye" added + NO tag "Signal>Noise SS Sub"
 
 ---
@@ -37,7 +37,7 @@ Notice what you catch.
 
 Max
 
-P.S. If you want the deeper cuts on expertise extraction and pattern recognition, I write about this stuff every week in Signal Over Noise. It's free, and you can unsubscribe whenever the patterns stop being interesting to you.
+P.S. If you want the deeper cuts on expertise extraction and pattern recognition, I write about this stuff every week in the Cognitive Fingerprint Newsletter. It's free, and you can unsubscribe whenever the patterns stop being interesting to you.
 
 ---
 
@@ -66,7 +66,7 @@ You have patterns like that too. You just haven't met them yet.
 
 Max
 
-P.S. I go deeper on this in my newsletter Signal Over Noise. How expertise hides, why your brain buries your best insights, and how to extract what you already know. Join here if you want the weekly version.
+P.S. I go deeper on this in the Cognitive Fingerprint Newsletter. How expertise hides, why your brain buries your best insights, and how to extract what you already know. Join here if you want the weekly version.
 
 ---
 
@@ -97,7 +97,7 @@ I spend most of my time helping experts find what's hiding in plain sight. The f
 
 Extraction, not creation. Making the invisible visible.
 
-That's what Signal Over Noise is about.
+That's what the Cognitive Fingerprint Newsletter is about.
 
 Max
 
@@ -114,7 +114,7 @@ Four days ago you downloaded the Coach's Eye.
 
 You've been reading about how legendary coaches see patterns others miss. About the cognitive fingerprints hidden inside world-class expertise. About the distance between doing something well and being able to name what you're doing.
 
-The Coach's Eye started as a newsletter piece that got out of hand. I was writing about pattern recognition for Signal Over Noise subscribers and realized I had 4,000 words on nine coaches and no room for the actual insight.
+The Coach's Eye started as a newsletter piece that got out of hand. I was writing about pattern recognition for Cognitive Fingerprint Newsletter subscribers and realized I had 4,000 words on nine coaches and no room for the actual insight.
 
 So I turned it into its own thing and sent it to you.
 
@@ -126,9 +126,9 @@ I find this work genuinely fascinating. The moment when someone realizes they've
 
 That's the moment I live for.
 
-If you want more of what Coach's Eye gave you, Signal Over Noise is the weekly version. It's free. You can unsubscribe whenever. And it comes from someone who thinks expertise extraction might be the most interesting problem in consulting.
+If you want more of what Coach's Eye gave you, the Cognitive Fingerprint Newsletter is the weekly version. It's free. You can unsubscribe whenever. And it comes from someone who thinks expertise extraction might be the most interesting problem in consulting.
 
-Join here: [LINK TO SIGNAL>NOISE]
+Join here: https://signalovernoise.ai
 
 Hope to see you there.
 
@@ -139,7 +139,7 @@ Max
 
 ## Sequence 2: BTD Upsell Path
 
-**Audience:** Coach's Eye downloaders who ARE existing S>N subscribers
+**Audience:** Coach's Eye downloaders who ARE existing Cognitive Fingerprint Newsletter subscribers
 **Goal:** Upsell to Beware the Defaults community
 **Trigger:** Tag "Lead Magnet: Coaches Eye" added + HAS tag "Signal>Noise SS Sub"
 

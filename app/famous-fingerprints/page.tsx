@@ -81,7 +81,7 @@ export default function FamousFingerprintsPage() {
                 Famous Fingerprints
               </h2>
               <span className="text-[13px] text-[var(--grey-600)]">
-                2 published · 4 in progress
+                2 published · 3 in progress
               </span>
             </div>
 
@@ -103,13 +103,19 @@ export default function FamousFingerprintsPage() {
               />
 
               <FingerprintCard
-                variant="coming-soon"
-                name="David Baker"
-                meta="Consulting · Expertise Economics"
-                hook="7 frameworks nobody else uses. The operating system behind the firm that teaches every firm how to charge more and do less."
-                href="/baker-frameworks"
-                gradient="from-[#1a1612] via-[#14110f] to-[#0a0a0b]"
-                tease={{ value: '7', label: 'Frameworks' }}
+                variant="published"
+                href="/reginald-love"
+                badge="Published"
+                name="Reginald Love"
+                meta="Politics · Apollo · Eighty Four Productions"
+                hook="From Obama's mailroom to the tie he lent before a presidential debate. The pattern was there the whole time."
+                image="/reginald-love/reggie-obama.jpg"
+                imageAlt="Reginald Love — Cognitive Fingerprint"
+                stats={[
+                  { value: '40+', label: 'Countries' },
+                  { value: '$14B', label: 'Under management' },
+                  { value: '6', label: 'Patterns' },
+                ]}
               />
 
               <FingerprintCard
@@ -117,7 +123,6 @@ export default function FamousFingerprintsPage() {
                 name="Sam Altman"
                 meta="Tech · OpenAI"
                 hook="Watch him in any hostile interview. He runs the same five moves. Your brain falls for them before you notice."
-                href="/in-action/sam-altman-patterns"
                 gradient="from-[#1a1a25] via-[#121218] to-[#0a0a0b]"
                 tease={{ value: '5', label: 'Invisible Moves' }}
               />
@@ -146,7 +151,6 @@ export default function FamousFingerprintsPage() {
                 name="Russell Brunson"
                 meta="Marketing · ClickFunnels"
                 hook="ClickFunnels is a $360M company built on a persuasion pattern most marketers can't see. This is the shape of it."
-                href="/in-action/russell-brunson-patterns"
                 gradient="from-[#1e1a12] via-[#14110c] to-[#0a0a0b]"
                 tease={{ value: '$360M', label: 'Company Built On It' }}
               />

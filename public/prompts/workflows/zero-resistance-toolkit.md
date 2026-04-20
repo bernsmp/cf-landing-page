@@ -474,6 +474,6 @@ Same advice. Zero resistance.
 
 ---
 
-*Based on influence patterns from [Three Moves That Make Sheryl Sandberg Impossible to Argue With](https://signaltonoise.io)*
+*Based on influence patterns from [Three Moves That Make Sheryl Sandberg Impossible to Argue With](https://signalovernoise.ai)*
 
-*Part of the Signal > Noise newsletter. Subscribe at [signaltonoise.io](https://signaltonoise.io)*
+*Part of the Cognitive Fingerprint Newsletter. Subscribe at [signalovernoise.ai](https://signalovernoise.ai)*

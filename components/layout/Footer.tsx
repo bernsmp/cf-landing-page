@@ -12,9 +12,10 @@ const footerLinks = {
     { href: '/articles', label: 'Articles' },
     { href: '/start', label: 'Start' },
     { href: '/assessment', label: 'Pricing Guide' },
+    { href: '/baker-frameworks', label: 'Baker (Study)' },
   ],
   connect: [
-    { href: 'https://irreplaceablepositioning.substack.com', label: 'Substack', external: true },
+    { href: 'https://signalovernoise.ai', label: 'Newsletter', external: true },
     { href: 'mailto:max@maxpbernstein.com', label: 'Email', external: true },
   ],
 };
@@ -24,8 +25,8 @@ export const Footer = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Redirect to Substack with email
-    window.open(`https://irreplaceablepositioning.substack.com/subscribe?email=${encodeURIComponent(email)}`, '_blank');
+    // Redirect to newsletter subscribe with email
+    window.open(`https://signalovernoise.ai/subscribe?email=${encodeURIComponent(email)}`, '_blank');
     setEmail('');
   };
 
@@ -139,7 +140,7 @@ export const Footer = () => {
         {/* Bottom */}
         <div className="mt-16 pt-8 border-t border-[var(--grey-800)] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[var(--grey-500)] text-sm">
-            © 2025 Signal {'>'} Noise. All rights reserved.
+            © 2026 Cognitive Fingerprint™. All rights reserved.
           </p>
         </div>
       </div>

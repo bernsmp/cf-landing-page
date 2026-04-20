@@ -603,4 +603,4 @@ Each time you run this:
 
 ---
 
-*The Language Mining Method™ is part of the Signal > Noise system for extracting and packaging invisible expertise.*
+*The Language Mining Method™ is part of the Cognitive Fingerprint™ system for extracting and packaging invisible expertise.*

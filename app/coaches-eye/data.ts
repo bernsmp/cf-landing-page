@@ -62,7 +62,7 @@ export const patterns: Pattern[] = [
       image: '/images/coaches-eye/greatestshowonturf.png',
     },
     howToDevelop: {
-      intro: 'The Zoom Lens is a skill of **deliberate attention-shifting**. Most people get stuck at one altitude, either drowning in details or floating above them.',
+      intro: 'The Zoom Lens is a skill of **deliberate attention-shifting**. The trap is getting stuck at one altitude, either drowning in details or floating above them.',
       practices: [
         'When reviewing work (yours or others\'), force yourself to answer two questions: "What\'s happening at the pixel level?" and "What does this reveal about how this person/system thinks?"',
         'Set a timer. Spend 5 minutes on micro, then 5 minutes on macro. The transition is where insight lives.',
@@ -104,11 +104,11 @@ Then give me one specific question I should be asking that I'm probably not aski
     ],
     callout: {
       label: 'Why this works',
-      text: 'Most feedback fails because it triggers identity defense. You tell someone they made a mistake, and their brain immediately starts explaining why it wasn\'t really a mistake. Popovich\'s approach bypasses this by making accountability universal and visible. The mirror reflects everyone equally.',
+      text: 'Feedback usually fails because it triggers identity defense. You tell someone they made a mistake, and their brain immediately starts explaining why it wasn\'t really a mistake. Popovich\'s approach bypasses this by making accountability universal and visible. The mirror reflects everyone equally.',
       image: '/images/coaches-eye/popvich_pattern.png',
     },
     howToDevelop: {
-      intro: 'The Deliberate Mirror requires **separating observation from judgment**. Most people blend them together. "You made a bad decision" is judgment. "The guard took the contested three with 18 seconds on the shot clock while two teammates were open" is observation.',
+      intro: 'The Deliberate Mirror requires **separating observation from judgment**. They blend together easily. "You made a bad decision" is judgment. "The guard took the contested three with 18 seconds on the shot clock while two teammates were open" is observation.',
       practices: [
         'When giving feedback, describe the behavior first without any evaluative language',
         'Let the person sit with the description before you add any assessment',
@@ -151,11 +151,11 @@ Please help me:
     ],
     callout: {
       label: 'The pattern beneath',
-      text: 'Jay doesn\'t bring outside expertise. He finds what\'s already there. The asset hiding in plain sight. The capability being underpriced. The relationship being under-leveraged. The pattern that works in one industry and could transform another. Most consultants add. Jay reveals.',
+      text: 'Jay doesn\'t bring outside expertise. He finds what\'s already there. The asset hiding in plain sight. The capability being underpriced. The relationship being under-leveraged. The pattern that works in one industry and could transform another. Consultants add. Jay reveals.',
       image: '/images/coaches-eye/jay_pattern.png',
     },
     howToDevelop: {
-      intro: 'The Hidden Multiplier requires **asset inventory before acquisition**. Most people look for new solutions before auditing what they already have. The gold is usually in the building.',
+      intro: 'The Hidden Multiplier requires **asset inventory before acquisition**. The default move is looking for new solutions before auditing what you already have. The gold is usually in the building.',
       practices: [
         'List every asset, capability, and relationship in your business. Then ask: "What else could this be?"',
         'Study success stories from unrelated industries. The pattern, not the product, is what transfers.',
@@ -199,11 +199,11 @@ Help me identify:
     ],
     callout: {
       label: 'The direct line',
-      text: 'Most organizational dysfunction comes from the gap between what people say and what people know. Burns\' pattern was closing that gap, saying the thing that was true but unspoken. The direct line isn\'t about being harsh. It\'s about being honest when honesty is what\'s needed.',
+      text: 'Organizational dysfunction lives in the gap between what people say and what people know. Burns\' pattern was closing that gap, saying the thing that was true but unspoken. The direct line isn\'t about being harsh. It\'s about being honest when honesty is what\'s needed.',
       image: '/images/coaches-eye/ursala_pattern.png',
     },
     howToDevelop: {
-      intro: 'The Direct Line requires **courage to name what others won\'t**. Most people in organizations learn to speak in code. Burns\' pattern was to cut through the code to the actual issue.',
+      intro: 'The Direct Line requires **courage to name what others won\'t**. In organizations, people learn to speak in code. Burns\' pattern was to cut through the code to the actual issue.',
       practices: [
         'When you don\'t understand something, say so immediately instead of nodding along',
         'Ask "What\'s the real problem here?" and wait through the uncomfortable silence',
@@ -239,10 +239,10 @@ Help me:
     quote: "You're not sleeping enough. Your left foot is dragging a quarter inch. You won't see it in your shot for two more days, but I see it now.",
     content: [
       'Sensing what\'s happening beneath performance before it shows up in results.',
-      'John Wooden won 10 NCAA championships in 12 years. His practices were legendary for their precision. But here\'s the thing about Wooden that most people miss:',
+      'John Wooden won 10 NCAA championships in 12 years. His practices were legendary for their precision. But here\'s the thing about Wooden:',
       'He almost never watched the ball.',
       'During practices, while everyone else focused on whether shots went in, Wooden watched feet. He watched shoulders. He watched eyes. He was reading the invisible loads his players were carrying: fatigue patterns, confidence patterns, distraction patterns.',
-      'Wooden famously started each season by teaching players how to put on their socks and tie their shoes. Properly. Slowly. With attention. Most people saw this as quirky attention to detail. It was actually diagnostic. How someone handled the boring fundamentals revealed their relationship with discipline itself.',
+      'Wooden famously started each season by teaching players how to put on their socks and tie their shoes. Properly. Slowly. With attention. It looked like quirky attention to detail. It was actually diagnostic. How someone handled the boring fundamentals revealed their relationship with discipline itself.',
       'He also practiced without the ball. As he explained: "Without the basketball, players can neither score baskets nor grab rebounds. Without those distractions, they were better able to fully concentrate on what I was teaching."',
     ],
     callout: {
@@ -251,7 +251,7 @@ Help me:
       image: '/images/coaches-eye/wooden_pattern.png',
     },
     howToDevelop: {
-      intro: 'The Leading Edge requires **reading leading indicators, not lagging ones**. Most people wait for results to tell them something is wrong. By then, it\'s too late.',
+      intro: 'The Leading Edge requires **reading leading indicators, not lagging ones**. The default is waiting for results to tell you something is wrong. By then, it\'s too late.',
       practices: [
         'Before any important meeting or conversation, notice the physical tells: posture, energy, micro-expressions',
         'Ask yourself: "If I ignore what this person is saying and only watch how they\'re carrying themselves, what would I conclude?"',
@@ -351,7 +351,7 @@ Help me design:
       image: '/images/coaches-eye/Nooyi_pattern.png',
     },
     howToDevelop: {
-      intro: 'The Long Game requires **explicit timescale awareness**. Most people default to whatever timescale their environment imposes. Quarterly. Weekly. Daily. The Long Game is choosing your own.',
+      intro: 'The Long Game requires **explicit timescale awareness**. The default is riding whatever timescale your environment imposes. Quarterly. Weekly. Daily. The Long Game is choosing your own.',
       practices: [
         'For any major decision, ask: "What timescale am I optimizing for? What would change if I doubled it?"',
         'Identify the decisions you\'re making for this quarter that will hurt you in five years',
@@ -448,11 +448,11 @@ Help me design a feedback process:
     ],
     callout: {
       label: 'The pattern',
-      text: 'Triage discipline: the ability to let things die so the essential can survive. Most people in crisis try to save everything. That\'s how you lose everything. Mulcahy had the cognitive discipline to let things die so the essential could survive.',
+      text: 'Triage discipline: the ability to let things die so the essential can survive. In crisis, the instinct is to save everything. That\'s how you lose everything. Mulcahy had the cognitive discipline to let things die so the essential could survive.',
       image: '/images/coaches-eye/anne_pattern.png',
     },
     howToDevelop: {
-      intro: 'The Essential Cut requires **triage discipline**: the ability to let things die so the essential can survive. Most people in crisis try to save everything. That\'s how you lose everything.',
+      intro: 'The Essential Cut requires **triage discipline**: the ability to let things die so the essential can survive. In crisis, the instinct is to save everything. That\'s how you lose everything.',
       practices: [
         'Identify the one thing you do that creates disproportionate value. Protect that at all costs.',
         'When resources are constrained, ask: "What can I stop doing?" before asking "How do I do more with less?"',
@@ -483,7 +483,7 @@ Help me think through:
 ];
 
 export const setupContent = {
-  intro: "Phil Jackson understood something that most people never will:",
+  intro: "Phil Jackson understood something:",
   hook: "Michael Jordan didn't know what made Michael Jordan great.",
   body: [
     "Not really. Not in a way he could articulate, replicate, or teach. Jordan knew he was exceptional. He could feel it in his bones, in the way the game slowed down when he had the ball. But if you asked him to explain the cognitive pattern that let him read defenses three moves ahead? He'd talk about \"instinct\" and \"wanting it more.\"",

@@ -174,7 +174,7 @@ export const FeaturedContent = () => {
                     <div className="flex items-center gap-2 text-[var(--grey-500)] text-xs mb-2">
                       <span>{formatDate(article.pubDate)}</span>
                       <span>•</span>
-                      <span>Signal {'>'} Noise</span>
+                      <span>Cognitive Fingerprint Newsletter</span>
                     </div>
 
                     <h4 className="font-display font-semibold text-white group-hover:text-[var(--brand-gold)] transition-colors mb-2 line-clamp-2">
@@ -186,7 +186,7 @@ export const FeaturedContent = () => {
                     </p>
 
                     <span className="inline-flex items-center gap-1 text-[var(--grey-400)] text-xs font-medium group-hover:text-[var(--brand-gold)] transition-colors">
-                      Read on Substack
+                      Read full article
                       <ExternalLink size={10} />
                     </span>
                   </div>
