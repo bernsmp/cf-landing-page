@@ -3093,7 +3093,7 @@ export const skills: Skill[] = [
     id: 'skill-12',
     slug: 'vault-builder',
     title: 'The Vault Builder',
-    description: '3-prompt protocol built on Todd Brown\'s Unique Mechanism framework. Surfaces 5-7 candidate mechanisms from your existing client material, stress-tests each through a 5-round collapse test (real vs. paper tiger), and generates 20 name candidates scored against 5 filters. Turns Signal > Noise issue "Dr Pepper Has a Vault" into a working protocol.',
+    description: '3-prompt protocol built on Todd Brown\'s Unique Mechanism framework. Surfaces 5-7 candidate mechanisms from your existing client material, stress-tests each through a 5-round collapse test (real vs. paper tiger), and generates 20 name candidates scored against five filters built on Brown\'s core naming rule (mechanism-signaling, not benefit-signaling). Turns Cognitive Fingerprint Newsletter issue "Dr Pepper Has a Vault" into a working protocol.',
     isPremium: true,
     filename: 'vault-builder.skill',
     toolCount: 3,
