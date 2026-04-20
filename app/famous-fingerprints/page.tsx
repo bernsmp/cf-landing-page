@@ -9,11 +9,11 @@ import { LiquidMetalButton } from '@/components/coachk/LiquidMetalButton';
 export const metadata: Metadata = {
   title: 'Famous Fingerprints™ | Cognitive Fingerprint™',
   description:
-    "The operating systems behind extraordinary performers — mapped for the first time. Each Cognitive Fingerprint reveals the patterns that explain how they actually win. Start with The Coach's Eye for a free preview.",
+    "The operating systems behind extraordinary performers, mapped for the first time. Each Cognitive Fingerprint reveals the patterns that explain how they actually win. Start with The Coach's Eye for a free preview.",
   openGraph: {
     title: 'Famous Fingerprints™ | Cognitive Fingerprint™',
     description:
-      "The operating systems behind extraordinary performers — mapped for the first time. Start with The Coach's Eye for a free preview.",
+      "The operating systems behind extraordinary performers, mapped for the first time. Start with The Coach's Eye for a free preview.",
     url: 'https://cognitivefingerprint.ai/famous-fingerprints',
     siteName: 'Cognitive Fingerprint™',
     type: 'website',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Famous Fingerprints™ | Cognitive Fingerprint™',
     description:
-      "The operating systems behind extraordinary performers — mapped for the first time.",
+      "The operating systems behind extraordinary performers, mapped for the first time.",
   },
 };
 
@@ -45,7 +45,7 @@ export default function FamousFingerprintsPage() {
               </em>
             </h1>
             <p className="text-lg md:text-xl text-[var(--grey-400)] leading-[1.55] max-w-2xl mx-auto">
-              The operating systems behind extraordinary performers — mapped for the first time. Each Cognitive Fingerprint<sup className="text-[0.55em] align-super ml-0.5">™</sup> reveals the patterns that explain how they actually win. Start with{' '}
+              The operating systems behind extraordinary performers, mapped for the first time. Each Cognitive Fingerprint<sup className="text-[0.55em] align-super ml-0.5">™</sup> reveals the patterns that explain how they actually win. Start with{' '}
               <Link
                 href="/coaches-eye"
                 className="text-[var(--brand-gold)] underline decoration-[var(--brand-gold)]/40 underline-offset-[3px] hover:decoration-[var(--brand-gold)] transition-colors"
@@ -62,7 +62,7 @@ export default function FamousFingerprintsPage() {
           <div className="max-w-6xl mx-auto">
             <div className="flex items-baseline justify-between pb-6 mb-10 border-b border-[var(--border-subtle)]">
               <h2 className="text-[13px] tracking-[0.14em] uppercase font-medium text-[var(--grey-400)]">
-                Start Here — Free
+                Start Here · Free
               </h2>
               <span className="text-[13px] text-[var(--grey-600)]">
                 The Pattern Library
@@ -81,7 +81,7 @@ export default function FamousFingerprintsPage() {
                 Famous Fingerprints
               </h2>
               <span className="text-[13px] text-[var(--grey-600)]">
-                1 published · 4 in progress
+                2 published · 4 in progress
               </span>
             </div>
 
@@ -104,42 +104,56 @@ export default function FamousFingerprintsPage() {
 
               <FingerprintCard
                 variant="coming-soon"
+                name="David Baker"
+                meta="Consulting · Expertise Economics"
+                hook="7 frameworks nobody else uses. The operating system behind the firm that teaches every firm how to charge more and do less."
+                href="/baker-frameworks"
+                gradient="from-[#1a1612] via-[#14110f] to-[#0a0a0b]"
+                tease={{ value: '7', label: 'Frameworks' }}
+              />
+
+              <FingerprintCard
+                variant="coming-soon"
                 name="Sam Altman"
                 meta="Tech · OpenAI"
-                hook="The 5 invisible moves he makes in every interview — and why your brain falls for them."
+                hook="Watch him in any hostile interview. He runs the same five moves. Your brain falls for them before you notice."
                 href="/in-action/sam-altman-patterns"
                 gradient="from-[#1a1a25] via-[#121218] to-[#0a0a0b]"
+                tease={{ value: '5', label: 'Invisible Moves' }}
               />
 
               <FingerprintCard
                 variant="coming-soon"
                 name="Sheryl Sandberg"
                 meta="Leadership · Communication"
-                hook="The three moves that make her impossible to argue with. Same advice everyone else gives — hers lands. Every time."
+                hook="Every leadership book gives the same advice. Hers is the version people actually act on. Three moves. Zero resistance."
                 href="/prompts/zero-resistance-toolkit"
                 gradient="from-[#1e1a18] via-[#14110f] to-[#0a0a0b]"
+                tease={{ value: '3', label: 'Moves That Land' }}
               />
 
               <FingerprintCard
                 variant="coming-soon"
                 name="Rick Rubin"
                 meta="Music · Creative Direction"
-                hook="How the most sought-after producer in music decides what stays and what goes — without playing a single instrument."
+                hook="He doesn't play a single instrument. He produced Johnny Cash, Jay-Z, Adele. The fingerprint is how he decides what stays."
                 gradient="from-[#1a1612] via-[#12100e] to-[#0a0a0b]"
+                tease={{ value: '0', label: 'Instruments Played' }}
               />
 
               <FingerprintCard
                 variant="coming-soon"
                 name="Russell Brunson"
                 meta="Marketing · ClickFunnels"
-                hook="Hidden persuasion architecture — the frameworks behind the funnels that built a $360M company."
+                hook="ClickFunnels is a $360M company built on a persuasion pattern most marketers can't see. This is the shape of it."
                 href="/in-action/russell-brunson-patterns"
                 gradient="from-[#1e1a12] via-[#14110c] to-[#0a0a0b]"
+                tease={{ value: '$360M', label: 'Company Built On It' }}
               />
 
               <FingerprintCard
                 variant="placeholder"
-                hook="Map your fingerprint — slots open quarterly."
+                hook="Map your fingerprint. Slots open quarterly."
               />
             </div>
           </div>
@@ -167,7 +181,7 @@ export default function FamousFingerprintsPage() {
                   Suggest a Famous Fingerprint<sup className="text-[0.55em] align-super ml-0.5">™</sup>
                 </div>
                 <p className="text-[var(--grey-400)] text-base leading-relaxed mb-8 flex-1">
-                  Know someone whose operating system deserves mapping? Send their name. Best suggestions get mapped next — and you&apos;ll be the first to read the fingerprint.
+                  Know someone whose operating system deserves mapping? Send their name. Best suggestions get mapped next, and you&apos;ll be the first to read the fingerprint.
                 </p>
                 <div className="flex">
                   <LiquidMetalButton
@@ -187,7 +201,7 @@ export default function FamousFingerprintsPage() {
                   Get your own Cognitive Fingerprint<sup className="text-[0.55em] align-super ml-0.5">™</sup>
                 </div>
                 <p className="text-[var(--grey-400)] text-base leading-relaxed mb-8 flex-1">
-                  Most clients can&apos;t name their own methodology — they demonstrate it constantly. Map the 7 patterns that make you irreplaceable. Slots open quarterly.
+                  Most clients can&apos;t name their own methodology. They demonstrate it constantly. Map the 7 patterns that make you irreplaceable. Slots open quarterly.
                 </p>
                 <div className="flex">
                   <LiquidMetalButton
@@ -207,8 +221,8 @@ export default function FamousFingerprintsPage() {
                 className="text-[var(--brand-gold)] underline decoration-[var(--brand-gold)]/40 underline-offset-[3px] hover:decoration-[var(--brand-gold)] transition-colors"
               >
                 Read The Coach&apos;s Eye
-              </Link>{' '}
-              — a free collection of micro-fingerprints.
+              </Link>
+              . A free collection of micro-fingerprints.
             </p>
           </div>
         </section>

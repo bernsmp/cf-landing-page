@@ -34,28 +34,53 @@ type ComingSoonProps = {
   hook: string;
   href?: string;
   gradient?: string;
+  tease?: { value: string; label: string };
 };
 
 type FingerprintCardProps = PublishedProps | PlaceholderProps | ComingSoonProps;
 
 export function FingerprintCard(props: FingerprintCardProps) {
   if (props.variant === 'coming-soon') {
-    const { name, meta, hook, href, gradient } = props;
+    const { name, meta, hook, href, gradient, tease } = props;
     const bg = gradient ?? 'from-[#1a1a1f] via-[#121216] to-[#0a0a0b]';
+    const initials = name.split(' ').map((w) => w[0]).join('').slice(0, 2);
     const body = (
       <>
         <div className={`relative aspect-[1200/630] overflow-hidden bg-gradient-to-br ${bg}`}>
           <span className="absolute top-3.5 left-3.5 z-10 px-2.5 py-1 rounded-full text-[10px] tracking-[0.14em] uppercase font-medium bg-[var(--grey-950)]/75 backdrop-blur-md border border-[var(--brand-gold)]/30 text-[var(--brand-gold)]">
             Coming soon
           </span>
-          {/* Subtle radial glow */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,184,41,0.08),transparent_60%)]" />
-          {/* Initials mark */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-display text-[88px] leading-none text-white/[0.04] tracking-tighter select-none">
-              {name.split(' ').map((w) => w[0]).join('').slice(0, 2)}
-            </span>
-          </div>
+          <span className="absolute top-3.5 right-4 z-10 font-display text-[13px] tracking-[0.22em] uppercase text-white/20 select-none">
+            {initials}
+          </span>
+          {/* Grain + radial glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,184,41,0.09),transparent_62%)]" />
+          <div
+            className="absolute inset-0 opacity-[0.035] mix-blend-overlay pointer-events-none"
+            style={{
+              backgroundImage:
+                "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")",
+            }}
+          />
+          {/* Tease mark — pulls the concrete number from the hook */}
+          {tease ? (
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+              <span className="font-display text-[112px] md:text-[128px] leading-[0.85] tracking-[-0.04em] text-transparent bg-clip-text bg-gradient-to-b from-white/90 via-white/70 to-white/30 select-none">
+                {tease.value}
+              </span>
+              <span className="mt-3 text-[10.5px] tracking-[0.22em] uppercase text-[var(--brand-gold)]/80 font-medium">
+                {tease.label}
+              </span>
+            </div>
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="font-display text-[96px] leading-none text-white/[0.05] tracking-tighter select-none">
+                {initials}
+              </span>
+            </div>
+          )}
+          {/* Inner border to give the mark weight */}
+          <div className="absolute inset-0 ring-1 ring-inset ring-white/[0.03] pointer-events-none" />
         </div>
 
         <div className="flex-1 flex flex-col px-6 py-7">
@@ -118,7 +143,7 @@ export function FingerprintCard(props: FingerprintCardProps) {
             {props.name ?? 'Next Fingerprint'}
           </div>
           <p className="text-sm text-[var(--grey-500)] leading-relaxed">
-            {props.hook ?? 'Commission a fingerprint — slots open quarterly.'}
+            {props.hook ?? 'Commission a fingerprint. Slots open quarterly.'}
           </p>
         </div>
       </motion.div>
