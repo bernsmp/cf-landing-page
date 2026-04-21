@@ -1,0 +1,993 @@
+/* =====================================================================
+   Reginald Love — Famous Fingerprint No. 2
+   Dark editorial. Navy + white only. Anchored on Reggie's brand palette
+   (#002241 primary) and extended into a deeper, magazine-feature tone.
+   Giant italic-serif pull-outs + clean sans-serif body.
+   ===================================================================== */
+
+.reginald-page {
+  /* Navy palette in OKLCH, tinted ~260 (Reggie's brand hue). */
+  --rl-ink: oklch(0.115 0.028 260);            /* page ground, near-black navy */
+  --rl-ink-raised: oklch(0.160 0.030 260);     /* cards, quote panels */
+  --rl-ink-high: oklch(0.210 0.028 260);       /* hovered card / nav bar */
+  --rl-hairline: oklch(0.295 0.022 260);       /* borders, dividers */
+  --rl-hairline-soft: oklch(0.225 0.020 260);  /* ultra-subtle separators */
+
+  --rl-paper: oklch(0.985 0.004 260);          /* primary white text */
+  --rl-paper-muted: oklch(0.780 0.010 260);    /* secondary text */
+  --rl-paper-faint: oklch(0.560 0.015 260);    /* small labels */
+
+  /* Accent is still white in this system — "one color + discipline". */
+
+  background: var(--rl-ink);
+  color: var(--rl-paper);
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1, "ss01" 1;
+  line-height: 1.55;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Subtle navy grain — never dominant. */
+.reginald-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --- Typography --------------------------------------------------------- */
+
+.reginald-display {
+  font-family: var(--font-reginald-display), "Bodoni 72", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--rl-paper);
+}
+
+.reginald-body {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* The signature move: one giant italic serif word per major beat. */
+.reginald-word {
+  font-family: var(--font-reginald-display), "Bodoni 72", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(5.5rem, 3.2rem + 10vw, 14rem);
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  color: var(--rl-paper);
+  display: block;
+  text-wrap: balance;
+}
+
+.reginald-h-hero {
+  font-size: clamp(2.2rem, 1.5rem + 2.8vw, 3.9rem);
+  line-height: 1.1;
+  letter-spacing: -0.022em;
+  font-weight: 500;
+  color: var(--rl-paper);
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+.reginald-h-section {
+  font-size: clamp(1.55rem, 1.25rem + 1.2vw, 2.1rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+  color: var(--rl-paper);
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+.reginald-label {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--rl-paper-faint);
+}
+
+.reginald-prose {
+  font-size: clamp(1.0625rem, 1rem + 0.2vw, 1.15rem);
+  line-height: 1.65;
+  color: var(--rl-paper-muted);
+  max-width: 68ch;
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+.reginald-prose p {
+  margin: 0 0 1.2em;
+}
+.reginald-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.reginald-prose em {
+  font-family: var(--font-reginald-display), "Bodoni 72", Georgia, serif;
+  font-style: italic;
+  color: var(--rl-paper);
+  font-weight: 400;
+}
+
+.reginald-prose strong {
+  color: var(--rl-paper);
+  font-weight: 600;
+}
+
+/* --- Quote (dark card, no side-stripe) --------------------------------- */
+
+.reginald-quote {
+  margin: 2.25rem 0;
+  padding: 1.75rem 2rem 1.6rem;
+  background: var(--rl-ink-raised);
+  border: 1px solid var(--rl-hairline-soft);
+  border-radius: 2px;
+}
+
+.reginald-quote-attrib {
+  display: block;
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: var(--rl-paper-faint);
+  margin-bottom: 0.9rem;
+}
+
+.reginald-quote-text {
+  font-family: var(--font-reginald-display), "Bodoni 72", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.6rem);
+  line-height: 1.4;
+  color: var(--rl-paper);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* --- Archive ribbon — pinned, minimal --------------------------------- */
+
+.reginald-ribbon {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in oklch, var(--rl-ink), transparent 15%);
+  backdrop-filter: saturate(1.1) blur(10px);
+  -webkit-backdrop-filter: saturate(1.1) blur(10px);
+  border-bottom: 1px solid var(--rl-hairline-soft);
+}
+
+.reginald-ribbon-track {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.85rem 1.5rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  max-width: 78rem;
+  margin: 0 auto;
+  white-space: nowrap;
+}
+.reginald-ribbon-track::-webkit-scrollbar {
+  display: none;
+}
+
+.reginald-ribbon-pulse {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-shrink: 0;
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.66rem;
+  font-weight: 500;
+  color: var(--rl-paper-faint);
+  transition: color 240ms ease-out;
+  text-decoration: none;
+}
+.reginald-ribbon-pulse::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.55;
+  transition: opacity 240ms ease-out, background 240ms ease-out, transform 240ms ease-out;
+}
+.reginald-ribbon-pulse:hover {
+  color: var(--rl-paper);
+}
+.reginald-ribbon-pulse[data-active="true"] {
+  color: var(--rl-paper);
+}
+.reginald-ribbon-pulse[data-active="true"]::before {
+  opacity: 1;
+  background: var(--rl-paper);
+  transform: scale(1.2);
+}
+
+/* --- Stats sentence (Manrope, italic-serif numbers) -------------------- */
+
+.reginald-stats {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1.0rem, 0.92rem + 0.25vw, 1.12rem);
+  line-height: 1.75;
+  color: var(--rl-paper-muted);
+  max-width: 62rem;
+  text-wrap: pretty;
+  font-weight: 400;
+}
+
+.reginald-stats-dot {
+  display: inline-block;
+  margin: 0 0.55rem 0.1rem;
+  color: var(--rl-paper-faint);
+  opacity: 0.7;
+}
+
+.reginald-stats-number {
+  font-family: var(--font-reginald-display), "Bodoni 72", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--rl-paper);
+  font-size: 1.15em;
+  margin-right: 0.15em;
+}
+
+/* --- Photography treatment --------------------------------------------- */
+
+.reginald-artifact {
+  margin: 2.5rem 0 0;
+  max-width: 36rem;
+}
+
+.reginald-artifact-frame {
+  aspect-ratio: 4 / 3;
+  background: var(--rl-ink-raised);
+  border: 1px solid var(--rl-hairline-soft);
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reginald-artifact-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.reginald-artifact-caption {
+  margin-top: 0.9rem;
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 500;
+  color: var(--rl-paper-faint);
+}
+
+/* --- Buttons — pill (Reggie's own brand spec) -------------------------- */
+
+.reginald-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.95rem 1.6rem;
+  border-radius: 999px;
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.reginald-btn-primary {
+  background: var(--rl-paper);
+  color: var(--rl-ink);
+  border: 1px solid var(--rl-paper);
+}
+.reginald-btn-primary:hover {
+  background: transparent;
+  color: var(--rl-paper);
+}
+
+.reginald-btn-ghost {
+  background: transparent;
+  color: var(--rl-paper);
+  border: 1px solid var(--rl-paper);
+}
+.reginald-btn-ghost:hover {
+  background: var(--rl-paper);
+  color: var(--rl-ink);
+}
+
+/* --- Hairline dividers ------------------------------------------------- */
+
+.reginald-rule {
+  height: 1px;
+  background: var(--rl-hairline);
+  border: 0;
+  margin: 0;
+}
+
+/* --- Selection + focus ------------------------------------------------- */
+
+.reginald-page ::selection {
+  background: var(--rl-paper);
+  color: var(--rl-ink);
+}
+.reginald-page *:focus-visible {
+  outline: 2px solid var(--rl-paper);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* --- Entrance motion — restrained -------------------------------------- */
+
+.reginald-reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--rl-reveal-delay, 0ms);
+}
+.reginald-reveal[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reginald-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* --- Pattern Map grid (overview dashboard) ----------------------------- */
+
+.reginald-pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1px;
+  background: var(--rl-hairline-soft);
+  border: 1px solid var(--rl-hairline-soft);
+}
+
+.reginald-pattern-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 1.6rem 1.6rem;
+  background: var(--rl-ink);
+  text-decoration: none;
+  color: var(--rl-paper);
+  transition: background 200ms ease;
+  min-height: 15rem;
+}
+.reginald-pattern-card:hover {
+  background: var(--rl-ink-raised);
+}
+
+.reginald-pattern-card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.reginald-pattern-card-n {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rl-paper-faint);
+}
+
+.reginald-pattern-card-dim {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rl-paper-faint);
+}
+
+.reginald-pattern-card-word {
+  font-family: var(--font-reginald-display), Georgia, serif;
+  font-style: italic;
+  font-size: clamp(2.6rem, 1.8rem + 1.8vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--rl-paper);
+  display: block;
+  margin-bottom: 0.65rem;
+}
+
+.reginald-pattern-card-name {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--rl-paper);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.85rem;
+}
+
+.reginald-pattern-card-hook {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--rl-paper-muted);
+  margin: 0 0 1rem;
+  flex: 1;
+}
+
+.reginald-pattern-card-arrow {
+  display: inline-block;
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: var(--rl-paper-faint);
+  transition: transform 220ms ease, color 220ms ease;
+  align-self: flex-start;
+}
+.reginald-pattern-card:hover .reginald-pattern-card-arrow {
+  color: var(--rl-paper);
+  transform: translateX(4px);
+}
+
+/* --- Four Dimensions ---------------------------------------------------- */
+
+.reginald-dimensions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px;
+  background: var(--rl-hairline-soft);
+  border: 1px solid var(--rl-hairline-soft);
+}
+
+.reginald-dim-card {
+  background: var(--rl-ink);
+  padding: 1.85rem 1.6rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 17rem;
+}
+
+.reginald-dim-card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.reginald-dim-card-count {
+  font-family: var(--font-reginald-display), Georgia, serif;
+  font-style: italic;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--rl-paper);
+}
+
+.reginald-dim-card-title {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--rl-paper);
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.015em;
+}
+
+.reginald-dim-card-subtitle {
+  font-family: var(--font-reginald-display), Georgia, serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--rl-paper-faint);
+  margin-bottom: 1rem;
+}
+
+.reginald-dim-card-body {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--rl-paper-muted);
+  flex: 1;
+  margin: 0 0 1.1rem;
+}
+
+.reginald-dim-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rl-hairline-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.reginald-dim-card-list li {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.82rem;
+  color: var(--rl-paper);
+  letter-spacing: -0.005em;
+}
+
+.reginald-dim-card-empty {
+  font-family: var(--font-reginald-display), Georgia, serif;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--rl-paper-faint);
+  padding-top: 1rem;
+  border-top: 1px solid var(--rl-hairline-soft);
+}
+
+/* --- Pattern Dynamics (combinations) ----------------------------------- */
+
+.reginald-combo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.reginald-combo-card {
+  background: var(--rl-ink-raised);
+  border: 1px solid var(--rl-hairline-soft);
+  padding: 1.85rem 1.75rem 1.6rem;
+}
+
+.reginald-combo-card--interference {
+  background: var(--rl-ink);
+  border-color: var(--rl-hairline);
+}
+
+.reginald-combo-equation {
+  font-family: var(--font-reginald-display), Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.7rem, 1.3rem + 1.2vw, 2.3rem);
+  line-height: 1.1;
+  color: var(--rl-paper);
+  margin: 0.9rem 0 0.65rem;
+  letter-spacing: -0.02em;
+}
+
+.reginald-combo-result {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--rl-paper);
+  margin: 0 0 1rem;
+  letter-spacing: -0.005em;
+}
+
+.reginald-combo-body {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--rl-paper-muted);
+  margin: 0;
+}
+
+/* --- Vocabulary --------------------------------------------------------- */
+
+.reginald-vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--rl-hairline-soft);
+  border: 1px solid var(--rl-hairline-soft);
+}
+
+.reginald-vocab-card {
+  background: var(--rl-ink);
+  padding: 1.6rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 13rem;
+  transition: background 200ms ease;
+}
+.reginald-vocab-card:hover {
+  background: var(--rl-ink-raised);
+}
+
+.reginald-vocab-phrase {
+  font-family: var(--font-reginald-display), Georgia, serif;
+  font-style: italic;
+  font-size: 1.55rem;
+  line-height: 1.15;
+  color: var(--rl-paper);
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.015em;
+}
+
+.reginald-vocab-source {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: var(--rl-paper-faint);
+  margin-bottom: 0.95rem;
+}
+
+.reginald-vocab-body {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--rl-paper-muted);
+  margin: 0;
+  flex: 1;
+}
+
+/* --- Stories ------------------------------------------------------------ */
+
+.reginald-stories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.reginald-story-card {
+  background: var(--rl-ink-raised);
+  border: 1px solid var(--rl-hairline-soft);
+  padding: 2rem 1.85rem 1.85rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.reginald-story-title {
+  font-family: var(--font-reginald-display), Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.8rem, 1.4rem + 1vw, 2.2rem);
+  line-height: 1.1;
+  color: var(--rl-paper);
+  margin: 0.9rem 0 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.reginald-story-body {
+  max-width: none;
+}
+
+.reginald-story-body p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.9rem;
+}
+
+/* --- Chapter meta (progress indicator + name + dimension) -------------- */
+
+.reginald-chapter-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.reginald-chapter-progress {
+  font-family: var(--font-reginald-display), Georgia, serif;
+  font-style: italic;
+  font-size: 1.45rem;
+  line-height: 1;
+  color: var(--rl-paper);
+  letter-spacing: -0.01em;
+}
+
+.reginald-chapter-dot {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--rl-paper-faint);
+  opacity: 0.75;
+}
+
+/* --- Fingerprint motif (SVG) ------------------------------------------- */
+
+.reginald-hero-art,
+.reginald-closing-art {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.reginald-hero-art {
+  top: -3rem;
+  right: -5rem;
+  width: clamp(28rem, 22rem + 28vw, 56rem);
+  aspect-ratio: 1 / 1;
+  opacity: 0.09;
+  /* Light radial mask — the brand PNG already fades its own edges, so the
+     mask only smooths any residual crop. */
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    #000 60%,
+    rgba(0, 0, 0, 0.8) 82%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse at center,
+    #000 60%,
+    rgba(0, 0, 0, 0.8) 82%,
+    transparent 100%
+  );
+}
+
+.reginald-hero-art img,
+.reginald-closing-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.reginald-closing-art {
+  bottom: -2rem;
+  right: -3rem;
+  width: clamp(18rem, 14rem + 15vw, 28rem);
+  aspect-ratio: 1 / 1;
+  opacity: 0.06;
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    #000 55%,
+    rgba(0, 0, 0, 0.75) 80%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse at center,
+    #000 55%,
+    rgba(0, 0, 0, 0.75) 80%,
+    transparent 100%
+  );
+}
+
+@media (max-width: 640px) {
+  .reginald-hero-art {
+    right: -8rem;
+    top: 4rem;
+    width: 32rem;
+    opacity: 0.07;
+  }
+  .reginald-closing-art {
+    right: -6rem;
+    width: 22rem;
+    opacity: 0.05;
+  }
+}
+
+/* --- Parallax break (full-bleed photo section between chapters) -------- */
+
+.reginald-parallax {
+  position: relative;
+  width: 100%;
+  height: clamp(22rem, 28rem + 18vh, 44rem);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  isolation: isolate;
+}
+
+.reginald-parallax-image {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-attachment is set inline per device — fixed on desktop, scroll on touch */
+}
+
+.reginald-parallax-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in oklch, var(--rl-ink), transparent 20%) 0%,
+    color-mix(in oklch, var(--rl-ink), transparent 45%) 50%,
+    color-mix(in oklch, var(--rl-ink), transparent 20%) 100%
+  );
+}
+
+.reginald-parallax-inner {
+  position: relative;
+  z-index: 10;
+  max-width: 48rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.reginald-parallax-caption {
+  font-family: var(--font-reginald-display), Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.65rem, 1.2rem + 1.8vw, 2.7rem);
+  line-height: 1.2;
+  color: var(--rl-paper);
+  margin: 0 0 1.1rem;
+  letter-spacing: -0.015em;
+  text-shadow: 0 2px 20px color-mix(in oklch, var(--rl-ink), transparent 40%);
+}
+
+.reginald-parallax-attrib {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--rl-paper-muted);
+  margin: 0;
+  text-shadow: 0 2px 20px color-mix(in oklch, var(--rl-ink), transparent 40%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reginald-parallax-image {
+    background-attachment: scroll !important;
+  }
+}
+
+/* --- Prompts (Apply section) ------------------------------------------- */
+
+.reginald-prompts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.reginald-prompt-card {
+  background: var(--rl-ink-raised);
+  border: 1px solid var(--rl-hairline-soft);
+  padding: 2rem 1.85rem 1.75rem;
+  border-radius: 2px;
+  transition: border-color 220ms ease;
+}
+
+.reginald-prompt-card:hover {
+  border-color: var(--rl-hairline);
+}
+
+.reginald-prompt-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.reginald-prompt-title {
+  font-family: var(--font-reginald-display), Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.55rem, 1.3rem + 0.8vw, 2rem);
+  line-height: 1.15;
+  color: var(--rl-paper);
+  margin: 0.7rem 0 0.55rem;
+  letter-spacing: -0.018em;
+}
+
+.reginald-prompt-subtitle {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--rl-paper-muted);
+  margin: 0;
+  max-width: 54ch;
+}
+
+.reginald-prompt-drive {
+  flex-shrink: 0;
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--rl-paper);
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--rl-hairline);
+  border-radius: 999px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.reginald-prompt-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.35rem;
+}
+
+.reginald-prompt-tag {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--rl-paper-faint);
+  padding: 0.42rem 0.75rem;
+  border: 1px solid var(--rl-hairline-soft);
+  border-radius: 999px;
+  line-height: 1;
+}
+
+.reginald-prompt-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.reginald-prompt-toggle {
+  background: transparent;
+  border: 0;
+  padding: 0.6rem 0;
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--rl-paper);
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  border-bottom: 1px solid var(--rl-paper-faint);
+  transition: border-color 180ms ease;
+}
+
+.reginald-prompt-toggle:hover {
+  border-bottom-color: var(--rl-paper);
+}
+
+.reginald-prompt-body {
+  margin-top: 1.5rem;
+  padding: 1.5rem 1.65rem;
+  background: var(--rl-ink);
+  border: 1px solid var(--rl-hairline-soft);
+  border-radius: 2px;
+  max-height: 24rem;
+  overflow-y: auto;
+}
+
+.reginald-prompt-body pre {
+  font-family: var(--font-reginald-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: var(--rl-paper-muted);
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* --- Responsive tweaks ------------------------------------------------- */
+
+@media (max-width: 640px) {
+  .reginald-ribbon-track {
+    gap: 1rem;
+    padding: 0.7rem 1rem;
+  }
+  .reginald-quote {
+    padding: 1.35rem 1.25rem 1.2rem;
+  }
+  .reginald-word {
+    line-height: 0.92;
+  }
+  .reginald-pattern-card,
+  .reginald-dim-card,
+  .reginald-vocab-card {
+    min-height: 0;
+  }
+}
