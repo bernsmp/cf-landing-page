@@ -275,8 +275,8 @@ export default function ReginaldLovePage() {
             <Dot />
             <span className="reginald-stats-number">18</span>hour days
             <Dot />
-            <span className="reginald-stats-number">22</span>straight losses
-            as a starter
+            <span className="reginald-stats-number">22</span>lost Saturdays as
+            a starting receiver
             <Dot />
             <span className="reginald-stats-number">1</span>NCAA title as a
             walk-on
@@ -346,12 +346,13 @@ export default function ReginaldLovePage() {
                 </p>
                 <p>
                   Before all of that, he captained the Duke basketball team
-                  under Coach K as a walk-on. He had spent the previous two
-                  seasons losing eleven football games in a row, twice in a
-                  row, as a starting wide receiver. Twenty-two consecutive
-                  losses before he walked onto the basketball team
-                  uninvited. Two years later, his name was on a national
-                  championship.
+                  under Coach K — as a senior, after four years of earning
+                  the stripe. He had walked onto the team uninvited as a
+                  freshman. His first football season that same year went
+                  0-11 as a starting wide receiver. By April of his
+                  freshman year, his basketball team had won the 2001
+                  national championship. He was on the roster as a walk-on,
+                  alongside captain Shane Battier.
                 </p>
                 <p style={{ color: "var(--rl-paper-faint)" }}>
                   He has not run for office.
@@ -394,9 +395,9 @@ export default function ReginaldLovePage() {
             n="D1"
             title="Declarative"
             subtitle="What you know"
-            count="0"
-            body="Reggie does not lead with explicit frameworks or stated doctrine. He avoids the stage. No patterns live primarily here — and the absence is the signal."
-            patterns={[]}
+            count="1"
+            body="His declarative layer is real but lighter than most public figures at his level. Frameworks show up in his keynote deck — the Five P's of Leadership (Perspective, Preparation, Persistence, Passion, Patience), a verbatim Audacity of Hope passage on the Constitution — but he deploys them on stage, not in the operating room. Where he actually works, he leads with procedure and stance, not doctrine."
+            patterns={["The Five P's of Leadership · supporting"]}
           />
           <DimensionCard
             n="D2"
@@ -485,10 +486,11 @@ export default function ReginaldLovePage() {
           the words on the stage.
         </p>
         <BeliefLine label="The belief">
-          Presence is not passivity. Standing beside someone while they
-          figure out their next minute is not presence. Real presence
-          removes the friction of the next minute before they have to feel
-          it.
+          The body behind the principal is an accountant for the next
+          minute. The kit in the bag, the dose in the pocket, the scroll
+          speed on the teleprompter — all of it lives in a ledger the
+          principal never sees. The standing is cover. The work is
+          forward.
         </BeliefLine>
       </PatternChapter>
 
@@ -507,12 +509,15 @@ export default function ReginaldLovePage() {
         </p>
         <p>
           Duke recruited him to play football. He walked onto the basketball
-          team uninvited. Before that walk-on year, he had spent two
-          consecutive football seasons with eleven losses each — twenty-two
-          games as a starting wide receiver, zero wins. He walked into the
-          basketball locker room with that record on his shoulders, and two
-          years later captained Duke&apos;s 2001 national championship team
-          alongside Shane Battier.
+          team uninvited the same fall. His freshman football season went
+          0-11. In April of that same academic year, the basketball team cut
+          down the nets on a national championship — Reggie a freshman
+          walk-on on that roster, alongside captain Shane Battier. He
+          wouldn&apos;t wear the captain&apos;s stripe himself for four more
+          years. By the time he did, Duke football had handed him a second
+          losing season on the order of the first. Two campaigns. Roughly
+          twenty-two lost Saturdays. Zero wins to bring into the
+          locker-room he kept showing up to uninvited.
         </p>
         <p>
           Four years later, he moved to Washington at twenty-four years
@@ -707,8 +712,9 @@ export default function ReginaldLovePage() {
         <p>
           Reggie&apos;s only framing line afterward: <em>&ldquo;I&apos;d
           share that message with you because I say never miss an
-          opportunity to appreciate and show love.&rdquo;</em> The message
-          is Obama&apos;s. Reggie is the carrier. Same structure with Edith
+          opportunity to appreciate and show love to the people that you
+          love and the people that love you.&rdquo;</em> The message is
+          Obama&apos;s. Reggie is the carrier. Same structure with Edith
           Childs — he stages her as the speaker of <em>fired up, ready to
           go.</em> Same structure with Coach K&apos;s efficiency-points
           board. He doesn&apos;t claim the system. He installs it.
@@ -783,33 +789,29 @@ export default function ReginaldLovePage() {
           style={{ maxWidth: "60ch", ["--rl-reveal-delay" as string]: "140ms" }}
         >
           <p>
-            Every pattern above is optimized for the <em>second</em> chair.
-            None is optimized for occupying the first chair when the
-            decision has to be his alone.
+            Every pattern above compounds in the second chair. Every
+            pattern above degrades in the first chair. That is not a
+            two-sided critique. It is a single bind.
           </p>
           <p>
-            The Three-Steps-Ahead posture requires someone to be
-            ahead-<em>of</em>. The Low-Door Entry assumes an existing room
-            with an existing door. The Quiet Room requires a loud principal
-            to contrast with. The Infrastructure pattern requires other
-            people&apos;s visible outputs to scaffold. When there is no
-            principal, no room, no spotlight, no outputs to scaffold — the
-            patterns don&apos;t have a target.
+            The muscle that makes him exceptional as the person one step
+            behind — the anticipation, the low-door entry, the relay
+            posture, the refusal to claim scope he is already doing — is
+            the exact muscle that disqualifies him from holding a
+            first-chair seat of his own. Strengthening the second-chair
+            pattern atrophies the first-chair muscle. Building the
+            first-chair muscle degrades the second-chair presence.
           </p>
           <p>
-            The recurring answer on running for office is a version of{" "}
-            <em>if the need and the opening align.</em> The framing puts
-            the trigger outside himself. None of the patterns produce the
-            sentence <em>I am the person who will do this thing, and
-            therefore the thing exists.</em>
+            Obama&apos;s tie does not get lent to someone who arrived in
+            the room already convinced he was the one lending it.
           </p>
-          <BeliefLine label="The gap">
-            The delta between his demonstrated capacity and the scope of
-            the roles he has chosen. He has the competence for a principal
-            seat. He is un-practiced at the muscle of <em>claiming</em> one.
-            If the next decade&apos;s defining opportunity is
-            founder-CEO-shaped rather than operator-shaped, these patterns
-            will work against him.
+          <BeliefLine label="The bind">
+            He cannot become a first-chair operator without ceasing to be
+            the person who made every first-chair he scaffolded better.
+            The seat he built a life around and the seat the world would
+            now offer him are the same muscle, pulling in opposite
+            directions.
           </BeliefLine>
         </div>
       </section>
@@ -842,6 +844,11 @@ export default function ReginaldLovePage() {
             body="The thirty-column chart. Dives, screens, deflections. Not points scored. Still his operating measurement at 44."
           />
           <VocabCard
+            phrase="Perspective. Preparation. Persistence. Passion. Patience."
+            source="From Reggie · self-authored · keynote circuit"
+            body="His Five P's of Leadership. The only explicit framework he ever claims authorship of. Lives on stage, not in the operating room."
+          />
+          <VocabCard
             phrase="Small-dollar donors."
             source="From Reggie · Obama campaign, 2006"
             body="Number of people giving under $50, not the dollar total. Efficiency-points logic installed on a presidential campaign."
@@ -859,7 +866,7 @@ export default function ReginaldLovePage() {
           <VocabCard
             phrase="Fired up. Ready to go."
             source="From Edith Childs · Greenwood, SC, 2007"
-            body="A 70-year-old retired private eye in a rec center. Reggie credits her by name every time he tells the story."
+            body="A seventy-year-old woman who moonlights as a private eye, in a rec center. Reggie credits her by name every time he tells the story."
           />
           <VocabCard
             phrase="The small things matter."
@@ -953,7 +960,7 @@ export default function ReginaldLovePage() {
                   <em>ready to go.</em>
                 </p>
                 <p>
-                  Edith Childs. Seventy years old. Retired private eye.
+                  Edith Childs. Seventy years old. Moonlights as a private eye.
                   Church hat. She does this chant in the town.
                 </p>
                 <p>
@@ -1010,7 +1017,7 @@ export default function ReginaldLovePage() {
           </h2>
           <div
             className="reginald-prose mt-10"
-            style={{ maxWidth: "48ch" }}
+            style={{ maxWidth: "52ch" }}
           >
             <p>
               Reggie Love is forty-four years old. He still carries a
@@ -1019,6 +1026,14 @@ export default function ReginaldLovePage() {
             <p>
               The job ended in 2011. The habit didn&apos;t. The habit was
               never about the job.
+            </p>
+            <p style={{ color: "var(--rl-paper-faint)" }}>
+              Every person who operates at this level has a backpack.
+              Something they do that outlived the role it served. Something
+              so habitual it stopped registering as a pattern. Reggie&apos;s
+              is in his literal bag. Yours is probably less literal. But it
+              is there, and it is yours, and it is the thing that would
+              show up in your fingerprint whether you wanted it to or not.
             </p>
           </div>
         </div>
