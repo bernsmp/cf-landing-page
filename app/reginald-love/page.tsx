@@ -15,6 +15,7 @@ const PULSES: Pulse[] = [
   { id: "blind-spot", label: "Blind Spot" },
   { id: "vocabulary", label: "Vocabulary" },
   { id: "stories", label: "Stories" },
+  { id: "from-reggie", label: "From Reggie" },
   { id: "apply", label: "Apply" },
 ];
 
@@ -264,36 +265,21 @@ export default function ReginaldLovePage() {
           </p>
         </div>
 
-        {/* Stats strip — integrated here */}
+        {/* Stats — discrete grid cells */}
         <div className="mt-16 md:mt-20">
           <hr className="reginald-rule" style={{ marginBottom: "2rem" }} />
           <div className="reginald-label mb-5">The Numbers</div>
-          <div className="reginald-stats reginald-reveal">
-            <span className="reginald-stats-number">40+</span>countries
-            <Dot />
-            <span className="reginald-stats-number">4</span>years at his side
-            <Dot />
-            <span className="reginald-stats-number">18</span>hour days
-            <Dot />
-            <span className="reginald-stats-number">22</span>lost Saturdays as
-            a starting receiver
-            <Dot />
-            <span className="reginald-stats-number">1</span>NCAA title as a
-            walk-on
-            <Dot />
-            <span className="reginald-stats-number">30</span>extra columns on
-            the board in Cameron Indoor
-            <Dot />
-            <span className="reginald-stats-number">$14B</span>under
-            management at RON
-            <Dot />
-            <span className="reginald-stats-number">2</span>milligrams of
-            Nicorette, not 4
-            <Dot />
-            <span className="reginald-stats-number">7</span>sectors of boards
-            <Dot />
-            <span className="reginald-stats-number">1</span>backpack, still in
-            service.
+          <div className="reginald-stats-grid reginald-reveal">
+            <StatCell n="40+" label="Countries managed" />
+            <StatCell n="4" label="Years at his side" />
+            <StatCell n="18" label="Hour days" />
+            <StatCell n="22" label="Lost Saturdays, starting receiver" />
+            <StatCell n="1" label="NCAA title, as a walk-on" />
+            <StatCell n="30" label="Extra columns, Cameron Indoor" />
+            <StatCell n="$14B" label="Under management at RON" />
+            <StatCell n="2" label="Milligrams of Nicorette, not 4" />
+            <StatCell n="7" label="Sectors of boards" />
+            <StatCell n="1" label="Backpack, still in service" />
           </div>
         </div>
 
@@ -302,20 +288,39 @@ export default function ReginaldLovePage() {
           <hr className="reginald-rule" style={{ marginBottom: "3rem" }} />
           <div className="grid md:grid-cols-[1fr_1.4fr] gap-10 md:gap-16 items-start">
             <div className="reginald-reveal">
-              <figure style={{ margin: 0 }}>
-                <div
-                  className="reginald-artifact-frame"
-                  style={{ aspectRatio: "3 / 4" }}
-                >
+              <figure className="reginald-headshot">
+                <div className="reginald-headshot-art">
+                  <div
+                    className="reginald-headshot-backdrop"
+                    aria-hidden="true"
+                  />
+                  <div
+                    className="reginald-headshot-fingerprint"
+                    aria-hidden="true"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/reginald-love/fingerprint.png" alt="" />
+                  </div>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/reginald-love/headshot.jpg"
+                    className="reginald-headshot-subject"
+                    src="/reginald-love/headshot-cutout.png"
                     alt="Portrait of Reginald Love."
                     loading="lazy"
                   />
+                  <span className="reginald-headshot-slate">
+                    On the record
+                  </span>
                 </div>
-                <figcaption className="reginald-artifact-caption">
-                  Reginald Love · Portrait
+                <figcaption className="reginald-headshot-caption">
+                  <span className="reginald-headshot-name">
+                    Reginald Love
+                  </span>
+                  <span className="reginald-headshot-meta">
+                    Senior Advisor · Apollo Global Management
+                    <br />
+                    Washington, D.C. · Personal archive
+                  </span>
                 </figcaption>
               </figure>
             </div>
@@ -1039,6 +1044,103 @@ export default function ReginaldLovePage() {
         </div>
       </section>
 
+      {/* FROM REGGIE — Book + personal site */}
+      <section
+        id="from-reggie"
+        ref={registerSection("from-reggie")}
+        className="relative z-10 max-w-6xl mx-auto px-6 lg:px-10 pt-20 md:pt-28 pb-20 md:pb-28"
+      >
+        <hr className="reginald-rule" style={{ marginBottom: "3rem" }} />
+        <div className="reginald-reveal">
+          <span className="reginald-label">In His Own Voice</span>
+          <h2 className="reginald-h-hero mt-4 mb-4">
+            This fingerprint was built on Reggie&apos;s own material.
+          </h2>
+          <p
+            className="reginald-prose"
+            style={{ color: "var(--rl-paper-faint)", maxWidth: "56ch" }}
+          >
+            Every scene on this page lives in longer form in his own words.
+            Both are worth your time.
+          </p>
+        </div>
+
+        <div className="reginald-source-grid mt-12 md:mt-16">
+          <a
+            href="https://amzn.to/48csuzz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="reginald-source-card reginald-source-card--book reginald-reveal"
+          >
+            <div className="reginald-source-card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/reginald-love/power-forward-cover.png"
+                alt="Power Forward: My Presidential Education, by Reggie Love"
+                loading="lazy"
+              />
+            </div>
+            <div className="reginald-source-card-body">
+              <span className="reginald-label" style={{ color: "var(--rl-paper-faint)" }}>
+                The memoir · New York Times bestseller
+              </span>
+              <h3 className="reginald-source-card-title">
+                Power Forward: My Presidential Education
+              </h3>
+              <p className="reginald-source-card-copy">
+                Reggie&apos;s own book. The source material this fingerprint
+                was built on — the inauguration-day conversation, the
+                Greenwood rec center, the tie before the debate, all in his
+                voice at the length they deserve.
+              </p>
+              <span className="reginald-source-card-cta">
+                Read on Amazon <span aria-hidden>↗</span>
+              </span>
+            </div>
+          </a>
+
+          <a
+            href="https://www.reginaldlove.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="reginald-source-card reginald-reveal"
+            style={{ ["--rl-reveal-delay" as string]: "140ms" }}
+          >
+            <div className="reginald-source-card-media">
+              <span className="reginald-source-card-urlbar" aria-hidden="true">
+                <span className="reginald-source-card-urlbar-dot" />
+                <span className="reginald-source-card-urlbar-dot" />
+                <span className="reginald-source-card-urlbar-dot" />
+                <span className="reginald-source-card-urlbar-url">
+                  reginaldlove.com
+                </span>
+              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/reginald-love/reginaldlove-site.png"
+                alt="Homepage of reginaldlove.com"
+                loading="lazy"
+              />
+            </div>
+            <div className="reginald-source-card-body">
+              <span className="reginald-label" style={{ color: "var(--rl-paper-faint)" }}>
+                Personal site · Speaking + media
+              </span>
+              <h3 className="reginald-source-card-title">
+                reginaldlove.com
+              </h3>
+              <p className="reginald-source-card-copy">
+                Where he tells his own story. Speaking engagements, media
+                appearances, photo galleries, and how to reach him directly.
+              </p>
+              <span className="reginald-source-card-cta">
+                Visit the site <span aria-hidden>↗</span>
+              </span>
+            </div>
+          </a>
+        </div>
+      </section>
+
       {/* APPLY — Prompts */}
       <section
         id="apply"
@@ -1106,14 +1208,12 @@ export default function ReginaldLovePage() {
               demonstrate it constantly. Same methodology used here.
               Applied to you. Slots open quarterly.
             </p>
-            <a
-              href="https://calendar.app.google/JDxdGpxuqzmxCB8a7"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/"
               className="reginald-btn reginald-btn-primary"
             >
-              Schedule a call <span aria-hidden>→</span>
-            </a>
+              Map your own <span aria-hidden>→</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -1138,8 +1238,13 @@ export default function ReginaldLovePage() {
    Sub-components
    ============================================================ */
 
-function Dot() {
-  return <span className="reginald-stats-dot">·</span>;
+function StatCell({ n, label }: { n: string; label: string }) {
+  return (
+    <div className="reginald-stat-cell">
+      <span className="reginald-stat-cell-n">{n}</span>
+      <span className="reginald-stat-cell-label">{label}</span>
+    </div>
+  );
 }
 
 function PatternChapter({
