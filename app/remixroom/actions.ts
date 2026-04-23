@@ -25,31 +25,34 @@ export async function subscribeToRemixRoom(
   }
 
   const apiKey = process.env.CONVERTKIT_API_KEY;
-  const formId = process.env.CONVERTKIT_FORM_ID;
 
-  if (!apiKey || !formId) {
+  if (!apiKey) {
     return { ok: false, error: "Email service is not configured." };
   }
 
+  // Tag IDs from Kit account (created via API 2026-04-24).
+  // Subscribing to each tag directly via /v3/tags/:id/subscribe is more
+  // reliable than /v3/forms/:id/subscribe — the form endpoint expects
+  // tag IDs but silently ignored the names we were passing, so the
+  // nurture-automation trigger never fired.
+  const TAG_IDS = [
+    19132532, // remix-room-subscriber — triggers the nurture automation
+    19132533, // source-dan-koe-2026-04-23
+    19132534, // nurture-active
+  ];
+
   try {
-    const response = await fetch(
-      `https://api.convertkit.com/v3/forms/${formId}/subscribe`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          api_key: apiKey,
-          email,
-          tags: [
-            "remix-room-subscriber",
-            "source-dan-koe-2026-04-23",
-            "nurture-active",
-          ],
+    const responses = await Promise.all(
+      TAG_IDS.map((tagId) =>
+        fetch(`https://api.convertkit.com/v3/tags/${tagId}/subscribe`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ api_key: apiKey, email }),
         }),
-      },
+      ),
     );
 
-    if (!response.ok) {
+    if (responses.some((r) => !r.ok)) {
       return { ok: false, error: "Something went sideways. Try again." };
     }
 
