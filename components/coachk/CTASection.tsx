@@ -1,7 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { LiquidMetalButton } from "./LiquidMetalButton";
+
+const leadCaptureUrl =
+  "https://www.notion.so/073a2898003445e1b26f913e7d0dbdd5?pvs=106";
 
 export default function CTASection() {
   return (
@@ -18,7 +22,7 @@ export default function CTASection() {
         }}
       />
 
-      <div className="relative z-10 max-w-3xl mx-auto text-center">
+      <div className="relative z-10 max-w-5xl mx-auto text-center">
         {/* Main copy */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,23 +42,64 @@ export default function CTASection() {
           </p>
         </motion.div>
 
-        {/* CTA buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6"
-        >
-          <LiquidMetalButton
-            label="Discover Yours"
-            href="https://cognitivefingerprint.ai/start"
-          />
-          <LiquidMetalButton
-            label="How It Works"
-            href="https://cognitivefingerprint.ai/method"
-          />
-        </motion.div>
+        <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_220px] md:items-center">
+          {/* CTA buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-6"
+          >
+            <LiquidMetalButton
+              label="Discover Yours"
+              href="https://cognitivefingerprint.ai/start"
+            />
+            <LiquidMetalButton
+              label="How It Works"
+              href="https://cognitivefingerprint.ai/method"
+            />
+          </motion.div>
+
+          <motion.a
+            href={leadCaptureUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="group mx-auto block w-full max-w-[220px] rounded-lg border p-3 text-left transition duration-300 hover:-translate-y-1"
+            style={{
+              background: "rgba(255, 255, 255, 0.04)",
+              borderColor: "var(--border-subtle)",
+              boxShadow: "0 24px 80px rgba(0, 0, 0, 0.28)",
+            }}
+          >
+            <span
+              className="mb-3 block text-xs uppercase tracking-[0.18em]"
+              style={{ color: "var(--grey-500)" }}
+            >
+              Scan To Submit Your Info
+            </span>
+            <span className="block overflow-hidden rounded-md bg-white p-2">
+              <Image
+                src="/coachk/cf-lead-capture-qr.png"
+                alt="QR code for the Cognitive Fingerprint lead capture page"
+                width={196}
+                height={196}
+                className="h-auto w-full"
+              />
+            </span>
+            <span
+              className="mt-3 block text-sm leading-relaxed"
+              style={{ color: "var(--grey-400)" }}
+            >
+              The fingerprint points to the next step. Phone cameras know what
+              to do.
+            </span>
+          </motion.a>
+        </div>
       </div>
 
       {/* Footer */}
