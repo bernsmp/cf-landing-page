@@ -212,6 +212,24 @@ export default function RemixRoomPage() {
 
   return (
     <main className="min-h-[100dvh] bg-[var(--grey-950)] text-[#F0EDE6]">
+      <aside className="border-b border-[#F0EDE6]/[0.08] bg-[var(--grey-950)]">
+        <div className="mx-auto flex max-w-[1120px] flex-col gap-2 px-5 py-3 text-[12px] sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-10 md:py-4 md:text-[13px] lg:px-20">
+          <span className="font-mono uppercase tracking-[0.18em] text-[#8a8a96]">
+            Also from Max
+          </span>
+          <span className="font-body leading-relaxed text-[#F0EDE6]">
+            Invisible expertise. Free prompts. Working skills. New issue weekly.
+          </span>
+          <a
+            href="https://signalovernoise.ai"
+            target="_blank"
+            rel="noreferrer"
+            className="font-body font-medium text-[var(--brand-gold)] underline-offset-4 hover:underline"
+          >
+            signalovernoise.ai →
+          </a>
+        </div>
+      </aside>
       <noscript>
         <style>{`
           .remix-volume {
