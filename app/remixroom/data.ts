@@ -12,8 +12,8 @@ export type Prompt = {
 
 export const HERO_IMAGE = "/remixroom/hero.webp";
 
-const ATTRIBUTION = `// The Remix Room — First Edition
-// A Cognitive Fingerprint™ release by Cadence Intelligence
+const ATTRIBUTION = `// The Remix Room. First Edition.
+// A Cognitive Fingerprint™ release by Max Bernstein.
 // cognitivefingerprint.ai/remixroom`;
 
 type PromptSeed = Omit<Prompt, "chatgptUrl" | "claudeUrl" | "imageUrl">;
@@ -358,5 +358,5 @@ After the user answers, write a 700-1200 word piece.
 export const PROMPTS: Prompt[] = promptSeeds.map((prompt) => ({
   ...prompt,
   ...buildLinks(prompt.prompt),
-  imageUrl: `/remixroom/${prompt.id}.webp`,
+  imageUrl: `/remixroom/${prompt.number}-${prompt.id}.webp`,
 }));
