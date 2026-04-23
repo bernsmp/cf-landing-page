@@ -1,9 +1,36 @@
 import type { Metadata } from "next";
 
+const title = "The Remix Room — Cognitive Fingerprint";
+const description =
+  "Nine prompts. Two moves. They interview you before they write anything.";
+const url = "https://www.cognitivefingerprint.ai/remixroom";
+const ogImage = "https://www.cognitivefingerprint.ai/remixroom/hero.png";
+
 export const metadata: Metadata = {
-  title: "The Remix Room — Cognitive Fingerprint",
-  description:
-    "Nine prompts. Two moves. For finding your unique angle faster than the blank page can stop you.",
+  title,
+  description,
+  alternates: { canonical: url },
+  openGraph: {
+    title,
+    description,
+    url,
+    siteName: "Cognitive Fingerprint™",
+    type: "website",
+    images: [
+      {
+        url: ogImage,
+        width: 1920,
+        height: 1071,
+        alt: "The Remix Room — a Cognitive Fingerprint™ release",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [ogImage],
+  },
 };
 
 export default function RemixRoomLayout({
