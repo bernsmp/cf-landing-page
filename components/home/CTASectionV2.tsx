@@ -36,7 +36,7 @@ export const CTASectionV2 = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+          className="flex flex-col items-center justify-center gap-6 mb-12"
         >
           {/* Primary CTA - Book a call */}
           <FingerScanButton
