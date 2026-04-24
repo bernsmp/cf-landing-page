@@ -6,7 +6,8 @@ import { motion } from 'framer-motion';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
 import Image from 'next/image';
-import { ArrowRight, Brain, Cpu, Users, Eye, Lightbulb, Map, Compass, Target, Zap, Scale, Workflow } from 'lucide-react';
+import { FingerScanButton } from '@/components/ui/finger-scan-button';
+import { Brain, Cpu, Users, Eye, Lightbulb, Map, Compass, Target, Zap, Scale, Workflow } from 'lucide-react';
 
 const stats = [
   {
@@ -472,15 +473,12 @@ export default function MethodPage() {
               <p className="text-lg text-[var(--grey-400)] mb-8">
                 It has been ready for years. It is just waiting for someone else to make the introduction.
               </p>
-              <Link
+              <FingerScanButton
                 href="https://calendar.app.google/JDxdGpxuqzmxCB8a7"
+                label="Book 30 Minutes"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-all duration-300"
-              >
-                Book 30 Minutes
-                <ArrowRight size={20} />
-              </Link>
+              />
             </motion.div>
           </div>
         </section>
@@ -490,4 +488,3 @@ export default function MethodPage() {
     </div>
   );
 }
-

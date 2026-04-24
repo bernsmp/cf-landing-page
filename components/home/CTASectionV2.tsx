@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
-import { LiquidMetalButton } from '@/components/coachk/LiquidMetalButton';
+import { FingerScanButton } from '@/components/ui/finger-scan-button';
 
 export const CTASectionV2 = () => {
   return (
@@ -39,10 +39,11 @@ export const CTASectionV2 = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
         >
           {/* Primary CTA - Book a call */}
-          <LiquidMetalButton
+          <FingerScanButton
             label="Book 30 Minutes"
             href="https://calendar.app.google/JDxdGpxuqzmxCB8a7"
             target="_blank"
+            rel="noopener noreferrer"
           />
 
           {/* Secondary CTA - Newsletter */}

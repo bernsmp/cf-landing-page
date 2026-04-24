@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { LiquidMetalButton } from "./LiquidMetalButton";
+import { FingerScanButton } from "@/components/ui/finger-scan-button";
 
 const leadCaptureUrl =
   "https://www.notion.so/073a2898003445e1b26f913e7d0dbdd5?pvs=106";
@@ -51,7 +52,7 @@ export default function CTASection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-6"
           >
-            <LiquidMetalButton
+            <FingerScanButton
               label="Discover Yours"
               href="https://cognitivefingerprint.ai/start"
             />

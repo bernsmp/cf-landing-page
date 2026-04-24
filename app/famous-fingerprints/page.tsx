@@ -5,6 +5,7 @@ import { Footer } from '@/components/layout/Footer';
 import { FeaturedCard } from '@/components/famous-fingerprints/FeaturedCard';
 import { FingerprintCard } from '@/components/famous-fingerprints/FingerprintCard';
 import { LiquidMetalButton } from '@/components/coachk/LiquidMetalButton';
+import { FingerScanButton } from '@/components/ui/finger-scan-button';
 
 export const metadata: Metadata = {
   title: 'Famous Fingerprints™ | Cognitive Fingerprint™',
@@ -208,10 +209,11 @@ export default function FamousFingerprintsPage() {
                   Most clients can&apos;t name their own methodology. They demonstrate it constantly. Map the 7 patterns that make you irreplaceable. Slots open quarterly.
                 </p>
                 <div className="flex">
-                  <LiquidMetalButton
+                  <FingerScanButton
                     label="Schedule a call"
                     href="https://calendar.app.google/JDxdGpxuqzmxCB8a7"
                     target="_blank"
+                    rel="noopener noreferrer"
                   />
                 </div>
               </div>

@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
-import { Check, Mail, Calendar, ArrowRight } from 'lucide-react';
+import { Check, Mail } from 'lucide-react';
+import { FingerScanButton } from '@/components/ui/finger-scan-button';
 
 export default function PricingGuidePage() {
 
@@ -105,16 +105,12 @@ export default function PricingGuidePage() {
                 </p>
               </div>
 
-              <Link
+              <FingerScanButton
                 href="https://calendar.app.google/JDxdGpxuqzmxCB8a7"
+                label="Book a Discovery Call"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-all duration-300"
-              >
-                <Calendar size={20} />
-                Book a Discovery Call
-                <ArrowRight size={18} />
-              </Link>
+              />
 
               <p className="text-[var(--grey-500)] text-sm mt-4">
                 30 minutes. No pitch. Just clarity.

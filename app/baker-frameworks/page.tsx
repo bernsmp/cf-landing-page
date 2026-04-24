@@ -4,8 +4,9 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
-import { BookOpen, ArrowRight } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
 import Link from 'next/link';
+import { FingerScanButton } from '@/components/ui/finger-scan-button';
 
 const sections = [
   { id: 'replaceability', num: '01', label: 'Replaceability' },
@@ -387,15 +388,12 @@ export default function BakerFrameworksPage() {
                 <p className="text-[var(--grey-400)] text-sm leading-relaxed mb-6 max-w-xl">
                   Baker is right that you need proprietary IP. CF is the extraction method that turns 15+ years of pattern recognition into a named methodology only you have. Slots open quarterly.
                 </p>
-                <Link
+                <FingerScanButton
                   href="https://calendar.app.google/JDxdGpxuqzmxCB8a7"
+                  label="Schedule a call"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-lg hover:bg-[var(--brand-gold-light)] transition-colors text-sm"
-                >
-                  Schedule a call
-                  <ArrowRight size={16} />
-                </Link>
+                />
               </div>
             </div>
           </section>
