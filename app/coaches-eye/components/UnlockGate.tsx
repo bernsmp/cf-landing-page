@@ -176,7 +176,7 @@ export function UnlockGate({ onUnlock }: UnlockGateProps) {
 
               {/* Social proof */}
               <p className="text-sm text-[var(--grey-600)] mt-8">
-                Join 2,000+ readers of Signal &gt; Noise
+                Join 2,000+ readers of Cognitive Fingerprint Newsletter
               </p>
             </motion.div>
           )}

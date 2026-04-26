@@ -48,13 +48,13 @@ export const CTASectionV2 = () => {
 
           {/* Secondary CTA - Newsletter */}
           <a
-            href="https://irreplaceablepositioning.substack.com"
+            href="https://signalovernoise.ai"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-3 px-8 py-4 bg-transparent text-[var(--grey-300)] font-semibold rounded-xl border border-[var(--border-medium)] hover:border-[var(--brand-gold)]/50 hover:text-white transition-all duration-300"
           >
             <Mail size={18} />
-            Join Signal › Noise
+            Read the Newsletter
           </a>
         </motion.div>
 

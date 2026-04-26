@@ -21,13 +21,11 @@ const navLinks: NavItem[] = [
   {
     label: 'Resources',
     dropdown: [
-      { href: '/coaches-eye', label: "Coach's Eye" },
       { href: '/famous-fingerprints', label: 'Famous Fingerprints' },
-      { href: '/baker-frameworks', label: 'Baker Frameworks' },
-      { href: '/in-action', label: 'CF In Action' },
+      { href: '/remixroom', label: 'The Remix Room' },
+      { href: '/baker-frameworks', label: 'Baker (Study)' },
     ],
   },
-  { href: '/newsletter', label: 'Newsletter' },
   { href: '/start', label: 'Start' },
 ];
 

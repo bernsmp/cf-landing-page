@@ -427,9 +427,9 @@ export default function CoachesEyePage() {
       <footer className="py-12 px-6 border-t border-[var(--grey-900)]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-[var(--grey-600)]">
-            Part of The Pattern Library from{' '}
-            <Link href="/newsletter" className="text-[var(--grey-400)] hover:text-white transition-colors">
-              Signal &gt; Noise
+            Part of The Pattern Library ·{' '}
+            <Link href="/famous-fingerprints" className="text-[var(--grey-400)] hover:text-white transition-colors">
+              Cognitive Fingerprint<sup className="text-[0.55em] align-super ml-0.5">™</sup>
             </Link>
           </p>
           <p className="text-sm text-[var(--grey-600)]">

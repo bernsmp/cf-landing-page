@@ -102,7 +102,7 @@ export function CoachesEyeCTA({ variant = 'unlock', onUnlock }: CoachesEyeCTAPro
                 8 more patterns. 9 ready-to-use prompts. The same lens legendary coaches use to see what others can&apos;t see in themselves.
               </p>
               <p className="text-center text-[var(--grey-500)] text-sm">
-                Join 2,000+ operators getting Signal &gt; Noise.
+                Join 2,000+ operators reading the Cognitive Fingerprint Newsletter.
               </p>
             </div>
 
@@ -141,7 +141,7 @@ export function CoachesEyeCTA({ variant = 'unlock', onUnlock }: CoachesEyeCTAPro
           </>
         )
       ) : (
-        // Final variant - CTA to Signal > Noise
+        // Final variant - CTA to Cognitive Fingerprint Newsletter
         <>
           <div className="space-y-2">
             <h2 className="text-center font-display font-bold text-2xl md:text-3xl text-white">
@@ -154,7 +154,7 @@ export function CoachesEyeCTA({ variant = 'unlock', onUnlock }: CoachesEyeCTAPro
 
           <div className="flex items-center justify-center">
             <LiquidMetalButton
-              label="Subscribe to Signal › Noise"
+              label="Subscribe to the Newsletter"
               href="https://www.signalovernoise.ai/"
               target="_blank"
             />

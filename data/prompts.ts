@@ -195,7 +195,7 @@ Which patterns are robust enough (appearing 3+ times, creating consistent outcom
     ],
     relatedArticle: {
       title: 'The Expertise Paradox: Why Being Good Makes You Blind',
-      url: 'https://irreplaceablepositioning.substack.com',
+      url: 'https://signalovernoise.ai',
     },
     tags: ['extraction', 'patterns', 'transcripts', 'EXTRACT Method'],
   },
@@ -397,7 +397,7 @@ After receiving your initial analysis, use these targeted prompts:
     ],
     relatedArticle: {
       title: 'Why You Can\'t See Your Own Expertise',
-      url: 'https://irreplaceablepositioning.substack.com',
+      url: 'https://signalovernoise.ai',
     },
     tags: ['blind spots', 'tacit knowledge', 'four dimensions', 'cognitive fingerprint', 'pattern analysis'],
   },
@@ -1167,7 +1167,7 @@ Paste your transcript below. I'll find your sign.`,
     ],
     relatedArticle: {
       title: 'What\'s Your Sign? The Philosophy You Already Have',
-      url: 'https://irreplaceablepositioning.substack.com',
+      url: 'https://signalovernoise.ai',
     },
     tags: ['extraction', 'philosophy', 'TED talk', 'stadium sign', 'patterns', 'positioning'],
   },
@@ -1279,7 +1279,7 @@ End with: "The gap between Part 1 (Uncle Version) and Part 2 (What Uncle Missed)
     ],
     relatedArticle: {
       title: 'The Uncle Test: What People Actually See When They Look At Your Profile',
-      url: 'https://irreplaceablepositioning.substack.com',
+      url: 'https://signalovernoise.ai',
     },
     tags: ['LinkedIn', 'positioning', 'profile', 'visibility', 'invisibility gap', 'analysis'],
   },
@@ -1490,7 +1490,7 @@ You're a smart collaborator who sees things they can't see. Not a coach. Not a c
     ],
     relatedArticle: {
       title: 'Build First, Then Think: Why Your Weekend Projects Are Mirrors',
-      url: 'https://irreplaceablepositioning.substack.com',
+      url: 'https://signalovernoise.ai',
     },
     tags: ['extraction', 'project ideas', 'differentiation', 'Edison', 'Sivers', 'Acunzo', 'raw material'],
   },
@@ -1552,7 +1552,7 @@ After listing all 5 decision points, conclude with:
     ],
     relatedArticle: {
       title: 'Invisible Expertise Extraction',
-      url: 'https://irreplaceablepositioning.substack.com',
+      url: 'https://signalovernoise.ai',
     },
     tags: ['extraction', 'decisions', 'patterns', 'unconscious competence', 'transcripts'],
   },
@@ -1624,7 +1624,7 @@ After listing all rules, provide:
     ],
     relatedArticle: {
       title: 'Invisible Expertise Extraction',
-      url: 'https://irreplaceablepositioning.substack.com',
+      url: 'https://signalovernoise.ai',
     },
     tags: ['extraction', 'delegation', 'if-then rules', 'bottleneck', 'training', 'transcripts'],
   },
@@ -1940,7 +1940,7 @@ Confirm you understand the task, tell me what source materials you see, and begi
     ],
     relatedArticle: {
       title: 'Why You Can\'t See Your Own Value',
-      url: 'https://irreplaceablepositioning.substack.com',
+      url: 'https://signalovernoise.ai',
     },
     tags: ['extraction', 'hidden value', 'invisible functions', 'positioning', 'transcripts', 'differentiation'],
   },
@@ -2018,7 +2018,7 @@ The draft should feel like something I could edit in 30 minutes, not something I
     ],
     relatedArticle: {
       title: 'Why the Blank Page Is a Liar',
-      url: 'https://irreplaceablepositioning.substack.com',
+      url: 'https://signalovernoise.ai',
     },
     tags: ['content', 'transcripts', 'deliverables', 'methodology', 'drafts', 'blank page'],
   },
@@ -2296,7 +2296,7 @@ Now, please provide the LinkedIn profile URL or website URL you'd like me to ana
     ],
     relatedArticle: {
       title: 'New Is Better Than Better',
-      url: 'https://irreplaceablepositioning.substack.com',
+      url: 'https://signalovernoise.ai',
     },
     tags: ['positioning', 'LinkedIn', 'analysis', 'differentiation', 'language', 'audit'],
   },

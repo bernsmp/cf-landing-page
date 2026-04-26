@@ -70,7 +70,7 @@ export default function ArticlesPage() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--grey-900)] border border-[var(--grey-700)] text-[var(--brand-gold)] text-sm font-semibold mb-6"
             >
               <BookOpen size={14} />
-              SIGNAL {'>'} NOISE
+              COGNITIVE FINGERPRINT NEWSLETTER
             </motion.span>
 
             <motion.h1
@@ -88,8 +88,7 @@ export default function ArticlesPage() {
               transition={{ delay: 0.2 }}
               className="text-lg text-[var(--grey-400)] max-w-2xl mx-auto"
             >
-              Frameworks, pattern analyses, and insights on extracting invisible expertise.
-              From the Signal {'>'} Noise newsletter.
+              Frameworks, pattern analyses, and notes from the Cognitive Fingerprint Newsletter.
             </motion.p>
           </div>
         </section>
@@ -105,12 +104,12 @@ export default function ArticlesPage() {
               <div className="text-center py-20">
                 <p className="text-[var(--grey-400)] mb-4">{error}</p>
                 <a
-                  href="https://irreplaceablepositioning.substack.com"
+                  href="https://signalovernoise.ai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[var(--brand-gold)] hover:underline"
                 >
-                  Visit Signal {'>'} Noise on Substack →
+                  Read the Newsletter →
                 </a>
               </div>
             ) : (
@@ -163,7 +162,7 @@ export default function ArticlesPage() {
 
                         {/* Read more */}
                         <div className="flex items-center gap-2 text-[var(--brand-gold)] text-sm font-medium">
-                          Read on Substack
+                          Read full article
                           <ExternalLink size={14} className="group-hover:translate-x-1 transition-transform" />
                         </div>
                       </div>
@@ -181,12 +180,12 @@ export default function ArticlesPage() {
               className="mt-16 text-center"
             >
               <a
-                href="https://irreplaceablepositioning.substack.com"
+                href="https://signalovernoise.ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-colors"
               >
-                Subscribe to Signal {'>'} Noise
+                Subscribe to Cognitive Fingerprint Newsletter
                 <ExternalLink size={18} />
               </a>
               <p className="text-[var(--grey-500)] text-sm mt-4">
@@ -201,4 +200,3 @@ export default function ArticlesPage() {
     </div>
   );
 }
-

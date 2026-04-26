@@ -8,20 +8,20 @@ import { ArrowRight, Mail, Sparkles, Calendar } from 'lucide-react';
 const tiers = [
   {
     label: 'FREE',
-    title: 'Join Signal > Noise',
+    title: 'Read the Newsletter',
     description: 'Weekly insights on extracting invisible expertise.',
     cta: 'Subscribe',
-    href: 'https://irreplaceablepositioning.substack.com',
+    href: 'https://signalovernoise.ai',
     icon: Mail,
     external: true,
   },
   {
     label: 'PREMIUM',
-    title: 'Signal > Noise Pro',
+    title: 'Premium Newsletter',
     price: '$20/mo',
     description: 'Deep dives, Subscriber Vault, Framework Factory Course, and more.',
     cta: 'Get Access',
-    href: 'https://irreplaceablepositioning.substack.com',
+    href: 'https://signalovernoise.ai',
     icon: Sparkles,
     featured: true,
     external: true,
@@ -178,4 +178,3 @@ export const CTASection = () => {
     </section>
   );
 };
-

@@ -257,7 +257,7 @@ export default function PromptsPage() {
                   </ul>
 
                   <p className="text-[var(--grey-500)] text-sm">
-                    Exclusive to Signal {'>'} Noise paid subscribers.
+                    Exclusive to paid newsletter subscribers.
                   </p>
                 </div>
 
@@ -297,7 +297,7 @@ export default function PromptsPage() {
                     Enter Subscriber Password
                   </h3>
                   <p className="text-[var(--grey-400)] text-sm mb-6">
-                    Find your password in the Signal {'>'} Noise paid community.
+                    Find your password in the paid newsletter.
                   </p>
 
                   <input
@@ -316,7 +316,7 @@ export default function PromptsPage() {
 
                   {passwordError && (
                     <p className="text-red-400 text-sm mb-4">
-                      Incorrect password. Check the Signal {'>'} Noise community.
+                      Incorrect password. Check the paid newsletter.
                     </p>
                   )}
 
@@ -339,12 +339,12 @@ export default function PromptsPage() {
                   <p className="text-center text-[var(--grey-500)] text-xs mt-6">
                     Not a subscriber?{' '}
                     <a
-                      href="https://irreplaceablepositioning.substack.com"
+                      href="https://signalovernoise.ai"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[var(--brand-gold)] hover:underline"
                     >
-                      Join Signal {'>'} Noise
+                      Read the Newsletter
                     </a>
                   </p>
                 </motion.div>
@@ -756,4 +756,3 @@ export default function PromptsPage() {
     </div>
   );
 }
-

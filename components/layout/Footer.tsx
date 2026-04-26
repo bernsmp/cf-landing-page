@@ -11,7 +11,6 @@ const footerLinks = {
     { href: '/prompts', label: 'Prompt Vault' },
     { href: '/articles', label: 'Articles' },
     { href: '/start', label: 'Start' },
-    { href: '/assessment', label: 'Pricing Guide' },
     { href: '/baker-frameworks', label: 'Baker (Study)' },
   ],
   connect: [
@@ -147,4 +146,3 @@ export const Footer = () => {
     </footer>
   );
 };
-

@@ -10,7 +10,7 @@ import { ArrowRight, Mail, Sparkles, Calendar, Check, ChevronDown, ChevronUp } f
 const tiers = [
   {
     label: 'FREE',
-    name: 'Signal > Noise Newsletter',
+    name: 'Cognitive Fingerprint Newsletter',
     price: 'Free',
     description: 'Weekly insights on extracting and monetizing invisible expertise.',
     features: [
@@ -20,14 +20,14 @@ const tiers = [
       'First access to new content',
     ],
     cta: 'Subscribe Free',
-    href: 'https://irreplaceablepositioning.substack.com',
+    href: 'https://signalovernoise.ai',
     icon: Mail,
     external: true,
     perfect: 'Curious experts who want to understand the methodology before going deeper.',
   },
   {
     label: 'PREMIUM',
-    name: 'Signal > Noise Pro',
+    name: 'Premium Newsletter',
     price: '$20/month',
     priceAnnual: '$200/year',
     description: 'Deep dives, advanced frameworks, and extraction methods you won\'t find anywhere else.',
@@ -41,7 +41,7 @@ const tiers = [
       '🔍 The Expertise Blindspot Finder™ GPT — reveals valuable patterns you can\'t see',
     ],
     cta: 'Get Premium Access',
-    href: 'https://irreplaceablepositioning.substack.com',
+    href: 'https://signalovernoise.ai',
     icon: Sparkles,
     featured: true,
     external: true,
@@ -50,7 +50,7 @@ const tiers = [
   {
     label: 'WORK TOGETHER',
     name: 'Full Extraction',
-    price: 'Starting at $3,000',
+    price: 'Starting at $5,000',
     description: 'The complete Cognitive Fingerprint™ experience.',
     features: [
       '15-20 documented invisible patterns',
@@ -340,4 +340,3 @@ export default function StartPage() {
     </div>
   );
 }
-

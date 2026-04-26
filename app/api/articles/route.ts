@@ -11,7 +11,7 @@ interface SubstackArticle {
 export async function GET() {
   try {
     // Fetch the Substack RSS feed
-    const response = await fetch('https://irreplaceablepositioning.substack.com/feed', {
+    const response = await fetch('https://signalovernoise.ai/feed', {
       next: { revalidate: 300 }, // Cache for 5 minutes
     });
 

@@ -7,7 +7,7 @@ export function OrganizationJsonLd() {
     logo: 'https://cognitivefingerprint.ai/icon',
     description: 'Evidence-based cognitive analysis that helps experts decode their unconscious expertise and create irreplaceable positioning.',
     sameAs: [
-      'https://irreplaceablepositioning.substack.com',
+      'https://signalovernoise.ai',
     ],
     contactPoint: {
       '@type': 'ContactPoint',

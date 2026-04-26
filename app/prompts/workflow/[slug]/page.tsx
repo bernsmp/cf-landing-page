@@ -34,6 +34,7 @@ export default function WorkflowDetailPage() {
   const [loading, setLoading] = useState(true);
   const [expandedSteps, setExpandedSteps] = useState<number[]>([]);
   const [copiedStep, setCopiedStep] = useState<number | null>(null);
+  const [isVerifying, setIsVerifying] = useState(false);
 
   // Check localStorage on mount
   useEffect(() => {
@@ -75,8 +76,6 @@ export default function WorkflowDetailPage() {
   }
 
   const isLocked = workflow.isPremium && !premiumUnlocked;
-
-  const [isVerifying, setIsVerifying] = useState(false);
 
   const handleUnlock = async () => {
     setIsVerifying(true);
@@ -257,7 +256,7 @@ export default function WorkflowDetailPage() {
                 Premium Workflow Pack
               </h2>
               <p className="text-[var(--grey-400)] mb-6 max-w-md mx-auto">
-                This {workflow.steps.length}-step workflow is available to Signal {'>'} Noise subscribers.
+                This {workflow.steps.length}-step workflow is available to paid newsletter subscribers.
                 Unlock to access all steps and prompts.
               </p>
               <button
@@ -452,7 +451,7 @@ export default function WorkflowDetailPage() {
               Enter Subscriber Password
             </h3>
             <p className="text-[var(--grey-400)] text-sm mb-6">
-              Find your password in the Signal {'>'} Noise paid community.
+              Find your password in the paid newsletter.
             </p>
 
             <input

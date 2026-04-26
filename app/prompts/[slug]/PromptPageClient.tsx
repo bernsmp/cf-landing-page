@@ -503,7 +503,7 @@ export default function PromptPageClient({ prompt }: PromptPageClientProps) {
               Enter Subscriber Password
             </h3>
             <p className="text-[var(--grey-400)] text-sm mb-6">
-              Find your password in the Signal {'>'} Noise paid community.
+              Find your password in the paid newsletter.
             </p>
 
             <input
