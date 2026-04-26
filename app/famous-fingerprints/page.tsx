@@ -82,7 +82,7 @@ export default function FamousFingerprintsPage() {
                 Famous Fingerprints
               </h2>
               <span className="text-[13px] text-[var(--grey-600)]">
-                2 published · 3 in progress
+                3 published · 3 in progress
               </span>
             </div>
 
@@ -115,17 +115,24 @@ export default function FamousFingerprintsPage() {
                 stats={[
                   { value: '40+', label: 'Countries' },
                   { value: '$14B', label: 'Under management' },
-                  { value: '6', label: 'Patterns' },
+                  { value: '8', label: 'Patterns' },
                 ]}
               />
 
               <FingerprintCard
-                variant="coming-soon"
+                variant="published"
+                href="/sam-altman"
+                badge="Published"
                 name="Sam Altman"
                 meta="Tech · OpenAI"
-                hook="Watch him in any hostile interview. He runs the same five moves. Your brain falls for them before you notice."
-                gradient="from-[#1a1a25] via-[#121218] to-[#0a0a0b]"
-                tease={{ value: '5', label: 'Invisible Moves' }}
+                hook="The operating system behind the gentle singularity frame. Eight moves that make radical AI change feel administratively possible."
+                image="/images/prompts/hidden-superpower-altman.png"
+                imageAlt="Sam Altman Cognitive Fingerprint"
+                stats={[
+                  { value: '6', label: 'Patterns' },
+                  { value: '3', label: 'Source Types' },
+                  { value: '1', label: 'Core Move' },
+                ]}
               />
 
               <FingerprintCard
@@ -133,7 +140,7 @@ export default function FamousFingerprintsPage() {
                 name="Sheryl Sandberg"
                 meta="Leadership · Communication"
                 hook="Every leadership book gives the same advice. Hers is the version people actually act on. Three moves. Zero resistance."
-                href="/prompts/zero-resistance-toolkit"
+                href="/prompts/workflow/zero-resistance-toolkit"
                 gradient="from-[#1e1a18] via-[#14110f] to-[#0a0a0b]"
                 tease={{ value: '3', label: 'Moves That Land' }}
               />
