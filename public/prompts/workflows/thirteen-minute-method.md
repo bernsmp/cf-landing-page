@@ -11,9 +11,9 @@ Built from the diagnostic-layer phase of the **Cognitive Fingerprint™** method
 **Perfect for:** Consultants, coaches, advisors, and sales professionals who get consistent wins but cannot explain why. Anyone who wants to diagnose a stalled deal against their own playbook instead of guessing what went wrong.
 
 **Required materials:**
-- 3-10 transcripts of conversations that went well (Stage 1)
-- A transcript of a conversation that did not convert (Stage 3)
-- Optional but powerful: a comparable transcript that DID convert (Stage 3)
+- 3-10 transcripts of conversations that went well (for Tool #1)
+- A transcript of a conversation that did not convert (for Tool #3)
+- Optional but powerful: a comparable transcript that DID convert (for Tool #3)
 
 ---
 
