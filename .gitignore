@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local agent/tool state
+.agents/
+.claude/claudex/
+excalidraw.log
+
+# generated visual explorations / source archives
+public/remixroom/source/
+public/remixroom/remix-pack-review/
+public/remixroom-gpt/
+public/remixroom-face-alts/
+public/keynote/
