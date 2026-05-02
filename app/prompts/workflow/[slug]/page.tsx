@@ -362,28 +362,31 @@ export default function WorkflowDetailPage() {
                           </div>
                         )}
 
-                        {/* Copy button */}
-                        <div className="flex justify-end pt-2 pb-2">
+                        {/* Copy button — primary action for this step */}
+                        <div className="flex flex-col items-center gap-2 pt-4 pb-4">
                           <button
                             onClick={() => copyStepContent(step.stepNumber)}
-                            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                            className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold transition-all duration-200 shadow-lg ${
                               copiedStep === step.stepNumber
-                                ? 'bg-[var(--success)] text-white'
-                                : 'bg-[var(--grey-800)] text-[var(--grey-300)] hover:bg-[var(--grey-700)]'
+                                ? 'bg-[var(--success)] text-white shadow-emerald-500/20'
+                                : 'bg-[var(--brand-gold)] text-[var(--grey-950)] hover:bg-[var(--brand-gold-light)] shadow-[var(--brand-gold)]/30 hover:shadow-[var(--brand-gold)]/50 hover:-translate-y-0.5'
                             }`}
                           >
                             {copiedStep === step.stepNumber ? (
                               <>
-                                <Check size={14} />
-                                Copied!
+                                <Check size={18} />
+                                Copied to clipboard
                               </>
                             ) : (
                               <>
-                                <Copy size={14} />
-                                Copy Prompt
+                                <Copy size={18} />
+                                Copy this prompt
                               </>
                             )}
                           </button>
+                          <p className="text-xs text-[var(--grey-500)]">
+                            Paste into Claude, ChatGPT, or any AI
+                          </p>
                         </div>
 
                         {/* Markdown content */}
