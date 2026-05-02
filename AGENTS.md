@@ -13,10 +13,8 @@ Reference: `/Users/maxb/Downloads/max voice guide.md`
 **Default stance:** "This is the part I find fascinating."
 
 **Key techniques:**
-1. **Anthropomorphism** - Give abstract concepts feelings. "Your methodology doesn't want to be found. It sits in the corner of every client call, arms crossed."
-2. **Burstiness** - Long winding sentence. Then a fragment. Like this.
-3. **Concrete grounding** - Every abstraction gets a physical object within 2-4 sentences. Folder names. Refrigerator hums. Left shoes.
-4. **Curious observer energy** - Show enthusiasm through what you notice, not through adjectives.
+1. **Concrete grounding** - Every abstraction gets a physical object within 2-4 sentences. Folder names. Refrigerator hums. Left shoes.
+2. **Curious observer energy** - Show enthusiasm through what you notice, not through adjectives.
 
 ### Hard Bans
 - No em dashes
@@ -42,7 +40,6 @@ Reference: `/Users/maxb/Downloads/max voice guide.md`
 
 ### The Two Tests
 1. **Weary vs. Curious Test** - Does the writer sound tired of explaining this? Rewrite with curiosity.
-2. **Anthropomorphism Test** - Is there at least one moment where an abstract concept has feelings? If not, add one.
 
 ---
 
