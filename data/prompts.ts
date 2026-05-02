@@ -2912,6 +2912,53 @@ export const workflows: Workflow[] = [
     estimatedTime: '45 min',
     tags: ['influence', 'pitches', 'objections', 'persuasion', 'sandberg', 'resistance'],
   },
+  {
+    id: 'w10',
+    slug: 'thirteen-minute-method',
+    title: 'The Thirteen-Minute Method™',
+    description: 'Three prompts that turn your transcripts into a diagnostic system. Extract patterns from your winning calls, document them into a methodology, then check any lost deal against it. The diagnostic-layer phase of Cognitive Fingerprint, compressed into a workflow you can run on your own work.',
+    category: 'extraction',
+    isPremium: true,
+    thumbnail: '/images/prompts/thirteen-minute-method.png',
+    file: '/prompts/workflows/thirteen-minute-method.md',
+    steps: [
+      {
+        stepNumber: 1,
+        title: 'The Descent',
+        description: 'Surface the patterns hiding inside your winning calls. Paste 3-10 transcripts of conversations that went well; get back a pattern map with named patterns, your sequence, and your differentiator.',
+        instructions: [
+          'Gather 3-10 transcripts of calls or sessions that went well — sweet spot is 5-7',
+          'Define what "went well" means for these calls (closed, advanced, breakthrough, alignment)',
+          'Paste or upload all transcripts at once — patterns require repetition to surface',
+          'Review the 5-7 named patterns, then approve the sequence and the differentiator',
+        ],
+      },
+      {
+        stepNumber: 2,
+        title: 'The Hold',
+        description: 'Document the patterns into a methodology you can run against any conversation. Output is a one-screen document with patterns, sequence, differentiator, and a sub-60-second checklist.',
+        instructions: [
+          'Paste the patterns from The Descent (or your own previously extracted patterns)',
+          'Specify the conversation type and the outcome you produce',
+          'Push back if the model lists generic moves like "I listen well" — patterns must be concrete',
+          'Save the methodology document somewhere you can find it again — you will paste it into The Strike',
+        ],
+      },
+      {
+        stepNumber: 3,
+        title: 'The Strike',
+        description: 'Diagnose a lost deal by checking it against your methodology. Returns pattern checklist, sequence check, differentiator check, and a gap analysis pointing at the specific moment things went off.',
+        instructions: [
+          'Paste your methodology from The Hold',
+          'Paste the transcript of the conversation that did not convert',
+          'Optional but powerful — also paste a similar conversation that DID convert',
+          'Review the gap analysis; the differentiator check is usually the most diagnostic',
+        ],
+      },
+    ],
+    estimatedTime: '60 min',
+    tags: ['methodology', 'diagnostic', 'transcripts', 'lost deals', 'patterns', 'cognitive fingerprint'],
+  },
 ];
 
 export const categories = [
@@ -3099,6 +3146,17 @@ export const skills: Skill[] = [
     toolCount: 3,
     fileSize: '5 KB',
     tags: ['positioning', 'mechanism', 'naming', 'differentiation', 'signal-noise'],
+  },
+  {
+    id: 'skill-13',
+    slug: 'thirteen-minute-method',
+    title: 'The Thirteen-Minute Method',
+    description: 'Three-prompt Claude skill that turns transcripts into a diagnostic system. The Descent extracts patterns from your winning calls. The Hold documents them into a methodology. The Strike checks any lost deal against it. The diagnostic-layer phase of Cognitive Fingerprint, packaged as an installable skill.',
+    isPremium: true,
+    filename: 'thirteen-minute-method.skill',
+    toolCount: 3,
+    fileSize: '10 KB',
+    tags: ['extraction', 'diagnostic', 'transcripts', 'methodology', 'cognitive fingerprint'],
   },
 ];
 

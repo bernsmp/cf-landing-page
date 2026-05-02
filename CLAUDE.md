@@ -13,12 +13,14 @@ Reference: `/Users/maxb/Downloads/max voice guide.md`
 **Default stance:** "This is the part I find fascinating."
 
 **Key techniques:**
-1. **Anthropomorphism** - Give abstract concepts feelings. "Your methodology doesn't want to be found. It sits in the corner of every client call, arms crossed."
-2. **Burstiness** - Long winding sentence. Then a fragment. Like this.
-3. **Concrete grounding** - Every abstraction gets a physical object within 2-4 sentences. Folder names. Refrigerator hums. Left shoes.
-4. **Curious observer energy** - Show enthusiasm through what you notice, not through adjectives.
+1. **Concrete grounding** - Every abstraction gets a physical object within 2-4 sentences. Folder names. Refrigerator hums. Left shoes.
+2. **Curious observer energy** - Show enthusiasm through what you notice, not through adjectives.
+
+Note: Variable sentence length is a feature of good writing, not a technique to deploy. Fragments are allowed at moments of landing or naming, never mid-thought, and never stacked as a rhythmic effect. See ban below.
 
 ### Hard Bans
+- **No anthropomorphism** — abstract concepts do not have feelings, do not "sit," do not "want," do not "wait." (Updated 2026-04-28; previously listed as a key technique. It is now banned.)
+- **No telegraph-machine burstiness** — do not stack short fragment sentences as a stylistic effect. "It works. Always. No exceptions." reads as AI overdoing burstiness, not as voice. Two or more fragments in a row is almost always overcooked. Variation comes from rhythm and meaning, not from a deploy-this-pattern instruction. (Updated 2026-05-02; previously listed as a key technique. AIs reliably over-deploy it. It is now banned as a documented move.)
 - No em dashes
 - No "It is not X, it is Y" constructions
 - No hype words: unlock, leverage, game-changer, transform, revolutionize
@@ -40,9 +42,8 @@ Reference: `/Users/maxb/Downloads/max voice guide.md`
 - "The pattern has a structure."
 - "They do not. This is the moment I live for."
 
-### The Two Tests
+### The Test
 1. **Weary vs. Curious Test** - Does the writer sound tired of explaining this? Rewrite with curiosity.
-2. **Anthropomorphism Test** - Is there at least one moment where an abstract concept has feelings? If not, add one.
 
 ---
 
