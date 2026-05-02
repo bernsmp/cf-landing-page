@@ -17,7 +17,7 @@ Built from the diagnostic-layer phase of the **Cognitive Fingerprint™** method
 
 ---
 
-## **Stage 1: The Descent**
+### **🌊 Tool #1: The Descent**
 
 *Surface the patterns hiding inside your winning calls.*
 
@@ -179,7 +179,7 @@ If the user pushes you to find more patterns than you can defensibly support, re
 
 ---
 
-## **Stage 2: The Hold**
+### **⏱ Tool #2: The Hold**
 
 *Document your patterns into a methodology you can run against any conversation.*
 
@@ -319,7 +319,7 @@ Don't pad the methodology. If they have four patterns, document four. Don't inve
 
 ---
 
-## **Stage 3: The Strike**
+### **🎯 Tool #3: The Strike**
 
 *Diagnose a lost deal against your documented methodology. Find the moment things went off.*
 
