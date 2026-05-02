@@ -51,3 +51,18 @@ public/remixroom/remix-pack-review/
 public/remixroom-gpt/
 public/remixroom-face-alts/
 public/keynote/
+
+# generated image variants not used by app routes
+public/coachk/parallax-coaching-1.png
+public/coachk/parallax-coaching-2.png
+public/coachk/parallax-coaching-v2-2.png
+public/coachk/parallax-speaking-1.png
+public/coachk/parallax-speaking-2.png
+public/coachk/parallax-speaking-v2-1.png
+public/remixroom/*-v2.png
+public/remixroom/*-v3.png
+public/remixroom/*-v4.png
+public/remixroom/hero-v5.png
+public/remixroom/contact-sheet.png
+scripts/generate-remixroom-face-alts.py
+scripts/generate-remixroom-gpt-images.py
