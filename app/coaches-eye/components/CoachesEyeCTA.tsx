@@ -13,6 +13,8 @@ const STORAGE_KEY = 'coaches-eye-unlocked';
 
 export function CoachesEyeCTA({ variant = 'unlock', onUnlock }: CoachesEyeCTAProps) {
   const [email, setEmail] = useState('');
+  const [website, setWebsite] = useState('');
+  const [submittedAt] = useState(() => Date.now());
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
@@ -31,6 +33,8 @@ export function CoachesEyeCTA({ variant = 'unlock', onUnlock }: CoachesEyeCTAPro
         body: JSON.stringify({
           email,
           leadMagnet: 'coaches-eye',
+          submittedAt,
+          website,
         }),
       });
 
@@ -107,6 +111,16 @@ export function CoachesEyeCTA({ variant = 'unlock', onUnlock }: CoachesEyeCTAPro
             </div>
 
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <input
+                type="text"
+                name="website"
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+                autoComplete="off"
+                tabIndex={-1}
+                aria-hidden="true"
+                className="absolute left-[-9999px] h-px w-px opacity-0"
+              />
               <input
                 type="email"
                 value={email}

@@ -55,12 +55,22 @@ function InlineGate({
   formAction: (formData: FormData) => void;
 }) {
   const revealed = state.ok;
+  const [submittedAt] = useState(() => Date.now());
 
   return (
     <form
       action={formAction}
       className="mt-8 font-body text-[20px] leading-relaxed text-[#F0EDE6]"
     >
+      <input
+        type="text"
+        name="website"
+        autoComplete="off"
+        tabIndex={-1}
+        aria-hidden="true"
+        className="absolute left-[-9999px] h-px w-px opacity-0"
+      />
+      <input type="hidden" name="submittedAt" value={submittedAt} />
       <span>Drop your email. The nine prompts open below.</span>{" "}
       {revealed ? (
         <span className="inline-flex items-baseline gap-2 transition-opacity duration-[400ms]">

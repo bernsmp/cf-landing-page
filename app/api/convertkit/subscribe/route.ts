@@ -4,6 +4,54 @@ interface SubscribeRequest {
   email: string;
   firstName?: string;
   leadMagnet?: string;
+  submittedAt?: number;
+  website?: string;
+}
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const DEFAULT_LEAD_MAGNET = 'pricing-guide';
+const ALLOWED_LEAD_MAGNET_TAGS = {
+  'pricing-guide': 'Lead Magnet: Pricing Guide',
+  'coaches-eye': 'Lead Magnet: Coaches Eye',
+} as const;
+const MAX_REQUEST_BYTES = 4096;
+const MIN_SUBMIT_AGE_MS = 800;
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_MAX_REQUESTS = 5;
+
+type LeadMagnet = keyof typeof ALLOWED_LEAD_MAGNET_TAGS;
+type RateLimitEntry = {
+  count: number;
+  resetAt: number;
+};
+
+const rateLimitBuckets = new Map<string, RateLimitEntry>();
+
+function getClientIp(request: NextRequest): string {
+  const forwardedFor = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim();
+  return (
+    request.headers.get('cf-connecting-ip') ||
+    request.headers.get('x-real-ip') ||
+    forwardedFor ||
+    'unknown'
+  );
+}
+
+function isAllowedLeadMagnet(value: string): value is LeadMagnet {
+  return Object.prototype.hasOwnProperty.call(ALLOWED_LEAD_MAGNET_TAGS, value);
+}
+
+function isRateLimited(key: string): boolean {
+  const now = Date.now();
+  const current = rateLimitBuckets.get(key);
+
+  if (!current || current.resetAt <= now) {
+    rateLimitBuckets.set(key, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return false;
+  }
+
+  current.count += 1;
+  return current.count > RATE_LIMIT_MAX_REQUESTS;
 }
 
 // Helper to get or create a tag and return its ID
@@ -77,11 +125,75 @@ async function addTagToSubscriber(
 
 export async function POST(request: NextRequest) {
   try {
-    const body: SubscribeRequest = await request.json();
-    const { email, firstName, leadMagnet } = body;
+    const contentType = request.headers.get('content-type') || '';
+    if (!contentType.includes('application/json')) {
+      return NextResponse.json(
+        { error: 'JSON body is required' },
+        { status: 415 }
+      );
+    }
+
+    const contentLength = Number(request.headers.get('content-length') || '0');
+    if (contentLength > MAX_REQUEST_BYTES) {
+      return NextResponse.json(
+        { error: 'Request body is too large' },
+        { status: 413 }
+      );
+    }
+
+    const body = await request.json() as Partial<SubscribeRequest>;
+    if (!body || typeof body !== 'object' || Array.isArray(body)) {
+      return NextResponse.json(
+        { error: 'Invalid request body' },
+        { status: 400 }
+      );
+    }
+
+    const { email, submittedAt } = body;
+    const firstName = typeof body.firstName === 'string'
+      ? body.firstName.trim().slice(0, 80)
+      : undefined;
+    const website = typeof body.website === 'string' ? body.website : '';
+
+    if (website && website.trim() !== '') {
+      return NextResponse.json(
+        { error: 'Invalid submission' },
+        { status: 400 }
+      );
+    }
+
+    if (typeof submittedAt === 'number') {
+      const submitAge = Date.now() - submittedAt;
+      if (submitAge >= 0 && submitAge < MIN_SUBMIT_AGE_MS) {
+        return NextResponse.json(
+          { error: 'Please try again' },
+          { status: 400 }
+        );
+      }
+    }
+
+    const requestedLeadMagnet = typeof body.leadMagnet === 'string' && body.leadMagnet
+      ? body.leadMagnet
+      : DEFAULT_LEAD_MAGNET;
+    if (!isAllowedLeadMagnet(requestedLeadMagnet)) {
+      return NextResponse.json(
+        { error: 'Invalid lead magnet' },
+        { status: 400 }
+      );
+    }
+
+    const clientIp = getClientIp(request);
+    if (isRateLimited(`${clientIp}:${requestedLeadMagnet}`)) {
+      return NextResponse.json(
+        { error: 'Too many requests' },
+        { status: 429 }
+      );
+    }
+
+    const normalizedEmail = typeof email === 'string' ? email.trim().toLowerCase() : '';
 
     // Validate email
-    if (!email || typeof email !== 'string' || !email.includes('@')) {
+    if (!EMAIL_PATTERN.test(normalizedEmail)) {
       return NextResponse.json(
         { error: 'Valid email is required' },
         { status: 400 }
@@ -107,11 +219,11 @@ export async function POST(request: NextRequest) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           api_key: convertKitApiKey,
-          email,
-          first_name: firstName || email.split('@')[0],
+          email: normalizedEmail,
+          first_name: firstName || normalizedEmail.split('@')[0],
           fields: {
             source: 'cf-website',
-            lead_magnet: leadMagnet || 'pricing-guide',
+            lead_magnet: requestedLeadMagnet,
             signup_date: new Date().toISOString()
           }
         }),
@@ -132,18 +244,27 @@ export async function POST(request: NextRequest) {
 
     // Step 2: Add tag (must be done separately - ConvertKit quirk)
     // Determine tag name based on lead magnet
-    const tagNameMap: Record<string, string> = {
-      'pricing-guide': 'Lead Magnet: Pricing Guide',
-      'coaches-eye': 'Lead Magnet: Coaches Eye',
-    };
-    const tagName = tagNameMap[leadMagnet || 'pricing-guide'] || `Lead Magnet: ${leadMagnet}`;
+    const tagName = ALLOWED_LEAD_MAGNET_TAGS[requestedLeadMagnet];
     const tagId = await getOrCreateTagId(convertKitApiKey, tagName);
 
-    if (tagId) {
-      await addTagToSubscriber(convertKitApiKey, tagId, email);
+    if (!tagId) {
+      console.error('ConvertKit tag unavailable:', { tagName, leadMagnet: requestedLeadMagnet });
+      return NextResponse.json(
+        { error: 'Failed to tag subscriber' },
+        { status: 500 }
+      );
     }
 
-    console.log(`Subscribed ${email} to ConvertKit`, { subscriberId, tag: tagName });
+    const tagged = await addTagToSubscriber(convertKitApiKey, tagId, normalizedEmail);
+    if (!tagged) {
+      console.error('ConvertKit tag subscribe failed:', { tagId, tagName, leadMagnet: requestedLeadMagnet });
+      return NextResponse.json(
+        { error: 'Failed to tag subscriber' },
+        { status: 500 }
+      );
+    }
+
+    console.log(`Subscribed ${normalizedEmail} to ConvertKit`, { subscriberId, tag: tagName });
 
     return NextResponse.json({
       success: true,

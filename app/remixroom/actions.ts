@@ -7,6 +7,7 @@ export type SubscribeState = {
 };
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MIN_SUBMIT_AGE_MS = 800;
 
 export async function subscribeToRemixRoom(
   formDataOrState: FormData | SubscribeState,
@@ -19,6 +20,19 @@ export async function subscribeToRemixRoom(
   }
 
   const email = String(formData.get("email") ?? "").trim().toLowerCase();
+  const website = String(formData.get("website") ?? "").trim();
+  const submittedAt = Number(formData.get("submittedAt") ?? 0);
+
+  if (website) {
+    return { ok: false, error: "Something went sideways. Try again." };
+  }
+
+  if (Number.isFinite(submittedAt) && submittedAt > 0) {
+    const submitAge = Date.now() - submittedAt;
+    if (submitAge >= 0 && submitAge < MIN_SUBMIT_AGE_MS) {
+      return { ok: false, error: "Please try again." };
+    }
+  }
 
   if (!EMAIL_PATTERN.test(email)) {
     return { ok: false, error: "Please enter a valid email." };

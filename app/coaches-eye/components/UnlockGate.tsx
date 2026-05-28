@@ -10,6 +10,8 @@ interface UnlockGateProps {
 
 export function UnlockGate({ onUnlock }: UnlockGateProps) {
   const [email, setEmail] = useState('');
+  const [website, setWebsite] = useState('');
+  const [submittedAt] = useState(() => Date.now());
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -27,6 +29,8 @@ export function UnlockGate({ onUnlock }: UnlockGateProps) {
         body: JSON.stringify({
           email,
           leadMagnet: 'coaches-eye',
+          submittedAt,
+          website,
         }),
       });
 
@@ -138,6 +142,16 @@ export function UnlockGate({ onUnlock }: UnlockGateProps) {
 
               {/* Form */}
               <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+                <input
+                  type="text"
+                  name="website"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                  autoComplete="off"
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  className="absolute left-[-9999px] h-px w-px opacity-0"
+                />
                 <div className="flex flex-col sm:flex-row gap-3">
                   <div className="relative flex-1">
                     <Mail

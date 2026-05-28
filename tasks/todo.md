@@ -1,3 +1,25 @@
+# Cloudflare Bot Alert Hardening - May 28, 2026
+
+## Plan
+Respond to Cloudflare's bot-traffic alert without overreacting. Keep the live lead-capture behavior intact, but reduce abuse risk on the Kit subscription surfaces.
+
+## Tasks
+- [x] Close arbitrary `leadMagnet` tag creation in `/api/convertkit/subscribe`
+- [x] Add lightweight request checks to the Coach's Eye API form path
+- [x] Add matching hidden-field checks to Remix Room signup
+- [x] Run build verification
+- [x] Deploy the Cloudflare dashboard rate limiting rule
+
+## Review
+- Hardened `/api/convertkit/subscribe` with JSON/content-length checks, stricter email validation, an allowlist for lead magnets, a honeypot field, a minimum submit age, and a lightweight per-IP in-memory throttle.
+- Added the same honeypot and submit timestamp to the Coach's Eye unlock forms and Remix Room signup.
+- Verified `npm run build` passes. The stale `baseline-browser-mapping` warning remains unrelated.
+- Local API smoke checks returned `400` for arbitrary lead magnet creation, `400` for filled honeypot submissions, and `415` for non-JSON posts.
+- Wrangler is logged in as `bernsmp@gmail.com`, but no Cloudflare API token/env vars are present and the visible OAuth scopes are not enough to safely mutate WAF/Bot settings from this shell.
+- Deployed Cloudflare rate limiting rule `Limit Kit subscribe API bursts` in the dashboard. It is active on `/api/convertkit/subscribe`, excludes known bots, groups by IP, and blocks after 10 requests in 10 seconds for 10 seconds. Cloudflare Free only exposed the 10-second period/duration options in the dashboard.
+
+---
+
 # Add Zero Resistance Toolkit Workflow
 
 ## Plan
