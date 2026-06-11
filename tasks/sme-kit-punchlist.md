@@ -20,7 +20,10 @@ Status as of 2026-06-11 (everything below the checklist was already done by Clau
 
 - [ ] Write the 5-day Invisible Expertise course (emails 2-6 of the sequence). Day 1 = run the prompt (already live as Email 1). Days 2-5 = the four costs of invisible expertise (lost sales / bottleneck / generic AI / unteachable). Final email bridges to the newsletter, pattern in `content/coaches-eye-substack-follow-up-sequence.md`.
 - [ ] Re-run the end-to-end test with a fresh email on two providers (Gmail + one other).
-- [ ] Lock the on-air offer sentence and confirm `/sme` copy matches it word for word.
+- [ ] Lock the on-air offer sentence and confirm `/sme` copy matches it word for word. Candidates (pick/edit one, say it the same way every time Mike cues you):
+  1. "The full prompt is free at cognitivefingerprint dot ai slash S-M-E. Run it on one of your own transcripts tonight and it'll show you patterns you didn't know you had."
+  2. "Go to cognitivefingerprint dot ai slash S-M-E. The whole prompt is there free, plus a five-day course on invisible expertise."
+  3. "Everything we talked about today, the full prompt and the follow-ups that build your fingerprint file, is at cognitivefingerprint dot ai slash S-M-E."
 
 ## Reference
 

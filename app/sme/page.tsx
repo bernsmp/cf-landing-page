@@ -19,16 +19,18 @@ import {
 const STORAGE_KEY = 'sme-unlocked';
 
 export default function SmePage() {
-  const [isUnlocked, setIsUnlocked] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [gateState, setGateState] = useState<'loading' | 'locked' | 'unlocked'>('loading');
+  const isUnlocked = gateState === 'unlocked';
+  const isLoading = gateState === 'loading';
 
   useEffect(() => {
-    setIsUnlocked(localStorage.getItem(STORAGE_KEY) === 'true');
-    setIsLoading(false);
+    // SSR-safe localStorage read on mount; gate state is unknowable on the server.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setGateState(localStorage.getItem(STORAGE_KEY) === 'true' ? 'unlocked' : 'locked');
   }, []);
 
   const handleUnlock = useCallback(() => {
-    setIsUnlocked(true);
+    setGateState('unlocked');
     setTimeout(() => {
       document.getElementById('the-prompt')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 400);
