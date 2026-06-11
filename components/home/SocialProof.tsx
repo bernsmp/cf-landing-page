@@ -12,6 +12,7 @@ const featuredTestimonials = [
     initial: "J",
     artifact: "Artifact 01",
     videoSrc: "/videos/jessica-testimonial.mp4",
+    posterSrc: "/images/testimonials/jessica-testimonial-poster.jpg",
     quote:
       "I spent $7,000 on a 9-week course... You and I talking for one hour, I got more ideas about how to package something to sell than I did over that entire course.",
     frameClassName: "aspect-video",
