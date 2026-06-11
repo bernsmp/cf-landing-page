@@ -218,6 +218,36 @@ export default function StartPage() {
           </div>
         </section>
 
+        {/* App early access */}
+        <section className="py-16 px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="rounded-2xl border border-[var(--brand-gold)]/25 bg-[var(--grey-900)] p-8 md:p-10"
+            >
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--brand-gold)] mb-4">
+                Coming soon
+              </p>
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-3">
+                The extraction is becoming an app
+              </h2>
+              <p className="text-[var(--grey-400)] mb-6 max-w-xl">
+                Your conversations go in, your fingerprint comes out, and it
+                installs into the AI tools you already use. Early access opens
+                to the list first.
+              </p>
+              <a
+                href="/#early-access"
+                className="inline-flex items-center justify-center rounded-full border border-[var(--brand-gold)] bg-transparent px-7 py-3 text-sm font-semibold text-[var(--brand-gold)] transition-colors hover:bg-[var(--brand-gold)]/10"
+              >
+                Get Early Access
+              </a>
+            </motion.div>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="py-24 px-6 lg:px-8 bg-[var(--grey-900)]">
           <div className="max-w-3xl mx-auto">

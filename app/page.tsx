@@ -9,6 +9,7 @@ import { VideoSection } from '@/components/home/VideoSection';
 import { TransformationStory } from '@/components/home/TransformationStory';
 import { IdentitySection } from '@/components/home/IdentitySection';
 import { SocialProof } from '@/components/home/SocialProof';
+import { FingerprintFileSection } from '@/components/home/FingerprintFileSection';
 import { CTASectionV2 } from '@/components/home/CTASectionV2';
 import { HomePageJsonLd } from '@/components/seo/JsonLd';
 
@@ -29,6 +30,7 @@ export default function Home() {
         <TransformationStory />
         <IdentitySection />
         <SocialProof />
+        <FingerprintFileSection />
         <CTASectionV2 />
       </main>
 

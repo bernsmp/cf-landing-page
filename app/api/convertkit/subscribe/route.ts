@@ -14,6 +14,7 @@ const ALLOWED_LEAD_MAGNET_TAGS = {
   'pricing-guide': 'Lead Magnet: Pricing Guide',
   'coaches-eye': 'Lead Magnet: Coaches Eye',
   'sme-four-layers': 'Lead Magnet: SME Four Layers',
+  'app-early-access': 'App Early Access',
 } as const;
 // Direct sequence enrollment (Kit v3 calls sequences "courses"). Used instead
 // of a Kit visual automation so the funnel is fully code-defined.

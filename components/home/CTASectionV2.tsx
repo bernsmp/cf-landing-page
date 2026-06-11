@@ -55,7 +55,12 @@ export const CTASectionV2 = () => {
               </div>
 
               <p className="mt-8 text-sm text-[#0c0c0c]/60">
-                Not ready to talk? The newsletter is where I share what I find. Weekly.
+                Not ready to talk? The newsletter is where I share what I find.
+                Weekly. Or{' '}
+                <a href="#early-access" className="underline underline-offset-2 hover:opacity-70">
+                  get early access to the Cognitive Fingerprint app
+                </a>
+                .
               </p>
             </div>
 

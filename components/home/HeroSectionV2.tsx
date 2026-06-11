@@ -29,7 +29,8 @@ export const HeroSectionV2 = () => {
           </p>
 
           <p className="mt-5 max-w-md text-base italic leading-relaxed text-[var(--grey-500)]">
-            For experts who know they have something more valuable than they can explain.
+            We make it visible: named patterns, backed by your own words, turned
+            into a fingerprint file your AI tools run on.
           </p>
 
           <div className="mt-12 flex flex-col gap-4 sm:flex-row">
