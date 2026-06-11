@@ -2,88 +2,94 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
 
-const identityStatements = [
-  "You've built something real over 10+ years",
-  "Clients tell you you're different. You can't explain how.",
-  "You know there's a method to your madness. You just can't see it.",
-  "You're tired of watching less skilled people win",
+const identityCards = [
+  {
+    label: 'Condition 01',
+    title: "You've built something real over 10+ years",
+    rotation: 'md:-rotate-[1deg]',
+    offset: '',
+  },
+  {
+    label: 'Condition 02',
+    title: "Clients tell you you're different. You can't explain how.",
+    rotation: 'md:rotate-[2deg]',
+    offset: 'xl:translate-y-8',
+  },
+  {
+    label: 'Condition 03',
+    title: "You know there's a method to your madness. You just can't see it.",
+    rotation: 'md:-rotate-[2deg]',
+    offset: '',
+  },
+  {
+    label: 'Condition 04',
+    title: "You're tired of watching less skilled people win",
+    rotation: 'md:rotate-[1deg]',
+    offset: 'xl:translate-y-8',
+  },
 ];
 
 export const IdentitySection = () => {
   return (
-    <section className="relative py-24 px-6 lg:px-8">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[var(--grey-900)]" />
+    <section className="relative overflow-hidden bg-[var(--grey-850)] py-32 lg:py-40">
+      <div className="pointer-events-none absolute inset-0 opacity-[0.03] grid-pattern" />
 
-      <div className="relative z-10 max-w-3xl mx-auto">
-        {/* Header */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="mb-20"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
-            This is for you if...
+          <div className="mb-8 h-px w-20 bg-[var(--brand-gold)]" />
+          <h2 className="font-display text-5xl font-light leading-tight tracking-tight text-white lg:text-7xl">
+            This is for <i>you</i> if...
           </h2>
         </motion.div>
 
-        {/* Identity statements */}
-        <motion.ul
-          initial={{ opacity: 0, y: 20 }}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="space-y-5 mb-16"
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="grid gap-8 md:grid-cols-2 xl:grid-cols-4"
         >
-          {identityStatements.map((statement, index) => (
-            <motion.li
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-              className="flex items-start gap-4"
+          {identityCards.map((card) => (
+            <div
+              key={card.title}
+              className={`min-h-[240px] rounded-3xl border border-white/[0.05] bg-[var(--grey-800)] p-9 shadow-2xl shadow-black/40 transition-transform duration-300 hover:rotate-0 hover:-translate-y-1 ${card.rotation} ${card.offset}`}
             >
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--brand-gold)]/10 border border-[var(--brand-gold)]/30 flex items-center justify-center mt-0.5">
-                <Check size={14} className="text-[var(--brand-gold)]" />
-              </div>
-              <span className="text-lg text-[var(--grey-200)]">{statement}</span>
-            </motion.li>
+              <p className="mb-8 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--brand-gold)]">
+                {card.label}
+              </p>
+              <h3 className="font-display text-2xl font-light leading-snug text-white">{card.title}</h3>
+            </div>
           ))}
-        </motion.ul>
+        </motion.div>
 
-        {/* Donald Miller quote - the "why it matters" */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="relative p-8 rounded-2xl bg-[var(--grey-850)] border border-[var(--border-subtle)]"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mx-auto mt-28 max-w-3xl border-y border-white/[0.10] py-10 text-center"
         >
-          {/* Accent line */}
-          <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[var(--brand-gold)]/50 to-transparent" />
-
-          <blockquote className="text-center">
-            <p className="text-lg md:text-xl text-[var(--grey-200)] italic mb-4">
-              "People don't buy the best products. They buy the products they can understand the fastest."
-            </p>
-            <footer className="text-[var(--grey-500)]">
-              — Donald Miller, <span className="text-[var(--grey-400)]">StoryBrand</span>
-            </footer>
-          </blockquote>
+          <p className="font-display text-3xl font-light italic leading-snug text-white md:text-4xl">
+            "People don&apos;t buy the best products. They buy the products they can understand the fastest."
+          </p>
+          <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--grey-500)]">
+            — Donald Miller, StoryBrand
+          </p>
         </motion.div>
 
-        {/* Bottom statement */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center text-[var(--grey-400)] mt-8"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mx-auto mt-10 max-w-xl text-center text-base leading-relaxed text-[var(--grey-400)]"
         >
           You are the best product. The problem is nobody knows it yet. Including you.
         </motion.p>

@@ -13,7 +13,7 @@ export const contentType = 'image/png';
 
 export default async function Image() {
   // Load the logo image
-  const logoPath = join(process.cwd(), 'public', 'cf-logo-transparent.png');
+  const logoPath = join(process.cwd(), 'public', 'logo', 'cf-t1.png');
   const logoBuffer = await readFile(logoPath);
   const logoBase64 = logoBuffer.toString('base64');
   const logoSrc = `data:image/png;base64,${logoBase64}`;
@@ -128,4 +128,3 @@ export default async function Image() {
     }
   );
 }
-

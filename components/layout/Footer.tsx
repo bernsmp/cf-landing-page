@@ -30,14 +30,15 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-[var(--grey-950)] border-t border-[var(--grey-800)]">
+    <footer className="relative bg-[var(--grey-950)] border-t border-[var(--grey-800)]">
+      <div className="absolute inset-x-0 top-0 mx-auto h-px max-w-7xl bg-gradient-to-r from-transparent via-[var(--brand-gold)]/40 to-transparent" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-6">
               <Image
-                src="/logo/cf logo.png"
+                src="/logo/cf-t1.png"
                 alt="Cognitive Fingerprint"
                 width={48}
                 height={48}
@@ -62,13 +63,13 @@ export const Footer = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="w-full pl-12 pr-4 py-3 bg-[var(--grey-900)] border border-[var(--grey-800)] rounded-xl text-white placeholder:text-[var(--grey-500)] focus:outline-none focus:border-[var(--brand-gold)] transition-colors"
+                  className="w-full pl-12 pr-4 py-3 bg-[var(--grey-900)] border border-[var(--grey-800)] rounded-full text-white placeholder:text-[var(--grey-500)] focus:outline-none focus:border-[var(--brand-gold)] transition-colors"
                   required
                 />
               </div>
               <button
                 type="submit"
-                className="px-5 py-3 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-colors flex items-center gap-2"
+                className="px-6 py-3 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-full hover:bg-[var(--brand-gold-light)] transition-colors flex items-center gap-2"
               >
                 Subscribe
                 <ArrowRight size={16} />
@@ -78,7 +79,7 @@ export const Footer = () => {
 
           {/* Links */}
           <div>
-            <h4 className="text-sm font-semibold text-[var(--grey-300)] uppercase tracking-wider mb-4">
+            <h4 className="font-mono text-[10px] font-medium text-[var(--brand-gold)] uppercase tracking-[0.22em] mb-5">
               Explore
             </h4>
             <ul className="space-y-3">
@@ -97,7 +98,7 @@ export const Footer = () => {
 
           {/* Connect */}
           <div>
-            <h4 className="text-sm font-semibold text-[var(--grey-300)] uppercase tracking-wider mb-4">
+            <h4 className="font-mono text-[10px] font-medium text-[var(--brand-gold)] uppercase tracking-[0.22em] mb-5">
               Connect
             </h4>
             <ul className="space-y-3">
@@ -138,7 +139,7 @@ export const Footer = () => {
 
         {/* Bottom */}
         <div className="mt-16 pt-8 border-t border-[var(--grey-800)] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[var(--grey-500)] text-sm">
+          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--grey-500)]">
             © 2026 Cognitive Fingerprint™. All rights reserved.
           </p>
         </div>

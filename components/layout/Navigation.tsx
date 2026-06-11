@@ -16,7 +16,7 @@ type NavItem = {
 
 const navLinks: NavItem[] = [
   { href: '/method', label: 'Method' },
-  { href: '/prompts', label: 'Prompt Vault', featured: true },
+  { href: '/prompts', label: 'Prompt Vault' },
   { href: '/insights', label: 'Insights' },
   {
     label: 'Resources',
@@ -59,8 +59,8 @@ export const Navigation = () => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-[var(--grey-950)]/90 backdrop-blur-xl border-b border-[var(--border-subtle)]'
-            : 'bg-transparent'
+            ? 'border-b border-white/[0.08] bg-[#050505]/92 backdrop-blur-xl'
+            : 'border-b border-white/[0.04] bg-[#050505]/72 backdrop-blur-md'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -68,9 +68,8 @@ export const Navigation = () => {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative">
-                <div className="absolute inset-0 bg-[var(--brand-gold)] rounded-full opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500" />
                 <Image
-                  src="/logo/cf logo.png"
+                  src="/logo/cf-t1.png"
                   alt="Cognitive Fingerprint"
                   width={40}
                   height={40}
@@ -96,7 +95,10 @@ export const Navigation = () => {
                       onMouseLeave={closeDropdown}
                     >
                       <button
-                        className="flex items-center gap-1 text-sm font-medium text-[var(--grey-400)] hover:text-white transition-colors duration-300"
+                        aria-controls="resources-menu"
+                        aria-expanded={resourcesOpen}
+                        aria-haspopup="menu"
+                        className="flex items-center gap-1 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--grey-400)] hover:text-white transition-colors duration-300"
                       >
                         {link.label}
                         <ChevronDown
@@ -114,12 +116,15 @@ export const Navigation = () => {
                             transition={{ duration: 0.18 }}
                             onMouseEnter={openDropdown}
                             onMouseLeave={closeDropdown}
-                            className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-48 bg-[var(--grey-950)] border border-[var(--border-subtle)] rounded-xl shadow-2xl overflow-hidden"
+                            id="resources-menu"
+                            role="menu"
+                            className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 rounded-2xl bg-[var(--grey-950)] border border-white/[0.10] shadow-2xl shadow-black/60 overflow-hidden"
                           >
                             {link.dropdown.map((item) => (
                               <Link
                                 key={item.href}
                                 href={item.href}
+                                role="menuitem"
                                 className="block px-4 py-3 text-sm text-[var(--grey-400)] hover:text-white hover:bg-white/5 transition-colors duration-200"
                                 onClick={() => setResourcesOpen(false)}
                               >
@@ -137,7 +142,7 @@ export const Navigation = () => {
                   <Link
                     key={link.href}
                     href={link.href!}
-                    className={`transition-colors duration-300 text-sm font-medium ${
+                    className={`transition-colors duration-300 font-mono text-[11px] font-medium uppercase tracking-[0.14em] ${
                       link.featured
                         ? 'text-[var(--brand-gold)] hover:text-[var(--brand-gold-light)]'
                         : 'text-[var(--grey-400)] hover:text-white'
@@ -149,7 +154,7 @@ export const Navigation = () => {
               })}
               <Link
                 href="/coaches-eye"
-                className="flex items-center gap-2 px-5 py-2.5 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-lg hover:bg-[var(--brand-gold-light)] transition-all duration-300 text-sm"
+                className="flex items-center gap-2 rounded-full px-6 py-2.5 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold hover:bg-[var(--brand-gold-light)] transition-all duration-300 text-sm"
               >
                 See What Leaders See
                 <ArrowRight size={16} />
@@ -159,6 +164,9 @@ export const Navigation = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-controls="mobile-navigation"
+              aria-expanded={isMobileMenuOpen}
               className="md:hidden p-2 text-[var(--grey-400)] hover:text-white transition-colors"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -175,6 +183,7 @@ export const Navigation = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
+            id="mobile-navigation"
             className="fixed inset-0 z-40 bg-[var(--grey-950)] pt-24 px-6 md:hidden overflow-y-auto"
           >
             <div className="flex flex-col gap-6">
@@ -189,6 +198,9 @@ export const Navigation = () => {
                     >
                       <button
                         onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
+                        aria-controls="mobile-resources-menu"
+                        aria-expanded={mobileResourcesOpen}
+                        aria-haspopup="menu"
                         className="flex items-center gap-2 text-2xl font-display font-bold text-white hover:text-[var(--brand-gold)] transition-colors"
                       >
                         {link.label}
@@ -204,6 +216,7 @@ export const Navigation = () => {
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.2 }}
+                            id="mobile-resources-menu"
                             className="overflow-hidden"
                           >
                             <div className="flex flex-col gap-3 mt-3 pl-4 border-l border-[var(--border-subtle)]">
@@ -255,7 +268,7 @@ export const Navigation = () => {
                 <Link
                   href="/coaches-eye"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="inline-flex items-center gap-2 px-6 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl text-lg"
+                  className="inline-flex items-center gap-2 rounded-full px-7 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold text-lg"
                 >
                   See What Leaders See
                   <ArrowRight size={20} />

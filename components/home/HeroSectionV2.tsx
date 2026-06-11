@@ -4,99 +4,121 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export const HeroSectionV2 = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Main gold glow - subtle */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[var(--brand-gold)] opacity-[0.03] blur-[120px]" />
-
-        {/* Grid pattern - very subtle */}
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `linear-gradient(var(--grey-700) 1px, transparent 1px), linear-gradient(90deg, var(--grey-700) 1px, transparent 1px)`,
-            backgroundSize: '80px 80px'
-          }}
-        />
-      </div>
-
-      <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center pt-32 pb-16">
-        {/* Floating fingerprint visual - above headline */}
+    <section className="relative overflow-hidden bg-[var(--grey-950)] px-6 pt-36 pb-28 lg:px-8 lg:pt-44 lg:pb-36">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-12 items-end gap-12">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.1 }}
-          className="mb-12 relative"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="col-span-12 lg:col-span-6"
         >
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-48 h-48 rounded-full bg-[var(--brand-gold)] opacity-10 blur-[60px] animate-pulse-glow" />
+          <div className="mb-12 h-px w-24 bg-[var(--brand-gold)]" />
+
+          <h1 className="font-display text-6xl font-light leading-[0.92] tracking-tight text-white sm:text-7xl lg:text-[6.5rem]">
+            You&apos;re the <i>best-kept</i> secret
+            <br />
+            in your <span className="text-[var(--brand-gold)]">industry.</span>
+          </h1>
+
+          <p className="mt-10 max-w-md text-xl leading-relaxed text-[var(--grey-300)]">
+            You&apos;ve spent 10+ years becoming exceptional. But people less skilled than you are winning. They can explain what you can&apos;t.
+          </p>
+
+          <p className="mt-5 max-w-md text-base italic leading-relaxed text-[var(--grey-500)]">
+            For experts who know they have something more valuable than they can explain.
+          </p>
+
+          <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+            <Link
+              href="#video"
+              className="inline-flex w-full items-center justify-center rounded-full border border-[var(--brand-gold)] bg-[var(--brand-gold)] px-8 py-4 text-sm font-bold text-[var(--grey-950)] transition-all duration-200 hover:brightness-110 sm:w-auto"
+            >
+              See an Extraction
+            </Link>
+            <Link
+              href="/method"
+              className="inline-flex w-full items-center justify-center rounded-full border border-white/[0.14] bg-transparent px-8 py-4 text-sm font-semibold text-white transition-colors duration-200 hover:border-white/[0.28] hover:bg-white/[0.04] sm:w-auto"
+            >
+              Learn the Method
+            </Link>
           </div>
-          <Image
-            src="/logo/cf logo.png"
-            alt="Cognitive Fingerprint"
-            width={100}
-            height={100}
-            className="relative z-10 mx-auto animate-hero-float"
-            priority
-          />
         </motion.div>
 
-        {/* Main headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight mb-8 leading-[1.1]"
-        >
-          <span className="text-white">You're the best-kept secret</span>
-          <br />
-          <span className="text-white">in your industry.</span>
-        </motion.h1>
-
-        {/* Subhead */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-lg sm:text-xl md:text-2xl text-[var(--grey-400)] max-w-3xl mx-auto mb-6 leading-relaxed"
-        >
-          You've spent 10+ years becoming exceptional. But people less skilled than you are winning. They can explain what you can't.
-        </motion.p>
-
-        {/* Who line */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-base sm:text-lg text-[var(--grey-500)] max-w-2xl mx-auto mb-12 italic"
-        >
-          For experts who know they have something more valuable than they can explain.
-        </motion.p>
-
-        {/* CTA Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 26 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          transition={{ duration: 0.8, delay: 0.12 }}
+          className="col-span-12 relative lg:col-span-6"
         >
-          <Link
-            href="#video"
-            className="group flex items-center gap-3 px-8 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-semibold rounded-xl hover:bg-[var(--brand-gold-light)] transition-all duration-300 hover:shadow-lg hover:shadow-[var(--brand-gold)]/20 hover:-translate-y-0.5"
-          >
-            <Play size={18} className="fill-current" />
-            See an Extraction
-          </Link>
+          {/* Arch-masked extraction collage */}
+          <div className="arch-mask relative aspect-[4/5] max-h-[640px] w-full overflow-hidden border border-white/[0.05] bg-[var(--grey-800)]" aria-hidden="true">
+            <div className="absolute inset-0 opacity-[0.03] grid-pattern" />
+
+            <div className="absolute left-[8%] top-[16%] h-[52%] w-[58%] rotate-[-5deg] border border-white/[0.12] bg-[#101010] p-5 shadow-2xl shadow-black/70">
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-4 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--grey-500)]">
+                <span>Source</span>
+                <span>48:12</span>
+              </div>
+              <div className="mt-8 space-y-5">
+                <div className="border-l border-white/[0.14] pl-4">
+                  <div className="h-px w-full bg-white/[0.18]" />
+                  <div className="mt-4 h-px w-3/4 bg-white/[0.12]" />
+                </div>
+                <div className="h-px w-11/12 bg-white/[0.12]" />
+                <div className="h-px w-4/5 bg-white/[0.10]" />
+                <div className="h-px w-full bg-white/[0.13]" />
+              </div>
+            </div>
+
+            <div className="absolute bottom-[8%] right-[6%] h-[48%] w-[56%] rotate-[4deg] border border-[var(--brand-gold)]/34 bg-[#090909] p-6 shadow-2xl shadow-black/80">
+              <div className="flex items-start justify-between gap-5">
+                <Image
+                  src="/logo/cf-t1.png"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="shrink-0"
+                  priority
+                />
+                <div className="text-right font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--brand-gold)]">
+                  Pattern 01
+                </div>
+              </div>
+              <div className="mt-10">
+                <div className="h-12 border-l border-[var(--brand-gold)]/45 pl-4">
+                  <div className="h-px w-11/12 bg-white/[0.16]" />
+                  <div className="mt-4 h-px w-3/4 bg-white/[0.12]" />
+                </div>
+                <div className="mt-8 grid grid-cols-3 gap-3">
+                  <div className="h-12 border border-white/[0.10] bg-white/[0.02]" />
+                  <div className="h-12 border border-white/[0.10] bg-white/[0.025]" />
+                  <div className="h-12 border border-[var(--brand-gold)]/24 bg-[var(--brand-gold)]/[0.035]" />
+                </div>
+              </div>
+            </div>
+
+            <div className="absolute right-[14%] top-[10%] w-[34%] rotate-[2deg] border border-white/[0.11] bg-[#171717] p-4 shadow-xl shadow-black/70">
+              <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--grey-500)]">Blindspot</div>
+              <div className="mt-4 h-px w-full bg-white/[0.12]" />
+              <div className="mt-3 h-px w-4/5 bg-white/[0.10]" />
+            </div>
+          </div>
+
+          {/* Floating sticky-note badge */}
           <Link
             href="/method"
-            className="group flex items-center gap-3 px-8 py-4 bg-transparent text-[var(--grey-300)] font-semibold rounded-xl border border-[var(--border-medium)] hover:border-[var(--border-strong)] hover:text-white transition-all duration-300"
+            className="absolute -bottom-6 -left-4 block w-60 rotate-[6deg] cursor-pointer rounded-3xl bg-[var(--brand-gold)] p-7 text-[var(--grey-950)] shadow-2xl transition-all duration-500 hover:rotate-0 hover:scale-105 lg:-left-16 lg:w-64 lg:p-8"
           >
-            Learn the Method
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            <h3 className="font-display text-2xl italic leading-none">Expertise, <i>extracted</i></h3>
+            <p className="mt-4 text-sm font-medium opacity-80">Making invisible expertise visible for leaders.</p>
+            <div className="mt-6 flex items-center justify-between border-t border-black/10 pt-4">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-tight">Learn the Method</span>
+              <ArrowRight size={16} />
+            </div>
           </Link>
         </motion.div>
       </div>

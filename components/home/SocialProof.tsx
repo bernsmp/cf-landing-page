@@ -2,27 +2,72 @@
 
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Quote, Play, Pause } from 'lucide-react';
+import { Play, Pause } from 'lucide-react';
+import Image from 'next/image';
+
+const featuredTestimonials = [
+  {
+    name: "Jessica Bruno",
+    title: "Blogger & Multi-Gen Living Expert",
+    initial: "J",
+    artifact: "Artifact 01",
+    videoSrc: "/videos/jessica-testimonial.mp4",
+    quote:
+      "I spent $7,000 on a 9-week course... You and I talking for one hour, I got more ideas about how to package something to sell than I did over that entire course.",
+    frameClassName: "aspect-video",
+    videoClassName: "object-cover",
+  },
+  {
+    name: "Deonne Nicole",
+    title: "Creator, Weird Apps",
+    initial: "D",
+    artifact: "Artifact 02",
+    videoSrc: "/videos/deonne-testimonial.mp4",
+    posterSrc: "/images/testimonials/deonne-testimonial-poster.jpg",
+    quote:
+      "I did not know the depth of what was possible, how to take what was in my brain and put it out into the world fast and make it mine.",
+    frameClassName: "mx-auto aspect-[9/16] max-h-[560px] w-full max-w-[320px]",
+    videoClassName: "object-cover",
+  },
+];
 
 const testimonials = [
   {
     quote: "Max has been my secret weapon. It's allowed me to see patterns, blindspots, and frameworks I would have never spotted before.",
     name: "Mike David",
     title: "Entrepreneur",
+    artifact: "Artifact 03",
   },
   {
     quote: "I could never articulate my methodology—until Max's extraction. Now I can finally explain what I do and who I do it for.",
     name: "Ivy Woolf-Turk",
     title: "CPC",
+    artifact: "Artifact 04",
   },
   {
     quote: "Max taught me how to make the invisible visible. I now regularly extract frameworks from my own conversations.",
     name: "David Limiero",
     title: "Founder, Edens View Coaching",
+    artifact: "Artifact 05",
   },
 ];
 
-export const SocialProof = () => {
+function ArtifactChip({ label }: { label: string }) {
+  return (
+    <div className="absolute left-5 top-5 z-20 flex items-center gap-3 rounded-lg border border-white/10 bg-black/60 px-3 py-1.5 backdrop-blur-xl">
+      <span className="font-mono text-[10px] uppercase tracking-widest text-white/70">{label}</span>
+      <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--brand-gold)]" />
+    </div>
+  );
+}
+
+function FeaturedVideoTestimonial({
+  testimonial,
+  index,
+}: {
+  testimonial: (typeof featuredTestimonials)[number];
+  index: number;
+}) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showControls, setShowControls] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -44,105 +89,118 @@ export const SocialProof = () => {
   };
 
   return (
-    <section className="relative py-32 px-6 lg:px-8 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[var(--grey-900)] via-[var(--grey-950)] to-[var(--grey-950)]" />
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
+      className={`h-full ${index === 1 ? 'lg:translate-y-12' : ''}`}
+    >
+      <div className="relative flex h-full flex-col rounded-3xl border border-white/[0.05] bg-[#0b0b0b] p-4 shadow-2xl shadow-black/60 md:p-5">
+        <div
+          className={`group relative mb-7 cursor-pointer overflow-hidden rounded-2xl border border-white/[0.12] bg-[var(--grey-950)] ${testimonial.frameClassName}`}
+          onClick={handlePlayClick}
+          onMouseEnter={() => isPlaying && setShowControls(true)}
+          onMouseLeave={() => setShowControls(false)}
+        >
+          <ArtifactChip label={testimonial.artifact} />
 
-      <div className="relative z-10 max-w-6xl mx-auto">
-        {/* Section header */}
+          <video
+            ref={videoRef}
+            className={`absolute inset-0 h-full w-full ${testimonial.videoClassName}`}
+            onEnded={handleVideoEnd}
+            playsInline
+            preload="metadata"
+            poster={testimonial.posterSrc}
+          >
+            <source src={testimonial.videoSrc} type="video/mp4" />
+          </video>
+
+          {!isPlaying && !testimonial.posterSrc && (
+            <div className="absolute inset-0 bg-[var(--grey-950)] p-8">
+              <div className="relative h-full rounded-xl border border-white/[0.08] bg-[#0b0b0b] p-6">
+                <div className="flex items-start justify-between gap-6">
+                  <Image
+                    src="/logo/cf-t1.png"
+                    alt="Cognitive Fingerprint"
+                    width={44}
+                    height={44}
+                  />
+                </div>
+                <div className="mt-12 space-y-4">
+                  <div className="h-px w-full bg-white/[0.12]" />
+                  <div className="h-px w-4/5 bg-white/[0.10]" />
+                  <div className="h-px w-11/12 bg-white/[0.12]" />
+                </div>
+              </div>
+            </div>
+          )}
+
+          {!isPlaying && (
+            <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/25">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/[0.24] bg-[var(--grey-950)]/85 text-white transition-all duration-200 group-hover:scale-110 group-hover:border-[var(--brand-gold)] group-hover:text-[var(--brand-gold)]">
+                <Play size={28} className="ml-1 fill-current" />
+              </div>
+            </div>
+          )}
+
+          {isPlaying && showControls && (
+            <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/20 transition-opacity">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/[0.18] bg-black/60">
+                <Pause size={28} className="text-white" />
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="relative z-10 flex flex-1 flex-col px-2 pb-2">
+          <p className="mb-6 max-w-3xl text-lg italic leading-relaxed text-[var(--grey-200)] md:text-xl">
+            &ldquo;{testimonial.quote}&rdquo;
+          </p>
+          <div className="mt-auto border-t border-white/[0.08] pt-5">
+            <h4 className="font-display text-2xl font-light italic text-white">{testimonial.name}</h4>
+            <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--grey-500)]">
+              {testimonial.title}
+            </p>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+export const SocialProof = () => {
+  return (
+    <section id="proof" className="relative overflow-hidden bg-[var(--grey-950)] px-6 py-32 scroll-mt-24 lg:px-8 lg:py-40">
+      <div className="relative z-10 mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-24 flex flex-col items-center text-center"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-[var(--grey-850)] border border-[var(--border-subtle)] text-[var(--grey-400)] text-sm font-semibold tracking-wider mb-6">
-            FROM EXPERTS WHO'VE DONE IT
-          </span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-white">
-            What happens when <span className="text-gold-gradient">patterns become visible</span>
+          <p className="mb-6 font-mono text-[11px] uppercase tracking-[0.3em] text-[var(--brand-gold)]">
+            Evidence &amp; Artifacts &bull; From Experts Who&apos;ve Done It
+          </p>
+          <h2 className="font-display text-5xl font-light leading-tight tracking-tight text-white md:text-7xl">
+            What happens when
+            <br />
+            patterns become <i>visible</i>
           </h2>
         </motion.div>
 
-        {/* Featured Video Testimonial */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-4xl mx-auto mb-20"
-        >
-          {/* Video container */}
-          <div
-            className="relative aspect-video rounded-2xl overflow-hidden border border-[var(--brand-gold)]/20 bg-[var(--grey-900)] cursor-pointer group mb-8"
-            onClick={handlePlayClick}
-            onMouseEnter={() => isPlaying && setShowControls(true)}
-            onMouseLeave={() => setShowControls(false)}
-          >
-            {/* Video element */}
-            <video
-              ref={videoRef}
-              className="absolute inset-0 w-full h-full object-cover"
-              onEnded={handleVideoEnd}
-              playsInline
-              preload="metadata"
-            >
-              <source src="/videos/jessica-testimonial.mp4" type="video/mp4" />
-            </video>
+        <div className="mb-24 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          {featuredTestimonials.map((testimonial, index) => (
+            <FeaturedVideoTestimonial
+              key={testimonial.name}
+              testimonial={testimonial}
+              index={index}
+            />
+          ))}
+        </div>
 
-            {/* Play button overlay - shows when not playing */}
-            {!isPlaying && (
-              <div className="absolute inset-0 z-10 bg-black/40 flex items-center justify-center">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-[var(--brand-gold)] rounded-full blur-xl opacity-40 group-hover:opacity-60 transition-opacity" />
-                  <div className="relative w-20 h-20 rounded-full bg-[var(--brand-gold)]/20 border border-[var(--brand-gold)]/50 flex items-center justify-center group-hover:bg-[var(--brand-gold)]/30 group-hover:scale-110 transition-all duration-300">
-                    <Play size={32} className="text-[var(--brand-gold)] fill-current ml-1" />
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Pause overlay - shows on hover when playing */}
-            {isPlaying && showControls && (
-              <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/20 transition-opacity">
-                <div className="w-16 h-16 rounded-full bg-black/50 flex items-center justify-center">
-                  <Pause size={28} className="text-white" />
-                </div>
-              </div>
-            )}
-
-            {/* Corner accents */}
-            <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-[var(--brand-gold)]/10 to-transparent pointer-events-none z-20" />
-            <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-[var(--brand-gold)]/10 to-transparent pointer-events-none z-20" />
-          </div>
-
-          {/* Pull Quote */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-center"
-          >
-            <Quote className="text-[var(--brand-gold)] opacity-40 mx-auto mb-4" size={28} />
-            <p className="text-[var(--grey-200)] text-xl md:text-2xl leading-relaxed mb-4 italic max-w-3xl mx-auto">
-              "I spent $7,000 on a 9-week course... You and I talking for one hour, I got more ideas about how to package something to sell than I did over that entire course."
-            </p>
-            <div className="flex items-center justify-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--brand-gold)] to-[var(--brand-gold-dark)] flex items-center justify-center text-[var(--grey-950)] font-bold">
-                J
-              </div>
-              <div className="text-left">
-                <p className="text-white font-semibold">Jessica Bruno</p>
-                <p className="text-[var(--grey-500)] text-sm">Blogger & Multi-Gen Living Expert</p>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Testimonials grid */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid gap-8 md:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.name}
@@ -150,34 +208,27 @@ export const SocialProof = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="relative group"
+              className={index === 1 ? 'lg:translate-y-10' : ''}
             >
-              <div className="h-full p-8 rounded-2xl bg-[var(--grey-850)] border border-[var(--border-subtle)] hover:border-[var(--border-medium)] transition-all duration-300">
-                {/* Quote icon */}
-                <Quote className="text-[var(--brand-gold)] opacity-30 mb-4" size={32} />
-                
-                {/* Quote text */}
-                <p className="text-[var(--grey-300)] text-lg leading-relaxed mb-6 italic">
+              <div className="flex h-full flex-col rounded-3xl border border-white/[0.05] bg-[var(--grey-800)] p-8 transition-colors duration-300 hover:border-white/[0.14]">
+                <p className="mb-8 font-mono text-[10px] uppercase tracking-widest text-[var(--grey-500)]">
+                  {testimonial.artifact}
+                </p>
+                <p className="mb-8 text-lg italic leading-relaxed text-[var(--grey-300)]">
                   "{testimonial.quote}"
                 </p>
-                
-                {/* Attribution */}
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--brand-gold)] to-[var(--brand-gold-dark)] flex items-center justify-center text-[var(--grey-950)] font-bold">
-                    {testimonial.name.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold">{testimonial.name}</p>
-                    <p className="text-[var(--grey-500)] text-sm">{testimonial.title}</p>
-                  </div>
+
+                <div className="mt-auto border-t border-white/[0.08] pt-5">
+                  <h4 className="font-display text-2xl font-light italic text-white">{testimonial.name}</h4>
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--grey-500)]">
+                    {testimonial.title}
+                  </p>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );
 };
-

@@ -1,7 +1,8 @@
 "use client";
 
-import { useActionState, useEffect, useState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
+import { Pause, Play } from "lucide-react";
 import {
   subscribeToRemixRoomWithState,
   type SubscribeState,
@@ -199,6 +200,65 @@ function PromptSpread({ prompt }: { prompt: Prompt }) {
         </div>
       </div>
     </article>
+  );
+}
+
+function DeonneProofVideo() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [showControls, setShowControls] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  function toggleVideo() {
+    if (!videoRef.current) return;
+    if (isPlaying) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+      return;
+    }
+
+    videoRef.current.play();
+    setIsPlaying(true);
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={toggleVideo}
+      onMouseEnter={() => isPlaying && setShowControls(true)}
+      onMouseLeave={() => setShowControls(false)}
+      className="group relative mx-auto block aspect-[9/16] w-full max-w-[320px] overflow-hidden border border-[#F0EDE6]/[0.1] bg-black text-left focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[#F0EDE6]"
+      aria-label={isPlaying ? "Pause Deonne testimonial" : "Play Deonne testimonial"}
+    >
+      <video
+        ref={videoRef}
+        className="absolute inset-0 h-full w-full object-cover"
+        onEnded={() => {
+          setIsPlaying(false);
+          setShowControls(false);
+        }}
+        playsInline
+        preload="metadata"
+        poster="/images/testimonials/deonne-testimonial-poster.jpg"
+      >
+        <source src="/videos/deonne-testimonial.mp4" type="video/mp4" />
+      </video>
+
+      {!isPlaying ? (
+        <span className="absolute inset-0 z-10 flex items-center justify-center bg-black/35">
+          <span className="flex h-16 w-16 items-center justify-center rounded-full border border-[var(--brand-gold)]/45 bg-[var(--brand-gold)]/15 text-[var(--brand-gold)] transition duration-200 group-hover:bg-[var(--brand-gold)]/25">
+            <Play size={28} className="fill-current" />
+          </span>
+        </span>
+      ) : null}
+
+      {isPlaying && showControls ? (
+        <span className="absolute inset-0 z-10 flex items-center justify-center bg-black/20">
+          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-black/50 text-[#F0EDE6]">
+            <Pause size={24} />
+          </span>
+        </span>
+      ) : null}
+    </button>
   );
 }
 
@@ -438,6 +498,36 @@ export default function RemixRoomPage() {
             </div>
           ))}
         </div>
+        </div>
+      </section>
+
+      <section id="deonne-proof" className="mx-auto max-w-[1120px] px-5 py-16 scroll-mt-10 sm:px-10 md:py-20 lg:px-20">
+        <div className="grid gap-12 border-y border-[#F0EDE6]/[0.08] py-12 md:grid-cols-[320px_1fr] md:items-center md:py-16">
+          <DeonneProofVideo />
+          <div className="max-w-[640px]">
+            <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#4a4a54]">
+              Proof from the room
+            </span>
+            <blockquote className="mt-8 font-display text-[clamp(30px,4vw,52px)] font-normal leading-[1.05] text-[#F0EDE6]">
+              &ldquo;I did not know the depth of what was possible, how to take
+              what was in my brain and put it out into the world fast and make
+              it mine.&rdquo;
+            </blockquote>
+            <div className="mt-8 grid gap-5 font-body text-[16px] leading-relaxed text-[#8a8a96] md:grid-cols-2">
+              <p>
+                Deonne came in with ideas that felt too specific for a normal
+                template. She left with a lane: weird apps, built from the
+                shape of her own thinking.
+              </p>
+              <p>
+                That is the point of this room. The prompt asks better
+                questions first, then the AI helps make the thing real.
+              </p>
+            </div>
+            <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--brand-gold)]">
+              Deonne Nicole · Creator, Weird Apps
+            </p>
+          </div>
         </div>
       </section>
 
