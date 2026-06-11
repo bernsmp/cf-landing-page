@@ -15,6 +15,11 @@ const ALLOWED_LEAD_MAGNET_TAGS = {
   'coaches-eye': 'Lead Magnet: Coaches Eye',
   'sme-four-layers': 'Lead Magnet: SME Four Layers',
 } as const;
+// Direct sequence enrollment (Kit v3 calls sequences "courses"). Used instead
+// of a Kit visual automation so the funnel is fully code-defined.
+const LEAD_MAGNET_SEQUENCES: Partial<Record<keyof typeof ALLOWED_LEAD_MAGNET_TAGS, number>> = {
+  'sme-four-layers': 2789619, // "Invisible Expertise (SME Four Layers)"
+};
 const MAX_REQUEST_BYTES = 4096;
 const MIN_SUBMIT_AGE_MS = 800;
 const RATE_LIMIT_WINDOW_MS = 60_000;
@@ -263,6 +268,34 @@ export async function POST(request: NextRequest) {
         { error: 'Failed to tag subscriber' },
         { status: 500 }
       );
+    }
+
+    // Step 3: Enroll in the lead magnet's sequence, if one is mapped.
+    // Non-fatal: a sequence hiccup should not fail the signup.
+    const sequenceId = LEAD_MAGNET_SEQUENCES[requestedLeadMagnet];
+    if (sequenceId) {
+      try {
+        const sequenceResponse = await fetch(
+          `https://api.convertkit.com/v3/courses/${sequenceId}/subscribe`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              api_key: convertKitApiKey,
+              email: normalizedEmail,
+            }),
+          }
+        );
+        if (!sequenceResponse.ok) {
+          console.error('ConvertKit sequence enroll failed:', {
+            sequenceId,
+            leadMagnet: requestedLeadMagnet,
+            status: sequenceResponse.status,
+          });
+        }
+      } catch (sequenceError) {
+        console.error('ConvertKit sequence enroll error:', sequenceError);
+      }
     }
 
     console.log(`Subscribed ${normalizedEmail} to ConvertKit`, { subscriberId, tag: tagName });
