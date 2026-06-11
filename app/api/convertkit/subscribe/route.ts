@@ -13,6 +13,7 @@ const DEFAULT_LEAD_MAGNET = 'pricing-guide';
 const ALLOWED_LEAD_MAGNET_TAGS = {
   'pricing-guide': 'Lead Magnet: Pricing Guide',
   'coaches-eye': 'Lead Magnet: Coaches Eye',
+  'sme-four-layers': 'Lead Magnet: SME Four Layers',
 } as const;
 const MAX_REQUEST_BYTES = 4096;
 const MIN_SUBMIT_AGE_MS = 800;
