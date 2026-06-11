@@ -20,6 +20,193 @@ Respond to Cloudflare's bot-traffic alert without overreacting. Keep the live le
 
 ---
 
+# Homepage Client-Ready Visual Polish - June 5, 2026
+
+## Plan
+Make the current homepage look more client-ready for tomorrow without rewriting the public homepage copy. Preserve headlines and body messaging; limit copy changes to navigation, footer, accessibility, or consistency labels.
+
+## Tasks
+- [x] Record project context for `impeccable`
+- [x] Review local homepage components and existing dirty source
+- [x] Tighten hierarchy, contrast, artifact polish, navigation state, and interaction affordances
+- [x] Run build verification
+- [x] Capture desktop and mobile visual checks
+
+---
+
+# Homepage Design Refresh Inspired By Monologue
+
+## Homepage Polish Pass - May 17, 2026
+
+## Plan
+Review the local homepage at `http://127.0.0.1:3456/` and polish only the live homepage design direction. Keep the cinematic black, tactile layered object language, and canonical `/logo/cf-t1.png` usage. Remove leftover AI-console, pill, glow, gradient-text, and generic rounded SaaS patterns from homepage-visible sections.
+
+## Tasks
+- [x] Record project design context for `impeccable`
+- [x] Review current homepage components and visual anti-patterns
+- [x] Polish hero, proof, CTA, and surrounding homepage sections into one coherent direction
+- [x] Run build verification
+- [x] Capture visual checks for desktop and mobile
+
+## Review
+- Added `.impeccable.md` with the CF homepage design context so future design work stays attached to the sharp cinematic black, tactile artifact direction.
+- Removed remaining homepage-visible glow, pill, rounded SaaS, gradient-text, and generic icon treatments from nav CTA, proof, CTA, scroll popup, and the transformation story section.
+- Replaced the glowy video poster state with a tactile transcript/artifact stage using `/logo/cf-t1.png`.
+- Reworked homepage proof cards into rectangular video receipts and extracted notes.
+- Follow-up correction: reviewed against the live homepage at `https://www.cognitivefingerprint.ai/` and restored the public homepage copy, including the hero headline, subhead, video copy, audience section copy, story text, proof quotes, and CTA copy. The remaining differences in the text diff are whitespace from the refreshed layout.
+- `npm run build` passes. The only build warning is the existing stale `baseline-browser-mapping` notice.
+- Desktop and mobile screenshots were checked with the bundled Playwright runtime.
+- `npm audit --omit=dev --audit-level=high` still reports the existing Next/PostCSS advisories and recommends `npm audit fix --force`, which would install `next@16.2.6`; no dependency upgrade was made in this design pass.
+
+## Plan
+Use `ux-recon` to turn the Monologue reference into a buildable homepage direction for Cognitive Fingerprint. Keep the CF gold, charcoal, and editorial voice. Refresh the homepage organization so it feels more like a working product surface and less like stacked SaaS sections.
+
+## Research Inputs
+- Inspiration anchor: `https://www.monologue.to/`
+- Feel: dark, precise, editorial, instrument-like, warm gold instead of teal
+- Primary interaction: landing page with product/story sections and concrete use-case rows
+- Constraints: existing Next.js app, current brand colors, no new prompt entries, preserve unrelated worktree changes
+
+## Tasks
+- [x] Capture the UX reference pull and build implications
+- [x] Refresh homepage section order and component composition
+- [x] Rework hero into a product-first extraction surface
+- [x] Add concrete context/use-case rows inspired by Monologue's app-context rhythm
+- [x] Run build verification
+
+## Review
+- Created `tasks/homepage-ux-recon.md` with the 6-section `ux-recon` artifact.
+- Reordered the homepage to move from hero to extraction artifact to context rows to proof.
+- Reworked `HeroSectionV2` around a right-side extraction console instead of a floating logo hero.
+- Reworked `IdentitySection` into concrete context rows for coaches, consultants, operators, and creators.
+- Reframed `VideoSection` as a working artifact with concrete watch-for rows.
+- Added an explicit root viewport export and horizontal overflow guard for mobile rendering.
+- `npm run build` passes. The only warning is the existing stale `baseline-browser-mapping` package notice.
+- `npm audit --omit=dev --audit-level=high` reports existing Next/PostCSS advisories and recommends a forced Next upgrade to `16.2.6`; no dependency upgrade was made in this design-refresh pass.
+
+## Correction Pass
+- [x] Remove AI-console/pill/icon language from the homepage refresh
+- [x] Replace top gradient with sharp cinematic black
+- [x] Rebuild hero around layered tactile cards and floating objects
+- [x] Give sections more space and fewer dense UI widgets
+- [x] Re-run build and visual checks
+
+## Correction Notes
+- User rejected the first direction as too AI-pattern/vibe-coded.
+- New direction: sharp cinematic base, spacious black, tactile layered cards/objects, no teal, no decorative top haze, no generic AI interface cues.
+- Rebuilt `HeroSectionV2` with layered transcript, artifact, margin-note, and method cards.
+- Rebuilt `VideoSection` with a cleaner cinematic video stage and physical note cards.
+- Rebuilt `IdentitySection` with spacious source-material cards instead of icon rows.
+- `npm run build` passes after the correction pass.
+
+## Logo Swap
+- [x] Copy `/Users/maxb/Documents/logos and headshots/T1.png` into the app public assets
+- [x] Use the new logo in nav, footer, homepage artifact cards, OpenGraph, favicon, and Apple icon routes
+- [x] Run build verification after logo swap
+- [x] Render-check homepage and logo/icon endpoints locally
+
+---
+
+# Add Deonne Testimonial
+
+## Plan
+Add Deonne's testimonial where it does the most strategic work: broad homepage proof and specific Remix Room/community proof.
+
+## Recommendation Review
+
+### Default
+Add the testimonial to the existing testimonials section.
+
+### Expert
+Use Deonne as a bridge proof asset. On the homepage, position it as evidence that Cognitive Fingerprint plus AI turns private thinking into shipped output. On Remix Room, position it as proof that the prompt/community lane helps people make real things from their own ideas.
+
+### Label the Gap
+The default treats the testimonial as praise. The expert version treats it as positioning evidence. Deonne is not only saying Max is helpful. She is describing a before-and-after category shift: idea in her brain, AI as accelerator, her own output in the world, community as weekly momentum.
+
+## Tasks
+- [x] Create web-ready Deonne video and poster assets
+- [x] Add Deonne as a second featured video in the homepage proof section
+- [x] Add a focused Deonne proof block to Remix Room
+- [x] Run build verification
+
+## Review
+- Added a compressed vertical testimonial video at `/public/videos/deonne-testimonial.mp4`.
+- Added a poster image at `/public/images/testimonials/deonne-testimonial-poster.jpg`.
+- Reworked the homepage proof area so Jessica and Deonne sit as paired featured video testimonials.
+- Added a Remix Room proof block that frames Deonne around weird apps, better prompting, and AI turning her own thinking into output.
+- `npm run build` passes.
+
+---
+
+# Officially Hook Coach's Eye To Kit
+
+## Plan
+Finish the production-grade Kit hookup for Coach's Eye by verifying local Kit state, tightening the subscribe route, adding missing Vercel environment variables, and running one end-to-end test only after confirmation.
+
+## Current Evidence
+- Local `.env.local` has `CONVERTKIT_API_KEY` and `CONVERTKIT_FORM_ID`.
+- Local `.env.local` does not have `CONVERTKIT_API_SECRET`.
+- Kit tag `Lead Magnet: Coaches Eye` exists as tag ID `19138026`.
+- The configured local form exists as ID `8877513`, currently named `CF Pricing Guide Lead Magnet`.
+- Vercel production currently only has `PREMIUM_PASSWORD`, so production Coach's Eye signup cannot hit Kit successfully yet.
+- Correction: the public domain `www.cognitivefingerprint.ai` is attached to Vercel project `cognitive-fingerprint-nextjs`, not the local `.vercel` project `cf-landing-page`.
+- `cognitive-fingerprint-nextjs` already had `CONVERTKIT_API_KEY` and `CONVERTKIT_FORM_ID`; `cf-landing-page` was also updated with those env vars during this pass.
+
+## Tasks
+- [x] Verify current site CTA sends `leadMagnet: 'coaches-eye'`
+- [x] Verify Kit tag and configured form exist through the API
+- [x] Verify Vercel production env is missing Kit variables
+- [x] Tighten subscribe route so tag failure cannot return success
+- [x] Add missing Kit env vars to Vercel after action-time confirmation
+- [x] Run a real production end-to-end test after action-time confirmation
+- [x] Verify unlock behavior after successful submit
+
+## Review
+- Hardened `/api/convertkit/subscribe` so a tag lookup/add failure returns `500` instead of a false success.
+- Added Kit env vars to the duplicate `cf-landing-page` Vercel project, then confirmed the real public project already had them.
+- Deployed the current code to the real public-domain Vercel project `cognitive-fingerprint-nextjs`.
+- Verified public homepage and Remix Room now include the Deonne testimonial assets.
+- Verified production Coach's Eye Kit submit with `max+coaches-eye-prod-test-20260502@maxpbernstein.com`: response `200`, subscriber id `4094762173`.
+- Unlock behavior is still tied to the successful API response in `CoachesEyeCTA`: on `200`, it writes `coaches-eye-unlocked` to localStorage and reveals the remaining patterns.
+
+---
+
+# Coach's Eye Substack Follow-Up Sequence
+
+## Plan
+Create a short Kit-ready follow-up sequence for Coach's Eye downloaders that pushes non-subscribers toward the Cognitive Fingerprint Substack rather than building a separate mini-course funnel.
+
+## Positioning Decision
+- Trigger from `Lead Magnet: Coaches Eye`.
+- If subscriber already has `Signal>Noise SS Sub`, skip the sequence or route to a light thank-you only.
+- If subscriber does not have `Signal>Noise SS Sub`, send a 4-email bridge to `https://signalovernoise.ai`.
+
+## Tasks
+- [x] Draft Kit-ready sequence copy
+- [x] Include Visual Automation setup instructions
+- [x] Confirm no em dashes or hype-language drift
+- [x] Review and sharpen copy with `copywriting-masters`
+- [x] Update old Coach's Eye todo so BTD path is superseded
+- [x] Remove AI-pattern phrasing and add one Coach's Eye prompt per email
+- [x] Create the Kit sequence and inactive automation after user approval
+
+## Review
+- Created `/content/coaches-eye-substack-follow-up-sequence.md`.
+- Sequence pushes non-subscribers to `https://signalovernoise.ai`.
+- Existing Substack subscribers should skip the main sequence or receive a single thank-you email.
+- Local copy scan found no em dashes or banned hype terms in the new sequence file.
+- Added the direct-response spine: promise, mechanism, proof stack, Rule of One, subject alternates, and sequence quality gates.
+- Revised the emails to remove obvious AI scaffolding and add daily prompt value before each Substack CTA.
+- Created Kit sequence `Coach's Eye to Cognitive Fingerprint Newsletter` at `https://app.kit.com/sequences/2743152`.
+- Added four draft sequence emails with timings: immediate, 2 days, 2 days, 3 days.
+- Connected inactive Kit visual automation `Coach's Eye to Cognitive Fingerprint Newsletter` at `https://app.kit.com/automations/1958836/edit`.
+- Automation trigger is `Lead Magnet: Coaches Eye`; if the subscriber has `Signal>Noise SS Sub`, they route to end; if not, they enter the new sequence.
+- Left the automation inactive, so the sequence is created but not live sending.
+- Follow-up QC found Email 4 had reverted to the default empty template in Kit; pasted the final Email 4 body back in and set its delay to 3 days.
+- Current Kit state observed during follow-up QC: Email 4 remains draft/unpublished; the visual automation remains inactive; the first three emails appear published in the sequence editor.
+
+---
+
 # Add Zero Resistance Toolkit Workflow
 
 ## Plan

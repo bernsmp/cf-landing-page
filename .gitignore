@@ -66,3 +66,6 @@ public/remixroom/hero-v5.png
 public/remixroom/contact-sheet.png
 scripts/generate-remixroom-face-alts.py
 scripts/generate-remixroom-gpt-images.py
+
+# local design-draft workspace
+.superdesign/
