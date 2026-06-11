@@ -21,6 +21,9 @@ const LEAD_MAGNET_SEQUENCES: Partial<Record<keyof typeof ALLOWED_LEAD_MAGNET_TAG
   'sme-four-layers': 2789619, // "Invisible Expertise (SME Four Layers)"
 };
 const MAX_REQUEST_BYTES = 4096;
+// Every ConvertKit call gets a hard timeout so a stalled third party can't
+// hang the unlock path or pin the serverless function.
+const CONVERTKIT_TIMEOUT_MS = 5000;
 const MIN_SUBMIT_AGE_MS = 800;
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
@@ -66,7 +69,7 @@ async function getOrCreateTagId(apiKey: string, tagName: string): Promise<number
     // First, try to find existing tag
     const listResponse = await fetch(
       `https://api.convertkit.com/v3/tags?api_key=${apiKey}`,
-      { method: 'GET' }
+      { method: 'GET', signal: AbortSignal.timeout(CONVERTKIT_TIMEOUT_MS) }
     );
 
     if (listResponse.ok) {
@@ -88,7 +91,8 @@ async function getOrCreateTagId(apiKey: string, tagName: string): Promise<number
         body: JSON.stringify({
           api_key: apiKey,
           tag: { name: tagName }
-        })
+        }),
+        signal: AbortSignal.timeout(CONVERTKIT_TIMEOUT_MS)
       }
     );
 
@@ -119,12 +123,13 @@ async function addTagToSubscriber(
         body: JSON.stringify({
           api_key: apiKey,
           email: email
-        })
+        }),
+        signal: AbortSignal.timeout(CONVERTKIT_TIMEOUT_MS)
       }
     );
     return response.ok;
   } catch (error) {
-    console.error(`Error adding tag ${tagId} to ${email}:`, error);
+    console.error(`Error adding tag ${tagId} to subscriber:`, error);
     return false;
   }
 }
@@ -233,6 +238,7 @@ export async function POST(request: NextRequest) {
             signup_date: new Date().toISOString()
           }
         }),
+        signal: AbortSignal.timeout(CONVERTKIT_TIMEOUT_MS),
       }
     );
 
@@ -284,6 +290,7 @@ export async function POST(request: NextRequest) {
               api_key: convertKitApiKey,
               email: normalizedEmail,
             }),
+            signal: AbortSignal.timeout(CONVERTKIT_TIMEOUT_MS),
           }
         );
         if (!sequenceResponse.ok) {
@@ -298,7 +305,7 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    console.log(`Subscribed ${normalizedEmail} to ConvertKit`, { subscriberId, tag: tagName });
+    console.log('Subscribed to ConvertKit', { subscriberId, tag: tagName, leadMagnet: requestedLeadMagnet });
 
     return NextResponse.json({
       success: true,
