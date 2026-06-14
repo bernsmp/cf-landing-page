@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Course That Rewrites Itself Overnight | Cognitive Fingerprint</title>
+<meta name="description" content="I taught a four-day Claude Code training and the teaching site rewrote itself almost in real time. The loop, and three resources you can run in the next twenty minutes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0A0B; --panel:#0D0D0F; --ink:#ECEAE6; --muted:#928D84; --faint:#5C584F;
+    --amber:#FFB829; --amber-deep:#B57F12; --line:#1C1C1F; --line-soft:#161618;
+    --serif:'Instrument Serif',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:19px; line-height:1.72; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden;}
+  body::before{content:""; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .glow{position:fixed; top:-340px; left:50%; transform:translateX(-50%); width:1100px; height:760px; z-index:0; pointer-events:none; background:radial-gradient(ellipse at center, rgba(255,184,41,.16), rgba(255,184,41,0) 62%); filter:blur(20px);}
+  .wrap{position:relative; z-index:1; max-width:760px; margin:0 auto; padding:0 26px;}
+  .narrow{max-width:680px; margin:0 auto;}
+
+  #progress{position:fixed; top:0; left:0; height:2px; width:0; background:var(--amber); z-index:50; box-shadow:0 0 12px rgba(255,184,41,.6);}
+
+  header.hero{padding:86px 0 6px;}
+  .kicker{display:inline-flex; align-items:center; gap:10px; font-family:var(--mono); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--amber); margin:0 0 26px;}
+  .kicker .dot{width:6px; height:6px; border-radius:50%; background:var(--amber); box-shadow:0 0 10px var(--amber);}
+  h1{font-family:var(--serif); font-weight:400; line-height:1.0; font-size:clamp(3rem,8.5vw,5.6rem); letter-spacing:-.01em; margin:0 0 22px; text-wrap:balance;}
+  h1 .em{font-style:italic; color:var(--amber);}
+  .dek{font-size:1.3rem; color:var(--muted); line-height:1.5; margin:0 0 30px; max-width:36ch;}
+  .meta{display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:.74rem; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); margin:0 0 38px;}
+  .meta b{color:var(--ink); font-weight:500;} .meta .sep{width:18px; height:1px; background:var(--line);}
+
+  .video-frame{position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; background:#050506; border:1px solid var(--line); box-shadow:0 40px 90px -50px rgba(0,0,0,.9); margin:0 0 12px;}
+  .video-frame video,.video-frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0; object-fit:cover;}
+  .video-cap{color:var(--faint); margin:12px 2px 0; font-family:var(--serif); font-size:1.05rem; font-style:italic;}
+
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--line); margin:40px 0 0; background:linear-gradient(180deg,rgba(255,255,255,.015),transparent);}
+  .stat{padding:26px 22px; border-right:1px solid var(--line);} .stat:last-child{border-right:0;}
+  .stat .n{font-family:var(--serif); font-size:2.9rem; color:var(--amber); line-height:.95;}
+  .stat .l{font-family:var(--mono); font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top:10px;}
+  @media(max-width:620px){.stats{grid-template-columns:1fr 1fr;} .stat:nth-child(2){border-right:0;} .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line);}}
+
+  hr.rule{border:0; height:1px; background:var(--line); margin:54px 0;}
+
+  article p{margin:0 0 24px; color:#D7D3CB;}
+  article p.lead{font-size:1.34rem; line-height:1.55; color:var(--ink);}
+  article p.lead::first-letter{font-family:var(--serif); font-size:4.2rem; line-height:.8; float:left; padding:6px 14px 0 0; color:var(--amber);}
+  article strong{color:#fff; font-weight:600;}
+  .pq{font-family:var(--serif); font-weight:400; font-size:clamp(1.9rem,4.6vw,2.9rem); line-height:1.16; color:#fff; margin:8px 0; padding:6px 0 6px 26px; border-left:2px solid var(--amber); letter-spacing:-.005em; text-wrap:balance;}
+  .pq .em{font-style:italic; color:var(--amber);}
+  .pq-band{margin:52px 0; padding:54px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .pq-band .pq{margin:0; border:0; padding:0; font-size:clamp(2.1rem,5.2vw,3.2rem);}
+
+  .sec-label{font-family:var(--mono); font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin:0 0 18px;}
+  .evidence{display:grid; grid-template-columns:repeat(3,1fr); gap:13px; margin:6px 0 8px;}
+  .ev{border:1px solid var(--line); padding:22px; background:linear-gradient(180deg,rgba(255,255,255,.018),transparent); transition:border-color .25s, transform .25s;}
+  .ev:hover{border-color:var(--amber-deep); transform:translateY(-3px);}
+  .ev .tag{font-family:var(--mono); font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; color:var(--amber); margin-bottom:14px;}
+  .ev h4{font-family:var(--serif); font-weight:400; font-size:1.32rem; color:#fff; margin:0 0 10px; line-height:1.12;}
+  .ev p{font-size:.92rem; color:var(--muted); margin:0; line-height:1.55;}
+  @media(max-width:680px){.evidence{grid-template-columns:1fr;}}
+
+  .vs{display:grid; grid-template-columns:1fr 1fr; gap:13px; margin:40px 0;}
+  .vs .col{border:1px solid var(--line); padding:26px;} .vs .col.box{opacity:.82;}
+  .vs .col.folder{border-color:var(--amber-deep); box-shadow:0 0 60px -34px rgba(255,184,41,.55); background:linear-gradient(180deg,rgba(255,184,41,.04),transparent);}
+  .vs .h{font-family:var(--mono); font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; margin-bottom:14px;}
+  .vs .box .h{color:var(--muted);} .vs .folder .h{color:var(--amber);}
+  .vs ul{list-style:none; padding:0; margin:0;}
+  .vs li{font-size:.97rem; color:#CFCBC3; padding:11px 0 11px 24px; position:relative; border-top:1px solid var(--line-soft);} .vs li:first-child{border-top:0;}
+  .vs .box li::before{content:"\00d7"; position:absolute; left:0; top:11px; color:var(--faint);}
+  .vs .folder li::before{content:"\2192"; position:absolute; left:0; top:11px; color:var(--amber);}
+  @media(max-width:620px){.vs{grid-template-columns:1fr;}}
+
+  .tree{font-family:var(--mono); font-size:.88rem; line-height:1.95; background:var(--panel); border:1px solid var(--line); padding:24px 26px; margin:34px 0; color:#9A958C; white-space:pre; overflow-x:auto;}
+  .tree .f{color:var(--amber);} .tree .c{color:var(--faint);}
+
+  .loop{margin:46px 0; padding:34px; border:1px solid var(--line); background:linear-gradient(180deg,rgba(255,184,41,.03),transparent);}
+  .loop-h{font-family:var(--mono); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--amber); margin:0 0 24px; display:flex; align-items:center; gap:10px;}
+  .loop-h .ring{display:inline-block; width:13px; height:13px; border:1.5px solid var(--amber); border-right-color:transparent; border-radius:50%;}
+  .loop-row{display:flex; align-items:stretch;}
+  .loop-node{flex:1; padding:4px 18px;} .loop-node:first-child{padding-left:0;}
+  .loop-num{font-family:var(--mono); font-size:.74rem; color:var(--faint); margin-bottom:8px;}
+  .loop-node h4{font-family:var(--serif); font-weight:400; font-size:1.45rem; line-height:1.1; margin:0; color:#fff;}
+  .loop-arrow{display:flex; align-items:center; color:var(--amber); font-size:1.2rem; opacity:.85;}
+  @media(max-width:620px){.loop-row{flex-direction:column; gap:18px;} .loop-arrow{transform:rotate(90deg); justify-content:center;} .loop-node{padding:0;}}
+
+  .res-intro{margin:30px 0 6px; font-size:1.06rem;} .res-intro strong{font-family:var(--serif); font-weight:400; font-size:1.2rem; color:#fff;}
+  section.resources{margin:14px 0 0;}
+  .res-head{font-family:var(--serif); font-weight:400; font-size:2.5rem; margin:0 0 4px; color:#fff;}
+  .res-sub{color:var(--muted); margin:0 0 30px; font-size:1rem;}
+
+  /* premium resource shelf (hover one, the others recede) */
+  .shelf{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .rcard{position:relative; display:flex; flex-direction:column; min-height:312px; padding:28px 26px; border:1px solid var(--line); background:linear-gradient(180deg,rgba(255,255,255,.022),transparent); text-decoration:none; color:var(--ink); overflow:hidden;
+    transition:transform .45s cubic-bezier(.2,.7,.2,1), filter .45s, opacity .45s, border-color .35s, box-shadow .45s;}
+  .rc-num{position:absolute; top:10px; right:18px; font-family:var(--serif); font-size:4.6rem; line-height:1; color:#fff; opacity:.06; transition:opacity .4s, color .4s;}
+  .rc-ico{width:42px; height:42px; color:var(--amber);}
+  .rc-ico svg{width:42px; height:42px; display:block;}
+  .rc-t{font-family:var(--serif); font-weight:400; font-size:1.5rem; line-height:1.1; color:#fff; margin:24px 0 8px;}
+  .rc-1l{font-size:.95rem; color:var(--muted); line-height:1.5; margin:0;}
+  .rc-meta{font-family:var(--mono); font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--faint); margin-top:auto; padding-top:18px; border-top:1px solid var(--line-soft);}
+  .rc-open{font-family:var(--mono); font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--amber); margin-top:14px; display:flex; align-items:center; gap:8px;}
+  .rc-open i{font-style:normal; transition:transform .3s;}
+  .rcard:hover{transform:translateY(-8px) scale(1.03); border-color:var(--amber); box-shadow:0 34px 80px -42px rgba(255,184,41,.55), inset 0 0 0 1px rgba(255,184,41,.25);}
+  .rcard:hover .rc-num{opacity:.18; color:var(--amber);}
+  .rcard:hover .rc-open i{transform:translateX(6px);}
+  .shelf:hover > .rcard:not(:hover){filter:blur(5px); transform:scale(.94); opacity:.45;}
+  @media(max-width:680px){.shelf{grid-template-columns:1fr;} .shelf:hover > .rcard:not(:hover){filter:none; transform:none; opacity:1;} .rcard{min-height:0;}}
+
+  /* modal (CSS :target, works without JS) */
+  .modal{display:none; position:fixed; inset:0; z-index:100; padding:40px 20px;}
+  .modal:target{display:flex; align-items:flex-start; justify-content:center;}
+  .modal-bg{position:absolute; inset:0; background:rgba(5,5,6,.84); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);}
+  .modal-panel{position:relative; z-index:2; max-width:700px; width:100%; max-height:88vh; overflow-y:auto; background:#0C0C0E; border:1px solid var(--line); box-shadow:0 50px 130px -40px rgba(0,0,0,.92); padding:46px 44px 50px; margin:auto;}
+  .modal-close{position:absolute; top:16px; right:18px; font-size:1.7rem; color:var(--muted); text-decoration:none; line-height:1; z-index:3;}
+  .modal-close:hover{color:var(--amber);}
+  .modal-kick{font-family:var(--mono); font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; color:var(--amber); margin:0 0 10px;}
+  .modal-title{font-family:var(--serif); font-weight:400; font-size:2.2rem; line-height:1.05; color:#fff; margin:0 0 22px;}
+  @media(max-width:680px){.modal-panel{padding:34px 22px 38px;}}
+
+  .res-body h4{font-family:var(--mono); font-weight:500; font-size:.74rem; letter-spacing:.12em; text-transform:uppercase; color:var(--amber); margin:30px 0 10px;}
+  .res-body h4:first-child{margin-top:0;}
+  .res-body p{margin:0 0 15px; font-size:1.02rem; line-height:1.7; color:#CFCBC3;}
+  .res-body ul,.res-body ol{margin:0 0 16px; padding-left:20px;}
+  .res-body li{margin:0 0 9px; font-size:1.02rem; color:#CFCBC3;} .res-body li::marker{color:var(--faint);}
+  .res-body em{font-style:italic; color:#fff;}
+  code{font-family:var(--mono); font-size:.84em; background:#161618; padding:2px 6px; color:var(--amber); border:1px solid var(--line);}
+  .prompt{position:relative; font-family:var(--mono); font-size:.86rem; line-height:1.65; background:var(--panel); border:1px solid var(--line); border-left:2px solid var(--amber); padding:16px 18px 18px; margin:0 0 18px; color:#C7C3BA;}
+  .prompt .lbl{display:block; font-size:.62rem; letter-spacing:.16em; text-transform:uppercase; color:var(--faint); margin-bottom:10px;}
+  .prompt .ptext code{background:none; border:none; padding:0; color:var(--amber);}
+  .copy-btn{position:absolute; top:10px; right:10px; font-family:var(--mono); font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); background:#161618; border:1px solid var(--line); border-radius:40px; padding:5px 11px; cursor:pointer; transition:.2s;}
+  .copy-btn:hover{color:var(--amber); border-color:var(--amber-deep);} .copy-btn.done{color:var(--amber); border-color:var(--amber);}
+  .oneline{font-family:var(--serif); font-size:1.3rem; color:#fff; background:var(--panel); border:1px solid var(--line); padding:18px 20px; margin:0 0 16px;}
+
+  .close{margin-top:50px;}
+  .close p{font-family:var(--serif); font-size:1.6rem; line-height:1.3; color:#fff; margin:0 0 6px;}
+  footer{margin:64px 0 90px; padding-top:30px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between;}
+  footer .mark{font-family:var(--serif); font-size:1.3rem; color:#fff;}
+  footer .next{font-family:var(--mono); font-size:.76rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); text-decoration:none; border:1px solid var(--line); border-radius:40px; padding:9px 16px; transition:.2s;}
+  footer .next:hover{color:var(--amber); border-color:var(--amber-deep);}
+
+  body.js .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+  body.js .reveal.in{opacity:1; transform:none;}
+  ::selection{background:var(--amber); color:#0A0A0B;}
+  a{color:var(--amber);}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="glow"></div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <span class="kicker"><span class="dot"></span> Cognitive Fingerprint &nbsp;/&nbsp; Live Session 01</span>
+    <h1>The Course That Rewrites Itself <span class="em">Overnight</span></h1>
+    <p class="dek">I taught a four-day Claude Code training. Then the teaching site started getting smarter while I slept.</p>
+    <div class="meta"><b>Max Bernstein</b><span class="sep"></span><span>The full live build</span></div>
+
+    <!-- VIDEO: local preview points at the file in Downloads. For production, swap src to a hosted URL
+         (Cloudflare Stream / Vimeo / YouTube). 590MB raw file must not be deployed as-is. -->
+    <div class="video-frame reveal">
+      <img src="/sessions/poster.png" alt="The Course That Rewrites Itself Overnight" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+    </div>
+    <p class="video-cap">The full session. The full recording lands here shortly. Everything below is the structured version of it.</p>
+
+    <div class="stats reveal">
+      <div class="stat"><div class="n">~200</div><div class="l">Live each day</div></div>
+      <div class="stat"><div class="n">600</div><div class="l">Registered</div></div>
+      <div class="stat"><div class="n">4</div><div class="l">Days</div></div>
+      <div class="stat"><div class="n">0</div><div class="l">Course platforms</div></div>
+    </div>
+  </header>
+
+  <hr class="rule">
+
+  <article class="narrow">
+    <p class="lead">Last week I taught a four-day Claude Code training. Close to 200 people live each day, 600 registered. Creative strategists and copywriters, most of them brand new to any of this.</p>
+    <p>Day one wasn't the fun part. Day one was just getting everybody installed. I wasn't about to throw a copywriter into a terminal, so we worked inside the Claude desktop app... and even that was a fight. Getting some folks to install the app at all was a nightmare.</p>
+    <p>But somewhere around day two, I noticed something I wasn't expecting.</p>
+    <p>The site I was teaching from kept getting better, and I hadn't planned for it to. Every night, it rewrote itself.</p>
+    <p>Here's what happened. After each day, I'd grab the transcript. The whole thing. Plus the chat, plus every question anybody asked. And I'd hand it all to Claude with one question... based on this, what did people need that I didn't cover? Then I'd tell it to build those resources and drop them into the site. By the next morning, yesterday's questions were pages on the site.</p>
+  </article>
+
+  <div class="wrap" style="padding-left:0;padding-right:0;">
+    <p class="sec-label narrow">What showed up by morning</p>
+    <div class="evidence reveal">
+      <div class="ev"><div class="tag">Day 2 &rarr; Day 3</div><h4>A tool I never planned to cover</h4><p>Someone asked about Firecrawl and EXA. By morning, a side-by-side comparison chart was sitting in the resources.</p></div>
+      <div class="ev"><div class="tag">After the call</div><h4>A two-minute video, in place</h4><p>Recorded after we wrapped, handed to Claude, dropped exactly where it belonged for anyone who missed it live.</p></div>
+      <div class="ev"><div class="tag">Day 3</div><h4>Built in the thing it teaches</h4><p>The lesson was building sites in Claude Code. The site was built in Claude Code. So I opened the actual files.</p></div>
+    </div>
+  </div>
+
+  <article class="narrow">
+    <p style="margin-top:34px;">The site got smarter off real feedback, not off what I guessed people would need ahead of time.</p>
+    <p>Now think about where a course normally lives.</p>
+    <p>You build it, then you pour it into Kajabi or Circle or Skool, and from that point on you're working inside their box. Their modules. Their layout. Their idea of what a lesson is supposed to look like. And sure, maybe you update yours now and then. But you're doing it on their clock and inside their box.</p>
+  </article>
+
+  <div class="wrap">
+    <div class="vs reveal">
+      <div class="col box"><div class="h">On a platform</div><ul><li>Their modules, their layout</li><li>You move on their clock</li><li>Rebuild means fighting the template</li><li>Capped on how fast you respond</li></ul></div>
+      <div class="col folder"><div class="h">In a folder</div><ul><li>Whatever shape the lesson needs</li><li>Moves as fast as you do</li><li>Restructure the whole flow in a sentence</li><li>A question today is a page tomorrow</li></ul></div>
+    </div>
+  </div>
+
+  <article class="narrow">
+    <p>Mine wasn't capped, and it wasn't boxed. The site rewrote itself almost in real time. A question from the afternoon's call was a new page by the next morning, sitting right where it belonged. And I wasn't jamming my teaching into a module system... I built the exact flow, the exact look, the exact learning experience I wanted.</p>
+  </article>
+
+  <div class="wrap"><div class="pq-band reveal"><p class="pq">The structure bent to the lesson, <span class="em">instead of the lesson bending to the platform.</span></p></div></div>
+
+  <article class="narrow">
+    <p>This isn't only about courses, either. Anything you build inside someone else's tool wears their shape and runs on their clock.</p>
+    <p>And before you decide this is some elaborate setup only I could pull off... it isn't. The whole thing is just files and folders.</p>
+  </article>
+
+  <div class="wrap narrow">
+    <div class="sketch reveal" style="margin:38px 0;">
+      <svg id="course-tree" viewBox="0 0 840 560" style="width:100%;height:auto;display:block;filter:drop-shadow(0 26px 60px rgba(0,0,0,.5));" role="img" aria-label="The course as a folder">
+      <style>#course-tree .hw{font-family:'Caveat','Comic Sans MS',cursive;}#course-tree text{fill:#2B2B2E;}</style>
+      <defs><filter id="rough" x="-2%" y="-2%" width="104%" height="104%"><feTurbulence type="fractalNoise" baseFrequency="0.013" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.0"/></filter></defs>
+      <rect x="10" y="10" width="820" height="540" rx="22" fill="#FFFFFF" stroke="#2B2B2E" stroke-width="2.5" filter="url(#rough)"/>
+      <g filter="url(#rough)"><line x1="56" y1="62" x2="68" y2="62" stroke="#D2785A" stroke-width="3.4" stroke-linecap="round"/><line x1="54.8" y1="64.8" x2="63.3" y2="73.3" stroke="#D2785A" stroke-width="3.4" stroke-linecap="round"/><line x1="52" y1="66" x2="52" y2="78" stroke="#D2785A" stroke-width="3.4" stroke-linecap="round"/><line x1="49.2" y1="64.8" x2="40.7" y2="73.3" stroke="#D2785A" stroke-width="3.4" stroke-linecap="round"/><line x1="48" y1="62" x2="36" y2="62" stroke="#D2785A" stroke-width="3.4" stroke-linecap="round"/><line x1="49.2" y1="59.2" x2="40.7" y2="50.7" stroke="#D2785A" stroke-width="3.4" stroke-linecap="round"/><line x1="52" y1="58" x2="52" y2="46" stroke="#D2785A" stroke-width="3.4" stroke-linecap="round"/><line x1="54.8" y1="59.2" x2="63.3" y2="50.7" stroke="#D2785A" stroke-width="3.4" stroke-linecap="round"/></g>
+      <text x="82" y="74" class="hw" font-size="42" font-weight="700">It's just files and folders</text>
+      <path d="M84 87 q 180 9 360 2" stroke="#6B86B0" stroke-width="3" fill="none" stroke-linecap="round" filter="url(#rough)"/>
+      <text x="84" y="110" class="hw" font-size="21" fill="#7C766B">Claude reads the folder and writes back into it. No hidden layer.</text>
+      <path d="M62 170 V 468" stroke="#C9C2B2" stroke-width="1.6" fill="none" filter="url(#rough)"/>
+      <g filter="url(#rough)"><path d="M50 145 h9 l3 3 h13 v13 h-25 z" fill="#E7C66B" stroke="#2B2B2E" stroke-width="1.6" stroke-linejoin="round"/></g>
+      <text x="82" y="156" class="hw" font-size="28" font-weight="700">the-course/</text>
+      <path d="M62 228 H 74" stroke="#C9C2B2" stroke-width="1.4" filter="url(#rough)"/>
+      <g filter="url(#rough)"><path d="M78 220 h13 l6 6 v13 h-19 z" fill="#FFFFFF" stroke="#2B2B2E" stroke-width="1.6" stroke-linejoin="round"/><path d="M91 220 v6 h6" fill="none" stroke="#2B2B2E" stroke-width="1.3"/></g>
+      <rect x="108" y="214" width="118" height="26" rx="6" fill="#E9E1F5"/><text x="117" y="233" class="hw" font-size="23" font-weight="600">CLAUDE.md</text>
+      <text x="372" y="232" class="hw" font-size="20" fill="#7C766B">the rules the folder runs on</text>
+      <path d="M62 268 H 74" stroke="#C9C2B2" stroke-width="1.4" filter="url(#rough)"/>
+      <g filter="url(#rough)"><path d="M78 263 h9 l3 3 h13 v13 h-25 z" fill="#E7C66B" stroke="#2B2B2E" stroke-width="1.6" stroke-linejoin="round"/></g>
+      <rect x="108" y="254" width="150" height="26" rx="6" fill="#DBE6F5"/><text x="117" y="273" class="hw" font-size="23" font-weight="600">transcripts/</text>
+      <text x="372" y="272" class="hw" font-size="20" fill="#7C766B">every session, dropped in nightly</text>
+      <path d="M62 308 H 74" stroke="#C9C2B2" stroke-width="1.4" filter="url(#rough)"/>
+      <g filter="url(#rough)"><path d="M78 303 h9 l3 3 h13 v13 h-25 z" fill="#E7C66B" stroke="#2B2B2E" stroke-width="1.6" stroke-linejoin="round"/></g>
+      <rect x="108" y="294" width="130" height="26" rx="6" fill="#D8EEDD"/><text x="117" y="313" class="hw" font-size="23" font-weight="600">resources/</text>
+      <text x="372" y="312" class="hw" font-size="20" fill="#7C766B">what Claude built from the questions</text>
+      <path d="M112 314 V 428" stroke="#C9C2B2" stroke-width="1.4" fill="none" filter="url(#rough)"/>
+      <path d="M112 348 H 126" stroke="#C9C2B2" stroke-width="1.4" filter="url(#rough)"/>
+      <g filter="url(#rough)"><path d="M130 340 h11 l5 5 v11 h-16 z" fill="#FFFFFF" stroke="#2B2B2E" stroke-width="1.4" stroke-linejoin="round"/><path d="M141 340 v5 h5" fill="none" stroke="#2B2B2E" stroke-width="1.1"/></g>
+      <rect x="152" y="336" width="300" height="24" rx="6" fill="#FAEFC4"/><text x="160" y="354" class="hw" font-size="19" font-weight="600">firecrawl-microsite-recipe.md</text>
+      <path d="M112 388 H 126" stroke="#C9C2B2" stroke-width="1.4" filter="url(#rough)"/>
+      <g filter="url(#rough)"><path d="M130 380 h11 l5 5 v11 h-16 z" fill="#FFFFFF" stroke="#2B2B2E" stroke-width="1.4" stroke-linejoin="round"/><path d="M141 380 v5 h5" fill="none" stroke="#2B2B2E" stroke-width="1.1"/></g>
+      <rect x="152" y="376" width="234" height="24" rx="6" fill="#FBE2D2"/><text x="160" y="394" class="hw" font-size="19" font-weight="600">dual-model-qc-loop.md</text>
+      <path d="M112 428 H 126" stroke="#C9C2B2" stroke-width="1.4" filter="url(#rough)"/>
+      <g filter="url(#rough)"><path d="M130 420 h11 l5 5 v11 h-16 z" fill="#FFFFFF" stroke="#2B2B2E" stroke-width="1.4" stroke-linejoin="round"/><path d="M141 420 v5 h5" fill="none" stroke="#2B2B2E" stroke-width="1.1"/></g>
+      <rect x="152" y="416" width="244" height="24" rx="6" fill="#FAEFC4"/><text x="160" y="434" class="hw" font-size="19" font-weight="600">tools-and-references.md</text>
+      <path d="M62 468 H 74" stroke="#C9C2B2" stroke-width="1.4" filter="url(#rough)"/>
+      <g filter="url(#rough)"><path d="M78 460 h13 l6 6 v13 h-19 z" fill="#FFFFFF" stroke="#2B2B2E" stroke-width="1.6" stroke-linejoin="round"/><path d="M91 460 v6 h6" fill="none" stroke="#2B2B2E" stroke-width="1.3"/></g>
+      <rect x="108" y="454" width="130" height="26" rx="6" fill="#FBE2D2"/><text x="117" y="473" class="hw" font-size="23" font-weight="600">index.html</text>
+      <text x="372" y="472" class="hw" font-size="20" fill="#7C766B">the site you're looking at</text>
+      <path d="M42 506 H 798" stroke="#C9C2B2" stroke-width="1.4" stroke-dasharray="2 6" filter="url(#rough)"/>
+      <text x="420" y="534" class="hw" font-size="23" fill="#2B2B2E" text-anchor="middle">The transcript goes in. New pages come out. Same folder.</text>
+      </svg>
+    </div>
+  </div>
+
+  <article class="narrow">
+    <p>As crazy as Claude Code looks, strip it back and it's just files and folders on your computer. You point it at a folder, and that folder is everything it can see. You open the same folder in Obsidian for a nicer view... still the same folder.</p>
+    <p>So the teaching site was a folder. The transcript went into the folder. Claude read the folder and wrote new files back into it. There's no hidden layer. There's a folder, and a model that can read and write inside it.</p>
+    <p>Once you see it that way, the question stops being "could I build this" and turns into "what do I point it at." A living folder beats a boxed-in platform, and the engine is one nightly loop.</p>
+  </article>
+
+  <div class="wrap">
+    <div class="loop reveal">
+      <p class="loop-h"><span class="ring"></span> The nightly loop</p>
+      <div class="loop-row">
+        <div class="loop-node"><div class="loop-num">01</div><h4>Feed it what actually happened</h4></div>
+        <div class="loop-arrow">&rarr;</div>
+        <div class="loop-node"><div class="loop-num">02</div><h4>Ask what's missing</h4></div>
+        <div class="loop-arrow">&rarr;</div>
+        <div class="loop-node"><div class="loop-num">03</div><h4>Let it build while you sleep</h4></div>
+      </div>
+    </div>
+  </div>
+
+  <article class="narrow">
+    <p>You still need to know how to make Claude Code's output not look like generic AI slop. How to turn a flat strategy doc into something that looks like your client's own brand. How to catch your own mistakes before a client does, without trusting one model to grade its own homework.</p>
+    <p class="res-intro"><strong>That's what's below.</strong> Three resources straight out of that training. Each one's a thing you can run in the next twenty minutes.</p>
+  </article>
+
+  <section class="resources" id="resources">
+    <div class="narrow">
+      <h2 class="res-head">Run it yourself</h2>
+      <p class="res-sub">Three resources from the training. Hover to focus, click to open the full recipe.</p>
+    </div>
+    <div class="shelf reveal">
+      <a class="rcard" href="#res1">
+        <span class="rc-num">01</span>
+        <span class="rc-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="9" width="36" height="30" rx="2"/><line x1="6" y1="17" x2="42" y2="17"/><circle cx="11.5" cy="13" r="1" fill="currentColor" stroke="none"/><line x1="14" y1="25" x2="30" y2="25"/><line x1="14" y1="31" x2="24" y2="31"/></svg></span>
+        <h3 class="rc-t">The Firecrawl Microsite Recipe</h3>
+        <p class="rc-1l">Stop sending Google Docs. Send something that looks like the client's own brand.</p>
+        <span class="rc-meta">4 steps &middot; 3 copy-paste prompts</span>
+        <span class="rc-open">Open the recipe <i>&rarr;</i></span>
+      </a>
+      <a class="rcard" href="#res2">
+        <span class="rc-num">02</span>
+        <span class="rc-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="8" width="22" height="22" rx="2"/><rect x="18" y="18" width="22" height="22" rx="2"/></svg></span>
+        <h3 class="rc-t">The Dual-Model QC Loop</h3>
+        <p class="rc-1l">Don't let one model grade its own homework. Have two models check each other.</p>
+        <span class="rc-meta">The loop &middot; 3 copy-paste prompts</span>
+        <span class="rc-open">Open the loop <i>&rarr;</i></span>
+      </a>
+      <a class="rcard" href="#res3">
+        <span class="rc-num">03</span>
+        <span class="rc-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="8" width="13" height="13" rx="1.5"/><rect x="27" y="8" width="13" height="13" rx="1.5"/><rect x="8" y="27" width="13" height="13" rx="1.5"/><rect x="27" y="27" width="13" height="13" rx="1.5"/></svg></span>
+        <h3 class="rc-t">Tools &amp; References Sheet</h3>
+        <p class="rc-1l">The exact sites I reach for, and the one number that says when to hand off.</p>
+        <span class="rc-meta">8 tools &middot; the 300K rule</span>
+        <span class="rc-open">Open the sheet <i>&rarr;</i></span>
+      </a>
+    </div>
+  </section>
+
+  <div class="close narrow">
+    <p>So point Claude at a folder. Hand it yesterday. Ask what's missing.</p>
+    <p style="color:var(--amber);">Then go look at what it built while you slept.</p>
+  </div>
+
+  <footer class="narrow">
+    <span class="mark">Cognitive Fingerprint</span>
+    <a class="next" href="#">Live Session 01 &nbsp;&middot;&nbsp; The Library &rarr;</a>
+  </footer>
+
+</div>
+
+<!-- ===================== MODALS ===================== -->
+<div class="modal" id="res1">
+  <a class="modal-bg" href="#resources" aria-label="Close"></a>
+  <div class="modal-panel">
+    <a class="modal-close" href="#resources" aria-label="Close">&times;</a>
+    <p class="modal-kick">Resource 01</p>
+    <h3 class="modal-title">The Firecrawl Microsite Recipe</h3>
+    <div class="res-body">
+      <p>The first time you send a client a strategy doc, it competes with every other Google Doc they've ever opened. Same gray sidebar. Same comment bubbles. Same blank reaction.</p>
+      <p>You could rewrite that doc ten times and it's still a doc. So change the container. You send a small site that looks like <em>their</em> brand, pulled from their real assets, with their real product shots and their real colors. Same strategy. Completely different reaction.</p>
+      <h4>What you need</h4>
+      <ul><li>Claude Code (desktop app or terminal, your call)</li><li>Firecrawl, connected to Claude Code (<code>firecrawl --status</code> should say authenticated)</li><li>A folder to work in</li><li>The client's website URL</li></ul>
+      <h4>Step 1. Scrape their brand back at them</h4>
+      <p>Point Firecrawl at their site and pull the real assets. Not screenshots you take by hand. The actual logos, colors, and images straight off their pages.</p>
+      <div class="prompt"><button class="copy-btn">Copy</button><span class="lbl">Paste into Claude Code</span><span class="ptext">"Use Firecrawl to scrape [their-site.com]. Pull their logo, their exact brand colors (hex values), their fonts, and download the product images and any hero images from the site into an /assets folder. Then write me a short brand.md summarizing the palette, type, and tone so we work from their real brand, not a guess."</span></div>
+      <p>The point of <code>brand.md</code> is that everything downstream reads from one source of truth. You're not eyeballing their blue. You have the hex. If you want product shots from a retail page, say so. On one project the model pulled the product photos off a retail shelf listing I never set foot in.</p>
+      <div class="prompt"><button class="copy-btn">Copy</button><span class="lbl">Paste into Claude Code</span><span class="ptext">"Also scrape [retailer.com/their-product-page] and pull the product photography and the shelf/category shots into /assets."</span></div>
+      <h4>Step 2. Build the microsite from the real assets</h4>
+      <div class="prompt"><button class="copy-btn">Copy</button><span class="lbl">Paste into Claude Code</span><span class="ptext">"Build a single-page site in this folder for [client]. Use the colors, fonts, and logo from brand.md and the images in /assets. The content is the strategy in strategy.md. Make it feel like their brand, not a template. Match their visual register."</span></div>
+      <p>Two things keep this from looking AI-made. <strong>Feed it a reference:</strong> grab a design you like, screenshot it, and tell Claude what specifically to borrow. <strong>Get it 80% there, then push:</strong> the last 20% is your taste, and that's the part nobody can copy.</p>
+      <h4>Step 3 (optional). Bring one thing to life</h4>
+      <p>Pick one element and make it move. Take a single image and run it through a video model (Seedance and Kling both work for a short, subtle clip), then drop it back in. One moving element on a clean page reads as premium. A whole page of motion reads as a demo.</p>
+      <h4>Why this works</h4>
+      <p>A Google Doc says "here are my notes." A site that looks like their brand says "I already see your company the way you do." The strategy didn't change. The recognition did.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="res2">
+  <a class="modal-bg" href="#resources" aria-label="Close"></a>
+  <div class="modal-panel">
+    <a class="modal-close" href="#resources" aria-label="Close">&times;</a>
+    <p class="modal-kick">Resource 02</p>
+    <h3 class="modal-title">The Dual-Model QC Loop</h3>
+    <div class="res-body">
+      <p>When Claude builds something and then you ask Claude if it's any good, you're asking the same brain that just made the mistakes to find the mistakes. It's biased toward "looks great." You need a second model that didn't write the code to come at it cold.</p>
+      <p>Here's the loop I use. The clever part is that the first model <em>writes the review prompt</em> for the second one.</p>
+      <h4>Why have Claude write the prompt</h4>
+      <p>Claude already knows the stack, where the files live, the front end, the auth and security. So the QC prompt it hands you is far more grounded than anything you'd type from memory. You're having the model that knows the codebase brief the model that's going to audit it.</p>
+      <h4>Step 1. Have Claude write the QC prompt</h4>
+      <div class="prompt"><button class="copy-btn">Copy</button><span class="lbl">Paste into Claude</span><span class="ptext">"Give me a quality-control prompt I can hand to a second model (Codex) to review all the code and the architecture of everything we've built. Ground it: tell the reviewer what this app is, the stack, where all the relevant files live, the front end, and the access and security setup. End the prompt with an output format: the top 3 things to fix, ranked, with the file and line for each."</span></div>
+      <h4>Step 2. Add the breadth clause (the fix a student caught)</h4>
+      <p>If you tell the reviewer exactly where to look, you've also told it where <em>not</em> to look. One of my sharper students caught that live. Add one line to the top:</p>
+      <div class="prompt"><button class="copy-btn">Copy</button><span class="lbl">Add to the top of the prompt</span><span class="ptext">"This is a briefing prompt from another model. Use it for grounding, but do not restrict yourself to it. Run your full, extensive QC audit the way you normally would, and flag anything outside this scope too."</span></div>
+      <h4>Step 3. Run it, then fix</h4>
+      <p>Run Codex from the terminal with <code>codex exec</code>, or install the official Codex plugin inside Claude Code and let Claude call it. It sends back ranked findings. Paste them back into your original session:</p>
+      <div class="prompt"><button class="copy-btn">Copy</button><span class="lbl">Paste into Claude</span><span class="ptext">"Here's the QC review from Codex. Work through the findings in priority order and fix them."</span></div>
+      <div class="oneline">Claude writes the brief. Codex audits it, grounded but not boxed in. The findings go back to Claude. Claude fixes.</div>
+      <p>Reach for it when you're about to put something in front of a client, when it touches security or payments or data, or when you've been heads-down so long you can't see it fresh anymore.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="res3">
+  <a class="modal-bg" href="#resources" aria-label="Close"></a>
+  <div class="modal-panel">
+    <a class="modal-close" href="#resources" aria-label="Close">&times;</a>
+    <p class="modal-kick">Resource 03</p>
+    <h3 class="modal-title">Tools &amp; References Sheet</h3>
+    <div class="res-body">
+      <p>Nothing here is theory. This is what was open in my tabs during the training.</p>
+      <h4>Design, so it doesn't look AI-made</h4>
+      <p><strong>Dribbble</strong> (<a href="https://dribbble.com">dribbble.com</a>). Where I go before I build anything visual. Not to copy whole designs. To hunt for one move that stands out, screenshot it, and tell Claude what to borrow.</p>
+      <p><strong>Lobe Icons</strong> (<a href="https://lobehub.com/icons">lobehub.com/icons</a>). 200+ official AI and LLM brand logos, free. Tell Claude to pull the official one from here instead of hunting.</p>
+      <h4>Getting the web into your work</h4>
+      <p><strong>Firecrawl</strong> (<a href="https://firecrawl.dev">firecrawl.dev</a>). Scrapes any site into clean content, or pulls a brand's assets, colors, and images. The engine behind the Microsite Recipe. Check it's live with <code>firecrawl --status</code>.</p>
+      <p><strong>EXA</strong> (<a href="https://exa.ai">exa.ai</a>). Search built for AI to retrieve from. Firecrawl grabs a page you point at; EXA finds the pages worth pointing at. They pair.</p>
+      <h4>A second brain to check your work</h4>
+      <p><strong>Codex.</strong> OpenAI's coding agent, the second model in the QC loop. Run it with <code>codex exec</code>, or install the official Codex plugin inside Claude Code.</p>
+      <h4>Memory and handoffs, so your work compounds</h4>
+      <ul><li><code>/remember-this</code> saves something mid-session worth keeping.</li><li><code>/reflect</code> promotes the real lesson into memory at the end.</li><li><code>/handoff</code> writes a markdown file of everything you did plus a paste-ready prompt for the next session. The one I use most.</li></ul>
+      <h4>The one number that tells you when to hand off</h4>
+      <p>A model gets noticeably dumber as its context fills up. The rule I work by: once a session passes roughly <strong>300,000 tokens</strong>, quality starts dropping, no matter how big the context window claims to be. That's when I run <code>/handoff</code> and start fresh.</p>
+      <h4>The one habit underneath all of it</h4>
+      <p>Before you ask anyone for help, ask the AI. A screenshot of an error pasted into a fresh Claude chat solves the question maybe 95 to 99% of the time. You usually don't have a problem. You have a question you haven't handed to the model yet.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.body.classList.add('js');
+  var pb=document.getElementById('progress');
+  function onScroll(){var h=document.documentElement.scrollHeight-window.innerHeight;pb.style.width=(h>0?(window.scrollY/h*100):0)+'%';}
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var t=btn.parentElement.querySelector('.ptext').innerText;
+      navigator.clipboard.writeText(t).then(function(){btn.textContent='Copied'; btn.classList.add('done'); setTimeout(function(){btn.textContent='Copy'; btn.classList.remove('done');},1600);});
+    });
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&/^#res[123]$/.test(location.hash)){location.hash='#resources';}});
+</script>
+</body>
+</html>

@@ -15,6 +15,14 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: '/sessions/rewrites-itself',
+        destination: '/sessions/rewrites-itself.html',
+      },
+    ];
+  },
 };
 
 export default nextConfig;
