@@ -161,12 +161,11 @@
     <p class="dek">I taught a four-day Claude Code training. Then the teaching site started getting smarter while I slept.</p>
     <div class="meta"><b>Max Bernstein</b><span class="sep"></span><span>The full live build</span></div>
 
-    <!-- VIDEO: local preview points at the file in Downloads. For production, swap src to a hosted URL
-         (Cloudflare Stream / Vimeo / YouTube). 590MB raw file must not be deployed as-is. -->
-    <div class="video-frame reveal">
+    <!-- VIDEO: YouTube lite-embed. Branded poster shows; click loads the YouTube player. -->
+    <div class="video-frame reveal" data-yt="8PP2b8zDfZM" role="button" tabindex="0" aria-label="Play the full session recording">
       <img src="/sessions/poster.png" alt="The Course That Rewrites Itself Overnight" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
     </div>
-    <p class="video-cap">The full session. The full recording lands here shortly. Everything below is the structured version of it.</p>
+    <p class="video-cap">The full session. Everything below is the structured version of what you just watched.</p>
 
     <div class="stats reveal">
       <div class="stat"><div class="n">~200</div><div class="l">Live each day</div></div>
@@ -426,6 +425,11 @@
     });
   });
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&/^#res[123]$/.test(location.hash)){location.hash='#resources';}});
+  (function(){var vf=document.querySelector('.video-frame[data-yt]'); if(!vf) return; vf.style.cursor='pointer';
+    function load(){var id=vf.getAttribute('data-yt'); vf.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&color=white&modestbranding=1" title="The Course That Rewrites Itself Overnight" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>';}
+    vf.addEventListener('click',load);
+    vf.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();load();}});
+  })();
 </script>
 </body>
 </html>
