@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
-export const alt = 'The Four Layers Extraction Prompt - Cognitive Fingerprint';
+export const alt = 'The prompt that names the one pattern you cannot see - Cognitive Fingerprint';
 export const size = {
   width: 1200,
   height: 630,
@@ -76,7 +76,7 @@ export default async function Image() {
               display: 'flex',
             }}
           >
-            The Four Layers
+            Find the pattern
           </div>
           <div
             style={{
@@ -89,7 +89,7 @@ export default async function Image() {
               display: 'flex',
             }}
           >
-            Extraction Prompt
+            you can&apos;t see
           </div>
 
           <div
@@ -100,7 +100,7 @@ export default async function Image() {
               display: 'flex',
             }}
           >
-            See the expertise you can&apos;t explain
+            One transcript. One named pattern, in your own words.
           </div>
 
           <div

@@ -1,251 +1,361 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
-import { ArrowDown, Mic } from 'lucide-react';
+import { Mic } from 'lucide-react';
 
-import { CourseGate } from './components/CourseGate';
-import { PromptBlock } from './components/PromptBlock';
+import { EmailCapture } from './components/EmailCapture';
 import {
-  FOUR_LAYERS_PROMPT,
-  FOLLOW_UP_PROMPTS,
-  FOUR_LAYERS,
-  GOOD_TRANSCRIPT_RULES,
-  HOW_TO_RUN_STEPS,
+  HERO_VARIANTS,
+  HERO_VARIANT_IDS,
+  HOW_IT_WORKS,
+  type HeroVariant,
+  type HeroVariantId,
 } from './data';
 
-const STORAGE_KEY = 'sme-unlocked';
+const VARIANT_STORAGE_KEY = 'sme-hero-variant';
 
 export default function SmePage() {
-  const [gateState, setGateState] = useState<'loading' | 'locked' | 'unlocked'>('loading');
-  const isUnlocked = gateState === 'unlocked';
-  const isLoading = gateState === 'loading';
+  const reduceMotion = useReducedMotion();
+  const [variant, setVariant] = useState<HeroVariant | null>(null);
 
   useEffect(() => {
-    // SSR-safe localStorage read on mount; gate state is unknowable on the server.
+    // Hero variant is per-visitor and random, so it can only be resolved on the
+    // client. Persist the first pick so a returning visitor sees the same hero.
+    const stored = localStorage.getItem(VARIANT_STORAGE_KEY);
+    let id: HeroVariantId | null =
+      stored && (HERO_VARIANT_IDS as string[]).includes(stored)
+        ? (stored as HeroVariantId)
+        : null;
+    if (!id) {
+      id = HERO_VARIANT_IDS[Math.floor(Math.random() * HERO_VARIANT_IDS.length)];
+      localStorage.setItem(VARIANT_STORAGE_KEY, id);
+    }
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setGateState(localStorage.getItem(STORAGE_KEY) === 'true' ? 'unlocked' : 'locked');
+    setVariant(HERO_VARIANTS.find((v) => v.id === id) ?? HERO_VARIANTS[0]);
   }, []);
 
-  const handleUnlock = useCallback(() => {
-    setGateState('unlocked');
-    setTimeout(() => {
-      document.getElementById('the-prompt')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 400);
-  }, []);
-
-  const scrollToGate = useCallback(() => {
-    document.getElementById(isUnlocked ? 'the-prompt' : 'sme-gate')?.scrollIntoView({
-      behavior: 'smooth',
+  const focusCapture = useCallback(() => {
+    const el = document.getElementById('email-hero');
+    el?.scrollIntoView({
+      behavior: reduceMotion ? 'auto' : 'smooth',
       block: 'center',
     });
-  }, [isUnlocked]);
+    window.setTimeout(() => el?.focus({ preventScroll: true }), reduceMotion ? 0 : 350);
+  }, [reduceMotion]);
 
   return (
     <main className="min-h-screen bg-[var(--grey-950)] text-white">
-      {/* Hero */}
-      <section className="relative px-6 pt-20 pb-16 md:pt-28 md:pb-24 text-center overflow-hidden">
+      {/* Hero + first capture */}
+      <section className="relative px-6 pt-20 pb-16 md:pt-28 md:pb-20 text-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-[var(--grey-950)] to-[var(--grey-950)]" />
         <div className="relative z-10 max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--grey-700)] text-sm text-[var(--grey-400)] mb-8">
-              <Mic size={14} className="text-[var(--brand-gold)]" />
-              For listeners of AI Explored with Michael Stelzner
-            </span>
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--grey-700)] text-sm text-[var(--grey-400)] mb-8">
+            <Mic size={14} className="text-[var(--brand-gold)]" aria-hidden="true" />
+            For listeners of AI Explored with Michael Stelzner
+          </span>
 
-            <h1 className="font-display text-4xl md:text-6xl font-bold leading-tight mb-6">
-              The Four Layers
-              <br />
-              Extraction Prompt
-            </h1>
-
-            <p className="text-lg md:text-xl text-[var(--grey-400)] max-w-xl mx-auto mb-4">
-              The full prompt from the episode. Run it on one transcript of you
-              working, and see the expertise you&apos;ve never been able to
-              explain: named, organized, and backed by your own words.
-            </p>
-
-            <p className="text-base text-[var(--grey-500)] max-w-xl mx-auto mb-10">
-              No tool to buy. It runs in Claude or ChatGPT, on a conversation
-              you already have.
-            </p>
-
-            <button
-              onClick={scrollToGate}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-bold rounded-xl hover:bg-[var(--brand-gold-light)] transition-all text-lg"
-            >
-              Get the prompt
-              <ArrowDown size={20} />
-            </button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* The four layers */}
-      <section className="px-6 py-16 md:py-20 border-t border-[var(--grey-850)]">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-display text-2xl md:text-4xl font-bold mb-3">
-            What it looks for
-          </h2>
-          <p className="text-[var(--grey-400)] mb-10 max-w-xl">
-            Your thinking runs on four layers. You can talk about the first
-            two. The bottom two are where clients decide you&apos;re worth it,
-            and they&apos;re the ones you can&apos;t see.
-          </p>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {FOUR_LAYERS.map((layer, i) => (
+          {/* Reserve vertical space so the form below doesn't jump when the
+              variant resolves on mount. */}
+          <div className="min-h-[220px] md:min-h-[260px] flex flex-col items-center justify-start">
+            {variant && (
               <motion.div
-                key={layer.name}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="p-6 rounded-xl bg-[var(--grey-900)] border border-[var(--grey-800)]"
+                key={variant.id}
+                initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
               >
-                <div className="text-sm text-[var(--brand-gold)] font-medium mb-1">
-                  Layer {i + 1} · {layer.name}
-                </div>
-                <div className="text-white font-bold text-lg mb-2">{layer.plain}</div>
-                <p className="text-sm text-[var(--grey-400)] leading-relaxed">
-                  {layer.description}
+                <h1 className="font-display text-4xl md:text-6xl font-bold leading-tight mb-6 max-w-2xl mx-auto">
+                  {variant.headline}
+                </h1>
+                <p className="text-lg md:text-xl text-[var(--grey-400)] max-w-xl mx-auto">
+                  {variant.sub}
                 </p>
               </motion.div>
-            ))}
+            )}
+          </div>
+
+          <div className="mt-10">
+            <button
+              onClick={focusCapture}
+              className="inline-flex items-center justify-center px-8 py-4 bg-[var(--brand-gold)] text-[var(--grey-950)] font-bold rounded-xl hover:bg-[var(--brand-gold-light)] transition-all text-lg"
+            >
+              {variant?.cta ?? 'Send me the prompt'}
+            </button>
+          </div>
+
+          <div className="mt-12 pt-10 border-t border-[var(--grey-850)]">
+            <p className="text-[var(--grey-300)] mb-5">
+              Enter your email and I’ll send the prompt straight over.
+            </p>
+            <EmailCapture heroVariant={variant?.id ?? null} inputId="email-hero" />
+            <p className="text-sm text-[var(--grey-500)] mt-5">
+              Your transcript stays with you. I never see it.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* What you need */}
-      <section className="px-6 py-16 md:py-20 border-t border-[var(--grey-850)]">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-display text-2xl md:text-4xl font-bold mb-3">
-            All it needs is one transcript
-          </h2>
-          <p className="text-[var(--grey-400)] mb-10 max-w-xl">
-            A client call, a coaching session, a podcast interview. You in your
-            zone of genius, recorded. Four rules for a transcript that develops
-            clean:
-          </p>
-
-          <div className="space-y-4">
-            {GOOD_TRANSCRIPT_RULES.map((rule) => (
-              <div
-                key={rule.title}
-                className="flex gap-4 p-4 rounded-xl bg-[var(--grey-900)] border border-[var(--grey-800)]"
-              >
-                <div className="w-1 rounded-full bg-[var(--brand-gold)]/60 shrink-0" />
-                <div>
-                  <div className="text-white font-medium mb-1">{rule.title}</div>
-                  <p className="text-sm text-[var(--grey-400)]">{rule.detail}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-sm text-[var(--grey-500)] mt-8">
-            No transcripts yet? Granola, Zoom, Google Meet, and Fathom all
-            produce them. Record one call this week and come back. The page
-            isn&apos;t going anywhere.
-          </p>
-        </div>
-      </section>
-
-      {/* Gate or prompt */}
-      {!isLoading && !isUnlocked && <CourseGate onUnlock={handleUnlock} />}
-
-      {!isLoading && isUnlocked && (
-        <>
-          <section id="the-prompt" className="px-6 py-16 md:py-20 border-t border-[var(--grey-850)]">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="font-display text-2xl md:text-4xl font-bold mb-3">
-                The prompt
-              </h2>
-              <p className="text-[var(--grey-400)] mb-8 max-w-xl">
-                Copy it whole. Paste it into Claude or ChatGPT, drop your
-                transcript into the INPUT section, and run it. If your
-                transcript is too thin, it will tell you instead of guessing.
-                That&apos;s on purpose.
-              </p>
-
-              <PromptBlock
-                title="The Four Layers Extraction Prompt"
-                content={FOUR_LAYERS_PROMPT}
-                prominent
-              />
-
-              <div className="mt-12">
-                <h3 className="font-display text-xl md:text-2xl font-bold mb-4">
-                  How to run it
-                </h3>
-                <ol className="space-y-3">
-                  {HOW_TO_RUN_STEPS.map((step, i) => (
-                    <li key={i} className="flex gap-4 text-[var(--grey-300)]">
-                      <span className="text-[var(--brand-gold)] font-bold shrink-0">
-                        {i + 1}.
-                      </span>
-                      <span className="text-sm md:text-base leading-relaxed">{step}</span>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            </div>
-          </section>
-
-          <section className="px-6 py-16 md:py-20 border-t border-[var(--grey-850)]">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="font-display text-2xl md:text-4xl font-bold mb-3">
-                Then go deeper
-              </h2>
-              <p className="text-[var(--grey-400)] mb-8 max-w-xl">
-                After the first analysis, run these on the pattern that
-                surprised you most. The third one builds your first fingerprint
-                file: a portable file that teaches any AI to think with your
-                patterns.
-              </p>
-
-              <div className="space-y-6">
-                {FOLLOW_UP_PROMPTS.map((p) => (
-                  <PromptBlock key={p.title} title={p.title} content={p.content} />
-                ))}
-              </div>
-            </div>
-          </section>
-        </>
-      )}
-
-      {/* Footer strip */}
-      <section className="px-6 py-14 border-t border-[var(--grey-850)] text-center">
-        <div className="max-w-2xl mx-auto">
-          <Image
-            src="/logo/cf logo.png"
-            alt="Cognitive Fingerprint"
-            width={48}
-            height={48}
-            className="mx-auto mb-5 opacity-80"
+      {/* Here's what it does */}
+      <Section
+        title="Here’s what it does"
+        id="what-it-does"
+        media={
+          <MediaImage
+            src="/sme/hidden-world.jpg"
+            width={1900}
+            height={1060}
+            alt="A hidden world of green breaking through a cracked concrete wall"
           />
-          <p className="text-[var(--grey-400)] mb-2">
-            This prompt is the first step of the Cognitive Fingerprint
-            methodology.
+        }
+      >
+        <p>
+          You give it one transcript. A coaching call, a sales call, a podcast
+          interview, anywhere you were working in your zone and someone hit
+          record.
+        </p>
+        <p>
+          It reads how you operate across that whole conversation and finds the
+          one move you keep making without noticing. The reframe you always reach
+          for. The question you always ask first. The thing your best clients
+          feel and can’t put into words.
+        </p>
+        <p>
+          Then it names that pattern and shows you the exact moments you did it.
+          In your own words.
+        </p>
+        <p>
+          That’s the part that stops people. Seeing the thing they’ve done ten
+          thousand times finally sitting still on the page where they can look at
+          it.
+        </p>
+      </Section>
+
+      {/* What happens when people see it */}
+      <Section title="What happens when people see it">
+        <p>
+          One coach told me her heart was pounding and she had chills running up
+          her arms. She’d been coaching for thirty years and had never been able
+          to say what she actually did.
+        </p>
+        <p>
+          The prompt found things like her Courage Circulation System, the way
+          she takes courage out of one person’s story and moves it into another
+          person’s challenge. Three decades of doing it. She’d never once seen
+          it.
+        </p>
+        <p className="text-white font-medium">
+          This free prompt finds one pattern. She had dozens.
+        </p>
+      </Section>
+
+      {/* Privacy */}
+      <Section title="On privacy, since this audience always asks">
+        <p>
+          You paste the prompt into whatever AI tool you already use. Your
+          transcript goes nowhere near me. Nothing to upload to a stranger, no
+          new tool to sign up for. Your calls stay yours.
+        </p>
+      </Section>
+
+      {/* How it works */}
+      <Section title="How it works">
+        <ol className="space-y-4 not-prose">
+          {HOW_IT_WORKS.map((step, i) => (
+            <li key={i} className="flex gap-4">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[var(--brand-gold)]/10 border border-[var(--brand-gold)]/25 text-[var(--brand-gold)] font-bold flex items-center justify-center">
+                {i + 1}
+              </span>
+              <span className="text-[var(--grey-300)] leading-relaxed pt-1">{step}</span>
+            </li>
+          ))}
+        </ol>
+      </Section>
+
+      {/* What's underneath this */}
+      <Section
+        title="What’s underneath this"
+        id="underneath"
+        mediaSide="left"
+        media={
+          <MediaVideo
+            src="/sme/breakthrough.mp4"
+            poster="/sme/breakthrough-poster.jpg"
+            width={1600}
+            height={893}
+            alt="A landscape breaking out of its frame and pouring into the room"
+          />
+        }
+      >
+        <p>
+          This finds one pattern from one transcript. There are more. There’s a
+          structure under your thinking that runs four layers deep, and a way to
+          turn the whole thing into a single file that teaches any AI to think
+          the way you do.
+        </p>
+        <p>That’s the larger work. This prompt is the doorway. Start here.</p>
+      </Section>
+
+      {/* Final capture */}
+      <section className="px-6 py-20 md:py-28 border-t border-[var(--grey-850)] text-center">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl font-bold leading-tight mb-8">
+            Run it on one transcript. See what you’ve never been able to say.
+          </h2>
+          <EmailCapture heroVariant={variant?.id ?? null} inputId="email-final" />
+          <p className="text-sm text-[var(--grey-500)] mt-5">
+            Free. Yours in your inbox. I’ll also share what I find, weekly.
           </p>
-          <p className="text-sm text-[var(--grey-500)] mb-6">
-            The full extraction goes four layers deep on every pattern, with
-            evidence from across all your conversations.
-          </p>
-          <Link
-            href="/"
-            className="text-[var(--brand-gold)] hover:text-[var(--brand-gold-light)] font-medium transition-colors"
-          >
-            See how the full extraction works →
-          </Link>
         </div>
       </section>
+
+      {/* Footer strip — no competing CTA */}
+      <footer className="px-6 py-12 border-t border-[var(--grey-850)] text-center">
+        <Image
+          src="/logo/cf logo.png"
+          alt="Cognitive Fingerprint"
+          width={40}
+          height={40}
+          className="mx-auto mb-4 opacity-80"
+        />
+        <p className="text-sm text-[var(--grey-600)]">
+          Cognitive Fingerprint. Extract, don’t create.
+        </p>
+      </footer>
     </main>
+  );
+}
+
+function Section({
+  title,
+  children,
+  media,
+  mediaSide = 'right',
+  id,
+}: {
+  title: string;
+  children: React.ReactNode;
+  media?: React.ReactNode;
+  mediaSide?: 'left' | 'right';
+  id?: string;
+}) {
+  const reduceMotion = useReducedMotion();
+  const reveal = {
+    initial: reduceMotion ? false : { opacity: 0, y: 16 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: '-80px' },
+    transition: { duration: 0.5 },
+  } as const;
+
+  if (media) {
+    return (
+      <section id={id} className="px-6 py-16 md:py-20 border-t border-[var(--grey-850)] scroll-mt-20">
+        <motion.div
+          {...reveal}
+          className="max-w-5xl mx-auto grid gap-8 md:gap-12 md:grid-cols-2 md:items-center"
+        >
+          <div className={mediaSide === 'left' ? 'md:order-2' : ''}>
+            <h2 className="font-display text-2xl md:text-4xl font-bold mb-6">{title}</h2>
+            <div className="space-y-5 text-lg text-[var(--grey-400)] leading-relaxed">
+              {children}
+            </div>
+          </div>
+          <div className={mediaSide === 'left' ? 'md:order-1' : ''}>{media}</div>
+        </motion.div>
+      </section>
+    );
+  }
+
+  return (
+    <section id={id} className="px-6 py-16 md:py-20 border-t border-[var(--grey-850)] scroll-mt-20">
+      <motion.div {...reveal} className="max-w-2xl mx-auto">
+        <h2 className="font-display text-2xl md:text-4xl font-bold mb-6">{title}</h2>
+        <div className="space-y-5 text-lg text-[var(--grey-400)] leading-relaxed">
+          {children}
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+function MediaFrame({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="overflow-hidden rounded-2xl border border-[var(--grey-800)] shadow-2xl shadow-black/50 ring-1 ring-white/5">
+      {children}
+    </div>
+  );
+}
+
+function MediaImage({
+  src,
+  width,
+  height,
+  alt,
+}: {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+}) {
+  return (
+    <MediaFrame>
+      <Image
+        src={src}
+        width={width}
+        height={height}
+        alt={alt}
+        sizes="(max-width: 768px) 100vw, 50vw"
+        className="w-full h-auto"
+      />
+    </MediaFrame>
+  );
+}
+
+function MediaVideo({
+  src,
+  poster,
+  width,
+  height,
+  alt,
+}: {
+  src: string;
+  poster: string;
+  width: number;
+  height: number;
+  alt: string;
+}) {
+  const reduceMotion = useReducedMotion();
+
+  // Respect reduced motion: show the still poster instead of the looping clip.
+  if (reduceMotion) {
+    return (
+      <MediaFrame>
+        <Image
+          src={poster}
+          width={width}
+          height={height}
+          alt={alt}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="w-full h-auto"
+        />
+      </MediaFrame>
+    );
+  }
+
+  return (
+    <MediaFrame>
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster={poster}
+        aria-label={alt}
+        className="w-full h-auto"
+      >
+        <source src={src} type="video/mp4" />
+      </video>
+    </MediaFrame>
   );
 }

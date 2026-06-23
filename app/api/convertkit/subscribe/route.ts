@@ -4,6 +4,7 @@ interface SubscribeRequest {
   email: string;
   firstName?: string;
   leadMagnet?: string;
+  heroVariant?: string;
   submittedAt?: number;
   website?: string;
 }
@@ -20,6 +21,9 @@ const ALLOWED_LEAD_MAGNET_TAGS = {
 const LEAD_MAGNET_SEQUENCES: Partial<Record<keyof typeof ALLOWED_LEAD_MAGNET_TAGS, number>> = {
   'sme-four-layers': 2789619, // "Invisible Expertise (SME Four Layers)"
 };
+// A/B hero attribution for the /sme lead-magnet page. Stored on the subscriber
+// as the `hero_variant` custom field so conversions are attributable per hero.
+const ALLOWED_HERO_VARIANTS = new Set(['A', 'B', 'C', 'D', 'E']);
 const MAX_REQUEST_BYTES = 4096;
 // Every ConvertKit call gets a hard timeout so a stalled third party can't
 // hang the unlock path or pin the serverless function.
@@ -165,6 +169,10 @@ export async function POST(request: NextRequest) {
       ? body.firstName.trim().slice(0, 80)
       : undefined;
     const website = typeof body.website === 'string' ? body.website : '';
+    const heroVariant =
+      typeof body.heroVariant === 'string' && ALLOWED_HERO_VARIANTS.has(body.heroVariant)
+        ? body.heroVariant
+        : undefined;
 
     if (website && website.trim() !== '') {
       return NextResponse.json(
@@ -235,7 +243,8 @@ export async function POST(request: NextRequest) {
           fields: {
             source: 'cf-website',
             lead_magnet: requestedLeadMagnet,
-            signup_date: new Date().toISOString()
+            signup_date: new Date().toISOString(),
+            ...(heroVariant ? { hero_variant: heroVariant } : {})
           }
         }),
         signal: AbortSignal.timeout(CONVERTKIT_TIMEOUT_MS),

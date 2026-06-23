@@ -405,3 +405,50 @@ Pause final Sam Altman page polishing until the fingerprint is backed by a broad
 - [x] Ran targeted lint on `/app/sam-altman/page.tsx`.
 - [x] Ran `npm run build` successfully.
 - [x] Browser visual review pass completed; adjusted Sam page grid breakpoints/minmax behavior for safer narrow-desktop rendering.
+
+---
+
+# /sme Lead Magnet Page Rebuild - June 23, 2026
+
+Source spec: `/Users/maxb/Downloads/cf-sme-lead-magnet-page.md`
+
+## Decisions (from Max)
+- Route: REPLACE existing `/sme` (gated "Four Layers" page) with the new email-capture lead magnet at the same URL.
+- Hero: A/B rotate all 5 variants, persist per visitor, tag the chosen variant into Kit.
+- Email delivery: I build the prompt + delivery email (prompt-UX for quality), stage as a Kit DRAFT, Max approves before it goes live.
+
+## Key facts
+- Kit sequence `2789619` "Invisible Expertise (SME Four Layers)" is currently empty (0 emails) + inactive -> today's signups get tagged but receive nothing.
+- `sme-four-layers` already maps tag "Lead Magnet: SME Four Layers" + that sequence in `app/api/convertkit/subscribe/route.ts`.
+- No `hero_variant` custom field exists in Kit yet.
+- Root layout has no global nav/footer -> `/sme` stays single-action.
+
+## Tasks
+- [ ] Rewrite `app/sme/data.ts` -> HERO_VARIANTS (5) + HOW_IT_WORKS (3)
+- [ ] New `app/sme/components/EmailCapture.tsx` (honeypot + timing, posts heroVariant, success state, reduced-motion safe)
+- [ ] Rewrite `app/sme/page.tsx` to locked spec copy + 5-variant hero rotation
+- [ ] Update `app/sme/layout.tsx` metadata + `app/sme/opengraph-image.tsx`
+- [ ] Delete orphaned `CourseGate.tsx` + `PromptBlock.tsx`
+- [ ] Add `heroVariant` (A-E) to subscribe route -> forward as `fields.hero_variant`
+- [ ] Create Kit custom field `hero_variant`
+- [x] Craft "One Pattern" prompt + delivery email; create as Kit DRAFT (unpublished), do NOT activate
+- [x] `npm run build`, run landing-page-builder validator, render-check, report status
+
+## Review
+- Rewrote `app/sme/page.tsx` to the locked spec copy with a 5-variant hero that rotates per visitor (localStorage `sme-hero-variant`), reserves vertical space to avoid layout shift, and respects reduced motion.
+- New `app/sme/components/EmailCapture.tsx` (reused in hero + final CTA): honeypot + submit-timing anti-spam, accessible label, success state, posts `heroVariant`.
+- Rewrote `app/sme/data.ts` (HERO_VARIANTS + HOW_IT_WORKS). Updated `layout.tsx` metadata + `opengraph-image.tsx` to the new positioning. Deleted orphaned `CourseGate.tsx` + `PromptBlock.tsx`.
+- `app/api/convertkit/subscribe/route.ts`: accepts `heroVariant` (A–E allowlist), forwards as `fields.hero_variant`.
+- Kit: created custom field `hero_variant` (key `hero_variant`). Created delivery email "The prompt, like I promised" as an UNPUBLISHED draft at position 0 (delay 0h) in sequence 2789619. Sequence left INACTIVE — nothing sends until Max publishes the email + activates the sequence. Source copy: `content/sme-one-pattern-delivery.md`.
+- Verified: `npm run build` passes; `/sme` prerenders static. Hero screenshot on-brand; full accessibility-tree confirms every section + both forms + footer. Live end-to-end POST returned HTTP 200 (subscriber 4174885119); Kit confirms `hero_variant=C` persisted + tag "Lead Magnet: SME Four Layers" applied.
+- landing-page-builder validator flags `template-tag` ({{...}}) + `reduced-motion` — both FALSE POSITIVES for a React/framer-motion codebase (JSX double-brace props; reduced motion handled via `useReducedMotion()` hook, which the string-grep can't see).
+- Test artifact: subscriber `max+sme-wiring-test-20260623035239@maxpbernstein.com` exists in Kit from the wiring test. Recommend deleting before activation.
+- NOT done (gated on Max): publish the email + activate the sequence; deploy to production (`cognitive-fingerprint-nextjs` Vercel project); confirm prod has CONVERTKIT_API_KEY + CONVERTKIT_FORM_ID.
+- Untouched pre-existing dirty files (globals.css, app/page.tsx, skills-lock.json, .magicpath-work/, components/experience/, public/cf-*, scripts/generate-cf-style-kie.mjs) — left alone, not mine to commit.
+
+### Media addition (borrowed from the Mike Stelzner CF pitch-site)
+- Source: `~/Desktop/mb-brain/1 - Clients/Mike Stelzner/04 - CF/pitch-site/` (posters + media).
+- Reviewed every poster/video by eye. Borrowed only the non-personalized concept assets: `hero-jungle.jpg` (hidden world through a cracked wall) and `clip-b.mp4`+`framebreak.jpg` (landscape breaking out of its frame). Skipped the explorer-mascot ones (terrarium/gift/engineer) and anything with "Michael Stelzner" baked in (overview-poster, legacy-poster) + the Stelzner-VO overview.mp4.
+- Copied to `public/sme/`: `hidden-world.jpg` (1900x1060), `breakthrough.mp4` (+ `breakthrough-poster.jpg` 1600x893).
+- Integrated as framed gallery visuals: `Section` now takes optional `media` + `mediaSide` + `id`. "Here's what it does" pairs with the image (right); "What's underneath this" pairs with the looping video (left). Reduced-motion users get the poster still instead of the autoplay clip. Added scroll-mt + anchor ids (`#what-it-does`, `#underneath`).
+- Verified: `npm run build` passes, `/sme` static. Full-page headless-Chrome screenshot confirms both media sections render cleanly and on-brand: `scratchpad/sme-full.png`.
